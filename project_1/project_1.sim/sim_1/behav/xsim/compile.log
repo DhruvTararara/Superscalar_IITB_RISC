@@ -1,0 +1,54 @@
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Xilinx/IITB_RISC_Superscalar/project_1/project_1.srcs/sources_1/imports/final/alu.vhdl" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'alu'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Xilinx/IITB_RISC_Superscalar/project_1/project_1.srcs/sources_1/imports/final/alupipe_control_generator.vhdl" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'ALUPipeControlGenerator'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Xilinx/IITB_RISC_Superscalar/project_1/project_1.srcs/sources_1/imports/final/bit1shift.vhdl" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'bit1shift'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Xilinx/IITB_RISC_Superscalar/project_1/project_1.srcs/sources_1/imports/final/carry_write_checker.vhdl" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'CarryWriteChecker'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Xilinx/IITB_RISC_Superscalar/project_1/project_1.srcs/sources_1/imports/final/control.vhdl" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'Control'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Xilinx/IITB_RISC_Superscalar/project_1/project_1.srcs/sources_1/imports/final/data_regfile.vhdl" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'DataRegisterFile'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Xilinx/IITB_RISC_Superscalar/project_1/project_1.srcs/sources_1/imports/final/datapath.vhdl" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'datapath'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Xilinx/IITB_RISC_Superscalar/project_1/project_1.srcs/sources_1/imports/final/decoder.vhdl" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'Decoder'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Xilinx/IITB_RISC_Superscalar/project_1/project_1.srcs/sources_1/imports/final/dest_write_checker.vhdl" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'DestinationWriteChecker'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Xilinx/IITB_RISC_Superscalar/project_1/project_1.srcs/sources_1/imports/final/dual_priority_encoder.vhdl" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'DualPriorityEncoder'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Xilinx/IITB_RISC_Superscalar/project_1/project_1.srcs/sources_1/imports/final/dual_priority_encoder_active_high.vhdl" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'DualPriorityEncoderActiveHigh'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Xilinx/IITB_RISC_Superscalar/project_1/project_1.srcs/sources_1/imports/final/exec_pipe_alu.vhdl" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'aluexecpipe'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Xilinx/IITB_RISC_Superscalar/project_1/project_1.srcs/sources_1/imports/final/exec_pipe_lhi.vhdl" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'lhiexecpipe'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Xilinx/IITB_RISC_Superscalar/project_1/project_1.srcs/sources_1/imports/final/flag_regfile.vhdl" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'FlagRegisterFile'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Xilinx/IITB_RISC_Superscalar/project_1/project_1.srcs/sources_1/imports/final/id.vhdl" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'IDStage'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Xilinx/IITB_RISC_Superscalar/project_1/project_1.srcs/sources_1/imports/final/if.vhdl" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'IFStage'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Xilinx/IITB_RISC_Superscalar/project_1/project_1.srcs/sources_1/imports/final/ifid.vhdl" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'IFID'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Xilinx/IITB_RISC_Superscalar/project_1/project_1.srcs/sources_1/imports/final/operand_extractor.vhdl" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'OperandExtractor'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Xilinx/IITB_RISC_Superscalar/project_1/project_1.srcs/sources_1/imports/final/pc.vhdl" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'PC'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Xilinx/IITB_RISC_Superscalar/project_1/project_1.srcs/sources_1/imports/final/priority_encoder.vhdl" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'PriorityEncoder'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Xilinx/IITB_RISC_Superscalar/project_1/project_1.srcs/sources_1/imports/final/priority_encoder_active_high.vhdl" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'PriorityEncoderActiveHigh'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Xilinx/IITB_RISC_Superscalar/project_1/project_1.srcs/sources_1/imports/final/rob.vhdl" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'rob'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Xilinx/IITB_RISC_Superscalar/project_1/project_1.srcs/sources_1/imports/final/rom.vhdl" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'ROM'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Xilinx/IITB_RISC_Superscalar/project_1/project_1.srcs/sources_1/imports/final/rs.vhdl" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'rs'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Xilinx/IITB_RISC_Superscalar/project_1/project_1.srcs/sources_1/imports/final/se6.vhdl" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'bitextender6'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Xilinx/IITB_RISC_Superscalar/project_1/project_1.srcs/sources_1/imports/final/zero_write_checker.vhdl" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'ZeroWriteChecker'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Xilinx/IITB_RISC_Superscalar/project_1/project_1.srcs/sim_1/imports/final/testbench.vhdl" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'tb'

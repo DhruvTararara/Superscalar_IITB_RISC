@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Root MajorVersion="0" MinorVersion="37">
+  <CompositeFile CompositeFileTopName="Superscalar_Processor" CanBeSetAsTop="false" CanDisplayChildGraph="true">
+    <Description>Composite Fileset</Description>
+    <Generation Name="SYNTHESIS" State="RESET" Timestamp="1733226548"/>
+    <Generation Name="IMPLEMENTATION" State="RESET" Timestamp="1733226548"/>
+    <Generation Name="SIMULATION" State="RESET" Timestamp="1733226548"/>
+    <Generation Name="HW_HANDOFF" State="RESET" Timestamp="1733226548"/>
+    <FileCollection Name="SOURCES" Type="SOURCES">
+      <File Name="ip\Superscalar_Processor_decode_buffer_0_0\Superscalar_Processor_decode_buffer_0_0.xci" Type="IP">
+        <Instance HierarchyPath="decode_buffer_0"/>
+        <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true" IsStatusTracked="true"/>
+        <Library Name="xil_defaultlib"/>
+        <UsedIn Val="SYNTHESIS"/>
+        <UsedIn Val="IMPLEMENTATION"/>
+        <UsedIn Val="SIMULATION"/>
+      </File>
+      <File Name="ip\Superscalar_Processor_PC_0_0\Superscalar_Processor_PC_0_0.xci" Type="IP">
+        <Instance HierarchyPath="PC_0"/>
+        <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true" IsStatusTracked="true"/>
+        <Library Name="xil_defaultlib"/>
+        <UsedIn Val="SYNTHESIS"/>
+        <UsedIn Val="IMPLEMENTATION"/>
+        <UsedIn Val="SIMULATION"/>
+      </File>
+      <File Name="ip\Superscalar_Processor_Instruction_Memory_0_0\Superscalar_Processor_Instruction_Memory_0_0.xci" Type="IP">
+        <Instance HierarchyPath="Instruction_Memory_0"/>
+        <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true" IsStatusTracked="true"/>
+        <Library Name="xil_defaultlib"/>
+        <UsedIn Val="SYNTHESIS"/>
+        <UsedIn Val="IMPLEMENTATION"/>
+        <UsedIn Val="SIMULATION"/>
+      </File>
+      <File Name="ip\Superscalar_Processor_Valid_instruction_ch_0_0\Superscalar_Processor_Valid_instruction_ch_0_0.xci" Type="IP">
+        <Instance HierarchyPath="Valid_instruction_ch_0"/>
+        <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true" IsStatusTracked="true"/>
+        <Library Name="xil_defaultlib"/>
+        <UsedIn Val="SYNTHESIS"/>
+        <UsedIn Val="IMPLEMENTATION"/>
+        <UsedIn Val="SIMULATION"/>
+      </File>
+      <File Name="ip\Superscalar_Processor_DispatchBuffer_0_0\Superscalar_Processor_DispatchBuffer_0_0.xci" Type="IP">
+        <Instance HierarchyPath="DispatchBuffer_0"/>
+        <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true" IsStatusTracked="true"/>
+        <Library Name="xil_defaultlib"/>
+        <UsedIn Val="SYNTHESIS"/>
+        <UsedIn Val="IMPLEMENTATION"/>
+        <UsedIn Val="SIMULATION"/>
+      </File>
+      <File Name="ip\Superscalar_Processor_Allocate_unit_0_0\Superscalar_Processor_Allocate_unit_0_0.xci" Type="IP">
+        <Instance HierarchyPath="Allocate_unit_0"/>
+        <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true" IsStatusTracked="true"/>
+        <Library Name="xil_defaultlib"/>
+        <UsedIn Val="SYNTHESIS"/>
+        <UsedIn Val="IMPLEMENTATION"/>
+        <UsedIn Val="SIMULATION"/>
+      </File>
+      <File Name="ip\Superscalar_Processor_Reservation_Station_0_0\Superscalar_Processor_Reservation_Station_0_0.xci" Type="IP">
+        <Instance HierarchyPath="Reservation_Station_0"/>
+        <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true" IsStatusTracked="true"/>
+        <Library Name="xil_defaultlib"/>
+        <UsedIn Val="SYNTHESIS"/>
+        <UsedIn Val="IMPLEMENTATION"/>
+        <UsedIn Val="SIMULATION"/>
+      </File>
+      <File Name="ip\Superscalar_Processor_Reorder_Buffer_0_0\Superscalar_Processor_Reorder_Buffer_0_0.xci" Type="IP">
+        <Instance HierarchyPath="Reorder_Buffer_0"/>
+        <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true" IsStatusTracked="true"/>
+        <Library Name="xil_defaultlib"/>
+        <UsedIn Val="SYNTHESIS"/>
+        <UsedIn Val="IMPLEMENTATION"/>
+        <UsedIn Val="SIMULATION"/>
+      </File>
+      <File Name="ip\Superscalar_Processor_Register_Interdepend_0_0\Superscalar_Processor_Register_Interdepend_0_0.xci" Type="IP">
+        <Instance HierarchyPath="Register_Interdepend_0"/>
+        <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true" IsStatusTracked="true"/>
+        <Library Name="xil_defaultlib"/>
+        <UsedIn Val="SYNTHESIS"/>
+        <UsedIn Val="IMPLEMENTATION"/>
+        <UsedIn Val="SIMULATION"/>
+      </File>
+      <File Name="ip\Superscalar_Processor_Register_File_0_0\Superscalar_Processor_Register_File_0_0.xci" Type="IP">
+        <Instance HierarchyPath="Register_File_0"/>
+        <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true" IsStatusTracked="true"/>
+        <Library Name="xil_defaultlib"/>
+        <UsedIn Val="SYNTHESIS"/>
+        <UsedIn Val="IMPLEMENTATION"/>
+        <UsedIn Val="SIMULATION"/>
+      </File>
+      <File Name="ip\Superscalar_Processor_ALU_0_0\Superscalar_Processor_ALU_0_0.xci" Type="IP">
+        <Instance HierarchyPath="ALU_0"/>
+        <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true" IsStatusTracked="true"/>
+        <Library Name="xil_defaultlib"/>
+        <UsedIn Val="SYNTHESIS"/>
+        <UsedIn Val="IMPLEMENTATION"/>
+        <UsedIn Val="SIMULATION"/>
+      </File>
+      <File Name="ip\Superscalar_Processor_xlconstant_0_0\Superscalar_Processor_xlconstant_0_0.xci" Type="IP">
+        <Instance HierarchyPath="xlconstant_0"/>
+        <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true" IsStatusTracked="true"/>
+        <Library Name="xil_defaultlib"/>
+        <UsedIn Val="SYNTHESIS"/>
+        <UsedIn Val="IMPLEMENTATION"/>
+        <UsedIn Val="SIMULATION"/>
+      </File>
+      <File Name="ip\Superscalar_Processor_decode_0_1\Superscalar_Processor_decode_0_1.xci" Type="IP">
+        <Instance HierarchyPath="decode_0"/>
+        <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true" IsStatusTracked="true"/>
+        <Library Name="xil_defaultlib"/>
+        <UsedIn Val="SYNTHESIS"/>
+        <UsedIn Val="IMPLEMENTATION"/>
+        <UsedIn Val="SIMULATION"/>
+      </File>
+      <File Name="ip\Superscalar_Processor_RegWrite_Ctrl_0_0\Superscalar_Processor_RegWrite_Ctrl_0_0.xci" Type="IP">
+        <Instance HierarchyPath="RegWrite_Ctrl_0"/>
+        <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true" IsStatusTracked="true"/>
+        <Library Name="xil_defaultlib"/>
+        <UsedIn Val="SYNTHESIS"/>
+        <UsedIn Val="IMPLEMENTATION"/>
+        <UsedIn Val="SIMULATION"/>
+      </File>
+      <File Name="ip\Superscalar_Processor_Control_Unit_0_0\Superscalar_Processor_Control_Unit_0_0.xci" Type="IP">
+        <Instance HierarchyPath="Control_Unit_0"/>
+        <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true" IsStatusTracked="true"/>
+        <Library Name="xil_defaultlib"/>
+        <UsedIn Val="SYNTHESIS"/>
+        <UsedIn Val="IMPLEMENTATION"/>
+        <UsedIn Val="SIMULATION"/>
+      </File>
+      <File Name="ip\Superscalar_Processor_Issue_Unit_0_0\Superscalar_Processor_Issue_Unit_0_0.xci" Type="IP">
+        <Instance HierarchyPath="Issue_Unit_0"/>
+        <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true" IsStatusTracked="true"/>
+        <Library Name="xil_defaultlib"/>
+        <UsedIn Val="SYNTHESIS"/>
+        <UsedIn Val="IMPLEMENTATION"/>
+        <UsedIn Val="SIMULATION"/>
+      </File>
+      <File Name="ip\Superscalar_Processor_Write_back_signals_0_0\Superscalar_Processor_Write_back_signals_0_0.xci" Type="IP">
+        <Instance HierarchyPath="Write_back_signals_0"/>
+        <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true" IsStatusTracked="true"/>
+        <Library Name="xil_defaultlib"/>
+        <UsedIn Val="SYNTHESIS"/>
+        <UsedIn Val="IMPLEMENTATION"/>
+        <UsedIn Val="SIMULATION"/>
+      </File>
+    </FileCollection>
+  </CompositeFile>
+</Root>

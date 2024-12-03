@@ -1,0 +1,32 @@
+# compile vhdl design source files
+vhdl xil_defaultlib  \
+"../../../../project_1.srcs/sources_1/imports/final/alu.vhdl" \
+"../../../../project_1.srcs/sources_1/imports/final/alupipe_control_generator.vhdl" \
+"../../../../project_1.srcs/sources_1/imports/final/bit1shift.vhdl" \
+"../../../../project_1.srcs/sources_1/imports/final/carry_write_checker.vhdl" \
+"../../../../project_1.srcs/sources_1/imports/final/control.vhdl" \
+"../../../../project_1.srcs/sources_1/imports/final/data_regfile.vhdl" \
+"../../../../project_1.srcs/sources_1/imports/final/datapath.vhdl" \
+"../../../../project_1.srcs/sources_1/imports/final/decoder.vhdl" \
+"../../../../project_1.srcs/sources_1/imports/final/dest_write_checker.vhdl" \
+"../../../../project_1.srcs/sources_1/imports/final/dual_priority_encoder.vhdl" \
+"../../../../project_1.srcs/sources_1/imports/final/dual_priority_encoder_active_high.vhdl" \
+"../../../../project_1.srcs/sources_1/imports/final/exec_pipe_alu.vhdl" \
+"../../../../project_1.srcs/sources_1/imports/final/exec_pipe_lhi.vhdl" \
+"../../../../project_1.srcs/sources_1/imports/final/flag_regfile.vhdl" \
+"../../../../project_1.srcs/sources_1/imports/final/id.vhdl" \
+"../../../../project_1.srcs/sources_1/imports/final/if.vhdl" \
+"../../../../project_1.srcs/sources_1/imports/final/ifid.vhdl" \
+"../../../../project_1.srcs/sources_1/imports/final/operand_extractor.vhdl" \
+"../../../../project_1.srcs/sources_1/imports/final/pc.vhdl" \
+"../../../../project_1.srcs/sources_1/imports/final/priority_encoder.vhdl" \
+"../../../../project_1.srcs/sources_1/imports/final/priority_encoder_active_high.vhdl" \
+"../../../../project_1.srcs/sources_1/imports/final/rob.vhdl" \
+"../../../../project_1.srcs/sources_1/imports/final/rom.vhdl" \
+"../../../../project_1.srcs/sources_1/imports/final/rs.vhdl" \
+"../../../../project_1.srcs/sources_1/imports/final/se6.vhdl" \
+"../../../../project_1.srcs/sources_1/imports/final/zero_write_checker.vhdl" \
+"../../../../project_1.srcs/sim_1/imports/final/testbench.vhdl" \
+
+# Do not sort compile order
+nosort
