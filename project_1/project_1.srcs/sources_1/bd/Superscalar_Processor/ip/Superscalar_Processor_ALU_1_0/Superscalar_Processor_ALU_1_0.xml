@@ -2,12 +2,12 @@
 <spirit:component xmlns:xilinx="http://www.xilinx.com" xmlns:spirit="http://www.spiritconsortium.org/XMLSchema/SPIRIT/1685-2009" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <spirit:vendor>xilinx.com</spirit:vendor>
   <spirit:library>customized_ip</spirit:library>
-  <spirit:name>Superscalar_Processor_Issue_Unit_0_0</spirit:name>
+  <spirit:name>Superscalar_Processor_ALU_1_0</spirit:name>
   <spirit:version>1.0</spirit:version>
   <spirit:model>
     <spirit:ports>
       <spirit:port>
-        <spirit:name>FU0</spirit:name>
+        <spirit:name>ROB_tag</spirit:name>
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:vector>
@@ -23,119 +23,7 @@
         </spirit:wire>
       </spirit:port>
       <spirit:port>
-        <spirit:name>FU1</spirit:name>
-        <spirit:wire>
-          <spirit:direction>in</spirit:direction>
-          <spirit:vector>
-            <spirit:left spirit:format="long">2</spirit:left>
-            <spirit:right spirit:format="long">0</spirit:right>
-          </spirit:vector>
-          <spirit:wireTypeDefs>
-            <spirit:wireTypeDef>
-              <spirit:typeName>std_logic_vector</spirit:typeName>
-              <spirit:viewNameRef>dummy_view</spirit:viewNameRef>
-            </spirit:wireTypeDef>
-          </spirit:wireTypeDefs>
-        </spirit:wire>
-      </spirit:port>
-      <spirit:port>
-        <spirit:name>FU2</spirit:name>
-        <spirit:wire>
-          <spirit:direction>in</spirit:direction>
-          <spirit:vector>
-            <spirit:left spirit:format="long">2</spirit:left>
-            <spirit:right spirit:format="long">0</spirit:right>
-          </spirit:vector>
-          <spirit:wireTypeDefs>
-            <spirit:wireTypeDef>
-              <spirit:typeName>std_logic_vector</spirit:typeName>
-              <spirit:viewNameRef>dummy_view</spirit:viewNameRef>
-            </spirit:wireTypeDef>
-          </spirit:wireTypeDefs>
-        </spirit:wire>
-      </spirit:port>
-      <spirit:port>
-        <spirit:name>FU3</spirit:name>
-        <spirit:wire>
-          <spirit:direction>in</spirit:direction>
-          <spirit:vector>
-            <spirit:left spirit:format="long">2</spirit:left>
-            <spirit:right spirit:format="long">0</spirit:right>
-          </spirit:vector>
-          <spirit:wireTypeDefs>
-            <spirit:wireTypeDef>
-              <spirit:typeName>std_logic_vector</spirit:typeName>
-              <spirit:viewNameRef>dummy_view</spirit:viewNameRef>
-            </spirit:wireTypeDef>
-          </spirit:wireTypeDefs>
-        </spirit:wire>
-      </spirit:port>
-      <spirit:port>
-        <spirit:name>FU4</spirit:name>
-        <spirit:wire>
-          <spirit:direction>in</spirit:direction>
-          <spirit:vector>
-            <spirit:left spirit:format="long">2</spirit:left>
-            <spirit:right spirit:format="long">0</spirit:right>
-          </spirit:vector>
-          <spirit:wireTypeDefs>
-            <spirit:wireTypeDef>
-              <spirit:typeName>std_logic_vector</spirit:typeName>
-              <spirit:viewNameRef>dummy_view</spirit:viewNameRef>
-            </spirit:wireTypeDef>
-          </spirit:wireTypeDefs>
-        </spirit:wire>
-      </spirit:port>
-      <spirit:port>
-        <spirit:name>FU5</spirit:name>
-        <spirit:wire>
-          <spirit:direction>in</spirit:direction>
-          <spirit:vector>
-            <spirit:left spirit:format="long">2</spirit:left>
-            <spirit:right spirit:format="long">0</spirit:right>
-          </spirit:vector>
-          <spirit:wireTypeDefs>
-            <spirit:wireTypeDef>
-              <spirit:typeName>std_logic_vector</spirit:typeName>
-              <spirit:viewNameRef>dummy_view</spirit:viewNameRef>
-            </spirit:wireTypeDef>
-          </spirit:wireTypeDefs>
-        </spirit:wire>
-      </spirit:port>
-      <spirit:port>
-        <spirit:name>FU6</spirit:name>
-        <spirit:wire>
-          <spirit:direction>in</spirit:direction>
-          <spirit:vector>
-            <spirit:left spirit:format="long">2</spirit:left>
-            <spirit:right spirit:format="long">0</spirit:right>
-          </spirit:vector>
-          <spirit:wireTypeDefs>
-            <spirit:wireTypeDef>
-              <spirit:typeName>std_logic_vector</spirit:typeName>
-              <spirit:viewNameRef>dummy_view</spirit:viewNameRef>
-            </spirit:wireTypeDef>
-          </spirit:wireTypeDefs>
-        </spirit:wire>
-      </spirit:port>
-      <spirit:port>
-        <spirit:name>FU7</spirit:name>
-        <spirit:wire>
-          <spirit:direction>in</spirit:direction>
-          <spirit:vector>
-            <spirit:left spirit:format="long">2</spirit:left>
-            <spirit:right spirit:format="long">0</spirit:right>
-          </spirit:vector>
-          <spirit:wireTypeDefs>
-            <spirit:wireTypeDef>
-              <spirit:typeName>std_logic_vector</spirit:typeName>
-              <spirit:viewNameRef>dummy_view</spirit:viewNameRef>
-            </spirit:wireTypeDef>
-          </spirit:wireTypeDefs>
-        </spirit:wire>
-      </spirit:port>
-      <spirit:port>
-        <spirit:name>PC0</spirit:name>
+        <spirit:name>PC</spirit:name>
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:vector>
@@ -151,7 +39,7 @@
         </spirit:wire>
       </spirit:port>
       <spirit:port>
-        <spirit:name>PC1</spirit:name>
+        <spirit:name>ra</spirit:name>
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:vector>
@@ -167,7 +55,7 @@
         </spirit:wire>
       </spirit:port>
       <spirit:port>
-        <spirit:name>PC2</spirit:name>
+        <spirit:name>rb</spirit:name>
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:vector>
@@ -183,7 +71,7 @@
         </spirit:wire>
       </spirit:port>
       <spirit:port>
-        <spirit:name>PC3</spirit:name>
+        <spirit:name>rc</spirit:name>
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:vector>
@@ -199,7 +87,123 @@
         </spirit:wire>
       </spirit:port>
       <spirit:port>
-        <spirit:name>PC4</spirit:name>
+        <spirit:name>c</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic</spirit:typeName>
+              <spirit:viewNameRef>dummy_view</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>z</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic</spirit:typeName>
+              <spirit:viewNameRef>dummy_view</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>v_ra</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic</spirit:typeName>
+              <spirit:viewNameRef>dummy_view</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>v_rb</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic</spirit:typeName>
+              <spirit:viewNameRef>dummy_view</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>v_rc</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic</spirit:typeName>
+              <spirit:viewNameRef>dummy_view</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>v_c</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic</spirit:typeName>
+              <spirit:viewNameRef>dummy_view</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>v_z</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic</spirit:typeName>
+              <spirit:viewNameRef>dummy_view</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>spec_tag</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:vector>
+            <spirit:left spirit:format="long">1</spirit:left>
+            <spirit:right spirit:format="long">0</spirit:right>
+          </spirit:vector>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic_vector</spirit:typeName>
+              <spirit:viewNameRef>dummy_view</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>a_ctrl</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:vector>
+            <spirit:left spirit:format="long">5</spirit:left>
+            <spirit:right spirit:format="long">0</spirit:right>
+          </spirit:vector>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic_vector</spirit:typeName>
+              <spirit:viewNameRef>dummy_view</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>SEI1</spirit:name>
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:vector>
@@ -215,71 +219,31 @@
         </spirit:wire>
       </spirit:port>
       <spirit:port>
-        <spirit:name>PC5</spirit:name>
+        <spirit:name>valid</spirit:name>
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
-          <spirit:vector>
-            <spirit:left spirit:format="long">15</spirit:left>
-            <spirit:right spirit:format="long">0</spirit:right>
-          </spirit:vector>
           <spirit:wireTypeDefs>
             <spirit:wireTypeDef>
-              <spirit:typeName>std_logic_vector</spirit:typeName>
+              <spirit:typeName>std_logic</spirit:typeName>
               <spirit:viewNameRef>dummy_view</spirit:viewNameRef>
             </spirit:wireTypeDef>
           </spirit:wireTypeDefs>
         </spirit:wire>
       </spirit:port>
       <spirit:port>
-        <spirit:name>PC6</spirit:name>
+        <spirit:name>valid_out</spirit:name>
         <spirit:wire>
-          <spirit:direction>in</spirit:direction>
-          <spirit:vector>
-            <spirit:left spirit:format="long">15</spirit:left>
-            <spirit:right spirit:format="long">0</spirit:right>
-          </spirit:vector>
+          <spirit:direction>out</spirit:direction>
           <spirit:wireTypeDefs>
             <spirit:wireTypeDef>
-              <spirit:typeName>std_logic_vector</spirit:typeName>
+              <spirit:typeName>std_logic</spirit:typeName>
               <spirit:viewNameRef>dummy_view</spirit:viewNameRef>
             </spirit:wireTypeDef>
           </spirit:wireTypeDefs>
         </spirit:wire>
       </spirit:port>
       <spirit:port>
-        <spirit:name>PC7</spirit:name>
-        <spirit:wire>
-          <spirit:direction>in</spirit:direction>
-          <spirit:vector>
-            <spirit:left spirit:format="long">15</spirit:left>
-            <spirit:right spirit:format="long">0</spirit:right>
-          </spirit:vector>
-          <spirit:wireTypeDefs>
-            <spirit:wireTypeDef>
-              <spirit:typeName>std_logic_vector</spirit:typeName>
-              <spirit:viewNameRef>dummy_view</spirit:viewNameRef>
-            </spirit:wireTypeDef>
-          </spirit:wireTypeDefs>
-        </spirit:wire>
-      </spirit:port>
-      <spirit:port>
-        <spirit:name>Ready_bits</spirit:name>
-        <spirit:wire>
-          <spirit:direction>in</spirit:direction>
-          <spirit:vector>
-            <spirit:left spirit:format="long">7</spirit:left>
-            <spirit:right spirit:format="long">0</spirit:right>
-          </spirit:vector>
-          <spirit:wireTypeDefs>
-            <spirit:wireTypeDef>
-              <spirit:typeName>std_logic_vector</spirit:typeName>
-              <spirit:viewNameRef>dummy_view</spirit:viewNameRef>
-            </spirit:wireTypeDef>
-          </spirit:wireTypeDefs>
-        </spirit:wire>
-      </spirit:port>
-      <spirit:port>
-        <spirit:name>Issue_RS_b</spirit:name>
+        <spirit:name>ROB_tag_out</spirit:name>
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:vector>
@@ -295,109 +259,9 @@
         </spirit:wire>
       </spirit:port>
       <spirit:port>
-        <spirit:name>Issue_RS_a</spirit:name>
+        <spirit:name>alu_out</spirit:name>
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
-          <spirit:vector>
-            <spirit:left spirit:format="long">2</spirit:left>
-            <spirit:right spirit:format="long">0</spirit:right>
-          </spirit:vector>
-          <spirit:wireTypeDefs>
-            <spirit:wireTypeDef>
-              <spirit:typeName>std_logic_vector</spirit:typeName>
-              <spirit:viewNameRef>dummy_view</spirit:viewNameRef>
-            </spirit:wireTypeDef>
-          </spirit:wireTypeDefs>
-        </spirit:wire>
-      </spirit:port>
-      <spirit:port>
-        <spirit:name>Issue_RS_ls</spirit:name>
-        <spirit:wire>
-          <spirit:direction>out</spirit:direction>
-          <spirit:vector>
-            <spirit:left spirit:format="long">2</spirit:left>
-            <spirit:right spirit:format="long">0</spirit:right>
-          </spirit:vector>
-          <spirit:wireTypeDefs>
-            <spirit:wireTypeDef>
-              <spirit:typeName>std_logic_vector</spirit:typeName>
-              <spirit:viewNameRef>dummy_view</spirit:viewNameRef>
-            </spirit:wireTypeDef>
-          </spirit:wireTypeDefs>
-        </spirit:wire>
-      </spirit:port>
-      <spirit:port>
-        <spirit:name>PC_bi</spirit:name>
-        <spirit:wire>
-          <spirit:direction>out</spirit:direction>
-          <spirit:vector>
-            <spirit:left spirit:format="long">15</spirit:left>
-            <spirit:right spirit:format="long">0</spirit:right>
-          </spirit:vector>
-          <spirit:wireTypeDefs>
-            <spirit:wireTypeDef>
-              <spirit:typeName>std_logic_vector</spirit:typeName>
-              <spirit:viewNameRef>dummy_view</spirit:viewNameRef>
-            </spirit:wireTypeDef>
-          </spirit:wireTypeDefs>
-        </spirit:wire>
-      </spirit:port>
-      <spirit:port>
-        <spirit:name>PC_ai</spirit:name>
-        <spirit:wire>
-          <spirit:direction>out</spirit:direction>
-          <spirit:vector>
-            <spirit:left spirit:format="long">15</spirit:left>
-            <spirit:right spirit:format="long">0</spirit:right>
-          </spirit:vector>
-          <spirit:wireTypeDefs>
-            <spirit:wireTypeDef>
-              <spirit:typeName>std_logic_vector</spirit:typeName>
-              <spirit:viewNameRef>dummy_view</spirit:viewNameRef>
-            </spirit:wireTypeDef>
-          </spirit:wireTypeDefs>
-        </spirit:wire>
-      </spirit:port>
-      <spirit:port>
-        <spirit:name>PC_a2i</spirit:name>
-        <spirit:wire>
-          <spirit:direction>out</spirit:direction>
-          <spirit:vector>
-            <spirit:left spirit:format="long">15</spirit:left>
-            <spirit:right spirit:format="long">0</spirit:right>
-          </spirit:vector>
-          <spirit:wireTypeDefs>
-            <spirit:wireTypeDef>
-              <spirit:typeName>std_logic_vector</spirit:typeName>
-              <spirit:viewNameRef>dummy_view</spirit:viewNameRef>
-            </spirit:wireTypeDef>
-          </spirit:wireTypeDefs>
-        </spirit:wire>
-      </spirit:port>
-      <spirit:port>
-        <spirit:name>PC_lsi</spirit:name>
-        <spirit:wire>
-          <spirit:direction>out</spirit:direction>
-          <spirit:vector>
-            <spirit:left spirit:format="long">15</spirit:left>
-            <spirit:right spirit:format="long">0</spirit:right>
-          </spirit:vector>
-          <spirit:wireTypeDefs>
-            <spirit:wireTypeDef>
-              <spirit:typeName>std_logic_vector</spirit:typeName>
-              <spirit:viewNameRef>dummy_view</spirit:viewNameRef>
-            </spirit:wireTypeDef>
-          </spirit:wireTypeDefs>
-        </spirit:wire>
-      </spirit:port>
-      <spirit:port>
-        <spirit:name>Issue_RS_a2</spirit:name>
-        <spirit:wire>
-          <spirit:direction>out</spirit:direction>
-          <spirit:vector>
-            <spirit:left spirit:format="long">2</spirit:left>
-            <spirit:right spirit:format="long">0</spirit:right>
-          </spirit:vector>
           <spirit:wireTypeDefs>
             <spirit:wireTypeDef>
               <spirit:typeName>reg</spirit:typeName>
@@ -407,48 +271,16 @@
         </spirit:wire>
       </spirit:port>
       <spirit:port>
-        <spirit:name>valid_issue_b</spirit:name>
+        <spirit:name>PC_out</spirit:name>
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
+          <spirit:vector>
+            <spirit:left spirit:format="long">15</spirit:left>
+            <spirit:right spirit:format="long">0</spirit:right>
+          </spirit:vector>
           <spirit:wireTypeDefs>
             <spirit:wireTypeDef>
-              <spirit:typeName>std_logic</spirit:typeName>
-              <spirit:viewNameRef>dummy_view</spirit:viewNameRef>
-            </spirit:wireTypeDef>
-          </spirit:wireTypeDefs>
-        </spirit:wire>
-      </spirit:port>
-      <spirit:port>
-        <spirit:name>valid_issue_a</spirit:name>
-        <spirit:wire>
-          <spirit:direction>out</spirit:direction>
-          <spirit:wireTypeDefs>
-            <spirit:wireTypeDef>
-              <spirit:typeName>std_logic</spirit:typeName>
-              <spirit:viewNameRef>dummy_view</spirit:viewNameRef>
-            </spirit:wireTypeDef>
-          </spirit:wireTypeDefs>
-        </spirit:wire>
-      </spirit:port>
-      <spirit:port>
-        <spirit:name>valid_issue_ls</spirit:name>
-        <spirit:wire>
-          <spirit:direction>out</spirit:direction>
-          <spirit:wireTypeDefs>
-            <spirit:wireTypeDef>
-              <spirit:typeName>std_logic</spirit:typeName>
-              <spirit:viewNameRef>dummy_view</spirit:viewNameRef>
-            </spirit:wireTypeDef>
-          </spirit:wireTypeDefs>
-        </spirit:wire>
-      </spirit:port>
-      <spirit:port>
-        <spirit:name>valid_issue_a2</spirit:name>
-        <spirit:wire>
-          <spirit:direction>out</spirit:direction>
-          <spirit:wireTypeDefs>
-            <spirit:wireTypeDef>
-              <spirit:typeName>reg</spirit:typeName>
+              <spirit:typeName>std_logic_vector</spirit:typeName>
               <spirit:viewNameRef>dummy_view</spirit:viewNameRef>
             </spirit:wireTypeDef>
           </spirit:wireTypeDefs>
@@ -456,16 +288,16 @@
       </spirit:port>
     </spirit:ports>
   </spirit:model>
-  <spirit:description>xilinx.com:module_ref:Issue_Unit:1.0</spirit:description>
+  <spirit:description>xilinx.com:module_ref:ALU:1.0</spirit:description>
   <spirit:parameters>
     <spirit:parameter>
       <spirit:name>Component_Name</spirit:name>
-      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.Component_Name" spirit:order="1">Superscalar_Processor_Issue_Unit_0_0</spirit:value>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.Component_Name" spirit:order="1">Superscalar_Processor_ALU_1_0</spirit:value>
     </spirit:parameter>
   </spirit:parameters>
   <spirit:vendorExtensions>
     <xilinx:coreExtensions>
-      <xilinx:displayName>Issue_Unit_v1_0</xilinx:displayName>
+      <xilinx:displayName>ALU_v1_0</xilinx:displayName>
       <xilinx:definitionSource>module_ref</xilinx:definitionSource>
       <xilinx:coreRevision>1</xilinx:coreRevision>
     </xilinx:coreExtensions>

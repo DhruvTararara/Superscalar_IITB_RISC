@@ -256,6 +256,22 @@
         </spirit:wire>
       </spirit:port>
       <spirit:port>
+        <spirit:name>PC_a2i</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:vector>
+            <spirit:left spirit:format="long">15</spirit:left>
+            <spirit:right spirit:format="long">0</spirit:right>
+          </spirit:vector>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic_vector</spirit:typeName>
+              <spirit:viewNameRef>dummy_view</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
         <spirit:name>PC_lsi</spirit:name>
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
@@ -285,6 +301,18 @@
       </spirit:port>
       <spirit:port>
         <spirit:name>valid_ai</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic</spirit:typeName>
+              <spirit:viewNameRef>dummy_view</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>valid_a2i</spirit:name>
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:wireTypeDefs>
@@ -356,6 +384,22 @@
         </spirit:wire>
       </spirit:port>
       <spirit:port>
+        <spirit:name>PC_a2_cdb</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:vector>
+            <spirit:left spirit:format="long">15</spirit:left>
+            <spirit:right spirit:format="long">0</spirit:right>
+          </spirit:vector>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic_vector</spirit:typeName>
+              <spirit:viewNameRef>dummy_view</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
         <spirit:name>PC_ls_cdb</spirit:name>
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
@@ -385,6 +429,18 @@
       </spirit:port>
       <spirit:port>
         <spirit:name>valid_a_cdb</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic</spirit:typeName>
+              <spirit:viewNameRef>dummy_view</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>valid_a2_cdb</spirit:name>
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:wireTypeDefs>
@@ -440,6 +496,22 @@
         </spirit:wire>
       </spirit:port>
       <spirit:port>
+        <spirit:name>alu2_out</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:vector>
+            <spirit:left spirit:format="long">15</spirit:left>
+            <spirit:right spirit:format="long">0</spirit:right>
+          </spirit:vector>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic_vector</spirit:typeName>
+              <spirit:viewNameRef>dummy_view</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
         <spirit:name>dm_data</spirit:name>
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
@@ -473,6 +545,22 @@
       </spirit:port>
       <spirit:port>
         <spirit:name>ROB_a_cdb</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:vector>
+            <spirit:left spirit:format="long">2</spirit:left>
+            <spirit:right spirit:format="long">0</spirit:right>
+          </spirit:vector>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic_vector</spirit:typeName>
+              <spirit:viewNameRef>dummy_view</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>ROB_a2_cdb</spirit:name>
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:vector>

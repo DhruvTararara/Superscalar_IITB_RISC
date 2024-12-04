@@ -5,8 +5,8 @@ module Reorder_Buffer(
     input [23:0] ROB_input1, ROB_input2,//PC, RD, RCZ, spec_tag -> comes from Allocate unit
     
     //From Issue Unit, to find Issue bit
-    input [15:0] PC_bi, PC_ai, PC_lsi,
-    input valid_bi, valid_ai, valid_lsi,
+    input [15:0] PC_bi, PC_ai, PC_a2i, PC_lsi,
+    input valid_bi, valid_ai, valid_a2i, valid_lsi,
     //==================================
     
     //From Branch Unit, to find Speculative bit
@@ -14,10 +14,10 @@ module Reorder_Buffer(
     //========================================
     
     //Common Data Bus (CDB)===================
-    input [15:0] PC_b_cdb, PC_a_cdb, PC_ls_cdb,
-    input valid_b_cdb, valid_a_cdb, valid_ls_cdb,
-    input [15:0] reg_data_b, alu_out, dm_data,
-    input [2:0] ROB_b_cdb, ROB_a_cdb, ROB_ls_cdb,
+    input [15:0] PC_b_cdb, PC_a_cdb, PC_a2_cdb, PC_ls_cdb,
+    input valid_b_cdb, valid_a_cdb, valid_a2_cdb, valid_ls_cdb,
+    input [15:0] reg_data_b, alu_out, alu2_out, dm_data,
+    input [2:0] ROB_b_cdb, ROB_a_cdb, ROB_a2_cdb, ROB_ls_cdb,
     input misprediction,
     //=========================================
     
@@ -71,14 +71,14 @@ module Reorder_Buffer(
             Finished <= 8'b00000000;
         end
         else begin
-            if ((PC_b_cdb == PC[0] && valid_b_cdb) || (PC_a_cdb == PC[0] && valid_a_cdb) || (PC_ls_cdb == PC[0] && valid_ls_cdb)) Finished[0] <= Busy[0];
-            else if ((PC_b_cdb == PC[1] && valid_b_cdb) || (PC_a_cdb == PC[1] && valid_a_cdb) || (PC_ls_cdb == PC[1] && valid_ls_cdb)) Finished[0] <= Busy[1];
-            else if ((PC_b_cdb == PC[2] && valid_b_cdb) || (PC_a_cdb == PC[2] && valid_a_cdb) || (PC_ls_cdb == PC[2] && valid_ls_cdb)) Finished[0] <= Busy[2];
-            else if ((PC_b_cdb == PC[3] && valid_b_cdb) || (PC_a_cdb == PC[3] && valid_a_cdb) || (PC_ls_cdb == PC[3] && valid_ls_cdb)) Finished[0] <= Busy[3];
-            else if ((PC_b_cdb == PC[4] && valid_b_cdb) || (PC_a_cdb == PC[4] && valid_a_cdb) || (PC_ls_cdb == PC[4] && valid_ls_cdb)) Finished[0] <= Busy[4];
-            else if ((PC_b_cdb == PC[5] && valid_b_cdb) || (PC_a_cdb == PC[5] && valid_a_cdb) || (PC_ls_cdb == PC[5] && valid_ls_cdb)) Finished[0] <= Busy[5];
-            else if ((PC_b_cdb == PC[6] && valid_b_cdb) || (PC_a_cdb == PC[6] && valid_a_cdb) || (PC_ls_cdb == PC[6] && valid_ls_cdb)) Finished[0] <= Busy[6];
-            else if ((PC_b_cdb == PC[7] && valid_b_cdb) || (PC_a_cdb == PC[7] && valid_a_cdb) || (PC_ls_cdb == PC[7] && valid_ls_cdb)) Finished[0] <= Busy[7];
+            if ((PC_b_cdb == PC[0] && valid_b_cdb) || (PC_a_cdb == PC[0] && valid_a_cdb) || (PC_a2_cdb == PC[0] && valid_a2_cdb) || (PC_ls_cdb == PC[0] && valid_ls_cdb)) Finished[0] <= Busy[0];
+            else if ((PC_b_cdb == PC[1] && valid_b_cdb) || (PC_a_cdb == PC[1] && valid_a_cdb) || (PC_a2_cdb == PC[0] && valid_a2_cdb) || (PC_ls_cdb == PC[1] && valid_ls_cdb)) Finished[0] <= Busy[1];
+            else if ((PC_b_cdb == PC[2] && valid_b_cdb) || (PC_a_cdb == PC[2] && valid_a_cdb) || (PC_a2_cdb == PC[0] && valid_a2_cdb) || (PC_ls_cdb == PC[2] && valid_ls_cdb)) Finished[0] <= Busy[2];
+            else if ((PC_b_cdb == PC[3] && valid_b_cdb) || (PC_a_cdb == PC[3] && valid_a_cdb) || (PC_a2_cdb == PC[0] && valid_a2_cdb) || (PC_ls_cdb == PC[3] && valid_ls_cdb)) Finished[0] <= Busy[3];
+            else if ((PC_b_cdb == PC[4] && valid_b_cdb) || (PC_a_cdb == PC[4] && valid_a_cdb) || (PC_a2_cdb == PC[0] && valid_a2_cdb) || (PC_ls_cdb == PC[4] && valid_ls_cdb)) Finished[0] <= Busy[4];
+            else if ((PC_b_cdb == PC[5] && valid_b_cdb) || (PC_a_cdb == PC[5] && valid_a_cdb) || (PC_a2_cdb == PC[0] && valid_a2_cdb) || (PC_ls_cdb == PC[5] && valid_ls_cdb)) Finished[0] <= Busy[5];
+            else if ((PC_b_cdb == PC[6] && valid_b_cdb) || (PC_a_cdb == PC[6] && valid_a_cdb) || (PC_a2_cdb == PC[0] && valid_a2_cdb) || (PC_ls_cdb == PC[6] && valid_ls_cdb)) Finished[0] <= Busy[6];
+            else if ((PC_b_cdb == PC[7] && valid_b_cdb) || (PC_a_cdb == PC[7] && valid_a_cdb) || (PC_a2_cdb == PC[0] && valid_a2_cdb) || (PC_ls_cdb == PC[7] && valid_ls_cdb)) Finished[0] <= Busy[7];
             else begin
             end
         end
@@ -89,14 +89,14 @@ module Reorder_Buffer(
             Issued <= 8'b00000000;
         end
         else begin
-            if ((PC_bi == PC[0] && valid_bi) || (PC_ai == PC[0] && valid_ai) || (PC_lsi == PC[0] && valid_lsi)) Issued[0] <= Busy[0];
-            else if ((PC_bi == PC[1] && valid_bi) || (PC_ai == PC[1] && valid_ai) || (PC_lsi == PC[1] && valid_lsi)) Issued[0] <= Busy[1];
-            else if ((PC_bi == PC[2] && valid_bi) || (PC_ai == PC[2] && valid_ai) || (PC_lsi == PC[2] && valid_lsi)) Issued[0] <= Busy[2];
-            else if ((PC_bi == PC[3] && valid_bi) || (PC_ai == PC[3] && valid_ai) || (PC_lsi == PC[3] && valid_lsi)) Issued[0] <= Busy[3];
-            else if ((PC_bi == PC[4] && valid_bi) || (PC_ai == PC[4] && valid_ai) || (PC_lsi == PC[4] && valid_lsi)) Issued[0] <= Busy[4];
-            else if ((PC_bi == PC[5] && valid_bi) || (PC_ai == PC[5] && valid_ai) || (PC_lsi == PC[5] && valid_lsi)) Issued[0] <= Busy[5];
-            else if ((PC_bi == PC[6] && valid_bi) || (PC_ai == PC[6] && valid_ai) || (PC_lsi == PC[6] && valid_lsi)) Issued[0] <= Busy[6];
-            else if ((PC_bi == PC[7] && valid_bi) || (PC_ai == PC[7] && valid_ai) || (PC_lsi == PC[7] && valid_lsi)) Issued[0] <= Busy[7];
+            if ((PC_bi == PC[0] && valid_bi) || (PC_ai == PC[0] && valid_ai) || (PC_a2i == PC[0] && valid_a2i) || (PC_lsi == PC[0] && valid_lsi)) Issued[0] <= Busy[0];
+            else if ((PC_bi == PC[1] && valid_bi) || (PC_ai == PC[1] && valid_ai) || (PC_a2i == PC[0] && valid_a2i) || (PC_lsi == PC[1] && valid_lsi)) Issued[0] <= Busy[1];
+            else if ((PC_bi == PC[2] && valid_bi) || (PC_ai == PC[2] && valid_ai) || (PC_a2i == PC[0] && valid_a2i) || (PC_lsi == PC[2] && valid_lsi)) Issued[0] <= Busy[2];
+            else if ((PC_bi == PC[3] && valid_bi) || (PC_ai == PC[3] && valid_ai) || (PC_a2i == PC[0] && valid_a2i) || (PC_lsi == PC[3] && valid_lsi)) Issued[0] <= Busy[3];
+            else if ((PC_bi == PC[4] && valid_bi) || (PC_ai == PC[4] && valid_ai) || (PC_a2i == PC[0] && valid_a2i) || (PC_lsi == PC[4] && valid_lsi)) Issued[0] <= Busy[4];
+            else if ((PC_bi == PC[5] && valid_bi) || (PC_ai == PC[5] && valid_ai) || (PC_a2i == PC[0] && valid_a2i) || (PC_lsi == PC[5] && valid_lsi)) Issued[0] <= Busy[5];
+            else if ((PC_bi == PC[6] && valid_bi) || (PC_ai == PC[6] && valid_ai) || (PC_a2i == PC[0] && valid_a2i) || (PC_lsi == PC[6] && valid_lsi)) Issued[0] <= Busy[6];
+            else if ((PC_bi == PC[7] && valid_bi) || (PC_ai == PC[7] && valid_ai) || (PC_a2i == PC[0] && valid_a2i) || (PC_lsi == PC[7] && valid_lsi)) Issued[0] <= Busy[7];
             else begin
             end
         end
@@ -180,6 +180,7 @@ module Reorder_Buffer(
             //reg_data logic
             if (valid_b_cdb) reg_data[ROB_b_cdb] <= reg_data_b;
             if (valid_a_cdb) reg_data[ROB_a_cdb] <= alu_out;
+            if (valid_a2_cdb) reg_data[ROB_a2_cdb] <= alu2_out;
             if (valid_ls_cdb) reg_data[ROB_ls_cdb] <= dm_data;
         end
     end
