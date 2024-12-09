@@ -1,3 +1,4 @@
+`timescale 1ns / 1ps
 module Register_Interdependence(
     input RW1, RW2,
     input RA1, RA2, RB1, RB2, RC1, RC2,

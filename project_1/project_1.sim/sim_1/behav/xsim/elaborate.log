@@ -1,41 +1,51 @@
 Vivado Simulator 2019.1
 Copyright 1986-1999, 2001-2019 Xilinx, Inc. All Rights Reserved.
-Running: C:/Xilinx/Vivado/2019.1/bin/unwrapped/win64.o/xelab.exe -wto c7860a4500284746864b2c1e025521f3 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot tb_behav xil_defaultlib.tb -log elaborate.log 
+Running: C:/Xilinx/Vivado/2019.1/bin/unwrapped/win64.o/xelab.exe -wto c7860a4500284746864b2c1e025521f3 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L xlconstant_v1_1_6 -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot testbench_behav xil_defaultlib.testbench xil_defaultlib.glbl -log elaborate.log 
 Using 2 slave threads.
 Starting static elaboration
 Completed static elaboration
 Starting simulation data flow analysis
 Completed simulation data flow analysis
 Time Resolution for simulation is 1ps
-Compiling package std.standard
-Compiling package std.textio
-Compiling package ieee.std_logic_1164
-Compiling package ieee.numeric_std
-Compiling architecture behavioural of entity xil_defaultlib.PC [pc_default]
-Compiling architecture behavioural of entity xil_defaultlib.ROM [rom_default]
-Compiling architecture behavioural of entity xil_defaultlib.IFStage [ifstage_default]
-Compiling architecture arch of entity xil_defaultlib.IFID [ifid_default]
-Compiling architecture behavioural of entity xil_defaultlib.OperandExtractor [operandextractor_default]
-Compiling architecture behavioural of entity xil_defaultlib.PriorityEncoder [priorityencoder_default]
-Compiling architecture behavioural of entity xil_defaultlib.Decoder [decoder_default]
-Compiling architecture behavioural of entity xil_defaultlib.DualPriorityEncoder [dualpriorityencoder_default]
-Compiling architecture behavioural of entity xil_defaultlib.DestinationWriteChecker [destinationwritechecker_default]
-Compiling architecture behavior of entity xil_defaultlib.DataRegisterFile [dataregisterfile_default]
-Compiling architecture behavioural of entity xil_defaultlib.CarryWriteChecker [carrywritechecker_default]
-Compiling architecture behavior of entity xil_defaultlib.FlagRegisterFile [flagregisterfile_default]
-Compiling architecture behavioural of entity xil_defaultlib.ZeroWriteChecker [zerowritechecker_default]
-Compiling architecture behavioural of entity xil_defaultlib.IDStage [idstage_default]
-Compiling architecture behavioural of entity xil_defaultlib.PriorityEncoderActiveHigh [priorityencoderactivehigh_defaul...]
-Compiling architecture behavioural of entity xil_defaultlib.DualPriorityEncoderActiveHigh [dualpriorityencoderactivehigh_de...]
-Compiling architecture behavioural of entity xil_defaultlib.rs [rs_default]
-Compiling architecture behavioural of entity xil_defaultlib.ALUPipeControlGenerator [alupipecontrolgenerator_default]
-Compiling architecture a1 of entity xil_defaultlib.alu [alu_default]
-Compiling architecture behavior of entity xil_defaultlib.bitextender6 [bitextender6_default]
-Compiling architecture a1 of entity xil_defaultlib.bit1shift [bit1shift_default]
-Compiling architecture behavioural of entity xil_defaultlib.aluexecpipe [aluexecpipe_default]
-Compiling architecture behavioural of entity xil_defaultlib.lhiexecpipe [lhiexecpipe_default]
-Compiling architecture behavioural of entity xil_defaultlib.rob [rob_default]
-Compiling architecture behavioral of entity xil_defaultlib.Control [control_default]
-Compiling architecture arch of entity xil_defaultlib.datapath [datapath_default]
-Compiling architecture behavioural of entity xil_defaultlib.tb
-Built simulation snapshot tb_behav
+Compiling module xil_defaultlib.ALU
+Compiling module xil_defaultlib.Superscalar_Processor_ALU_0_0
+Compiling module xil_defaultlib.Superscalar_Processor_ALU_1_0
+Compiling module xil_defaultlib.Allocate_unit
+Compiling module xil_defaultlib.Superscalar_Processor_Allocate_u...
+Compiling module xil_defaultlib.Control_Unit
+Compiling module xil_defaultlib.Superscalar_Processor_Control_Un...
+Compiling module xil_defaultlib.DispatchBuffer
+Compiling module xil_defaultlib.Superscalar_Processor_DispatchBu...
+Compiling module xil_defaultlib.Instruction_Memory
+Compiling module xil_defaultlib.Superscalar_Processor_Instructio...
+Compiling module xil_defaultlib.Issue_Unit
+Compiling module xil_defaultlib.Superscalar_Processor_Issue_Unit...
+Compiling module xil_defaultlib.PC
+Compiling module xil_defaultlib.Superscalar_Processor_PC_0_0
+Compiling module xil_defaultlib.RegWrite_Ctrl
+Compiling module xil_defaultlib.Superscalar_Processor_RegWrite_C...
+Compiling module xil_defaultlib.Register_File
+Compiling module xil_defaultlib.Superscalar_Processor_Register_F...
+Compiling module xil_defaultlib.Register_Interdependence
+Compiling module xil_defaultlib.Superscalar_Processor_Register_I...
+Compiling module xil_defaultlib.Reorder_Buffer
+Compiling module xil_defaultlib.Superscalar_Processor_Reorder_Bu...
+Compiling module xil_defaultlib.Reservation_Station
+Compiling module xil_defaultlib.Superscalar_Processor_Reservatio...
+Compiling module xil_defaultlib.Valid_instruction_checker
+Compiling module xil_defaultlib.Superscalar_Processor_Valid_inst...
+Compiling module xil_defaultlib.Write_back_signals
+Compiling module xil_defaultlib.Superscalar_Processor_Write_back...
+Compiling module xil_defaultlib.decode
+Compiling module xil_defaultlib.Superscalar_Processor_decode_0_1
+Compiling module xil_defaultlib.decode_buffer
+Compiling module xil_defaultlib.Superscalar_Processor_decode_buf...
+Compiling module xlconstant_v1_1_6.xlconstant_v1_1_6_xlconstant(CON...
+Compiling module xil_defaultlib.Superscalar_Processor_xlconstant...
+Compiling module xlconstant_v1_1_6.xlconstant_v1_1_6_xlconstant(CON...
+Compiling module xil_defaultlib.Superscalar_Processor_xlconstant...
+Compiling module xil_defaultlib.Superscalar_Processor
+Compiling module xil_defaultlib.Superscalar_Processor_wrapper
+Compiling module xil_defaultlib.testbench
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot testbench_behav

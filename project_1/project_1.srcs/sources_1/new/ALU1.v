@@ -1,3 +1,4 @@
+`timescale 1ns / 1ps
 module ALU(
     input [2:0] ROB_tag,
     input [15:0] PC, ra, rb, rc,
@@ -9,7 +10,7 @@ module ALU(
     input valid,
     output valid_out,
     output [2:0] ROB_tag_out,
-    output reg alu_out,
+    output reg [15:0] alu_out,
     output [15:0] PC_out);
     assign PC_out = PC;
     assign valid_out = valid;

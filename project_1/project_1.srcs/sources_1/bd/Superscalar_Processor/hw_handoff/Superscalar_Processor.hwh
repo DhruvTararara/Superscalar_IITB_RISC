@@ -1,0 +1,3100 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Sun Dec  8 21:03:06 2024" VIVADOVERSION="2019.1">
+
+  <SYSTEMINFO ARCH="kintex7" DEVICE="7k70t" NAME="Superscalar_Processor" PACKAGE="fbv676" SPEEDGRADE="-1"/>
+
+  <EXTERNALPORTS>
+    <PORT DIR="I" NAME="rst_0" SIGIS="rst" SIGNAME="External_Ports_rst_0">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="PC_0" PORT="rst"/>
+        <CONNECTION INSTANCE="Register_File_0" PORT="rst"/>
+        <CONNECTION INSTANCE="Valid_instruction_ch_0" PORT="rst"/>
+        <CONNECTION INSTANCE="decode_0" PORT="rst"/>
+        <CONNECTION INSTANCE="Instruction_Memory_0" PORT="rst"/>
+        <CONNECTION INSTANCE="Reorder_Buffer_0" PORT="rst"/>
+        <CONNECTION INSTANCE="decode_buffer_0" PORT="rst"/>
+        <CONNECTION INSTANCE="DispatchBuffer_0" PORT="rst"/>
+        <CONNECTION INSTANCE="Reservation_Station_0" PORT="rst"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT CLKFREQUENCY="100000000" DIR="I" NAME="clk_0" SIGIS="clk" SIGNAME="External_Ports_clk_0">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="PC_0" PORT="clk"/>
+        <CONNECTION INSTANCE="Register_File_0" PORT="clk"/>
+        <CONNECTION INSTANCE="decode_0" PORT="clk"/>
+        <CONNECTION INSTANCE="Reorder_Buffer_0" PORT="clk"/>
+        <CONNECTION INSTANCE="decode_buffer_0" PORT="clk"/>
+        <CONNECTION INSTANCE="DispatchBuffer_0" PORT="clk"/>
+        <CONNECTION INSTANCE="Reservation_Station_0" PORT="clk"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="full_0" SIGIS="undef" SIGNAME="DispatchBuffer_0_full">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="DispatchBuffer_0" PORT="full"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="empty_0" SIGIS="undef" SIGNAME="DispatchBuffer_0_empty">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="DispatchBuffer_0" PORT="empty"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" LEFT="5" NAME="Imm1_1_out_0" RIGHT="0" SIGIS="undef" SIGNAME="DispatchBuffer_0_Imm1_1_out">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="DispatchBuffer_0" PORT="Imm1_1_out"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" LEFT="5" NAME="Imm1_2_out_0" RIGHT="0" SIGIS="undef" SIGNAME="DispatchBuffer_0_Imm1_2_out">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="DispatchBuffer_0" PORT="Imm1_2_out"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" LEFT="2" NAME="buffer_count_0" RIGHT="0" SIGIS="undef"/>
+    <PORT DIR="O" NAME="stall_0" SIGIS="undef" SIGNAME="Allocate_unit_0_stall">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="Allocate_unit_0" PORT="stall"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" LEFT="8" NAME="Imm2_l_0" RIGHT="0" SIGIS="undef" SIGNAME="Reservation_Station_0_Imm2_l">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="Reservation_Station_0" PORT="Imm2_l"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="v_rb_b_0" SIGIS="undef" SIGNAME="Reservation_Station_0_v_rb_b">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="Reservation_Station_0" PORT="v_rb_b"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" LEFT="2" NAME="ROB_tag_l_0" RIGHT="0" SIGIS="undef" SIGNAME="Reservation_Station_0_ROB_tag_l">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="Reservation_Station_0" PORT="ROB_tag_l"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="valid_b_0" SIGIS="undef" SIGNAME="Reservation_Station_0_valid_b">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="Reservation_Station_0" PORT="valid_b"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" LEFT="15" NAME="SEI1_l_0" RIGHT="0" SIGIS="undef" SIGNAME="Reservation_Station_0_SEI1_l">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="Reservation_Station_0" PORT="SEI1_l"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" LEFT="15" NAME="SEI2_l_0" RIGHT="0" SIGIS="undef" SIGNAME="Reservation_Station_0_SEI2_l">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="Reservation_Station_0" PORT="SEI2_l"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" LEFT="3" NAME="op_b_0" RIGHT="0" SIGIS="undef" SIGNAME="Reservation_Station_0_op_b">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="Reservation_Station_0" PORT="op_b"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" LEFT="3" NAME="b_ctrl_b_0" RIGHT="0" SIGIS="undef" SIGNAME="Reservation_Station_0_b_ctrl_b">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="Reservation_Station_0" PORT="b_ctrl_b"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" LEFT="15" NAME="SEI1_b_0" RIGHT="0" SIGIS="undef" SIGNAME="Reservation_Station_0_SEI1_b">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="Reservation_Station_0" PORT="SEI1_b"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" LEFT="2" NAME="ROB_tag_b_0" RIGHT="0" SIGIS="undef" SIGNAME="Reservation_Station_0_ROB_tag_b">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="Reservation_Station_0" PORT="ROB_tag_b"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="v_ra_l_0" SIGIS="undef" SIGNAME="Reservation_Station_0_v_ra_l">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="Reservation_Station_0" PORT="v_ra_l"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" LEFT="15" NAME="SEI2_b_0" RIGHT="0" SIGIS="undef" SIGNAME="Reservation_Station_0_SEI2_b">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="Reservation_Station_0" PORT="SEI2_b"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" LEFT="1" NAME="spec_tag_b_0" RIGHT="0" SIGIS="undef" SIGNAME="Reservation_Station_0_spec_tag_b">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="Reservation_Station_0" PORT="spec_tag_b"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="v_ra_b_0" SIGIS="undef" SIGNAME="Reservation_Station_0_v_ra_b">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="Reservation_Station_0" PORT="v_ra_b"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" LEFT="15" NAME="PC_l_0" RIGHT="0" SIGIS="undef" SIGNAME="Reservation_Station_0_PC_l">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="Reservation_Station_0" PORT="PC_l"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="v_rb_l_0" SIGIS="undef" SIGNAME="Reservation_Station_0_v_rb_l">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="Reservation_Station_0" PORT="v_rb_l"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" LEFT="15" NAME="ra_l_0" RIGHT="0" SIGIS="undef" SIGNAME="Reservation_Station_0_ra_l">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="Reservation_Station_0" PORT="ra_l"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" LEFT="15" NAME="PC_b_0" RIGHT="0" SIGIS="undef" SIGNAME="Reservation_Station_0_PC_b">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="Reservation_Station_0" PORT="PC_b"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" LEFT="1" NAME="spec_tag_l_0" RIGHT="0" SIGIS="undef" SIGNAME="Reservation_Station_0_spec_tag_l">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="Reservation_Station_0" PORT="spec_tag_l"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" LEFT="2" NAME="ls_ctrl_l_0" RIGHT="0" SIGIS="undef" SIGNAME="Reservation_Station_0_ls_ctrl_l">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="Reservation_Station_0" PORT="ls_ctrl_l"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" LEFT="15" NAME="ra_b_0" RIGHT="0" SIGIS="undef" SIGNAME="Reservation_Station_0_ra_b">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="Reservation_Station_0" PORT="ra_b"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" LEFT="15" NAME="rb_l_0" RIGHT="0" SIGIS="undef" SIGNAME="Reservation_Station_0_rb_l">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="Reservation_Station_0" PORT="rb_l"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" LEFT="15" NAME="rb_b_0" RIGHT="0" SIGIS="undef" SIGNAME="Reservation_Station_0_rb_b">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="Reservation_Station_0" PORT="rb_b"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="b_p_b_0" SIGIS="undef" SIGNAME="Reservation_Station_0_b_p_b">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="Reservation_Station_0" PORT="b_p_b"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="valid_l_0" SIGIS="undef" SIGNAME="Reservation_Station_0_valid_l">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="Reservation_Station_0" PORT="valid_l"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" LEFT="7" NAME="Busy_0" RIGHT="0" SIGIS="undef" SIGNAME="Reorder_Buffer_0_Busy">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="Reorder_Buffer_0" PORT="Busy"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="wZ1_0" SIGIS="undef" SIGNAME="Write_back_signals_0_wZ1">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="Write_back_signals_0" PORT="wZ1"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="wC2_0" SIGIS="undef" SIGNAME="Write_back_signals_0_wC2">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="Write_back_signals_0" PORT="wC2"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="wC1_0" SIGIS="undef" SIGNAME="Write_back_signals_0_wC1">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="Write_back_signals_0" PORT="wC1"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="wZ2_0" SIGIS="undef" SIGNAME="Write_back_signals_0_wZ2">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="Write_back_signals_0" PORT="wZ2"/>
+      </CONNECTIONS>
+    </PORT>
+  </EXTERNALPORTS>
+
+  <EXTERNALINTERFACES/>
+
+  <MODULES>
+    <MODULE COREREVISION="1" FULLNAME="/ALU_0" HWVERSION="1.0" INSTANCE="ALU_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="ALU" VLNV="xilinx.com:module_ref:ALU:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="Component_Name" VALUE="Superscalar_Processor_ALU_0_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="I" LEFT="2" NAME="ROB_tag" RIGHT="0" SIGIS="undef" SIGNAME="Reservation_Station_0_ROB_tag_a">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Reservation_Station_0" PORT="ROB_tag_a"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="PC" RIGHT="0" SIGIS="undef" SIGNAME="Reservation_Station_0_PC_a">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Reservation_Station_0" PORT="PC_a"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="ra" RIGHT="0" SIGIS="undef" SIGNAME="Reservation_Station_0_ra_a">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Reservation_Station_0" PORT="ra_a"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="rb" RIGHT="0" SIGIS="undef" SIGNAME="Reservation_Station_0_rb_a">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Reservation_Station_0" PORT="rb_a"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="rc" RIGHT="0" SIGIS="undef" SIGNAME="Reservation_Station_0_rc_a">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Reservation_Station_0" PORT="rc_a"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="c" SIGIS="undef" SIGNAME="Reservation_Station_0_c_a">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Reservation_Station_0" PORT="c_a"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="z" SIGIS="undef" SIGNAME="Reservation_Station_0_z_a">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Reservation_Station_0" PORT="z_a"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="v_ra" SIGIS="undef" SIGNAME="Reservation_Station_0_v_ra_a">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Reservation_Station_0" PORT="v_ra_a"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="v_rb" SIGIS="undef" SIGNAME="Reservation_Station_0_v_rb_a">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Reservation_Station_0" PORT="v_rb_a"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="v_rc" SIGIS="undef" SIGNAME="Reservation_Station_0_v_rc_a">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Reservation_Station_0" PORT="v_rc_a"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="v_c" SIGIS="undef" SIGNAME="Reservation_Station_0_v_c_a">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Reservation_Station_0" PORT="v_c_a"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="v_z" SIGIS="undef" SIGNAME="Reservation_Station_0_v_z_a">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Reservation_Station_0" PORT="v_z_a"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="1" NAME="spec_tag" RIGHT="0" SIGIS="undef" SIGNAME="Reservation_Station_0_spec_tag_a">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Reservation_Station_0" PORT="spec_tag_a"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="5" NAME="a_ctrl" RIGHT="0" SIGIS="undef" SIGNAME="Reservation_Station_0_a_ctrl_a">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Reservation_Station_0" PORT="a_ctrl_a"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="SEI1" RIGHT="0" SIGIS="undef" SIGNAME="Reservation_Station_0_SEI1_a">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Reservation_Station_0" PORT="SEI1_a"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="valid" SIGIS="undef" SIGNAME="Reservation_Station_0_valid_a">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Reservation_Station_0" PORT="valid_a"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="valid_out" SIGIS="undef" SIGNAME="ALU_0_valid_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Reorder_Buffer_0" PORT="valid_a_cdb"/>
+            <CONNECTION INSTANCE="Reservation_Station_0" PORT="valid_a_cdb"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="2" NAME="ROB_tag_out" RIGHT="0" SIGIS="undef" SIGNAME="ALU_0_ROB_tag_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Reorder_Buffer_0" PORT="ROB_a_cdb"/>
+            <CONNECTION INSTANCE="Reservation_Station_0" PORT="ROB_a_cdb"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="15" NAME="alu_out" RIGHT="0" SIGIS="undef" SIGNAME="ALU_0_alu_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Reorder_Buffer_0" PORT="alu_out"/>
+            <CONNECTION INSTANCE="Reservation_Station_0" PORT="alu_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="15" NAME="PC_out" RIGHT="0" SIGIS="undef" SIGNAME="ALU_0_PC_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Reorder_Buffer_0" PORT="PC_a_cdb"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/ALU_1" HWVERSION="1.0" INSTANCE="ALU_1" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="ALU" VLNV="xilinx.com:module_ref:ALU:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="Component_Name" VALUE="Superscalar_Processor_ALU_1_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="I" LEFT="2" NAME="ROB_tag" RIGHT="0" SIGIS="undef" SIGNAME="Reservation_Station_0_ROB_tag_a2">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Reservation_Station_0" PORT="ROB_tag_a2"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="PC" RIGHT="0" SIGIS="undef" SIGNAME="Reservation_Station_0_PC_a2">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Reservation_Station_0" PORT="PC_a2"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="ra" RIGHT="0" SIGIS="undef" SIGNAME="Reservation_Station_0_ra_a2">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Reservation_Station_0" PORT="ra_a2"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="rb" RIGHT="0" SIGIS="undef" SIGNAME="Reservation_Station_0_rb_a2">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Reservation_Station_0" PORT="rb_a2"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="rc" RIGHT="0" SIGIS="undef" SIGNAME="Reservation_Station_0_rc_a2">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Reservation_Station_0" PORT="rc_a2"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="c" SIGIS="undef" SIGNAME="Reservation_Station_0_c_a2">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Reservation_Station_0" PORT="c_a2"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="z" SIGIS="undef" SIGNAME="Reservation_Station_0_z_a2">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Reservation_Station_0" PORT="z_a2"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="v_ra" SIGIS="undef" SIGNAME="Reservation_Station_0_v_ra_a2">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Reservation_Station_0" PORT="v_ra_a2"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="v_rb" SIGIS="undef" SIGNAME="Reservation_Station_0_v_rb_a2">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Reservation_Station_0" PORT="v_rb_a2"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="v_rc" SIGIS="undef" SIGNAME="Reservation_Station_0_v_rc_a2">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Reservation_Station_0" PORT="v_rc_a2"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="v_c" SIGIS="undef" SIGNAME="Reservation_Station_0_v_c_a2">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Reservation_Station_0" PORT="v_c_a2"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="v_z" SIGIS="undef" SIGNAME="Reservation_Station_0_v_z_a2">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Reservation_Station_0" PORT="v_z_a2"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="1" NAME="spec_tag" RIGHT="0" SIGIS="undef" SIGNAME="Reservation_Station_0_spec_tag_a2">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Reservation_Station_0" PORT="spec_tag_a2"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="5" NAME="a_ctrl" RIGHT="0" SIGIS="undef" SIGNAME="Reservation_Station_0_a_ctrl_a2">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Reservation_Station_0" PORT="a_ctrl_a2"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="SEI1" RIGHT="0" SIGIS="undef" SIGNAME="Reservation_Station_0_SEI1_a2">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Reservation_Station_0" PORT="SEI1_a2"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="valid" SIGIS="undef" SIGNAME="Reservation_Station_0_valid_a2">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Reservation_Station_0" PORT="valid_a2"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="valid_out" SIGIS="undef" SIGNAME="ALU_1_valid_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Reorder_Buffer_0" PORT="valid_a2_cdb"/>
+            <CONNECTION INSTANCE="Reservation_Station_0" PORT="valid_a2_cdb"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="2" NAME="ROB_tag_out" RIGHT="0" SIGIS="undef" SIGNAME="ALU_1_ROB_tag_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Reorder_Buffer_0" PORT="ROB_a2_cdb"/>
+            <CONNECTION INSTANCE="Reservation_Station_0" PORT="ROB_a2_cdb"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="15" NAME="alu_out" RIGHT="0" SIGIS="undef" SIGNAME="ALU_1_alu_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Reorder_Buffer_0" PORT="alu2_out"/>
+            <CONNECTION INSTANCE="Reservation_Station_0" PORT="alu2_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="15" NAME="PC_out" RIGHT="0" SIGIS="undef" SIGNAME="ALU_1_PC_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Reorder_Buffer_0" PORT="PC_a2_cdb"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/Allocate_unit_0" HWVERSION="1.0" INSTANCE="Allocate_unit_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="Allocate_unit" VLNV="xilinx.com:module_ref:Allocate_unit:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="Component_Name" VALUE="Superscalar_Processor_Allocate_unit_0_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="I" LEFT="15" NAME="PC1" RIGHT="0" SIGIS="undef" SIGNAME="DispatchBuffer_0_IA1_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="DispatchBuffer_0" PORT="IA1_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="PC2" RIGHT="0" SIGIS="undef" SIGNAME="DispatchBuffer_0_IA2_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="DispatchBuffer_0" PORT="IA2_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="3" NAME="op1" RIGHT="0" SIGIS="undef" SIGNAME="DispatchBuffer_0_op1_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="DispatchBuffer_0" PORT="op1_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="3" NAME="op2" RIGHT="0" SIGIS="undef" SIGNAME="DispatchBuffer_0_op2_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="DispatchBuffer_0" PORT="op2_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="RR_stall" SIGIS="undef" SIGNAME="xlconstant_0_dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="xlconstant_0" PORT="dout"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="2" NAME="ROB_head" RIGHT="0" SIGIS="undef" SIGNAME="Reorder_Buffer_0_head">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Reorder_Buffer_0" PORT="head"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="2" NAME="ROB_tail" RIGHT="0" SIGIS="undef" SIGNAME="Reorder_Buffer_0_tail">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Reorder_Buffer_0" PORT="tail"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="7" NAME="RS_free_bitmap" RIGHT="0" SIGIS="undef" SIGNAME="Reservation_Station_0_Busy">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Reservation_Station_0" PORT="Busy"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="RegWrite1" SIGIS="undef" SIGNAME="RegWrite_Ctrl_0_RegWrite1">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="RegWrite_Ctrl_0" PORT="RegWrite1"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="RegWrite2" SIGIS="undef" SIGNAME="RegWrite_Ctrl_0_RegWrite2">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="RegWrite_Ctrl_0" PORT="RegWrite2"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="CWrite1" SIGIS="undef" SIGNAME="xlconstant_1_dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="xlconstant_1" PORT="dout"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="ZWrite1" SIGIS="undef" SIGNAME="xlconstant_1_dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="xlconstant_1" PORT="dout"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="CWrite2" SIGIS="undef" SIGNAME="xlconstant_1_dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="xlconstant_1" PORT="dout"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="ZWrite2" SIGIS="undef" SIGNAME="xlconstant_1_dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="xlconstant_1" PORT="dout"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="2" NAME="RAA1" RIGHT="0" SIGIS="undef" SIGNAME="Allocate_unit_0_RA1_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Allocate_unit_0" PORT="RA1_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="2" NAME="RAA2" RIGHT="0" SIGIS="undef" SIGNAME="Allocate_unit_0_RA2_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Allocate_unit_0" PORT="RA2_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="2" NAME="RBB1" RIGHT="0" SIGIS="undef" SIGNAME="Allocate_unit_0_RB1_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Allocate_unit_0" PORT="RB1_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="2" NAME="RBB2" RIGHT="0" SIGIS="undef" SIGNAME="Allocate_unit_0_RB2_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Allocate_unit_0" PORT="RB2_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="2" NAME="RCC1" RIGHT="0" SIGIS="undef" SIGNAME="Allocate_unit_0_RC1_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Allocate_unit_0" PORT="RC1_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="2" NAME="RCC2" RIGHT="0" SIGIS="undef" SIGNAME="Allocate_unit_0_RC2_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Allocate_unit_0" PORT="RC2_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="valid1" SIGIS="undef" SIGNAME="DispatchBuffer_0_valid_out1">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="DispatchBuffer_0" PORT="valid_out1"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="valid2" SIGIS="undef" SIGNAME="DispatchBuffer_0_valid_out2">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="DispatchBuffer_0" PORT="valid_out2"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="ra1" RIGHT="0" SIGIS="undef" SIGNAME="Register_File_0_ra1">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Register_File_0" PORT="ra1"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="ra2" RIGHT="0" SIGIS="undef" SIGNAME="Register_File_0_ra2">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Register_File_0" PORT="ra2"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="rb1" RIGHT="0" SIGIS="undef" SIGNAME="Register_File_0_rb1">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Register_File_0" PORT="rb1"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="rb2" RIGHT="0" SIGIS="undef" SIGNAME="Register_File_0_rb2">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Register_File_0" PORT="rb2"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="rc1" RIGHT="0" SIGIS="undef" SIGNAME="Register_File_0_rc1">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Register_File_0" PORT="rc1"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="rc2" RIGHT="0" SIGIS="undef" SIGNAME="Register_File_0_rc2">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Register_File_0" PORT="rc2"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="v_ra1" SIGIS="undef" SIGNAME="Register_File_0_v_ra1">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Register_File_0" PORT="v_ra1"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="v_ra2" SIGIS="undef" SIGNAME="Register_File_0_v_ra2">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Register_File_0" PORT="v_ra2"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="v_rb1" SIGIS="undef" SIGNAME="Register_File_0_v_rb1">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Register_File_0" PORT="v_rb1"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="v_rb2" SIGIS="undef" SIGNAME="Register_File_0_v_rb2">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Register_File_0" PORT="v_rb2"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="v_rc1" SIGIS="undef" SIGNAME="Register_File_0_v_rc1">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Register_File_0" PORT="v_rc1"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="v_rc2" SIGIS="undef" SIGNAME="Register_File_0_v_rc2">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Register_File_0" PORT="v_rc2"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="c1" SIGIS="undef" SIGNAME="xlconstant_1_dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="xlconstant_1" PORT="dout"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="c2" SIGIS="undef" SIGNAME="xlconstant_1_dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="xlconstant_1" PORT="dout"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="z1" SIGIS="undef" SIGNAME="xlconstant_1_dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="xlconstant_1" PORT="dout"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="z2" SIGIS="undef" SIGNAME="xlconstant_1_dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="xlconstant_1" PORT="dout"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="v_c1" SIGIS="undef" SIGNAME="xlconstant_1_dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="xlconstant_1" PORT="dout"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="v_c2" SIGIS="undef" SIGNAME="xlconstant_1_dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="xlconstant_1" PORT="dout"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="v_z1" SIGIS="undef" SIGNAME="xlconstant_1_dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="xlconstant_1" PORT="dout"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="v_z2" SIGIS="undef" SIGNAME="xlconstant_1_dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="xlconstant_1" PORT="dout"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="2" NAME="b_ctrl1" RIGHT="0" SIGIS="undef" SIGNAME="Control_Unit_0_b_ctrl1">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Control_Unit_0" PORT="b_ctrl1"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="2" NAME="b_ctrl2" RIGHT="0" SIGIS="undef" SIGNAME="Control_Unit_0_b_ctrl2">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Control_Unit_0" PORT="b_ctrl2"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="5" NAME="a_ctrl1" RIGHT="0" SIGIS="undef" SIGNAME="Control_Unit_0_a_ctrl1">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Control_Unit_0" PORT="a_ctrl1"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="5" NAME="a_ctrl2" RIGHT="0" SIGIS="undef" SIGNAME="Control_Unit_0_a_ctrl2">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Control_Unit_0" PORT="a_ctrl2"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="2" NAME="ls_ctrl1" RIGHT="0" SIGIS="undef" SIGNAME="Control_Unit_0_ls_ctrl1">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Control_Unit_0" PORT="ls_ctrl1"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="2" NAME="ls_ctrl2" RIGHT="0" SIGIS="undef" SIGNAME="Control_Unit_0_ls_ctrl2">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Control_Unit_0" PORT="ls_ctrl2"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="1" NAME="spec_tag1" RIGHT="0" SIGIS="undef" SIGNAME="DispatchBuffer_0_spec_tag1_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="DispatchBuffer_0" PORT="spec_tag1_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="1" NAME="spec_tag2" RIGHT="0" SIGIS="undef" SIGNAME="DispatchBuffer_0_spec_tag2_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="DispatchBuffer_0" PORT="spec_tag2_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="branch_predict1" SIGIS="undef" SIGNAME="DispatchBuffer_0_branch_predict1_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="DispatchBuffer_0" PORT="branch_predict1_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="branch_predict2" SIGIS="undef" SIGNAME="DispatchBuffer_0_branch_predict2_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="DispatchBuffer_0" PORT="branch_predict2_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="8" NAME="Imm2_1" RIGHT="0" SIGIS="undef" SIGNAME="DispatchBuffer_0_Imm2_1_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="DispatchBuffer_0" PORT="Imm2_1_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="8" NAME="Imm2_2" RIGHT="0" SIGIS="undef" SIGNAME="DispatchBuffer_0_Imm2_2_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="DispatchBuffer_0" PORT="Imm2_2_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="1" NAME="FU_bits1" RIGHT="0" SIGIS="undef" SIGNAME="Control_Unit_0_FU_bits1">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Control_Unit_0" PORT="FU_bits1"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="1" NAME="FU_bits2" RIGHT="0" SIGIS="undef" SIGNAME="Control_Unit_0_FU_bits2">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Control_Unit_0" PORT="FU_bits2"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="SEI1_1" RIGHT="0" SIGIS="undef" SIGNAME="DispatchBuffer_0_SEI1_1_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="DispatchBuffer_0" PORT="SEI1_1_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="SEI1_2" RIGHT="0" SIGIS="undef" SIGNAME="DispatchBuffer_0_SEI1_2_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="DispatchBuffer_0" PORT="SEI1_2_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="SEI2_1" RIGHT="0" SIGIS="undef" SIGNAME="DispatchBuffer_0_SEI2_1_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="DispatchBuffer_0" PORT="SEI2_1_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="SEI2_2" RIGHT="0" SIGIS="undef" SIGNAME="DispatchBuffer_0_SEI2_2_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="DispatchBuffer_0" PORT="SEI2_2_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="valid1_out" SIGIS="undef" SIGNAME="Allocate_unit_0_valid1_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Register_File_0" PORT="valid1"/>
+            <CONNECTION INSTANCE="Reorder_Buffer_0" PORT="valid1"/>
+            <CONNECTION INSTANCE="Reservation_Station_0" PORT="valid1"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="valid2_out" SIGIS="undef" SIGNAME="Allocate_unit_0_valid2_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Register_File_0" PORT="valid2"/>
+            <CONNECTION INSTANCE="Reorder_Buffer_0" PORT="valid2"/>
+            <CONNECTION INSTANCE="Reservation_Station_0" PORT="valid2"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="RegWrite1_out" SIGIS="undef" SIGNAME="Allocate_unit_0_RegWrite1_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Register_File_0" PORT="RegWrite1"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="RegWrite2_out" SIGIS="undef" SIGNAME="Allocate_unit_0_RegWrite2_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Register_File_0" PORT="RegWrite2"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="2" NAME="RA1_out" RIGHT="0" SIGIS="undef" SIGNAME="Allocate_unit_0_RA1_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Register_File_0" PORT="RAA1"/>
+            <CONNECTION INSTANCE="Allocate_unit_0" PORT="RAA1"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="2" NAME="RA2_out" RIGHT="0" SIGIS="undef" SIGNAME="Allocate_unit_0_RA2_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Register_File_0" PORT="RAA2"/>
+            <CONNECTION INSTANCE="Allocate_unit_0" PORT="RAA2"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="2" NAME="RB1_out" RIGHT="0" SIGIS="undef" SIGNAME="Allocate_unit_0_RB1_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Register_File_0" PORT="RBB1"/>
+            <CONNECTION INSTANCE="Allocate_unit_0" PORT="RBB1"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="2" NAME="RB2_out" RIGHT="0" SIGIS="undef" SIGNAME="Allocate_unit_0_RB2_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Register_File_0" PORT="RBB2"/>
+            <CONNECTION INSTANCE="Allocate_unit_0" PORT="RBB2"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="2" NAME="RC1_out" RIGHT="0" SIGIS="undef" SIGNAME="Allocate_unit_0_RC1_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Register_File_0" PORT="RCC1"/>
+            <CONNECTION INSTANCE="Allocate_unit_0" PORT="RCC1"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="2" NAME="RC2_out" RIGHT="0" SIGIS="undef" SIGNAME="Allocate_unit_0_RC2_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Register_File_0" PORT="RCC2"/>
+            <CONNECTION INSTANCE="Allocate_unit_0" PORT="RCC2"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="2" NAME="RS_tag1" RIGHT="0" SIGIS="undef" SIGNAME="Allocate_unit_0_RS_tag1">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Reservation_Station_0" PORT="RS_tag1"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="2" NAME="RS_tag2" RIGHT="0" SIGIS="undef" SIGNAME="Allocate_unit_0_RS_tag2">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Reservation_Station_0" PORT="RS_tag2"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="1" NAME="FU_bits1_out" RIGHT="0" SIGIS="undef" SIGNAME="Allocate_unit_0_FU_bits1_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Register_File_0" PORT="FU_bits1"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="1" NAME="FU_bits2_out" RIGHT="0" SIGIS="undef" SIGNAME="Allocate_unit_0_FU_bits2_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Register_File_0" PORT="FU_bits2"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="2" NAME="ROB_tag1" RIGHT="0" SIGIS="undef" SIGNAME="Allocate_unit_0_ROB_tag1">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Register_File_0" PORT="ROB_tag1"/>
+            <CONNECTION INSTANCE="Reorder_Buffer_0" PORT="ROB_tag1"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="2" NAME="ROB_tag2" RIGHT="0" SIGIS="undef" SIGNAME="Allocate_unit_0_ROB_tag2">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Register_File_0" PORT="ROB_tag2"/>
+            <CONNECTION INSTANCE="Reorder_Buffer_0" PORT="ROB_tag2"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="136" NAME="RS_input1" RIGHT="0" SIGIS="undef" SIGNAME="Allocate_unit_0_RS_input1">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Reservation_Station_0" PORT="RS_input1"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="136" NAME="RS_input2" RIGHT="0" SIGIS="undef" SIGNAME="Allocate_unit_0_RS_input2">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Reservation_Station_0" PORT="RS_input2"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="23" NAME="ROB_input1" RIGHT="0" SIGIS="undef" SIGNAME="Allocate_unit_0_ROB_input1">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Reorder_Buffer_0" PORT="ROB_input1"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="23" NAME="ROB_input2" RIGHT="0" SIGIS="undef" SIGNAME="Allocate_unit_0_ROB_input2">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Reorder_Buffer_0" PORT="ROB_input2"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="stall" SIGIS="undef" SIGNAME="Allocate_unit_0_stall">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="stall_0"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/Control_Unit_0" HWVERSION="1.0" INSTANCE="Control_Unit_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="Control_Unit" VLNV="xilinx.com:module_ref:Control_Unit:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="Component_Name" VALUE="Superscalar_Processor_Control_Unit_0_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="I" LEFT="3" NAME="op1" RIGHT="0" SIGIS="undef" SIGNAME="DispatchBuffer_0_op1_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="DispatchBuffer_0" PORT="op1_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="3" NAME="op2" RIGHT="0" SIGIS="undef" SIGNAME="DispatchBuffer_0_op2_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="DispatchBuffer_0" PORT="op2_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="RegWrite1" SIGIS="undef" SIGNAME="RegWrite_Ctrl_0_RegWrite1">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="RegWrite_Ctrl_0" PORT="RegWrite1"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="RegWrite2" SIGIS="undef" SIGNAME="RegWrite_Ctrl_0_RegWrite2">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="RegWrite_Ctrl_0" PORT="RegWrite2"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="Comp1" SIGIS="undef" SIGNAME="DispatchBuffer_0_comp1_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="DispatchBuffer_0" PORT="comp1_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="Comp2" SIGIS="undef" SIGNAME="DispatchBuffer_0_comp2_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="DispatchBuffer_0" PORT="comp2_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="1" NAME="CZ1" RIGHT="0" SIGIS="undef" SIGNAME="DispatchBuffer_0_CZ1_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="DispatchBuffer_0" PORT="CZ1_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="1" NAME="CZ2" RIGHT="0" SIGIS="undef" SIGNAME="DispatchBuffer_0_CZ2_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="DispatchBuffer_0" PORT="CZ2_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="2" NAME="b_ctrl1" RIGHT="0" SIGIS="undef" SIGNAME="Control_Unit_0_b_ctrl1">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Allocate_unit_0" PORT="b_ctrl1"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="2" NAME="b_ctrl2" RIGHT="0" SIGIS="undef" SIGNAME="Control_Unit_0_b_ctrl2">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Allocate_unit_0" PORT="b_ctrl2"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="5" NAME="a_ctrl1" RIGHT="0" SIGIS="undef" SIGNAME="Control_Unit_0_a_ctrl1">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Allocate_unit_0" PORT="a_ctrl1"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="5" NAME="a_ctrl2" RIGHT="0" SIGIS="undef" SIGNAME="Control_Unit_0_a_ctrl2">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Allocate_unit_0" PORT="a_ctrl2"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="2" NAME="ls_ctrl1" RIGHT="0" SIGIS="undef" SIGNAME="Control_Unit_0_ls_ctrl1">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Allocate_unit_0" PORT="ls_ctrl1"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="2" NAME="ls_ctrl2" RIGHT="0" SIGIS="undef" SIGNAME="Control_Unit_0_ls_ctrl2">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Allocate_unit_0" PORT="ls_ctrl2"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="1" NAME="FU_bits1" RIGHT="0" SIGIS="undef" SIGNAME="Control_Unit_0_FU_bits1">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Register_Interdepend_0" PORT="FU_bits1"/>
+            <CONNECTION INSTANCE="Allocate_unit_0" PORT="FU_bits1"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="1" NAME="FU_bits2" RIGHT="0" SIGIS="undef" SIGNAME="Control_Unit_0_FU_bits2">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Register_Interdepend_0" PORT="FU_bits2"/>
+            <CONNECTION INSTANCE="Allocate_unit_0" PORT="FU_bits2"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/DispatchBuffer_0" HWVERSION="1.0" INSTANCE="DispatchBuffer_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="DispatchBuffer" VLNV="xilinx.com:module_ref:DispatchBuffer:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="BUFFER_SIZE" VALUE="4"/>
+        <PARAMETER NAME="OP_WIDTH" VALUE="4"/>
+        <PARAMETER NAME="REG_ADDR_WIDTH" VALUE="3"/>
+        <PARAMETER NAME="IMM1_WIDTH" VALUE="6"/>
+        <PARAMETER NAME="IMM2_WIDTH" VALUE="9"/>
+        <PARAMETER NAME="SEI1_WIDTH" VALUE="16"/>
+        <PARAMETER NAME="SEI2_WIDTH" VALUE="16"/>
+        <PARAMETER NAME="Component_Name" VALUE="Superscalar_Processor_DispatchBuffer_0_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT CLKFREQUENCY="100000000" DIR="I" NAME="clk" SIGIS="clk" SIGNAME="External_Ports_clk_0">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="clk_0"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="rst" SIGIS="rst" SIGNAME="External_Ports_rst_0">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="rst_0"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="IA1_in" RIGHT="0" SIGIS="undef" SIGNAME="decode_0_IA1_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="decode_0" PORT="IA1_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="IA2_in" RIGHT="0" SIGIS="undef" SIGNAME="decode_0_IA2_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="decode_0" PORT="IA2_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="3" NAME="op1_in" RIGHT="0" SIGIS="undef" SIGNAME="decode_0_op1">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="decode_0" PORT="op1"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="3" NAME="op2_in" RIGHT="0" SIGIS="undef" SIGNAME="decode_0_op2">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="decode_0" PORT="op2"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="2" NAME="RA1_in" RIGHT="0" SIGIS="undef" SIGNAME="decode_0_RA1">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="decode_0" PORT="RA1"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="2" NAME="RA2_in" RIGHT="0" SIGIS="undef" SIGNAME="decode_0_RA2">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="decode_0" PORT="RA2"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="2" NAME="RB1_in" RIGHT="0" SIGIS="undef" SIGNAME="decode_0_RB1">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="decode_0" PORT="RB1"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="2" NAME="RB2_in" RIGHT="0" SIGIS="undef" SIGNAME="decode_0_RB2">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="decode_0" PORT="RB2"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="2" NAME="RC1_in" RIGHT="0" SIGIS="undef" SIGNAME="decode_0_RC1">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="decode_0" PORT="RC1"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="2" NAME="RC2_in" RIGHT="0" SIGIS="undef" SIGNAME="decode_0_RC2">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="decode_0" PORT="RC2"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="comp1_in" SIGIS="undef" SIGNAME="decode_0_comp1">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="decode_0" PORT="comp1"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="comp2_in" SIGIS="undef" SIGNAME="decode_0_comp2">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="decode_0" PORT="comp2"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="1" NAME="CZ1_in" RIGHT="0" SIGIS="undef" SIGNAME="decode_0_CZ1">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="decode_0" PORT="CZ1"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="1" NAME="CZ2_in" RIGHT="0" SIGIS="undef" SIGNAME="decode_0_CZ2">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="decode_0" PORT="CZ2"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="5" NAME="Imm1_1_in" RIGHT="0" SIGIS="undef" SIGNAME="decode_0_Imm1_1">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="decode_0" PORT="Imm1_1"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="5" NAME="Imm1_2_in" RIGHT="0" SIGIS="undef" SIGNAME="decode_0_Imm1_2">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="decode_0" PORT="Imm1_2"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="8" NAME="Imm2_1_in" RIGHT="0" SIGIS="undef" SIGNAME="decode_0_Imm2_1">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="decode_0" PORT="Imm2_1"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="8" NAME="Imm2_2_in" RIGHT="0" SIGIS="undef" SIGNAME="decode_0_Imm2_2">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="decode_0" PORT="Imm2_2"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="SEI1_1_in" RIGHT="0" SIGIS="undef" SIGNAME="decode_0_SEI1_1">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="decode_0" PORT="SEI1_1"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="SEI1_2_in" RIGHT="0" SIGIS="undef" SIGNAME="decode_0_SEI1_2">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="decode_0" PORT="SEI1_2"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="SEI2_1_in" RIGHT="0" SIGIS="undef" SIGNAME="decode_0_SEI2_1">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="decode_0" PORT="SEI2_1"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="SEI2_2_in" RIGHT="0" SIGIS="undef" SIGNAME="decode_0_SEI2_2">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="decode_0" PORT="SEI2_2"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="1" NAME="spec_tag1_in" RIGHT="0" SIGIS="undef" SIGNAME="decode_0_spec_tag1">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="decode_0" PORT="spec_tag1"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="1" NAME="spec_tag2_in" RIGHT="0" SIGIS="undef" SIGNAME="decode_0_spec_tag2">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="decode_0" PORT="spec_tag2"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="valid_in1" SIGIS="undef" SIGNAME="decode_0_valid1_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="decode_0" PORT="valid1_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="valid_in2" SIGIS="undef" SIGNAME="decode_0_valid2_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="decode_0" PORT="valid2_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="branch_predict1_in" SIGIS="undef" SIGNAME="decode_0_branch_predict1_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="decode_0" PORT="branch_predict1_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="branch_predict2_in" SIGIS="undef" SIGNAME="decode_0_branch_predict2_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="decode_0" PORT="branch_predict2_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="issue1" SIGIS="undef" SIGNAME="xlconstant_1_dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="xlconstant_1" PORT="dout"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="issue2" SIGIS="undef" SIGNAME="xlconstant_1_dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="xlconstant_1" PORT="dout"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="15" NAME="IA1_out" RIGHT="0" SIGIS="undef" SIGNAME="DispatchBuffer_0_IA1_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Allocate_unit_0" PORT="PC1"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="15" NAME="IA2_out" RIGHT="0" SIGIS="undef" SIGNAME="DispatchBuffer_0_IA2_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Allocate_unit_0" PORT="PC2"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="3" NAME="op1_out" RIGHT="0" SIGIS="undef" SIGNAME="DispatchBuffer_0_op1_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="RegWrite_Ctrl_0" PORT="op1"/>
+            <CONNECTION INSTANCE="Control_Unit_0" PORT="op1"/>
+            <CONNECTION INSTANCE="Allocate_unit_0" PORT="op1"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="3" NAME="op2_out" RIGHT="0" SIGIS="undef" SIGNAME="DispatchBuffer_0_op2_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="RegWrite_Ctrl_0" PORT="op2"/>
+            <CONNECTION INSTANCE="Control_Unit_0" PORT="op2"/>
+            <CONNECTION INSTANCE="Allocate_unit_0" PORT="op2"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="2" NAME="RA1_out" RIGHT="0" SIGIS="undef" SIGNAME="DispatchBuffer_0_RA1_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Register_Interdepend_0" PORT="RA1"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="2" NAME="RA2_out" RIGHT="0" SIGIS="undef" SIGNAME="DispatchBuffer_0_RA2_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Register_Interdepend_0" PORT="RA2"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="2" NAME="RB1_out" RIGHT="0" SIGIS="undef" SIGNAME="DispatchBuffer_0_RB1_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Register_Interdepend_0" PORT="RB1"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="2" NAME="RB2_out" RIGHT="0" SIGIS="undef" SIGNAME="DispatchBuffer_0_RB2_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Register_Interdepend_0" PORT="RB2"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="2" NAME="RC1_out" RIGHT="0" SIGIS="undef" SIGNAME="DispatchBuffer_0_RC1_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Register_Interdepend_0" PORT="RC1"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="2" NAME="RC2_out" RIGHT="0" SIGIS="undef" SIGNAME="DispatchBuffer_0_RC2_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Register_Interdepend_0" PORT="RC2"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="comp1_out" SIGIS="undef" SIGNAME="DispatchBuffer_0_comp1_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Control_Unit_0" PORT="Comp1"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="comp2_out" SIGIS="undef" SIGNAME="DispatchBuffer_0_comp2_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Control_Unit_0" PORT="Comp2"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="1" NAME="CZ1_out" RIGHT="0" SIGIS="undef" SIGNAME="DispatchBuffer_0_CZ1_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Control_Unit_0" PORT="CZ1"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="1" NAME="CZ2_out" RIGHT="0" SIGIS="undef" SIGNAME="DispatchBuffer_0_CZ2_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Control_Unit_0" PORT="CZ2"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="5" NAME="Imm1_1_out" RIGHT="0" SIGIS="undef" SIGNAME="DispatchBuffer_0_Imm1_1_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="Imm1_1_out_0"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="5" NAME="Imm1_2_out" RIGHT="0" SIGIS="undef" SIGNAME="DispatchBuffer_0_Imm1_2_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="Imm1_2_out_0"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="8" NAME="Imm2_1_out" RIGHT="0" SIGIS="undef" SIGNAME="DispatchBuffer_0_Imm2_1_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Allocate_unit_0" PORT="Imm2_1"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="8" NAME="Imm2_2_out" RIGHT="0" SIGIS="undef" SIGNAME="DispatchBuffer_0_Imm2_2_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Allocate_unit_0" PORT="Imm2_2"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="15" NAME="SEI1_1_out" RIGHT="0" SIGIS="undef" SIGNAME="DispatchBuffer_0_SEI1_1_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Allocate_unit_0" PORT="SEI1_1"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="15" NAME="SEI1_2_out" RIGHT="0" SIGIS="undef" SIGNAME="DispatchBuffer_0_SEI1_2_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Allocate_unit_0" PORT="SEI1_2"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="15" NAME="SEI2_1_out" RIGHT="0" SIGIS="undef" SIGNAME="DispatchBuffer_0_SEI2_1_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Allocate_unit_0" PORT="SEI2_1"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="15" NAME="SEI2_2_out" RIGHT="0" SIGIS="undef" SIGNAME="DispatchBuffer_0_SEI2_2_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Allocate_unit_0" PORT="SEI2_2"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="1" NAME="spec_tag1_out" RIGHT="0" SIGIS="undef" SIGNAME="DispatchBuffer_0_spec_tag1_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Allocate_unit_0" PORT="spec_tag1"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="1" NAME="spec_tag2_out" RIGHT="0" SIGIS="undef" SIGNAME="DispatchBuffer_0_spec_tag2_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Allocate_unit_0" PORT="spec_tag2"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="valid_out1" SIGIS="undef" SIGNAME="DispatchBuffer_0_valid_out1">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="RegWrite_Ctrl_0" PORT="valid1"/>
+            <CONNECTION INSTANCE="Allocate_unit_0" PORT="valid1"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="valid_out2" SIGIS="undef" SIGNAME="DispatchBuffer_0_valid_out2">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="RegWrite_Ctrl_0" PORT="valid2"/>
+            <CONNECTION INSTANCE="Allocate_unit_0" PORT="valid2"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="branch_predict1_out" SIGIS="undef" SIGNAME="DispatchBuffer_0_branch_predict1_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Allocate_unit_0" PORT="branch_predict1"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="branch_predict2_out" SIGIS="undef" SIGNAME="DispatchBuffer_0_branch_predict2_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Allocate_unit_0" PORT="branch_predict2"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="full" SIGIS="undef" SIGNAME="DispatchBuffer_0_full">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="full_0"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="empty" SIGIS="undef" SIGNAME="DispatchBuffer_0_empty">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="empty_0"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/Instruction_Memory_0" HWVERSION="1.0" INSTANCE="Instruction_Memory_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="Instruction_Memory" VLNV="xilinx.com:module_ref:Instruction_Memory:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="depth" VALUE="32"/>
+        <PARAMETER NAME="Component_Name" VALUE="Superscalar_Processor_Instruction_Memory_0_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="I" NAME="rst" SIGIS="rst" SIGNAME="External_Ports_rst_0">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="rst_0"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="PC" RIGHT="0" SIGIS="undef" SIGNAME="PC_0_PC_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="PC_0" PORT="PC_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="15" NAME="instr1" RIGHT="0" SIGIS="undef" SIGNAME="Instruction_Memory_0_instr1">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Valid_instruction_ch_0" PORT="instr1"/>
+            <CONNECTION INSTANCE="decode_buffer_0" PORT="instr1_in"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="15" NAME="instr2" RIGHT="0" SIGIS="undef" SIGNAME="Instruction_Memory_0_instr2">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Valid_instruction_ch_0" PORT="instr2"/>
+            <CONNECTION INSTANCE="decode_buffer_0" PORT="instr2_in"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/Issue_Unit_0" HWVERSION="1.0" INSTANCE="Issue_Unit_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="Issue_Unit" VLNV="xilinx.com:module_ref:Issue_Unit:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="Component_Name" VALUE="Superscalar_Processor_Issue_Unit_0_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="I" LEFT="2" NAME="FU0" RIGHT="0" SIGIS="undef" SIGNAME="Reservation_Station_0_FU_bits0">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Reservation_Station_0" PORT="FU_bits0"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="2" NAME="FU1" RIGHT="0" SIGIS="undef" SIGNAME="Reservation_Station_0_FU_bits1">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Reservation_Station_0" PORT="FU_bits1"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="2" NAME="FU2" RIGHT="0" SIGIS="undef" SIGNAME="Reservation_Station_0_FU_bits2">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Reservation_Station_0" PORT="FU_bits2"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="2" NAME="FU3" RIGHT="0" SIGIS="undef" SIGNAME="Reservation_Station_0_FU_bits3">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Reservation_Station_0" PORT="FU_bits3"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="2" NAME="FU4" RIGHT="0" SIGIS="undef" SIGNAME="Reservation_Station_0_FU_bits4">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Reservation_Station_0" PORT="FU_bits4"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="2" NAME="FU5" RIGHT="0" SIGIS="undef" SIGNAME="Reservation_Station_0_FU_bits5">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Reservation_Station_0" PORT="FU_bits5"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="2" NAME="FU6" RIGHT="0" SIGIS="undef" SIGNAME="Reservation_Station_0_FU_bits6">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Reservation_Station_0" PORT="FU_bits6"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="2" NAME="FU7" RIGHT="0" SIGIS="undef" SIGNAME="Reservation_Station_0_FU_bits7">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Reservation_Station_0" PORT="FU_bits7"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="PC0" RIGHT="0" SIGIS="undef" SIGNAME="Reservation_Station_0_PC0">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Reservation_Station_0" PORT="PC0"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="PC1" RIGHT="0" SIGIS="undef" SIGNAME="Reservation_Station_0_PC1">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Reservation_Station_0" PORT="PC1"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="PC2" RIGHT="0" SIGIS="undef" SIGNAME="Reservation_Station_0_PC2">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Reservation_Station_0" PORT="PC2"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="PC3" RIGHT="0" SIGIS="undef" SIGNAME="Reservation_Station_0_PC3">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Reservation_Station_0" PORT="PC3"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="PC4" RIGHT="0" SIGIS="undef" SIGNAME="Reservation_Station_0_PC4">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Reservation_Station_0" PORT="PC4"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="PC5" RIGHT="0" SIGIS="undef" SIGNAME="Reservation_Station_0_PC5">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Reservation_Station_0" PORT="PC5"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="PC6" RIGHT="0" SIGIS="undef" SIGNAME="Reservation_Station_0_PC6">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Reservation_Station_0" PORT="PC6"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="PC7" RIGHT="0" SIGIS="undef" SIGNAME="Reservation_Station_0_PC7">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Reservation_Station_0" PORT="PC7"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="7" NAME="Ready_bits" RIGHT="0" SIGIS="undef" SIGNAME="Reservation_Station_0_Ready">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Reservation_Station_0" PORT="Ready"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="2" NAME="Issue_RS_b" RIGHT="0" SIGIS="undef" SIGNAME="Issue_Unit_0_Issue_RS_b">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Reservation_Station_0" PORT="issue_RS_b"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="2" NAME="Issue_RS_a" RIGHT="0" SIGIS="undef" SIGNAME="Issue_Unit_0_Issue_RS_a">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Reservation_Station_0" PORT="issue_RS_a"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="2" NAME="Issue_RS_ls" RIGHT="0" SIGIS="undef" SIGNAME="Issue_Unit_0_Issue_RS_ls">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Reservation_Station_0" PORT="issue_RS_ls"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="15" NAME="PC_bi" RIGHT="0" SIGIS="undef" SIGNAME="Issue_Unit_0_PC_bi">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Reorder_Buffer_0" PORT="PC_bi"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="15" NAME="PC_ai" RIGHT="0" SIGIS="undef" SIGNAME="Issue_Unit_0_PC_ai">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Reorder_Buffer_0" PORT="PC_ai"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="15" NAME="PC_a2i" RIGHT="0" SIGIS="undef" SIGNAME="Issue_Unit_0_PC_a2i">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Reorder_Buffer_0" PORT="PC_a2i"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="15" NAME="PC_lsi" RIGHT="0" SIGIS="undef" SIGNAME="Issue_Unit_0_PC_lsi">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Reorder_Buffer_0" PORT="PC_lsi"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="2" NAME="Issue_RS_a2" RIGHT="0" SIGIS="undef" SIGNAME="Issue_Unit_0_Issue_RS_a2">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Reservation_Station_0" PORT="issue_RS_a2"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="valid_issue_b" SIGIS="undef" SIGNAME="Issue_Unit_0_valid_issue_b">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Reorder_Buffer_0" PORT="valid_bi"/>
+            <CONNECTION INSTANCE="Reservation_Station_0" PORT="valid_issue_b"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="valid_issue_a" SIGIS="undef" SIGNAME="Issue_Unit_0_valid_issue_a">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Reorder_Buffer_0" PORT="valid_ai"/>
+            <CONNECTION INSTANCE="Reservation_Station_0" PORT="valid_issue_a"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="valid_issue_ls" SIGIS="undef" SIGNAME="Issue_Unit_0_valid_issue_ls">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Reorder_Buffer_0" PORT="valid_lsi"/>
+            <CONNECTION INSTANCE="Reservation_Station_0" PORT="valid_issue_ls"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="valid_issue_a2" SIGIS="undef" SIGNAME="Issue_Unit_0_valid_issue_a2">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Reorder_Buffer_0" PORT="valid_a2i"/>
+            <CONNECTION INSTANCE="Reservation_Station_0" PORT="valid_issue_a2"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/PC_0" HWVERSION="1.0" INSTANCE="PC_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="PC" VLNV="xilinx.com:module_ref:PC:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="BOOT_ADDRESS" VALUE="0x0000"/>
+        <PARAMETER NAME="Component_Name" VALUE="Superscalar_Processor_PC_0_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT CLKFREQUENCY="100000000" DIR="I" NAME="clk" SIGIS="clk" SIGNAME="External_Ports_clk_0">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="clk_0"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="rst" SIGIS="rst" SIGNAME="External_Ports_rst_0">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="rst_0"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="branch_predict1" SIGIS="undef" SIGNAME="xlconstant_0_dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="xlconstant_0" PORT="dout"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="branch_predict_PC1" RIGHT="0" SIGIS="undef" SIGNAME="xlconstant_0_dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="xlconstant_0" PORT="dout"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="branch_predict2" SIGIS="undef" SIGNAME="xlconstant_0_dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="xlconstant_0" PORT="dout"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="branch_predict_PC2" RIGHT="0" SIGIS="undef" SIGNAME="xlconstant_0_dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="xlconstant_0" PORT="dout"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="branch_resolve" SIGIS="undef" SIGNAME="xlconstant_0_dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="xlconstant_0" PORT="dout"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="branch_resolve_PC" RIGHT="0" SIGIS="undef" SIGNAME="xlconstant_0_dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="xlconstant_0" PORT="dout"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="PC_Write" SIGIS="undef" SIGNAME="xlconstant_1_dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="xlconstant_1" PORT="dout"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="PC_in" RIGHT="0" SIGIS="undef" SIGNAME="PC_0_PC_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="PC_0" PORT="PC_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="15" NAME="PC_out" RIGHT="0" SIGIS="undef" SIGNAME="PC_0_PC_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="PC_0" PORT="PC_in"/>
+            <CONNECTION INSTANCE="Instruction_Memory_0" PORT="PC"/>
+            <CONNECTION INSTANCE="decode_buffer_0" PORT="PC_in"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/RegWrite_Ctrl_0" HWVERSION="1.0" INSTANCE="RegWrite_Ctrl_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="RegWrite_Ctrl" VLNV="xilinx.com:module_ref:RegWrite_Ctrl:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="Component_Name" VALUE="Superscalar_Processor_RegWrite_Ctrl_0_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="I" NAME="valid1" SIGIS="undef" SIGNAME="DispatchBuffer_0_valid_out1">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="DispatchBuffer_0" PORT="valid_out1"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="valid2" SIGIS="undef" SIGNAME="DispatchBuffer_0_valid_out2">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="DispatchBuffer_0" PORT="valid_out2"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="3" NAME="op1" RIGHT="0" SIGIS="undef" SIGNAME="DispatchBuffer_0_op1_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="DispatchBuffer_0" PORT="op1_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="3" NAME="op2" RIGHT="0" SIGIS="undef" SIGNAME="DispatchBuffer_0_op2_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="DispatchBuffer_0" PORT="op2_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="stall" SIGIS="undef" SIGNAME="xlconstant_0_dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="xlconstant_0" PORT="dout"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="RegWrite1" SIGIS="undef" SIGNAME="RegWrite_Ctrl_0_RegWrite1">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Register_Interdepend_0" PORT="RW1"/>
+            <CONNECTION INSTANCE="Control_Unit_0" PORT="RegWrite1"/>
+            <CONNECTION INSTANCE="Allocate_unit_0" PORT="RegWrite1"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="RegWrite2" SIGIS="undef" SIGNAME="RegWrite_Ctrl_0_RegWrite2">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Register_Interdepend_0" PORT="RW2"/>
+            <CONNECTION INSTANCE="Control_Unit_0" PORT="RegWrite2"/>
+            <CONNECTION INSTANCE="Allocate_unit_0" PORT="RegWrite2"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/Register_File_0" HWVERSION="1.0" INSTANCE="Register_File_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="Register_File" VLNV="xilinx.com:module_ref:Register_File:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="Component_Name" VALUE="Superscalar_Processor_Register_File_0_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT CLKFREQUENCY="100000000" DIR="I" NAME="clk" SIGIS="clk" SIGNAME="External_Ports_clk_0">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="clk_0"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="rst" SIGIS="rst" SIGNAME="External_Ports_rst_0">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="rst_0"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="2" NAME="ROB_tag1" RIGHT="0" SIGIS="undef" SIGNAME="Allocate_unit_0_ROB_tag1">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Allocate_unit_0" PORT="ROB_tag1"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="2" NAME="ROB_tag2" RIGHT="0" SIGIS="undef" SIGNAME="Allocate_unit_0_ROB_tag2">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Allocate_unit_0" PORT="ROB_tag2"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="RegWrite1" SIGIS="undef" SIGNAME="Allocate_unit_0_RegWrite1_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Allocate_unit_0" PORT="RegWrite1_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="RegWrite2" SIGIS="undef" SIGNAME="Allocate_unit_0_RegWrite2_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Allocate_unit_0" PORT="RegWrite2_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="2" NAME="RAA1" RIGHT="0" SIGIS="undef" SIGNAME="Allocate_unit_0_RA1_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Allocate_unit_0" PORT="RA1_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="2" NAME="RAA2" RIGHT="0" SIGIS="undef" SIGNAME="Allocate_unit_0_RA2_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Allocate_unit_0" PORT="RA2_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="2" NAME="RBB1" RIGHT="0" SIGIS="undef" SIGNAME="Allocate_unit_0_RB1_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Allocate_unit_0" PORT="RB1_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="2" NAME="RBB2" RIGHT="0" SIGIS="undef" SIGNAME="Allocate_unit_0_RB2_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Allocate_unit_0" PORT="RB2_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="2" NAME="RCC1" RIGHT="0" SIGIS="undef" SIGNAME="Allocate_unit_0_RC1_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Allocate_unit_0" PORT="RC1_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="2" NAME="RCC2" RIGHT="0" SIGIS="undef" SIGNAME="Allocate_unit_0_RC2_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Allocate_unit_0" PORT="RC2_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="1" NAME="FU_bits1" RIGHT="0" SIGIS="undef" SIGNAME="Allocate_unit_0_FU_bits1_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Allocate_unit_0" PORT="FU_bits1_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="1" NAME="FU_bits2" RIGHT="0" SIGIS="undef" SIGNAME="Allocate_unit_0_FU_bits2_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Allocate_unit_0" PORT="FU_bits2_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="valid1" SIGIS="undef" SIGNAME="Allocate_unit_0_valid1_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Allocate_unit_0" PORT="valid1_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="valid2" SIGIS="undef" SIGNAME="Allocate_unit_0_valid2_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Allocate_unit_0" PORT="valid2_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="2" NAME="RAW" RIGHT="0" SIGIS="undef" SIGNAME="Register_Interdepend_0_RAW">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Register_Interdepend_0" PORT="RAW"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="WAR" SIGIS="undef" SIGNAME="Register_Interdepend_0_WAR">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Register_Interdepend_0" PORT="WAR"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="WAW" SIGIS="undef" SIGNAME="Register_Interdepend_0_WAW">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Register_Interdepend_0" PORT="WAW"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="wb1" SIGIS="undef" SIGNAME="Write_back_signals_0_wR1">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Write_back_signals_0" PORT="wR1"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="wb2" SIGIS="undef" SIGNAME="Write_back_signals_0_wR2">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Write_back_signals_0" PORT="wR2"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="ROB1" SIGIS="undef" SIGNAME="Reorder_Buffer_0_ROB1">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Reorder_Buffer_0" PORT="ROB1"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="ROB2" SIGIS="undef" SIGNAME="Reorder_Buffer_0_ROB2">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Reorder_Buffer_0" PORT="ROB2"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="2" NAME="RD1" RIGHT="0" SIGIS="undef" SIGNAME="Reorder_Buffer_0_RD1">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Reorder_Buffer_0" PORT="RD1"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="2" NAME="RD2" RIGHT="0" SIGIS="undef" SIGNAME="Reorder_Buffer_0_RD2">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Reorder_Buffer_0" PORT="RD2"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="reg_data1" RIGHT="0" SIGIS="undef" SIGNAME="Reorder_Buffer_0_reg_data1">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Reorder_Buffer_0" PORT="reg_data1"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="reg_data2" RIGHT="0" SIGIS="undef" SIGNAME="Reorder_Buffer_0_reg_data2">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Reorder_Buffer_0" PORT="reg_data2"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="15" NAME="ra1" RIGHT="0" SIGIS="undef" SIGNAME="Register_File_0_ra1">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Allocate_unit_0" PORT="ra1"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="15" NAME="ra2" RIGHT="0" SIGIS="undef" SIGNAME="Register_File_0_ra2">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Allocate_unit_0" PORT="ra2"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="15" NAME="rb1" RIGHT="0" SIGIS="undef" SIGNAME="Register_File_0_rb1">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Allocate_unit_0" PORT="rb1"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="15" NAME="rb2" RIGHT="0" SIGIS="undef" SIGNAME="Register_File_0_rb2">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Allocate_unit_0" PORT="rb2"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="15" NAME="rc1" RIGHT="0" SIGIS="undef" SIGNAME="Register_File_0_rc1">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Allocate_unit_0" PORT="rc1"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="15" NAME="rc2" RIGHT="0" SIGIS="undef" SIGNAME="Register_File_0_rc2">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Allocate_unit_0" PORT="rc2"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="v_ra1" SIGIS="undef" SIGNAME="Register_File_0_v_ra1">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Allocate_unit_0" PORT="v_ra1"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="v_ra2" SIGIS="undef" SIGNAME="Register_File_0_v_ra2">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Allocate_unit_0" PORT="v_ra2"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="v_rb1" SIGIS="undef" SIGNAME="Register_File_0_v_rb1">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Allocate_unit_0" PORT="v_rb1"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="v_rb2" SIGIS="undef" SIGNAME="Register_File_0_v_rb2">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Allocate_unit_0" PORT="v_rb2"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="v_rc1" SIGIS="undef" SIGNAME="Register_File_0_v_rc1">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Allocate_unit_0" PORT="v_rc1"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="v_rc2" SIGIS="undef" SIGNAME="Register_File_0_v_rc2">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Allocate_unit_0" PORT="v_rc2"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/Register_Interdepend_0" HWVERSION="1.0" INSTANCE="Register_Interdepend_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="Register_Interdependence" VLNV="xilinx.com:module_ref:Register_Interdependence:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="Component_Name" VALUE="Superscalar_Processor_Register_Interdepend_0_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="I" NAME="RW1" SIGIS="undef" SIGNAME="RegWrite_Ctrl_0_RegWrite1">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="RegWrite_Ctrl_0" PORT="RegWrite1"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="RW2" SIGIS="undef" SIGNAME="RegWrite_Ctrl_0_RegWrite2">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="RegWrite_Ctrl_0" PORT="RegWrite2"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="RA1" SIGIS="undef" SIGNAME="DispatchBuffer_0_RA1_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="DispatchBuffer_0" PORT="RA1_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="RA2" SIGIS="undef" SIGNAME="DispatchBuffer_0_RA2_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="DispatchBuffer_0" PORT="RA2_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="RB1" SIGIS="undef" SIGNAME="DispatchBuffer_0_RB1_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="DispatchBuffer_0" PORT="RB1_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="RB2" SIGIS="undef" SIGNAME="DispatchBuffer_0_RB2_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="DispatchBuffer_0" PORT="RB2_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="RC1" SIGIS="undef" SIGNAME="DispatchBuffer_0_RC1_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="DispatchBuffer_0" PORT="RC1_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="RC2" SIGIS="undef" SIGNAME="DispatchBuffer_0_RC2_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="DispatchBuffer_0" PORT="RC2_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="FU_bits1" SIGIS="undef" SIGNAME="Control_Unit_0_FU_bits1">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Control_Unit_0" PORT="FU_bits1"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="FU_bits2" SIGIS="undef" SIGNAME="Control_Unit_0_FU_bits2">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Control_Unit_0" PORT="FU_bits2"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="2" NAME="RAW" RIGHT="0" SIGIS="undef" SIGNAME="Register_Interdepend_0_RAW">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Register_File_0" PORT="RAW"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="WAR" SIGIS="undef" SIGNAME="Register_Interdepend_0_WAR">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Register_File_0" PORT="WAR"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="WAW" SIGIS="undef" SIGNAME="Register_Interdepend_0_WAW">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Register_File_0" PORT="WAW"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/Reorder_Buffer_0" HWVERSION="1.0" INSTANCE="Reorder_Buffer_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="Reorder_Buffer" VLNV="xilinx.com:module_ref:Reorder_Buffer:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="Component_Name" VALUE="Superscalar_Processor_Reorder_Buffer_0_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT CLKFREQUENCY="100000000" DIR="I" NAME="clk" SIGIS="clk" SIGNAME="External_Ports_clk_0">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="clk_0"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="rst" SIGIS="rst" SIGNAME="External_Ports_rst_0">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="rst_0"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="2" NAME="ROB_tag1" RIGHT="0" SIGIS="undef" SIGNAME="Allocate_unit_0_ROB_tag1">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Allocate_unit_0" PORT="ROB_tag1"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="2" NAME="ROB_tag2" RIGHT="0" SIGIS="undef" SIGNAME="Allocate_unit_0_ROB_tag2">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Allocate_unit_0" PORT="ROB_tag2"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="valid1" SIGIS="undef" SIGNAME="Allocate_unit_0_valid1_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Allocate_unit_0" PORT="valid1_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="valid2" SIGIS="undef" SIGNAME="Allocate_unit_0_valid2_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Allocate_unit_0" PORT="valid2_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="23" NAME="ROB_input1" RIGHT="0" SIGIS="undef" SIGNAME="Allocate_unit_0_ROB_input1">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Allocate_unit_0" PORT="ROB_input1"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="23" NAME="ROB_input2" RIGHT="0" SIGIS="undef" SIGNAME="Allocate_unit_0_ROB_input2">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Allocate_unit_0" PORT="ROB_input2"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="PC_bi" RIGHT="0" SIGIS="undef" SIGNAME="Issue_Unit_0_PC_bi">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Issue_Unit_0" PORT="PC_bi"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="PC_ai" RIGHT="0" SIGIS="undef" SIGNAME="Issue_Unit_0_PC_ai">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Issue_Unit_0" PORT="PC_ai"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="PC_a2i" RIGHT="0" SIGIS="undef" SIGNAME="Issue_Unit_0_PC_a2i">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Issue_Unit_0" PORT="PC_a2i"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="PC_lsi" RIGHT="0" SIGIS="undef" SIGNAME="Issue_Unit_0_PC_lsi">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Issue_Unit_0" PORT="PC_lsi"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="valid_bi" SIGIS="undef" SIGNAME="Issue_Unit_0_valid_issue_b">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Issue_Unit_0" PORT="valid_issue_b"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="valid_ai" SIGIS="undef" SIGNAME="Issue_Unit_0_valid_issue_a">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Issue_Unit_0" PORT="valid_issue_a"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="valid_a2i" SIGIS="undef" SIGNAME="Issue_Unit_0_valid_issue_a2">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Issue_Unit_0" PORT="valid_issue_a2"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="valid_lsi" SIGIS="undef" SIGNAME="Issue_Unit_0_valid_issue_ls">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Issue_Unit_0" PORT="valid_issue_ls"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="1" NAME="spec_tag_b" RIGHT="0" SIGIS="undef" SIGNAME="xlconstant_1_dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="xlconstant_1" PORT="dout"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="PC_b_cdb" RIGHT="0" SIGIS="undef" SIGNAME="xlconstant_1_dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="xlconstant_1" PORT="dout"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="PC_a_cdb" RIGHT="0" SIGIS="undef" SIGNAME="ALU_0_PC_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="ALU_0" PORT="PC_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="PC_a2_cdb" RIGHT="0" SIGIS="undef" SIGNAME="ALU_1_PC_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="ALU_1" PORT="PC_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="PC_ls_cdb" RIGHT="0" SIGIS="undef" SIGNAME="xlconstant_1_dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="xlconstant_1" PORT="dout"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="valid_b_cdb" SIGIS="undef" SIGNAME="xlconstant_0_dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="xlconstant_0" PORT="dout"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="valid_a_cdb" SIGIS="undef" SIGNAME="ALU_0_valid_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="ALU_0" PORT="valid_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="valid_a2_cdb" SIGIS="undef" SIGNAME="ALU_1_valid_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="ALU_1" PORT="valid_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="valid_ls_cdb" SIGIS="undef" SIGNAME="xlconstant_0_dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="xlconstant_0" PORT="dout"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="reg_data_b" RIGHT="0" SIGIS="undef" SIGNAME="xlconstant_1_dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="xlconstant_1" PORT="dout"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="alu_out" RIGHT="0" SIGIS="undef" SIGNAME="ALU_0_alu_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="ALU_0" PORT="alu_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="alu2_out" RIGHT="0" SIGIS="undef" SIGNAME="ALU_1_alu_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="ALU_1" PORT="alu_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="dm_data" RIGHT="0" SIGIS="undef" SIGNAME="xlconstant_1_dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="xlconstant_1" PORT="dout"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="2" NAME="ROB_b_cdb" RIGHT="0" SIGIS="undef" SIGNAME="xlconstant_1_dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="xlconstant_1" PORT="dout"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="2" NAME="ROB_a_cdb" RIGHT="0" SIGIS="undef" SIGNAME="ALU_0_ROB_tag_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="ALU_0" PORT="ROB_tag_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="2" NAME="ROB_a2_cdb" RIGHT="0" SIGIS="undef" SIGNAME="ALU_1_ROB_tag_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="ALU_1" PORT="ROB_tag_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="2" NAME="ROB_ls_cdb" RIGHT="0" SIGIS="undef" SIGNAME="xlconstant_1_dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="xlconstant_1" PORT="dout"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="misprediction" SIGIS="undef" SIGNAME="xlconstant_0_dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="xlconstant_0" PORT="dout"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="2" NAME="wb1" RIGHT="0" SIGIS="undef" SIGNAME="Reorder_Buffer_0_wb1">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Write_back_signals_0" PORT="wb1"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="2" NAME="wb2" RIGHT="0" SIGIS="undef" SIGNAME="Reorder_Buffer_0_wb2">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Write_back_signals_0" PORT="wb2"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="15" NAME="reg_data1" RIGHT="0" SIGIS="undef" SIGNAME="Reorder_Buffer_0_reg_data1">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Register_File_0" PORT="reg_data1"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="15" NAME="reg_data2" RIGHT="0" SIGIS="undef" SIGNAME="Reorder_Buffer_0_reg_data2">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Register_File_0" PORT="reg_data2"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="2" NAME="RD1" RIGHT="0" SIGIS="undef" SIGNAME="Reorder_Buffer_0_RD1">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Register_File_0" PORT="RD1"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="2" NAME="RD2" RIGHT="0" SIGIS="undef" SIGNAME="Reorder_Buffer_0_RD2">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Register_File_0" PORT="RD2"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="15" NAME="ROB1" RIGHT="0" SIGIS="undef" SIGNAME="Reorder_Buffer_0_ROB1">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Register_File_0" PORT="ROB1"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="15" NAME="ROB2" RIGHT="0" SIGIS="undef" SIGNAME="Reorder_Buffer_0_ROB2">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Register_File_0" PORT="ROB2"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="7" NAME="Busy" RIGHT="0" SIGIS="undef" SIGNAME="Reorder_Buffer_0_Busy">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="Busy_0"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="2" NAME="head" RIGHT="0" SIGIS="undef" SIGNAME="Reorder_Buffer_0_head">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Allocate_unit_0" PORT="ROB_head"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="2" NAME="tail" RIGHT="0" SIGIS="undef" SIGNAME="Reorder_Buffer_0_tail">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Allocate_unit_0" PORT="ROB_tail"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/Reservation_Station_0" HWVERSION="1.0" INSTANCE="Reservation_Station_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="Reservation_Station" VLNV="xilinx.com:module_ref:Reservation_Station:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="Component_Name" VALUE="Superscalar_Processor_Reservation_Station_0_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT CLKFREQUENCY="100000000" DIR="I" NAME="clk" SIGIS="clk" SIGNAME="External_Ports_clk_0">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="clk_0"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="rst" SIGIS="rst" SIGNAME="External_Ports_rst_0">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="rst_0"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="136" NAME="RS_input1" RIGHT="0" SIGIS="undef" SIGNAME="Allocate_unit_0_RS_input1">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Allocate_unit_0" PORT="RS_input1"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="136" NAME="RS_input2" RIGHT="0" SIGIS="undef" SIGNAME="Allocate_unit_0_RS_input2">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Allocate_unit_0" PORT="RS_input2"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="valid1" SIGIS="undef" SIGNAME="Allocate_unit_0_valid1_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Allocate_unit_0" PORT="valid1_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="valid2" SIGIS="undef" SIGNAME="Allocate_unit_0_valid2_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Allocate_unit_0" PORT="valid2_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="2" NAME="RS_tag1" RIGHT="0" SIGIS="undef" SIGNAME="Allocate_unit_0_RS_tag1">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Allocate_unit_0" PORT="RS_tag1"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="2" NAME="RS_tag2" RIGHT="0" SIGIS="undef" SIGNAME="Allocate_unit_0_RS_tag2">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Allocate_unit_0" PORT="RS_tag2"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="7" NAME="Busy" RIGHT="0" SIGIS="undef" SIGNAME="Reservation_Station_0_Busy">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Allocate_unit_0" PORT="RS_free_bitmap"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="2" NAME="issue_RS_b" RIGHT="0" SIGIS="undef" SIGNAME="Issue_Unit_0_Issue_RS_b">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Issue_Unit_0" PORT="Issue_RS_b"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="2" NAME="issue_RS_a" RIGHT="0" SIGIS="undef" SIGNAME="Issue_Unit_0_Issue_RS_a">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Issue_Unit_0" PORT="Issue_RS_a"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="2" NAME="issue_RS_a2" RIGHT="0" SIGIS="undef" SIGNAME="Issue_Unit_0_Issue_RS_a2">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Issue_Unit_0" PORT="Issue_RS_a2"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="2" NAME="issue_RS_ls" RIGHT="0" SIGIS="undef" SIGNAME="Issue_Unit_0_Issue_RS_ls">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Issue_Unit_0" PORT="Issue_RS_ls"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="valid_issue_b" SIGIS="undef" SIGNAME="Issue_Unit_0_valid_issue_b">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Issue_Unit_0" PORT="valid_issue_b"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="valid_issue_a" SIGIS="undef" SIGNAME="Issue_Unit_0_valid_issue_a">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Issue_Unit_0" PORT="valid_issue_a"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="valid_issue_a2" SIGIS="undef" SIGNAME="Issue_Unit_0_valid_issue_a2">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Issue_Unit_0" PORT="valid_issue_a2"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="valid_issue_ls" SIGIS="undef" SIGNAME="Issue_Unit_0_valid_issue_ls">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Issue_Unit_0" PORT="valid_issue_ls"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="valid_b_cdb" SIGIS="undef" SIGNAME="xlconstant_0_dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="xlconstant_0" PORT="dout"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="valid_a_cdb" SIGIS="undef" SIGNAME="ALU_0_valid_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="ALU_0" PORT="valid_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="valid_a2_cdb" SIGIS="undef" SIGNAME="ALU_1_valid_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="ALU_1" PORT="valid_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="valid_ls_cdb" SIGIS="undef" SIGNAME="xlconstant_0_dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="xlconstant_0" PORT="dout"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="reg_data_b" RIGHT="0" SIGIS="undef" SIGNAME="xlconstant_0_dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="xlconstant_0" PORT="dout"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="alu_out" RIGHT="0" SIGIS="undef" SIGNAME="ALU_0_alu_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="ALU_0" PORT="alu_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="alu2_out" RIGHT="0" SIGIS="undef" SIGNAME="ALU_1_alu_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="ALU_1" PORT="alu_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="dm_data" RIGHT="0" SIGIS="undef" SIGNAME="xlconstant_0_dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="xlconstant_0" PORT="dout"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="2" NAME="ROB_b_cdb" RIGHT="0" SIGIS="undef" SIGNAME="xlconstant_0_dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="xlconstant_0" PORT="dout"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="2" NAME="ROB_a_cdb" RIGHT="0" SIGIS="undef" SIGNAME="ALU_0_ROB_tag_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="ALU_0" PORT="ROB_tag_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="2" NAME="ROB_a2_cdb" RIGHT="0" SIGIS="undef" SIGNAME="ALU_1_ROB_tag_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="ALU_1" PORT="ROB_tag_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="2" NAME="ROB_ls_cdb" RIGHT="0" SIGIS="undef" SIGNAME="xlconstant_0_dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="xlconstant_0" PORT="dout"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="2" NAME="FU_bits0" RIGHT="0" SIGIS="undef" SIGNAME="Reservation_Station_0_FU_bits0">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Issue_Unit_0" PORT="FU0"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="2" NAME="FU_bits1" RIGHT="0" SIGIS="undef" SIGNAME="Reservation_Station_0_FU_bits1">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Issue_Unit_0" PORT="FU1"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="2" NAME="FU_bits2" RIGHT="0" SIGIS="undef" SIGNAME="Reservation_Station_0_FU_bits2">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Issue_Unit_0" PORT="FU2"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="2" NAME="FU_bits3" RIGHT="0" SIGIS="undef" SIGNAME="Reservation_Station_0_FU_bits3">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Issue_Unit_0" PORT="FU3"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="2" NAME="FU_bits4" RIGHT="0" SIGIS="undef" SIGNAME="Reservation_Station_0_FU_bits4">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Issue_Unit_0" PORT="FU4"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="2" NAME="FU_bits5" RIGHT="0" SIGIS="undef" SIGNAME="Reservation_Station_0_FU_bits5">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Issue_Unit_0" PORT="FU5"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="2" NAME="FU_bits6" RIGHT="0" SIGIS="undef" SIGNAME="Reservation_Station_0_FU_bits6">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Issue_Unit_0" PORT="FU6"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="2" NAME="FU_bits7" RIGHT="0" SIGIS="undef" SIGNAME="Reservation_Station_0_FU_bits7">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Issue_Unit_0" PORT="FU7"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="15" NAME="PC0" RIGHT="0" SIGIS="undef" SIGNAME="Reservation_Station_0_PC0">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Issue_Unit_0" PORT="PC0"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="15" NAME="PC1" RIGHT="0" SIGIS="undef" SIGNAME="Reservation_Station_0_PC1">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Issue_Unit_0" PORT="PC1"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="15" NAME="PC2" RIGHT="0" SIGIS="undef" SIGNAME="Reservation_Station_0_PC2">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Issue_Unit_0" PORT="PC2"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="15" NAME="PC3" RIGHT="0" SIGIS="undef" SIGNAME="Reservation_Station_0_PC3">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Issue_Unit_0" PORT="PC3"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="15" NAME="PC4" RIGHT="0" SIGIS="undef" SIGNAME="Reservation_Station_0_PC4">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Issue_Unit_0" PORT="PC4"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="15" NAME="PC5" RIGHT="0" SIGIS="undef" SIGNAME="Reservation_Station_0_PC5">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Issue_Unit_0" PORT="PC5"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="15" NAME="PC6" RIGHT="0" SIGIS="undef" SIGNAME="Reservation_Station_0_PC6">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Issue_Unit_0" PORT="PC6"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="15" NAME="PC7" RIGHT="0" SIGIS="undef" SIGNAME="Reservation_Station_0_PC7">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Issue_Unit_0" PORT="PC7"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="7" NAME="Ready" RIGHT="0" SIGIS="undef" SIGNAME="Reservation_Station_0_Ready">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Issue_Unit_0" PORT="Ready_bits"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="3" NAME="op_b" RIGHT="0" SIGIS="undef" SIGNAME="Reservation_Station_0_op_b">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="op_b_0"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="2" NAME="ROB_tag_b" RIGHT="0" SIGIS="undef" SIGNAME="Reservation_Station_0_ROB_tag_b">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="ROB_tag_b_0"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="15" NAME="PC_b" RIGHT="0" SIGIS="undef" SIGNAME="Reservation_Station_0_PC_b">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="PC_b_0"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="15" NAME="ra_b" RIGHT="0" SIGIS="undef" SIGNAME="Reservation_Station_0_ra_b">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="ra_b_0"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="15" NAME="rb_b" RIGHT="0" SIGIS="undef" SIGNAME="Reservation_Station_0_rb_b">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="rb_b_0"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="v_ra_b" SIGIS="undef" SIGNAME="Reservation_Station_0_v_ra_b">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="v_ra_b_0"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="v_rb_b" SIGIS="undef" SIGNAME="Reservation_Station_0_v_rb_b">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="v_rb_b_0"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="15" NAME="SEI1_b" RIGHT="0" SIGIS="undef" SIGNAME="Reservation_Station_0_SEI1_b">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="SEI1_b_0"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="15" NAME="SEI2_b" RIGHT="0" SIGIS="undef" SIGNAME="Reservation_Station_0_SEI2_b">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="SEI2_b_0"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="1" NAME="spec_tag_b" RIGHT="0" SIGIS="undef" SIGNAME="Reservation_Station_0_spec_tag_b">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="spec_tag_b_0"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="b_p_b" SIGIS="undef" SIGNAME="Reservation_Station_0_b_p_b">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="b_p_b_0"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="3" NAME="b_ctrl_b" RIGHT="0" SIGIS="undef" SIGNAME="Reservation_Station_0_b_ctrl_b">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="b_ctrl_b_0"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="valid_b" SIGIS="undef" SIGNAME="Reservation_Station_0_valid_b">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="valid_b_0"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="2" NAME="ROB_tag_a" RIGHT="0" SIGIS="undef" SIGNAME="Reservation_Station_0_ROB_tag_a">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="ALU_0" PORT="ROB_tag"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="15" NAME="PC_a" RIGHT="0" SIGIS="undef" SIGNAME="Reservation_Station_0_PC_a">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="ALU_0" PORT="PC"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="15" NAME="ra_a" RIGHT="0" SIGIS="undef" SIGNAME="Reservation_Station_0_ra_a">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="ALU_0" PORT="ra"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="15" NAME="rb_a" RIGHT="0" SIGIS="undef" SIGNAME="Reservation_Station_0_rb_a">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="ALU_0" PORT="rb"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="15" NAME="rc_a" RIGHT="0" SIGIS="undef" SIGNAME="Reservation_Station_0_rc_a">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="ALU_0" PORT="rc"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="c_a" SIGIS="undef" SIGNAME="Reservation_Station_0_c_a">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="ALU_0" PORT="c"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="z_a" SIGIS="undef" SIGNAME="Reservation_Station_0_z_a">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="ALU_0" PORT="z"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="v_ra_a" SIGIS="undef" SIGNAME="Reservation_Station_0_v_ra_a">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="ALU_0" PORT="v_ra"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="v_rb_a" SIGIS="undef" SIGNAME="Reservation_Station_0_v_rb_a">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="ALU_0" PORT="v_rb"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="v_rc_a" SIGIS="undef" SIGNAME="Reservation_Station_0_v_rc_a">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="ALU_0" PORT="v_rc"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="v_c_a" SIGIS="undef" SIGNAME="Reservation_Station_0_v_c_a">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="ALU_0" PORT="v_c"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="v_z_a" SIGIS="undef" SIGNAME="Reservation_Station_0_v_z_a">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="ALU_0" PORT="v_z"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="1" NAME="spec_tag_a" RIGHT="0" SIGIS="undef" SIGNAME="Reservation_Station_0_spec_tag_a">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="ALU_0" PORT="spec_tag"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="5" NAME="a_ctrl_a" RIGHT="0" SIGIS="undef" SIGNAME="Reservation_Station_0_a_ctrl_a">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="ALU_0" PORT="a_ctrl"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="15" NAME="SEI1_a" RIGHT="0" SIGIS="undef" SIGNAME="Reservation_Station_0_SEI1_a">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="ALU_0" PORT="SEI1"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="valid_a" SIGIS="undef" SIGNAME="Reservation_Station_0_valid_a">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="ALU_0" PORT="valid"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="2" NAME="ROB_tag_a2" RIGHT="0" SIGIS="undef" SIGNAME="Reservation_Station_0_ROB_tag_a2">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="ALU_1" PORT="ROB_tag"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="15" NAME="PC_a2" RIGHT="0" SIGIS="undef" SIGNAME="Reservation_Station_0_PC_a2">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="ALU_1" PORT="PC"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="15" NAME="ra_a2" RIGHT="0" SIGIS="undef" SIGNAME="Reservation_Station_0_ra_a2">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="ALU_1" PORT="ra"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="15" NAME="rb_a2" RIGHT="0" SIGIS="undef" SIGNAME="Reservation_Station_0_rb_a2">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="ALU_1" PORT="rb"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="15" NAME="rc_a2" RIGHT="0" SIGIS="undef" SIGNAME="Reservation_Station_0_rc_a2">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="ALU_1" PORT="rc"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="c_a2" SIGIS="undef" SIGNAME="Reservation_Station_0_c_a2">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="ALU_1" PORT="c"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="z_a2" SIGIS="undef" SIGNAME="Reservation_Station_0_z_a2">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="ALU_1" PORT="z"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="v_ra_a2" SIGIS="undef" SIGNAME="Reservation_Station_0_v_ra_a2">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="ALU_1" PORT="v_ra"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="v_rb_a2" SIGIS="undef" SIGNAME="Reservation_Station_0_v_rb_a2">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="ALU_1" PORT="v_rb"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="v_rc_a2" SIGIS="undef" SIGNAME="Reservation_Station_0_v_rc_a2">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="ALU_1" PORT="v_rc"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="v_c_a2" SIGIS="undef" SIGNAME="Reservation_Station_0_v_c_a2">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="ALU_1" PORT="v_c"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="v_z_a2" SIGIS="undef" SIGNAME="Reservation_Station_0_v_z_a2">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="ALU_1" PORT="v_z"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="1" NAME="spec_tag_a2" RIGHT="0" SIGIS="undef" SIGNAME="Reservation_Station_0_spec_tag_a2">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="ALU_1" PORT="spec_tag"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="5" NAME="a_ctrl_a2" RIGHT="0" SIGIS="undef" SIGNAME="Reservation_Station_0_a_ctrl_a2">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="ALU_1" PORT="a_ctrl"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="15" NAME="SEI1_a2" RIGHT="0" SIGIS="undef" SIGNAME="Reservation_Station_0_SEI1_a2">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="ALU_1" PORT="SEI1"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="valid_a2" SIGIS="undef" SIGNAME="Reservation_Station_0_valid_a2">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="ALU_1" PORT="valid"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="2" NAME="ROB_tag_l" RIGHT="0" SIGIS="undef" SIGNAME="Reservation_Station_0_ROB_tag_l">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="ROB_tag_l_0"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="15" NAME="PC_l" RIGHT="0" SIGIS="undef" SIGNAME="Reservation_Station_0_PC_l">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="PC_l_0"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="15" NAME="ra_l" RIGHT="0" SIGIS="undef" SIGNAME="Reservation_Station_0_ra_l">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="ra_l_0"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="15" NAME="rb_l" RIGHT="0" SIGIS="undef" SIGNAME="Reservation_Station_0_rb_l">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="rb_l_0"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="v_ra_l" SIGIS="undef" SIGNAME="Reservation_Station_0_v_ra_l">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="v_ra_l_0"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="v_rb_l" SIGIS="undef" SIGNAME="Reservation_Station_0_v_rb_l">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="v_rb_l_0"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="8" NAME="Imm2_l" RIGHT="0" SIGIS="undef" SIGNAME="Reservation_Station_0_Imm2_l">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="Imm2_l_0"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="15" NAME="SEI1_l" RIGHT="0" SIGIS="undef" SIGNAME="Reservation_Station_0_SEI1_l">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="SEI1_l_0"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="15" NAME="SEI2_l" RIGHT="0" SIGIS="undef" SIGNAME="Reservation_Station_0_SEI2_l">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="SEI2_l_0"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="1" NAME="spec_tag_l" RIGHT="0" SIGIS="undef" SIGNAME="Reservation_Station_0_spec_tag_l">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="spec_tag_l_0"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="2" NAME="ls_ctrl_l" RIGHT="0" SIGIS="undef" SIGNAME="Reservation_Station_0_ls_ctrl_l">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="ls_ctrl_l_0"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="valid_l" SIGIS="undef" SIGNAME="Reservation_Station_0_valid_l">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="valid_l_0"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/Valid_instruction_ch_0" HWVERSION="1.0" INSTANCE="Valid_instruction_ch_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="Valid_instruction_checker" VLNV="xilinx.com:module_ref:Valid_instruction_checker:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="Component_Name" VALUE="Superscalar_Processor_Valid_instruction_ch_0_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="I" NAME="rst" SIGIS="rst" SIGNAME="External_Ports_rst_0">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="rst_0"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="instr1" RIGHT="0" SIGIS="undef" SIGNAME="Instruction_Memory_0_instr1">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Instruction_Memory_0" PORT="instr1"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="branch_predict1" SIGIS="undef" SIGNAME="xlconstant_0_dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="xlconstant_0" PORT="dout"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="instr2" RIGHT="0" SIGIS="undef" SIGNAME="Instruction_Memory_0_instr2">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Instruction_Memory_0" PORT="instr2"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="valid1" SIGIS="undef" SIGNAME="Valid_instruction_ch_0_valid1">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="decode_buffer_0" PORT="valid1_in"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="valid2" SIGIS="undef" SIGNAME="Valid_instruction_ch_0_valid2">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="decode_buffer_0" PORT="valid2_in"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/Write_back_signals_0" HWVERSION="1.0" INSTANCE="Write_back_signals_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="Write_back_signals" VLNV="xilinx.com:module_ref:Write_back_signals:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="Component_Name" VALUE="Superscalar_Processor_Write_back_signals_0_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="I" LEFT="2" NAME="wb1" RIGHT="0" SIGIS="undef" SIGNAME="Reorder_Buffer_0_wb1">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Reorder_Buffer_0" PORT="wb1"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="2" NAME="wb2" RIGHT="0" SIGIS="undef" SIGNAME="Reorder_Buffer_0_wb2">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Reorder_Buffer_0" PORT="wb2"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="wR1" SIGIS="undef" SIGNAME="Write_back_signals_0_wR1">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Register_File_0" PORT="wb1"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="wR2" SIGIS="undef" SIGNAME="Write_back_signals_0_wR2">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Register_File_0" PORT="wb2"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="wC1" SIGIS="undef" SIGNAME="Write_back_signals_0_wC1">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="wC1_0"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="wC2" SIGIS="undef" SIGNAME="Write_back_signals_0_wC2">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="wC2_0"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="wZ1" SIGIS="undef" SIGNAME="Write_back_signals_0_wZ1">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="wZ1_0"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="wZ2" SIGIS="undef" SIGNAME="Write_back_signals_0_wZ2">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="wZ2_0"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/decode_0" HWVERSION="1.0" INSTANCE="decode_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="decode" VLNV="xilinx.com:module_ref:decode:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="Component_Name" VALUE="Superscalar_Processor_decode_0_1"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT CLKFREQUENCY="100000000" DIR="I" NAME="clk" SIGIS="clk" SIGNAME="External_Ports_clk_0">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="clk_0"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="rst" SIGIS="rst" SIGNAME="External_Ports_rst_0">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="rst_0"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="IA1" RIGHT="0" SIGIS="undef" SIGNAME="decode_buffer_0_address_out1">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="decode_buffer_0" PORT="address_out1"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="IA2" RIGHT="0" SIGIS="undef" SIGNAME="decode_buffer_0_address_out2">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="decode_buffer_0" PORT="address_out2"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="instr1" RIGHT="0" SIGIS="undef" SIGNAME="decode_buffer_0_instr1_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="decode_buffer_0" PORT="instr1_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="instr2" RIGHT="0" SIGIS="undef" SIGNAME="decode_buffer_0_instr2_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="decode_buffer_0" PORT="instr2_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="branch_predict1" SIGIS="undef" SIGNAME="decode_buffer_0_branch_predict1_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="decode_buffer_0" PORT="branch_predict1_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="branch_predict2" SIGIS="undef" SIGNAME="decode_buffer_0_branch_predict2_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="decode_buffer_0" PORT="branch_predict2_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="valid1" SIGIS="undef" SIGNAME="decode_buffer_0_valid1_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="decode_buffer_0" PORT="valid1_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="valid2" SIGIS="undef" SIGNAME="decode_buffer_0_valid2_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="decode_buffer_0" PORT="valid2_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="15" NAME="IA1_out" RIGHT="0" SIGIS="undef" SIGNAME="decode_0_IA1_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="DispatchBuffer_0" PORT="IA1_in"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="15" NAME="IA2_out" RIGHT="0" SIGIS="undef" SIGNAME="decode_0_IA2_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="DispatchBuffer_0" PORT="IA2_in"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="3" NAME="op1" RIGHT="0" SIGIS="undef" SIGNAME="decode_0_op1">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="DispatchBuffer_0" PORT="op1_in"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="3" NAME="op2" RIGHT="0" SIGIS="undef" SIGNAME="decode_0_op2">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="DispatchBuffer_0" PORT="op2_in"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="2" NAME="RA1" RIGHT="0" SIGIS="undef" SIGNAME="decode_0_RA1">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="DispatchBuffer_0" PORT="RA1_in"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="2" NAME="RA2" RIGHT="0" SIGIS="undef" SIGNAME="decode_0_RA2">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="DispatchBuffer_0" PORT="RA2_in"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="2" NAME="RB1" RIGHT="0" SIGIS="undef" SIGNAME="decode_0_RB1">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="DispatchBuffer_0" PORT="RB1_in"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="2" NAME="RB2" RIGHT="0" SIGIS="undef" SIGNAME="decode_0_RB2">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="DispatchBuffer_0" PORT="RB2_in"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="2" NAME="RC1" RIGHT="0" SIGIS="undef" SIGNAME="decode_0_RC1">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="DispatchBuffer_0" PORT="RC1_in"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="2" NAME="RC2" RIGHT="0" SIGIS="undef" SIGNAME="decode_0_RC2">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="DispatchBuffer_0" PORT="RC2_in"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="comp1" SIGIS="undef" SIGNAME="decode_0_comp1">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="DispatchBuffer_0" PORT="comp1_in"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="comp2" SIGIS="undef" SIGNAME="decode_0_comp2">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="DispatchBuffer_0" PORT="comp2_in"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="1" NAME="CZ1" RIGHT="0" SIGIS="undef" SIGNAME="decode_0_CZ1">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="DispatchBuffer_0" PORT="CZ1_in"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="1" NAME="CZ2" RIGHT="0" SIGIS="undef" SIGNAME="decode_0_CZ2">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="DispatchBuffer_0" PORT="CZ2_in"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="5" NAME="Imm1_1" RIGHT="0" SIGIS="undef" SIGNAME="decode_0_Imm1_1">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="DispatchBuffer_0" PORT="Imm1_1_in"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="5" NAME="Imm1_2" RIGHT="0" SIGIS="undef" SIGNAME="decode_0_Imm1_2">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="DispatchBuffer_0" PORT="Imm1_2_in"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="8" NAME="Imm2_1" RIGHT="0" SIGIS="undef" SIGNAME="decode_0_Imm2_1">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="DispatchBuffer_0" PORT="Imm2_1_in"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="8" NAME="Imm2_2" RIGHT="0" SIGIS="undef" SIGNAME="decode_0_Imm2_2">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="DispatchBuffer_0" PORT="Imm2_2_in"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="15" NAME="SEI1_1" RIGHT="0" SIGIS="undef" SIGNAME="decode_0_SEI1_1">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="DispatchBuffer_0" PORT="SEI1_1_in"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="15" NAME="SEI1_2" RIGHT="0" SIGIS="undef" SIGNAME="decode_0_SEI1_2">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="DispatchBuffer_0" PORT="SEI1_2_in"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="15" NAME="SEI2_1" RIGHT="0" SIGIS="undef" SIGNAME="decode_0_SEI2_1">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="DispatchBuffer_0" PORT="SEI2_1_in"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="15" NAME="SEI2_2" RIGHT="0" SIGIS="undef" SIGNAME="decode_0_SEI2_2">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="DispatchBuffer_0" PORT="SEI2_2_in"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="1" NAME="spec_tag1" RIGHT="0" SIGIS="undef" SIGNAME="decode_0_spec_tag1">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="DispatchBuffer_0" PORT="spec_tag1_in"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="1" NAME="spec_tag2" RIGHT="0" SIGIS="undef" SIGNAME="decode_0_spec_tag2">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="DispatchBuffer_0" PORT="spec_tag2_in"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="valid1_out" SIGIS="undef" SIGNAME="decode_0_valid1_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="DispatchBuffer_0" PORT="valid_in1"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="valid2_out" SIGIS="undef" SIGNAME="decode_0_valid2_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="DispatchBuffer_0" PORT="valid_in2"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="branch_predict1_out" SIGIS="undef" SIGNAME="decode_0_branch_predict1_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="DispatchBuffer_0" PORT="branch_predict1_in"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="branch_predict2_out" SIGIS="undef" SIGNAME="decode_0_branch_predict2_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="DispatchBuffer_0" PORT="branch_predict2_in"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/decode_buffer_0" HWVERSION="1.0" INSTANCE="decode_buffer_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="decode_buffer" VLNV="xilinx.com:module_ref:decode_buffer:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="Component_Name" VALUE="Superscalar_Processor_decode_buffer_0_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT CLKFREQUENCY="100000000" DIR="I" NAME="clk" SIGIS="clk" SIGNAME="External_Ports_clk_0">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="clk_0"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="rst" SIGIS="rst" SIGNAME="External_Ports_rst_0">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="rst_0"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="PC_in" RIGHT="0" SIGIS="undef" SIGNAME="PC_0_PC_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="PC_0" PORT="PC_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="instr1_in" RIGHT="0" SIGIS="undef" SIGNAME="Instruction_Memory_0_instr1">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Instruction_Memory_0" PORT="instr1"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="valid1_in" SIGIS="undef" SIGNAME="Valid_instruction_ch_0_valid1">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Valid_instruction_ch_0" PORT="valid1"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="valid2_in" SIGIS="undef" SIGNAME="Valid_instruction_ch_0_valid2">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Valid_instruction_ch_0" PORT="valid2"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="instr2_in" RIGHT="0" SIGIS="undef" SIGNAME="Instruction_Memory_0_instr2">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Instruction_Memory_0" PORT="instr2"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="branch_predict1_in" SIGIS="undef" SIGNAME="xlconstant_0_dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="xlconstant_0" PORT="dout"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="branch_predict2_in" SIGIS="undef" SIGNAME="xlconstant_0_dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="xlconstant_0" PORT="dout"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="15" NAME="address_out1" RIGHT="0" SIGIS="undef" SIGNAME="decode_buffer_0_address_out1">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="decode_0" PORT="IA1"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="15" NAME="address_out2" RIGHT="0" SIGIS="undef" SIGNAME="decode_buffer_0_address_out2">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="decode_0" PORT="IA2"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="15" NAME="instr1_out" RIGHT="0" SIGIS="undef" SIGNAME="decode_buffer_0_instr1_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="decode_0" PORT="instr1"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="15" NAME="instr2_out" RIGHT="0" SIGIS="undef" SIGNAME="decode_buffer_0_instr2_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="decode_0" PORT="instr2"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="branch_predict1_out" SIGIS="undef" SIGNAME="decode_buffer_0_branch_predict1_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="decode_0" PORT="branch_predict1"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="branch_predict2_out" SIGIS="undef" SIGNAME="decode_buffer_0_branch_predict2_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="decode_0" PORT="branch_predict2"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="valid1_out" SIGIS="undef" SIGNAME="decode_buffer_0_valid1_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="decode_0" PORT="valid1"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="valid2_out" SIGIS="undef" SIGNAME="decode_buffer_0_valid2_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="decode_0" PORT="valid2"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="6" FULLNAME="/xlconstant_0" HWVERSION="1.1" INSTANCE="xlconstant_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="xlconstant" VLNV="xilinx.com:ip:xlconstant:1.1">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="CONST_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="CONST_VAL" VALUE="0x0"/>
+        <PARAMETER NAME="Component_Name" VALUE="Superscalar_Processor_xlconstant_0_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="O" LEFT="0" NAME="dout" RIGHT="0" SIGIS="undef" SIGNAME="xlconstant_0_dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="PC_0" PORT="branch_predict1"/>
+            <CONNECTION INSTANCE="PC_0" PORT="branch_predict_PC1"/>
+            <CONNECTION INSTANCE="PC_0" PORT="branch_predict2"/>
+            <CONNECTION INSTANCE="PC_0" PORT="branch_predict_PC2"/>
+            <CONNECTION INSTANCE="PC_0" PORT="branch_resolve"/>
+            <CONNECTION INSTANCE="PC_0" PORT="branch_resolve_PC"/>
+            <CONNECTION INSTANCE="RegWrite_Ctrl_0" PORT="stall"/>
+            <CONNECTION INSTANCE="Valid_instruction_ch_0" PORT="branch_predict1"/>
+            <CONNECTION INSTANCE="Reorder_Buffer_0" PORT="valid_b_cdb"/>
+            <CONNECTION INSTANCE="Reorder_Buffer_0" PORT="valid_ls_cdb"/>
+            <CONNECTION INSTANCE="Reorder_Buffer_0" PORT="misprediction"/>
+            <CONNECTION INSTANCE="decode_buffer_0" PORT="branch_predict1_in"/>
+            <CONNECTION INSTANCE="decode_buffer_0" PORT="branch_predict2_in"/>
+            <CONNECTION INSTANCE="Reservation_Station_0" PORT="valid_b_cdb"/>
+            <CONNECTION INSTANCE="Reservation_Station_0" PORT="valid_ls_cdb"/>
+            <CONNECTION INSTANCE="Reservation_Station_0" PORT="reg_data_b"/>
+            <CONNECTION INSTANCE="Reservation_Station_0" PORT="dm_data"/>
+            <CONNECTION INSTANCE="Reservation_Station_0" PORT="ROB_b_cdb"/>
+            <CONNECTION INSTANCE="Reservation_Station_0" PORT="ROB_ls_cdb"/>
+            <CONNECTION INSTANCE="Allocate_unit_0" PORT="RR_stall"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="6" FULLNAME="/xlconstant_1" HWVERSION="1.1" INSTANCE="xlconstant_1" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="xlconstant" VLNV="xilinx.com:ip:xlconstant:1.1">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="CONST_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="CONST_VAL" VALUE="0x1"/>
+        <PARAMETER NAME="Component_Name" VALUE="Superscalar_Processor_xlconstant_1_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="O" LEFT="0" NAME="dout" RIGHT="0" SIGIS="undef" SIGNAME="xlconstant_1_dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="PC_0" PORT="PC_Write"/>
+            <CONNECTION INSTANCE="Reorder_Buffer_0" PORT="spec_tag_b"/>
+            <CONNECTION INSTANCE="Reorder_Buffer_0" PORT="PC_b_cdb"/>
+            <CONNECTION INSTANCE="Reorder_Buffer_0" PORT="PC_ls_cdb"/>
+            <CONNECTION INSTANCE="Reorder_Buffer_0" PORT="reg_data_b"/>
+            <CONNECTION INSTANCE="Reorder_Buffer_0" PORT="dm_data"/>
+            <CONNECTION INSTANCE="Reorder_Buffer_0" PORT="ROB_b_cdb"/>
+            <CONNECTION INSTANCE="Reorder_Buffer_0" PORT="ROB_ls_cdb"/>
+            <CONNECTION INSTANCE="DispatchBuffer_0" PORT="issue1"/>
+            <CONNECTION INSTANCE="DispatchBuffer_0" PORT="issue2"/>
+            <CONNECTION INSTANCE="Allocate_unit_0" PORT="CWrite1"/>
+            <CONNECTION INSTANCE="Allocate_unit_0" PORT="ZWrite1"/>
+            <CONNECTION INSTANCE="Allocate_unit_0" PORT="CWrite2"/>
+            <CONNECTION INSTANCE="Allocate_unit_0" PORT="ZWrite2"/>
+            <CONNECTION INSTANCE="Allocate_unit_0" PORT="c1"/>
+            <CONNECTION INSTANCE="Allocate_unit_0" PORT="c2"/>
+            <CONNECTION INSTANCE="Allocate_unit_0" PORT="z1"/>
+            <CONNECTION INSTANCE="Allocate_unit_0" PORT="z2"/>
+            <CONNECTION INSTANCE="Allocate_unit_0" PORT="v_c1"/>
+            <CONNECTION INSTANCE="Allocate_unit_0" PORT="v_c2"/>
+            <CONNECTION INSTANCE="Allocate_unit_0" PORT="v_z1"/>
+            <CONNECTION INSTANCE="Allocate_unit_0" PORT="v_z2"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+  </MODULES>
+
+</EDKSYSTEM>

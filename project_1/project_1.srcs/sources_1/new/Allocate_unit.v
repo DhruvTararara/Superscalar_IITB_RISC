@@ -1,3 +1,4 @@
+`timescale 1ns / 1ps
 module Allocate_unit(
     input [15:0] PC1, PC2,
     input [3:0] op1, op2,
@@ -9,7 +10,7 @@ module Allocate_unit(
     input [7:0] RS_free_bitmap,
     input RegWrite1, RegWrite2,
     input CWrite1, ZWrite1, CWrite2, ZWrite2,
-    input [2:0] RA1, RA2, RB1, RB2, RC1, RC2,//input from Dispatch buffer
+    input [2:0] RAA1, RAA2, RBB1, RBB2, RCC1, RCC2,//input from Dispatch buffer
     input valid1, valid2,//input from Dispatch buffer
     input [15:0] ra1, ra2, rb1, rb2, rc1, rc2,//input from Register File
     input v_ra1, v_ra2, v_rb1, v_rb2, v_rc1, v_rc2,//input from Register File
@@ -26,7 +27,7 @@ module Allocate_unit(
     output RegWrite1_out, RegWrite2_out,//output to Register File
     output [2:0] RA1_out, RA2_out, RB1_out, RB2_out, RC1_out, RC2_out,//output to Register File
     output reg [2:0] RS_tag1, RS_tag2,//output to Register File and Reservation Station
-    output [2:0] FU_bits1_out, FU_bits2_out,//output to Register File
+    output [1:0] FU_bits1_out, FU_bits2_out,//output to Register File
     output reg [2:0] ROB_tag1, ROB_tag2,
     output reg [136:0] RS_input1, RS_input2,//To reservation station
     output reg [23:0] ROB_input1, ROB_input2,
@@ -34,24 +35,26 @@ module Allocate_unit(
     
     reg erb;
 //    wire [2:0] RR_sum = RR_free_bitmap[0] + RR_free_bitmap[1] + RR_free_bitmap[2] + RR_free_bitmap[3] + RR_free_bitmap[4] + RR_free_bitmap[5] + RR_free_bitmap[6] + RR_free_bitmap[7];
-    wire [3:0] RS_sum = RS_free_bitmap[0] + RS_free_bitmap[1] + RS_free_bitmap[2] + RS_free_bitmap[3] + RS_free_bitmap[4] + RS_free_bitmap[5] + RS_free_bitmap[6] + RS_free_bitmap[7];
+    wire [3:0] RS_sum = ~(RS_free_bitmap[0] + RS_free_bitmap[1] + RS_free_bitmap[2] + RS_free_bitmap[3] + RS_free_bitmap[4] + RS_free_bitmap[5] + RS_free_bitmap[6] + RS_free_bitmap[7]);
     wire [3:0] ROB_sum = 4'd8 - ((ROB_tail - ROB_head) % 8);//ROB_free_bitmap[0] + ROB_free_bitmap[1] + ROB_free_bitmap[2] + ROB_free_bitmap[3] + ROB_free_bitmap[4] + ROB_free_bitmap[5] + ROB_free_bitmap[6] + ROB_free_bitmap[7];
     wire [2:0] free_RS1, free_RS2;
     wire [2:0] free_ROB1, free_ROB2;
-    
+    wire [2:0] RA1, RA2, RB1, RB2, RC1, RC2;
     assign RegWrite1_out = RegWrite1;
     assign RegWrite2_out = RegWrite2;
+    assign {RA1, RA2, RB1, RB2, RC1, RC2} = {RAA1, RAA2, RBB1, RBB2, RCC1, RCC2};
     assign {RA1_out, RA2_out, RB1_out, RB2_out, RC1_out, RC2_out} = {RA1, RA2, RB1, RB2, RC1, RC2};
     assign {FU_bits1_out, FU_bits2_out} = {FU_bits1, FU_bits2};
-    assign free_RS1 = (RS_free_bitmap[0])? 3'b000:
-                      (RS_free_bitmap[1])? 3'b001:
-                      (RS_free_bitmap[2])? 3'b010:
-                      (RS_free_bitmap[3])? 3'b011:
-                      (RS_free_bitmap[4])? 3'b100:
-                      (RS_free_bitmap[5])? 3'b101:
-                      (RS_free_bitmap[6])? 3'b110:
-                      (RS_free_bitmap[7])? 3'b111: 3'b000;
-    wire [7:0] sub1 = RS_free_bitmap - (1 << (free_RS1));
+    assign free_RS1 = (!RS_free_bitmap[0])? 3'b000:
+                      (!RS_free_bitmap[1])? 3'b001:
+                      (!RS_free_bitmap[2])? 3'b010:
+                      (!RS_free_bitmap[3])? 3'b011:
+                      (!RS_free_bitmap[4])? 3'b100:
+                      (!RS_free_bitmap[5])? 3'b101:
+                      (!RS_free_bitmap[6])? 3'b110:
+                      (!RS_free_bitmap[7])? 3'b111: 3'b000;
+    wire [7:0] R = ~RS_free_bitmap;
+    wire [7:0] sub1 = R - (1 << (free_RS1));
     assign free_RS2 = (sub1[0])? 3'b000:
                       (sub1[1])? 3'b001:
                       (sub1[2])? 3'b010:

@@ -1,3 +1,4 @@
+`timescale 1ns / 1ps
 module Write_back_signals(
     input [2:0] wb1, wb2,
     output wR1, wR2,

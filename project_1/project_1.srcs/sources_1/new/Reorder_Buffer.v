@@ -1,3 +1,4 @@
+`timescale 1ns / 1ps
 module Reorder_Buffer(
     input clk, rst,
     input [2:0] ROB_tag1, ROB_tag2,
@@ -27,7 +28,7 @@ module Reorder_Buffer(
     output reg [2:0] RD1, RD2,
     output reg [15:0] ROB1, ROB2,
     //=========================================
-    output reg [7:0] Busy,
+    output wire [7:0] Busy,
     output reg [2:0] head,
     output reg [2:0] tail
     //=========================================
@@ -48,23 +49,14 @@ module Reorder_Buffer(
     wire full, empty;
     assign full = (count >= 7);
     assign empty = (count == 4'd0);
-    assign count = (tail - head) % 8;
+    assign count = (tail - head - valid[head] - valid[head + 3'd1] + valid1 + valid2) % 8;//tail - head - (instructions added) - (instructions committed)
     integer i, j;
     reg [3:0] i_t [7:0];
     reg [3:0] h_i_1 [7:0];
-    
+    reg [7:0] Busy1, Busy2;
     //Busy bits (depends totally on head and tail values)
-    always @ (*) begin
-        for (j = 0; j < 8; j = j + 1) begin
-            i_t[j] = j - tail;
-            h_i_1[j] = head - j - 4'd1;
-        end
-    end
-    always @ (*) begin
-        for (i = 0; i < 8; i = i + 1) begin
-            Busy[i] = i_t[i][3] & h_i_1[i][3];
-        end
-    end
+    assign Busy = Busy1 ^ Busy2;
+
     //Finished bits
     always @ (posedge clk) begin
         if (rst) begin
@@ -164,17 +156,22 @@ module Reorder_Buffer(
             //Use stall signal in this if statement only (Write Back is allowed even if processor is stalled)
             if (!full) begin
                 if (valid1 & valid2) begin
+                    {Busy1[ROB_tag1], Busy1[ROB_tag2]} <= {!Busy1[ROB_tag1], !Busy1[ROB_tag2]};
                     {PC[ROB_tag1], reg_data[ROB_tag1], RD[ROB_tag1], RCZ[ROB_tag1], spec_tag[ROB_tag1]} <= ROB_input1;
                     {PC[ROB_tag2], reg_data[ROB_tag2], RD[ROB_tag2], RCZ[ROB_tag2], spec_tag[ROB_tag2]} <= ROB_input2;
                 end
                 else if (valid1 & !valid2) begin
+                    Busy1[ROB_tag1] <= !Busy1[ROB_tag1];
                     {PC[ROB_tag1], reg_data[ROB_tag1], RD[ROB_tag1], RCZ[ROB_tag1], spec_tag[ROB_tag1]} <= ROB_input1;
                 end
                 else if (!valid1 & valid2) begin
+                    Busy1[ROB_tag2] <= !Busy1[ROB_tag2];
                     {PC[ROB_tag2], reg_data[ROB_tag2], RD[ROB_tag2], RCZ[ROB_tag2], spec_tag[ROB_tag2]} <= ROB_input2;
                 end
                 else begin
                 end
+            end
+            else begin
             end
             
             //reg_data logic
@@ -191,6 +188,7 @@ module Reorder_Buffer(
         else begin 
             if (!empty) begin
                 if (valid[head] & valid[head + 3'd1]) begin
+                    {Busy1[head], Busy1[head]} <= {!Busy1[head], !Busy1[head]};
                     head <= head + 3'd2;
                     {reg_data1, reg_data2} <= {reg_data[head], reg_data[head + 3'd1]};
                     {RD1, RD2} <= {RD[head], RD[head + 3'd1]};
@@ -223,6 +221,7 @@ module Reorder_Buffer(
                     
                 end
                 else if (valid[head] & !valid[head + 3'd1]) begin
+                    Busy1[head] <= !Busy1[head];
                     head <= head + 3'd1;
                     if (spec_tag[head] != 2'b00) begin
                         //Register Update

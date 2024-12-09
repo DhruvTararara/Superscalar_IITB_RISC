@@ -1,3 +1,4 @@
+`timescale 1ns / 1ps
 module Register_File(
     input clk, rst,
     //Allocate Unit

@@ -1,5 +1,6 @@
+`timescale 1ns / 1ps
 module Control_Unit(
-    input [15:0] op1, op2,
+    input [3:0] op1, op2,
     input RegWrite1, RegWrite2,
     input Comp1, Comp2,
     input [1:0] CZ1, CZ2,

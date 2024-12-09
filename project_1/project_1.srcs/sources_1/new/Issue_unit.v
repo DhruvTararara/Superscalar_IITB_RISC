@@ -1,3 +1,4 @@
+`timescale 1ns / 1ps
 module Issue_Unit(
     input [2:0] FU0, FU1, FU2, FU3, FU4, FU5, FU6, FU7,
     input [15:0] PC0, PC1, PC2, PC3, PC4, PC5, PC6, PC7,

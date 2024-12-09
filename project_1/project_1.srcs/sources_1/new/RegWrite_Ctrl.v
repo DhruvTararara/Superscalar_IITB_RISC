@@ -1,3 +1,4 @@
+`timescale 1ns / 1ps
 module RegWrite_Ctrl(
     input valid1, valid2,
     input [3:0] op1, op2,

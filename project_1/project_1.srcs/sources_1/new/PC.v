@@ -1,3 +1,4 @@
+`timescale 1ns / 1ps
 module PC(clk, rst, branch_predict1, branch_predict_PC1, branch_predict2, branch_predict_PC2, 
           branch_resolve, branch_resolve_PC, PC_Write, PC_in, PC_out);
     input clk, rst;

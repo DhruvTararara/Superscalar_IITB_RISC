@@ -1,3 +1,4 @@
+`timescale 1ns / 1ps
 module decode(clk, rst, IA1, IA2, instr1, instr2, branch_predict1, 
               branch_predict2, valid1, valid2, IA1_out, IA2_out, op1, op2, RA1, RA2, RB1, RB2, RC1, RC2, comp1, comp2, 
               CZ1, CZ2, Imm1_1, Imm1_2, Imm2_1, Imm2_2, SEI1_1, SEI1_2, SEI2_1, SEI2_2,

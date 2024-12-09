@@ -33,7 +33,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>9516ae2a</spirit:value>
+            <spirit:value>9d670aa8</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -46,7 +46,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>9516ae2a</spirit:value>
+            <spirit:value>9d670aa8</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -181,7 +181,7 @@
         <xilinx:designToolContext>IPI</xilinx:designToolContext>
       </xilinx:designToolContexts>
       <xilinx:coreRevision>1</xilinx:coreRevision>
-      <xilinx:coreCreationDateTime>2024-12-03T09:06:27Z</xilinx:coreCreationDateTime>
+      <xilinx:coreCreationDateTime>2024-12-06T09:51:41Z</xilinx:coreCreationDateTime>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
       <xilinx:xilinxVersion>2019.1</xilinx:xilinxVersion>

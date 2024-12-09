@@ -1,3 +1,4 @@
+`timescale 1ns / 1ps
 module Valid_instruction_checker(rst, instr1, branch_predict1, instr2, valid1, valid2);
     input rst;
     input [15:0] instr1, instr2;

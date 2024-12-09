@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<Runs Version="1" Minor="0">
+	<Run Id="Superscalar_Processor_Instruction_Memory_0_0_synth_1" LaunchDir="C:/Xilinx/IITB_RISC_Superscalar/project_1/project_1.runs/Superscalar_Processor_Instruction_Memory_0_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="Superscalar_Processor_Valid_instruction_ch_0_0_synth_1" LaunchDir="C:/Xilinx/IITB_RISC_Superscalar/project_1/project_1.runs/Superscalar_Processor_Valid_instruction_ch_0_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="Superscalar_Processor_DispatchBuffer_0_0_synth_1" LaunchDir="C:/Xilinx/IITB_RISC_Superscalar/project_1/project_1.runs/Superscalar_Processor_DispatchBuffer_0_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="Superscalar_Processor_Allocate_unit_0_0_synth_1" LaunchDir="C:/Xilinx/IITB_RISC_Superscalar/project_1/project_1.runs/Superscalar_Processor_Allocate_unit_0_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="Superscalar_Processor_Reservation_Station_0_0_synth_1" LaunchDir="C:/Xilinx/IITB_RISC_Superscalar/project_1/project_1.runs/Superscalar_Processor_Reservation_Station_0_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="Superscalar_Processor_Reorder_Buffer_0_0_synth_1" LaunchDir="C:/Xilinx/IITB_RISC_Superscalar/project_1/project_1.runs/Superscalar_Processor_Reorder_Buffer_0_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="Superscalar_Processor_Register_Interdepend_0_0_synth_1" LaunchDir="C:/Xilinx/IITB_RISC_Superscalar/project_1/project_1.runs/Superscalar_Processor_Register_Interdepend_0_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="Superscalar_Processor_Register_File_0_0_synth_1" LaunchDir="C:/Xilinx/IITB_RISC_Superscalar/project_1/project_1.runs/Superscalar_Processor_Register_File_0_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="Superscalar_Processor_ALU_0_0_synth_1" LaunchDir="C:/Xilinx/IITB_RISC_Superscalar/project_1/project_1.runs/Superscalar_Processor_ALU_0_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="Superscalar_Processor_decode_0_1_synth_1" LaunchDir="C:/Xilinx/IITB_RISC_Superscalar/project_1/project_1.runs/Superscalar_Processor_decode_0_1_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="Superscalar_Processor_RegWrite_Ctrl_0_0_synth_1" LaunchDir="C:/Xilinx/IITB_RISC_Superscalar/project_1/project_1.runs/Superscalar_Processor_RegWrite_Ctrl_0_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="Superscalar_Processor_Control_Unit_0_0_synth_1" LaunchDir="C:/Xilinx/IITB_RISC_Superscalar/project_1/project_1.runs/Superscalar_Processor_Control_Unit_0_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="Superscalar_Processor_Issue_Unit_0_0_synth_1" LaunchDir="C:/Xilinx/IITB_RISC_Superscalar/project_1/project_1.runs/Superscalar_Processor_Issue_Unit_0_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="Superscalar_Processor_Write_back_signals_0_0_synth_1" LaunchDir="C:/Xilinx/IITB_RISC_Superscalar/project_1/project_1.runs/Superscalar_Processor_Write_back_signals_0_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="Superscalar_Processor_ALU_1_0_synth_1" LaunchDir="C:/Xilinx/IITB_RISC_Superscalar/project_1/project_1.runs/Superscalar_Processor_ALU_1_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="synth_1" LaunchDir="C:/Xilinx/IITB_RISC_Superscalar/project_1/project_1.runs/synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado">
+		<Parent Id="Superscalar_Processor_Instruction_Memory_0_0_synth_1"/>
+		<Parent Id="Superscalar_Processor_Valid_instruction_ch_0_0_synth_1"/>
+		<Parent Id="Superscalar_Processor_DispatchBuffer_0_0_synth_1"/>
+		<Parent Id="Superscalar_Processor_Allocate_unit_0_0_synth_1"/>
+		<Parent Id="Superscalar_Processor_Reservation_Station_0_0_synth_1"/>
+		<Parent Id="Superscalar_Processor_Reorder_Buffer_0_0_synth_1"/>
+		<Parent Id="Superscalar_Processor_Register_Interdepend_0_0_synth_1"/>
+		<Parent Id="Superscalar_Processor_Register_File_0_0_synth_1"/>
+		<Parent Id="Superscalar_Processor_ALU_0_0_synth_1"/>
+		<Parent Id="Superscalar_Processor_decode_0_1_synth_1"/>
+		<Parent Id="Superscalar_Processor_RegWrite_Ctrl_0_0_synth_1"/>
+		<Parent Id="Superscalar_Processor_Control_Unit_0_0_synth_1"/>
+		<Parent Id="Superscalar_Processor_Issue_Unit_0_0_synth_1"/>
+		<Parent Id="Superscalar_Processor_Write_back_signals_0_0_synth_1"/>
+		<Parent Id="Superscalar_Processor_ALU_1_0_synth_1"/>
+	</Run>
+	<Parameters>
+		<Parameter Name="runs.monitorLSFJobs" Val="true" Type="bool"/>
+	</Parameters>
+</Runs>
+

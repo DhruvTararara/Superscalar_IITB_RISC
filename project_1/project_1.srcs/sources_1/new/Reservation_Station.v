@@ -1,8 +1,9 @@
+`timescale 1ns / 1ps
 module Reservation_Station(
     input clk, rst,
     input [136:0] RS_input1, RS_input2,
     input valid1, valid2,
-    input RS_tag1, RS_tag2,
+    input [2:0] RS_tag1, RS_tag2,
     output reg [7:0] Busy,
     //From issue unit==================
     input [2:0] issue_RS_b, issue_RS_a, issue_RS_a2, issue_RS_ls,
@@ -184,91 +185,90 @@ module Reservation_Station(
         end
     end
     
-    generate
-        genvar i;
-        for (i = 0; i < 8; i = i + 1) begin : m
-            always @ (*) begin
-                if (Busy[i]) begin
-                    if (((FU_bits[i] == 3'b001) || (FU_bits[i] == 3'b100)) && (v_ra[i].v_rb[i])) begin
-                        Ready[i] <= 1'b1;
-                    end
-                    else if ((FU_bits[i] == 3'b010) && (v_ra[i] & v_rb[i] & v_c[i] & v_z[i] & v_rc[i])) begin
-                        Ready[i] <= 1'b1;
-                    end
-                    else Ready[i] <= 1'b0;
+    integer i;
+        
+    always @ (*) begin
+        for (i = 0; i < 8; i = i + 1) begin
+            if (Busy[i]) begin
+                if (((FU_bits[i] == 3'b001) || (FU_bits[i] == 3'b100)) && (v_ra[i] & v_rb[i])) begin
+                    Ready[i] <= 1'b1;
+                end
+                else if ((FU_bits[i] == 3'b010) && (v_ra[i] & v_rb[i] & v_c[i] & v_z[i] & v_rc[i])) begin
+                    Ready[i] <= 1'b1;
                 end
                 else Ready[i] <= 1'b0;
             end
+            else Ready[i] <= 1'b0;
         end
-    endgenerate
-    
+    end
+
     //Data Forwarding
-    generate
-        genvar j;
+    
+    integer j;
+    
+    always @ (posedge clk) begin
         for (j = 0; j < 8; j = j + 1) begin
-            always @ (posedge clk) begin
-                if (Busy[i]) begin
-                    if (valid_b_cdb) begin
-                        if (ROB_b_cdb == ra[i] && !v_ra[i]) begin
-                            ra[i] <= reg_data_b;
-                            v_ra[i] <= 1'b1;
-                        end
-                        if (ROB_b_cdb == rb[i] && !v_rb[i]) begin
-                            rb[i] <= reg_data_b;
-                            v_rb[i] <= 1'b1;
-                        end
-                        if (ROB_b_cdb == rc[i] && !v_rc[i]) begin
-                            rc[i] <= reg_data_b;
-                            v_rc[i] <= 1'b1;
-                        end
+            if (Busy[i]) begin
+                if (valid_b_cdb) begin
+                    if (ROB_b_cdb == ra[i] && !v_ra[i]) begin
+                        ra[i] <= reg_data_b;
+                        v_ra[i] <= 1'b1;
                     end
-                    if (valid_a_cdb) begin
-                        if (ROB_a_cdb == ra[i] && !v_ra[i]) begin
-                            ra[i] <= alu_out;
-                            v_ra[i] <= 1'b1;
-                        end
-                        if (ROB_a_cdb == rb[i] && !v_rb[i]) begin
-                            rb[i] <= alu_out;
-                            v_rb[i] <= 1'b1;
-                        end
-                        if (ROB_a_cdb == rc[i] && !v_rc[i]) begin
-                            rc[i] <= alu_out;
-                            v_rc[i] <= 1'b1;
-                        end
+                    if (ROB_b_cdb == rb[i] && !v_rb[i]) begin
+                        rb[i] <= reg_data_b;
+                        v_rb[i] <= 1'b1;
                     end
-                    if (valid_a2_cdb) begin
-                        if (ROB_a2_cdb == ra[i] && !v_ra[i]) begin
-                            ra[i] <= alu2_out;
-                            v_ra[i] <= 1'b1;
-                        end
-                        if (ROB_a2_cdb == rb[i] && !v_rb[i]) begin
-                            rb[i] <= alu2_out;
-                            v_rb[i] <= 1'b1;
-                        end
-                        if (ROB_a2_cdb == rc[i] && !v_rc[i]) begin
-                            rc[i] <= alu2_out;
-                            v_rc[i] <= 1'b1;
-                        end
-                    end
-                    if (valid_ls_cdb) begin
-                        if (ROB_ls_cdb == ra[i] && !v_ra[i]) begin
-                            ra[i] <= dm_data;
-                            v_ra[i] <= 1'b1;
-                        end
-                        if (ROB_ls_cdb == rb[i] && !v_rb[i]) begin
-                            rb[i] <= dm_data;
-                            v_rb[i] <= 1'b1;
-                        end
-                        if (ROB_ls_cdb == rc[i] && !v_rc[i]) begin
-                            rc[i] <= dm_data;
-                            v_rc[i] <= 1'b1;
-                        end
+                    if (ROB_b_cdb == rc[i] && !v_rc[i]) begin
+                        rc[i] <= reg_data_b;
+                        v_rc[i] <= 1'b1;
                     end
                 end
-                
+                if (valid_a_cdb) begin
+                    if (ROB_a_cdb == ra[i] && !v_ra[i]) begin
+                        ra[i] <= alu_out;
+                        v_ra[i] <= 1'b1;
+                    end
+                    if (ROB_a_cdb == rb[i] && !v_rb[i]) begin
+                        rb[i] <= alu_out;
+                        v_rb[i] <= 1'b1;
+                    end
+                    if (ROB_a_cdb == rc[i] && !v_rc[i]) begin
+                        rc[i] <= alu_out;
+                        v_rc[i] <= 1'b1;
+                    end
+                end
+                if (valid_a2_cdb) begin
+                    if (ROB_a2_cdb == ra[i] && !v_ra[i]) begin
+                        ra[i] <= alu2_out;
+                        v_ra[i] <= 1'b1;
+                    end
+                    if (ROB_a2_cdb == rb[i] && !v_rb[i]) begin
+                        rb[i] <= alu2_out;
+                        v_rb[i] <= 1'b1;
+                    end
+                    if (ROB_a2_cdb == rc[i] && !v_rc[i]) begin
+                        rc[i] <= alu2_out;
+                        v_rc[i] <= 1'b1;
+                    end
+                end
+                if (valid_ls_cdb) begin
+                    if (ROB_ls_cdb == ra[i] && !v_ra[i]) begin
+                        ra[i] <= dm_data;
+                        v_ra[i] <= 1'b1;
+                    end
+                    if (ROB_ls_cdb == rb[i] && !v_rb[i]) begin
+                        rb[i] <= dm_data;
+                        v_rb[i] <= 1'b1;
+                    end
+                    if (ROB_ls_cdb == rc[i] && !v_rc[i]) begin
+                        rc[i] <= dm_data;
+                        v_rc[i] <= 1'b1;
+                    end
+                end
             end
         end
-    endgenerate
+    end
+    
     
     
 endmodule

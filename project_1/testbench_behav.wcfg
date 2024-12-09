@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="testbench_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="glbl" />
+            <top_module name="testbench" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0fs"></ZoomStartTime>
+      <ZoomEndTime time="94799406fs"></ZoomEndTime>
+      <Cursor1Time time="200000000fs"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="95"></NameColumnWidth>
+      <ValueColumnWidth column_width="72"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="22" />
+   <wvobject fp_name="/testbench/clk_0" type="logic">
+      <obj_property name="ElementShortName">clk_0</obj_property>
+      <obj_property name="ObjectShortName">clk_0</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/rst_0" type="logic">
+      <obj_property name="ElementShortName">rst_0</obj_property>
+      <obj_property name="ObjectShortName">rst_0</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/processor/Superscalar_Processor_i/Allocate_unit_0/op1" type="array">
+      <obj_property name="ElementShortName">op1[3:0]</obj_property>
+      <obj_property name="ObjectShortName">op1[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/processor/Superscalar_Processor_i/Allocate_unit_0/op2" type="array">
+      <obj_property name="ElementShortName">op2[3:0]</obj_property>
+      <obj_property name="ObjectShortName">op2[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/processor/Superscalar_Processor_i/Allocate_unit_0/valid1_out" type="logic">
+      <obj_property name="ElementShortName">valid1_out</obj_property>
+      <obj_property name="ObjectShortName">valid1_out</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/processor/Superscalar_Processor_i/Allocate_unit_0/valid2_out" type="logic">
+      <obj_property name="ElementShortName">valid2_out</obj_property>
+      <obj_property name="ObjectShortName">valid2_out</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/processor/Superscalar_Processor_i/Allocate_unit_0/inst/free_RS1" type="array">
+      <obj_property name="ElementShortName">free_RS1[2:0]</obj_property>
+      <obj_property name="ObjectShortName">free_RS1[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/processor/Superscalar_Processor_i/Allocate_unit_0/inst/free_RS2" type="array">
+      <obj_property name="ElementShortName">free_RS2[2:0]</obj_property>
+      <obj_property name="ObjectShortName">free_RS2[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/processor/Superscalar_Processor_i/Allocate_unit_0/inst/free_ROB1" type="array">
+      <obj_property name="ElementShortName">free_ROB1[2:0]</obj_property>
+      <obj_property name="ObjectShortName">free_ROB1[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/processor/Superscalar_Processor_i/Allocate_unit_0/inst/free_ROB2" type="array">
+      <obj_property name="ElementShortName">free_ROB2[2:0]</obj_property>
+      <obj_property name="ObjectShortName">free_ROB2[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/processor/Superscalar_Processor_i/Allocate_unit_0/inst/RS_free_bitmap" type="array">
+      <obj_property name="ElementShortName">RS_free_bitmap[7:0]</obj_property>
+      <obj_property name="ObjectShortName">RS_free_bitmap[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/processor/Superscalar_Processor_i/Allocate_unit_0/inst/sub1" type="array">
+      <obj_property name="ElementShortName">sub1[7:0]</obj_property>
+      <obj_property name="ObjectShortName">sub1[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/processor/Superscalar_Processor_i/Reservation_Station_0/Busy" type="array">
+      <obj_property name="ElementShortName">Busy[7:0]</obj_property>
+      <obj_property name="ObjectShortName">Busy[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/processor/Superscalar_Processor_i/Allocate_unit_0/inst/R" type="array">
+      <obj_property name="ElementShortName">R[7:0]</obj_property>
+      <obj_property name="ObjectShortName">R[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/processor/Superscalar_Processor_i/Allocate_unit_0/RS_tag1" type="array">
+      <obj_property name="ElementShortName">RS_tag1[2:0]</obj_property>
+      <obj_property name="ObjectShortName">RS_tag1[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/processor/Superscalar_Processor_i/Allocate_unit_0/RS_tag2" type="array">
+      <obj_property name="ElementShortName">RS_tag2[2:0]</obj_property>
+      <obj_property name="ObjectShortName">RS_tag2[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/processor/Superscalar_Processor_i/Allocate_unit_0/ROB_tag1" type="array">
+      <obj_property name="ElementShortName">ROB_tag1[2:0]</obj_property>
+      <obj_property name="ObjectShortName">ROB_tag1[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/processor/Superscalar_Processor_i/Allocate_unit_0/ROB_tag2" type="array">
+      <obj_property name="ElementShortName">ROB_tag2[2:0]</obj_property>
+      <obj_property name="ObjectShortName">ROB_tag2[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/processor/Superscalar_Processor_i/Reorder_Buffer_0/Busy" type="array">
+      <obj_property name="ElementShortName">Busy[7:0]</obj_property>
+      <obj_property name="ObjectShortName">Busy[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/processor/Superscalar_Processor_i/Reorder_Buffer_0/head" type="array">
+      <obj_property name="ElementShortName">head[2:0]</obj_property>
+      <obj_property name="ObjectShortName">head[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/processor/Superscalar_Processor_i/Reorder_Buffer_0/tail" type="array">
+      <obj_property name="ElementShortName">tail[2:0]</obj_property>
+      <obj_property name="ObjectShortName">tail[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/processor/Superscalar_Processor_i/ALU_0/alu_out" type="logic">
+      <obj_property name="ElementShortName">alu_out</obj_property>
+      <obj_property name="ObjectShortName">alu_out</obj_property>
+   </wvobject>
+</wave_config>

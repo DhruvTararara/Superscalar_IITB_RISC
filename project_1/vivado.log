@@ -1,0 +1,17 @@
+#-----------------------------------------------------------
+# Vivado v2019.1 (64-bit)
+# SW Build 2552052 on Fri May 24 14:49:42 MDT 2019
+# IP Build 2548770 on Fri May 24 18:01:18 MDT 2019
+# Start of session at: Thu Dec  5 16:34:47 2024
+# Process ID: 22112
+# Current directory: C:/Xilinx/IITB_RISC_Superscalar/project_1
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent20240 C:\Xilinx\IITB_RISC_Superscalar\project_1\project_1.xpr
+# Log file: C:/Xilinx/IITB_RISC_Superscalar/project_1/vivado.log
+# Journal file: C:/Xilinx/IITB_RISC_Superscalar/project_1\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project C:/Xilinx/IITB_RISC_Superscalar/project_1/project_1.xpr
+INFO: [Common 17-41] Interrupt caught. Command should exit soon.
+INFO: [Common 17-344] 'open_project' was cancelled
+exit
+INFO: [Common 17-206] Exiting Vivado at Thu Dec  5 16:35:16 2024...
