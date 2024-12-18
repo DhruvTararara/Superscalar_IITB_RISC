@@ -21,9 +21,10 @@ module Allocate_unit(
     input [1:0] spec_tag1, spec_tag2,
     input branch_predict1, branch_predict2,
     input [8:0] Imm2_1, Imm2_2,
-    input [1:0] FU_bits1, FU_bits2,
+    input [2:0] FU_bits1, FU_bits2,
     input [15:0] SEI1_1, SEI1_2, SEI2_1, SEI2_2,
     output reg valid1_out, valid2_out,//output to Register File
+    output [3:0] op1_out, op2_out,
     output RegWrite1_out, RegWrite2_out,//output to Register File
     output [2:0] RA1_out, RA2_out, RB1_out, RB2_out, RC1_out, RC2_out,//output to Register File
     output reg [2:0] RS_tag1, RS_tag2,//output to Register File and Reservation Station
@@ -40,6 +41,9 @@ module Allocate_unit(
     wire [2:0] free_RS1, free_RS2;
     wire [2:0] free_ROB1, free_ROB2;
     wire [2:0] RA1, RA2, RB1, RB2, RC1, RC2;
+    assign op1_out = op1;
+    assign op2_out = op2;
+    
     assign RegWrite1_out = RegWrite1;
     assign RegWrite2_out = RegWrite2;
     assign {RA1, RA2, RB1, RB2, RC1, RC2} = {RAA1, RAA2, RBB1, RBB2, RCC1, RCC2};
@@ -69,15 +73,25 @@ module Allocate_unit(
     
     always @ (*) begin
         if (valid1 & valid2) begin
-            if (!RR_stall & (ROB_sum >= 2) & (RS_sum >= 2)) begin
+            if (!RR_stall && (ROB_sum >= 2) && (RS_sum >= 2)) begin
                 valid1_out <= 1'b1;
                 valid2_out <= 1'b1;
                 RS_tag1 <= free_RS1;
                 RS_tag2 <= free_RS2;
                 ROB_tag1 <= free_ROB1;
                 ROB_tag2 <= free_ROB2;
-                RS_input1 <= {op1, ROB_tag1, PC1, ra1, rb1, v_ra1, v_rb1, spec_tag1, branch_predict1, {RegWrite1, b_ctrl1}, c1, v_c1, z1, v_z1, rc1, v_rc1, a_ctrl1, Imm2_1, ls_ctrl1, SEI1_1, SEI2_1, FU_bits1};
-                RS_input2 <= {op2, ROB_tag2, PC2, ra2, rb2, v_ra2, v_rb2, spec_tag2, branch_predict2, {RegWrite2, b_ctrl2}, c2, v_c2, z2, v_z2, rc2, v_rc2, a_ctrl2, Imm2_2, ls_ctrl2, SEI1_2, SEI2_2, FU_bits2};
+                RS_input1 <= {op1, free_ROB1, PC1, ra1, rb1, v_ra1, v_rb1, 
+                             spec_tag1, branch_predict1, RegWrite1, b_ctrl1, c1, 
+                             v_c1, z1, v_z1, rc1, v_rc1, 
+                             a_ctrl1, Imm2_1, ls_ctrl1, SEI1_1, 
+                             SEI2_1, FU_bits1};
+                //0000 000 0000000000000000 XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX X X 00 0 1000 1 1 1 1 XXXXXXXXXXXXXXXX X 010000 001000010 000 0000000000000010 0000000001000010 10
+                //0000 000 0000000000000000 0000000000000000 0000000000000000 0 0 00 0 0000 1 1 0 0 0100011110000000 0 000000 001010000 001 0000100000000000 0000000100000000 00 100001010
+                RS_input2 <= {op2, free_ROB2, PC2, ra2, rb2, v_ra2, v_rb2, 
+                             spec_tag2, branch_predict2, RegWrite2, b_ctrl2, c2,
+                             v_c2, z2, v_z2, rc2, v_rc2,
+                             a_ctrl2, Imm2_2, ls_ctrl2, SEI1_2, 
+                             SEI2_2, FU_bits2};
                 ROB_input1 <= {PC1, RC1, {RegWrite1, CWrite1, ZWrite1}, spec_tag1};
                 ROB_input2 <= {PC2, RC2, {RegWrite2, CWrite2, ZWrite2}, spec_tag2};
             end
@@ -97,7 +111,7 @@ module Allocate_unit(
             else stall <= 1'b1;
         end
         else if (!valid1 & valid2) begin
-            if (!RR_stall & (ROB_sum >= 1) & (RS_sum >= 1)) begin
+            if (!RR_stall && (ROB_sum >= 1) && (RS_sum >= 1)) begin
                 valid1_out <= 1'b0;
                 valid2_out <= 1'b1;
                 RS_tag2 <= free_RS1;

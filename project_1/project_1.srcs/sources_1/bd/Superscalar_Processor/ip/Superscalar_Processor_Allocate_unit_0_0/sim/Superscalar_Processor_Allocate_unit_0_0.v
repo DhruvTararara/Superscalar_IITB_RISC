@@ -117,6 +117,8 @@ module Superscalar_Processor_Allocate_unit_0_0 (
   SEI2_2,
   valid1_out,
   valid2_out,
+  op1_out,
+  op2_out,
   RegWrite1_out,
   RegWrite2_out,
   RA1_out,
@@ -192,14 +194,16 @@ input wire branch_predict1;
 input wire branch_predict2;
 input wire [8 : 0] Imm2_1;
 input wire [8 : 0] Imm2_2;
-input wire [1 : 0] FU_bits1;
-input wire [1 : 0] FU_bits2;
+input wire [2 : 0] FU_bits1;
+input wire [2 : 0] FU_bits2;
 input wire [15 : 0] SEI1_1;
 input wire [15 : 0] SEI1_2;
 input wire [15 : 0] SEI2_1;
 input wire [15 : 0] SEI2_2;
 output wire valid1_out;
 output wire valid2_out;
+output wire [3 : 0] op1_out;
+output wire [3 : 0] op2_out;
 output wire RegWrite1_out;
 output wire RegWrite2_out;
 output wire [2 : 0] RA1_out;
@@ -283,6 +287,8 @@ output wire stall;
     .SEI2_2(SEI2_2),
     .valid1_out(valid1_out),
     .valid2_out(valid2_out),
+    .op1_out(op1_out),
+    .op2_out(op2_out),
     .RegWrite1_out(RegWrite1_out),
     .RegWrite2_out(RegWrite2_out),
     .RA1_out(RA1_out),

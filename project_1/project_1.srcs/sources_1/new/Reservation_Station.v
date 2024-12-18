@@ -130,6 +130,9 @@ module Reservation_Station(
             if (Busy[issue_RS_a]) begin
                 if (valid_issue_a) Busy[issue_RS_a] <= 1'b0;
             end
+            if (Busy[issue_RS_a2]) begin
+                if (valid_issue_a2) Busy[issue_RS_a2] <= 1'b0;
+            end
             if (Busy[issue_RS_ls]) begin
                if (valid_issue_ls) Busy[issue_RS_ls] <= 1'b0;
             end
@@ -150,7 +153,8 @@ module Reservation_Station(
                 v_c[RS_tag1], z[RS_tag1], v_z[RS_tag1], rc[RS_tag1], v_rc[RS_tag1], 
                 a_ctrl[RS_tag1], Imm2[RS_tag1], ls_ctrl[RS_tag1], SEI1[RS_tag1], 
                 SEI2[RS_tag1], FU_bits[RS_tag1]} <= RS_input1;
-                
+                //0000 000 0000000000000000 0000000000000000 0000000000000000 0 0 00 0 0000 1 1 0 0 0100011110000000 0 000000 001010000 001 0000100000000000 0000000100000000 00 100001010
+
                 {op[RS_tag2], ROB_tag[RS_tag2], PC[RS_tag2], ra[RS_tag2], rb[RS_tag2], v_ra[RS_tag2], v_rb[RS_tag2], 
                 spec_tag[RS_tag2], b_p[RS_tag2], b_ctrl[RS_tag2], c[RS_tag2], 
                 v_c[RS_tag2], z[RS_tag2], v_z[RS_tag2], rc[RS_tag2], v_rc[RS_tag2], 
@@ -186,21 +190,22 @@ module Reservation_Station(
     end
     
     integer i;
-        
+
     always @ (*) begin
         for (i = 0; i < 8; i = i + 1) begin
             if (Busy[i]) begin
                 if (((FU_bits[i] == 3'b001) || (FU_bits[i] == 3'b100)) && (v_ra[i] & v_rb[i])) begin
-                    Ready[i] <= 1'b1;
+                    Ready[i] = 1'b1; // Blocking assignment
                 end
                 else if ((FU_bits[i] == 3'b010) && (v_ra[i] & v_rb[i] & v_c[i] & v_z[i] & v_rc[i])) begin
-                    Ready[i] <= 1'b1;
+                    Ready[i] = 1'b1; // Blocking assignment
                 end
-                else Ready[i] <= 1'b0;
+                else Ready[i] = 1'b0; // Blocking assignment
             end
-            else Ready[i] <= 1'b0;
+            else Ready[i] = 1'b0; // Blocking assignment
         end
     end
+
 
     //Data Forwarding
     

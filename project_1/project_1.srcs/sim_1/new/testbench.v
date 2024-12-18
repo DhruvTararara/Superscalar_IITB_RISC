@@ -14,7 +14,6 @@ module testbench();
   wire [15:0]SEI2_l_0;
   wire [3:0]b_ctrl_b_0;
   wire b_p_b_0;
-  wire [2:0]buffer_count_0;
   reg clk_0;
   wire empty_0;
   wire full_0;
@@ -54,7 +53,6 @@ module testbench();
     SEI2_l_0,
     b_ctrl_b_0,
     b_p_b_0,
-    buffer_count_0,
     clk_0,
     empty_0,
     full_0,

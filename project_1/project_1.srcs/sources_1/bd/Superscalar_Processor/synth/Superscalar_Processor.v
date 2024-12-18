@@ -1,7 +1,7 @@
 //Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2019.1 (win64) Build 2552052 Fri May 24 14:49:42 MDT 2019
-//Date        : Sun Dec  8 21:03:05 2024
+//Date        : Wed Dec 18 14:33:11 2024
 //Host        : CHEEMz-PC running 64-bit major release  (build 9200)
 //Command     : generate_target Superscalar_Processor.bd
 //Design      : Superscalar_Processor
@@ -25,7 +25,6 @@ module Superscalar_Processor
     SEI2_l_0,
     b_ctrl_b_0,
     b_p_b_0,
-    buffer_count_0,
     clk_0,
     empty_0,
     full_0,
@@ -63,7 +62,6 @@ module Superscalar_Processor
   output [15:0]SEI2_l_0;
   output [3:0]b_ctrl_b_0;
   output b_p_b_0;
-  output [2:0]buffer_count_0;
   (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 CLK.CLK_0 CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME CLK.CLK_0, ASSOCIATED_RESET rst_0, CLK_DOMAIN Superscalar_Processor_clk_0, FREQ_HZ 100000000, INSERT_VIP 0, PHASE 0.000" *) input clk_0;
   output empty_0;
   output full_0;
@@ -114,11 +112,13 @@ module Superscalar_Processor
   wire [2:0]Allocate_unit_0_RS_tag2;
   wire Allocate_unit_0_RegWrite1_out;
   wire Allocate_unit_0_RegWrite2_out;
+  wire [3:0]Allocate_unit_0_op1_out;
+  wire [3:0]Allocate_unit_0_op2_out;
   wire Allocate_unit_0_stall;
   wire Allocate_unit_0_valid1_out;
   wire Allocate_unit_0_valid2_out;
-  wire [1:0]Control_Unit_0_FU_bits1;
-  wire [1:0]Control_Unit_0_FU_bits2;
+  wire [2:0]Control_Unit_0_FU_bits1;
+  wire [2:0]Control_Unit_0_FU_bits2;
   wire [5:0]Control_Unit_0_a_ctrl1;
   wire [5:0]Control_Unit_0_a_ctrl2;
   wire [2:0]Control_Unit_0_b_ctrl1;
@@ -414,16 +414,16 @@ module Superscalar_Processor
         .PC2(DispatchBuffer_0_IA2_out),
         .RA1_out(Allocate_unit_0_RA1_out),
         .RA2_out(Allocate_unit_0_RA2_out),
-        .RAA1(Allocate_unit_0_RA1_out),
-        .RAA2(Allocate_unit_0_RA2_out),
+        .RAA1(DispatchBuffer_0_RA1_out),
+        .RAA2(DispatchBuffer_0_RA2_out),
         .RB1_out(Allocate_unit_0_RB1_out),
         .RB2_out(Allocate_unit_0_RB2_out),
-        .RBB1(Allocate_unit_0_RB1_out),
-        .RBB2(Allocate_unit_0_RB2_out),
+        .RBB1(DispatchBuffer_0_RB1_out),
+        .RBB2(DispatchBuffer_0_RB2_out),
         .RC1_out(Allocate_unit_0_RC1_out),
         .RC2_out(Allocate_unit_0_RC2_out),
-        .RCC1(Allocate_unit_0_RC1_out),
-        .RCC2(Allocate_unit_0_RC2_out),
+        .RCC1(DispatchBuffer_0_RC1_out),
+        .RCC2(DispatchBuffer_0_RC2_out),
         .ROB_head(Reorder_Buffer_0_head),
         .ROB_input1(Allocate_unit_0_ROB_input1),
         .ROB_input2(Allocate_unit_0_ROB_input2),
@@ -457,7 +457,9 @@ module Superscalar_Processor
         .ls_ctrl1(Control_Unit_0_ls_ctrl1),
         .ls_ctrl2(Control_Unit_0_ls_ctrl2),
         .op1(DispatchBuffer_0_op1_out),
+        .op1_out(Allocate_unit_0_op1_out),
         .op2(DispatchBuffer_0_op2_out),
+        .op2_out(Allocate_unit_0_op2_out),
         .ra1(Register_File_0_ra1),
         .ra2(Register_File_0_ra2),
         .rb1(Register_File_0_rb1),
@@ -559,6 +561,7 @@ module Superscalar_Processor
         .spec_tag1_out(DispatchBuffer_0_spec_tag1_out),
         .spec_tag2_in(decode_0_spec_tag2),
         .spec_tag2_out(DispatchBuffer_0_spec_tag2_out),
+        .stall(xlconstant_0_dout),
         .valid_in1(decode_0_valid1_out),
         .valid_in2(decode_0_valid2_out),
         .valid_out1(DispatchBuffer_0_valid_out1),
@@ -639,6 +642,8 @@ module Superscalar_Processor
         .WAR(Register_Interdepend_0_WAR),
         .WAW(Register_Interdepend_0_WAW),
         .clk(clk_0_1),
+        .op1(Allocate_unit_0_op1_out),
+        .op2(Allocate_unit_0_op2_out),
         .ra1(Register_File_0_ra1),
         .ra2(Register_File_0_ra2),
         .rb1(Register_File_0_rb1),
@@ -891,6 +896,7 @@ module Superscalar_Processor
         .instr2_in(Instruction_Memory_0_instr2),
         .instr2_out(decode_buffer_0_instr2_out),
         .rst(rst_0_1),
+        .stall(xlconstant_0_dout),
         .valid1_in(Valid_instruction_ch_0_valid1),
         .valid1_out(decode_buffer_0_valid1_out),
         .valid2_in(Valid_instruction_ch_0_valid2),

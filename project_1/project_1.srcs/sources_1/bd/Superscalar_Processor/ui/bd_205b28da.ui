@@ -2,299 +2,299 @@
    "ExpandedHierarchyInLayout":"",
    "guistr":"# # String gsaved with Nlview 7.0.19  2019-03-26 bk=1.5019 VDI=41 GEI=35 GUI=JA:9.0 non-TLS
 #  -string -flagsOSRD
-preplace port rst_0 -pg 1 -lvl 0 -x -650 -y -120 -defaultsOSRD
-preplace port clk_0 -pg 1 -lvl 0 -x -650 -y -60 -defaultsOSRD
-preplace port full_0 -pg 1 -lvl 15 -x 6340 -y 220 -defaultsOSRD
-preplace port empty_0 -pg 1 -lvl 15 -x 6340 -y 250 -defaultsOSRD
-preplace port stall_0 -pg 1 -lvl 15 -x 6340 -y -20 -defaultsOSRD
-preplace port v_rb_b_0 -pg 1 -lvl 15 -x 6340 -y -600 -defaultsOSRD
-preplace port valid_b_0 -pg 1 -lvl 15 -x 6340 -y -210 -defaultsOSRD
-preplace port v_ra_l_0 -pg 1 -lvl 15 -x 6340 -y 410 -defaultsOSRD
-preplace port v_ra_b_0 -pg 1 -lvl 15 -x 6340 -y -380 -defaultsOSRD
-preplace port v_rb_l_0 -pg 1 -lvl 15 -x 6340 -y 470 -defaultsOSRD
-preplace port b_p_b_0 -pg 1 -lvl 15 -x 6340 -y -300 -defaultsOSRD
-preplace port valid_l_0 -pg 1 -lvl 15 -x 6340 -y 620 -defaultsOSRD
-preplace port wZ1_0 -pg 1 -lvl 15 -x 6340 -y 140 -defaultsOSRD
-preplace port wC2_0 -pg 1 -lvl 15 -x 6340 -y 80 -defaultsOSRD
-preplace port wC1_0 -pg 1 -lvl 15 -x 6340 -y 50 -defaultsOSRD
-preplace port wZ2_0 -pg 1 -lvl 15 -x 6340 -y 110 -defaultsOSRD
-preplace portBus Imm1_1_out_0 -pg 1 -lvl 15 -x 6340 -y -1180 -defaultsOSRD
-preplace portBus Imm1_2_out_0 -pg 1 -lvl 15 -x 6340 -y -50 -defaultsOSRD
-preplace portBus buffer_count_0 -pg 1 -lvl 15 -x 6340 -y 280 -defaultsOSRD
-preplace portBus Imm2_l_0 -pg 1 -lvl 15 -x 6340 -y 500 -defaultsOSRD
-preplace portBus ROB_tag_l_0 -pg 1 -lvl 15 -x 6340 -y 320 -defaultsOSRD
-preplace portBus SEI1_l_0 -pg 1 -lvl 15 -x 6340 -y 530 -defaultsOSRD
-preplace portBus SEI2_l_0 -pg 1 -lvl 15 -x 6340 -y 650 -defaultsOSRD
-preplace portBus op_b_0 -pg 1 -lvl 15 -x 6340 -y -570 -defaultsOSRD
-preplace portBus b_ctrl_b_0 -pg 1 -lvl 15 -x 6340 -y -240 -defaultsOSRD
-preplace portBus SEI1_b_0 -pg 1 -lvl 15 -x 6340 -y -480 -defaultsOSRD
-preplace portBus ROB_tag_b_0 -pg 1 -lvl 15 -x 6340 -y -540 -defaultsOSRD
-preplace portBus SEI2_b_0 -pg 1 -lvl 15 -x 6340 -y -330 -defaultsOSRD
-preplace portBus spec_tag_b_0 -pg 1 -lvl 15 -x 6340 -y -270 -defaultsOSRD
-preplace portBus PC_l_0 -pg 1 -lvl 15 -x 6340 -y 350 -defaultsOSRD
-preplace portBus ra_l_0 -pg 1 -lvl 15 -x 6340 -y 380 -defaultsOSRD
-preplace portBus PC_b_0 -pg 1 -lvl 15 -x 6340 -y -510 -defaultsOSRD
-preplace portBus spec_tag_l_0 -pg 1 -lvl 15 -x 6340 -y 560 -defaultsOSRD
-preplace portBus ls_ctrl_l_0 -pg 1 -lvl 15 -x 6340 -y 590 -defaultsOSRD
-preplace portBus ra_b_0 -pg 1 -lvl 15 -x 6340 -y -450 -defaultsOSRD
-preplace portBus rb_l_0 -pg 1 -lvl 15 -x 6340 -y 440 -defaultsOSRD
-preplace portBus rb_b_0 -pg 1 -lvl 15 -x 6340 -y -420 -defaultsOSRD
-preplace portBus Busy_0 -pg 1 -lvl 15 -x 6340 -y 170 -defaultsOSRD
-preplace inst xlconstant_0 -pg 1 -lvl 1 -x -410 -y 250 -defaultsOSRD
-preplace inst xlconstant_1 -pg 1 -lvl 11 -x 4620 -y 990 -defaultsOSRD
-preplace inst Issue_Unit_0 -pg 1 -lvl 12 -x 5110 -y -680 -defaultsOSRD
-preplace inst PC_0 -pg 1 -lvl 1 -x -410 -y 30 -defaultsOSRD
-preplace inst RegWrite_Ctrl_0 -pg 1 -lvl 7 -x 1890 -y 420 -defaultsOSRD
-preplace inst Register_File_0 -pg 1 -lvl 8 -x 2440 -y -330 -defaultsOSRD
-preplace inst Register_Interdepend_0 -pg 1 -lvl 7 -x 1890 -y -250 -defaultsOSRD
-preplace inst Valid_instruction_ch_0 -pg 1 -lvl 3 -x 210 -y 10 -defaultsOSRD
-preplace inst Write_back_signals_0 -pg 1 -lvl 14 -x 6120 -y 60 -defaultsOSRD
-preplace inst decode_0 -pg 1 -lvl 5 -x 920 -y -20 -defaultsOSRD
-preplace inst Instruction_Memory_0 -pg 1 -lvl 2 -x -80 -y 20 -defaultsOSRD
-preplace inst Reorder_Buffer_0 -pg 1 -lvl 13 -x 5770 -y 70 -defaultsOSRD
-preplace inst decode_buffer_0 -pg 1 -lvl 4 -x 560 -y 0 -defaultsOSRD
-preplace inst DispatchBuffer_0 -pg 1 -lvl 6 -x 1300 -y -20 -defaultsOSRD
-preplace inst Reservation_Station_0 -pg 1 -lvl 10 -x 3660 -y 70 -defaultsOSRD
-preplace inst Control_Unit_0 -pg 1 -lvl 7 -x 1890 -y 90 -defaultsOSRD
-preplace inst Allocate_unit_0 -pg 1 -lvl 9 -x 3040 -y -140 -defaultsOSRD
-preplace inst ALU_0 -pg 1 -lvl 12 -x 5110 -y -260 -defaultsOSRD
-preplace inst ALU_1 -pg 1 -lvl 12 -x 5110 -y 420 -defaultsOSRD
-preplace netloc PC_0_PC_out 1 0 4 -600 -140 -220 -110 N -110 350
-preplace netloc Instruction_Memory_0_instr1 1 2 2 60 100 380
-preplace netloc Instruction_Memory_0_instr2 1 2 2 50 -80 340
-preplace netloc Valid_instruction_ch_0_valid1 1 3 1 N 0
-preplace netloc Valid_instruction_ch_0_valid2 1 3 1 N 20
-preplace netloc xlconstant_0_dout 1 0 13 -590 -130 -240 -90 40 -90 360 -370 N -370 1110 -390 1550 -780 N -780 2860 -800 3330 950 4300 200 N 200 5360
-preplace netloc decode_buffer_0_address_out1 1 4 1 N -70
-preplace netloc decode_buffer_0_address_out2 1 4 1 N -50
-preplace netloc decode_buffer_0_instr1_out 1 4 1 N -30
-preplace netloc decode_buffer_0_instr2_out 1 4 1 N -10
-preplace netloc decode_buffer_0_branch_predict1_out 1 4 1 N 10
-preplace netloc decode_buffer_0_branch_predict2_out 1 4 1 N 30
-preplace netloc decode_buffer_0_valid1_out 1 4 1 N 50
-preplace netloc decode_buffer_0_valid2_out 1 4 1 N 70
-preplace netloc decode_0_IA1_out 1 5 1 N -290
-preplace netloc decode_0_IA2_out 1 5 1 N -270
-preplace netloc decode_0_op1 1 5 1 N -250
-preplace netloc decode_0_op2 1 5 1 N -230
-preplace netloc decode_0_RA1 1 5 1 N -210
-preplace netloc decode_0_RA2 1 5 1 N -190
-preplace netloc decode_0_RB1 1 5 1 N -170
-preplace netloc decode_0_RB2 1 5 1 N -150
-preplace netloc decode_0_RC1 1 5 1 N -130
-preplace netloc decode_0_RC2 1 5 1 N -110
-preplace netloc decode_0_comp1 1 5 1 N -90
-preplace netloc decode_0_comp2 1 5 1 N -70
-preplace netloc decode_0_CZ1 1 5 1 N -50
-preplace netloc decode_0_CZ2 1 5 1 N -30
-preplace netloc decode_0_Imm1_1 1 5 1 N -10
-preplace netloc decode_0_Imm1_2 1 5 1 N 10
-preplace netloc decode_0_Imm2_1 1 5 1 N 30
-preplace netloc decode_0_Imm2_2 1 5 1 N 50
-preplace netloc decode_0_SEI1_1 1 5 1 N 70
-preplace netloc decode_0_SEI1_2 1 5 1 N 90
-preplace netloc decode_0_SEI2_1 1 5 1 N 110
-preplace netloc decode_0_SEI2_2 1 5 1 N 130
-preplace netloc decode_0_spec_tag1 1 5 1 N 150
-preplace netloc decode_0_spec_tag2 1 5 1 N 170
-preplace netloc decode_0_valid1_out 1 5 1 N 190
-preplace netloc decode_0_valid2_out 1 5 1 N 210
-preplace netloc decode_0_branch_predict1_out 1 5 1 N 230
-preplace netloc decode_0_branch_predict2_out 1 5 1 N 250
-preplace netloc RegWrite_Ctrl_0_RegWrite1 1 6 3 1730 -400 2040 -660 2800
-preplace netloc RegWrite_Ctrl_0_RegWrite2 1 6 3 1710 -410 2060 -650 2790
-preplace netloc DispatchBuffer_0_IA1_out 1 6 3 1470 -760 N -760 2840
-preplace netloc DispatchBuffer_0_IA2_out 1 6 3 1480 -710 N -710 N
-preplace netloc DispatchBuffer_0_op1_out 1 6 3 1620 -690 N -690 N
-preplace netloc DispatchBuffer_0_op2_out 1 6 3 1630 -670 N -670 N
-preplace netloc DispatchBuffer_0_comp1_out 1 6 1 1680 -110n
-preplace netloc DispatchBuffer_0_comp2_out 1 6 1 1640 -90n
-preplace netloc DispatchBuffer_0_CZ1_out 1 6 1 1610 -70n
-preplace netloc DispatchBuffer_0_CZ2_out 1 6 1 1580 -50n
-preplace netloc DispatchBuffer_0_valid_out1 1 6 3 1590 -750 N -750 2780
-preplace netloc DispatchBuffer_0_valid_out2 1 6 3 1600 -720 N -720 2770
-preplace netloc Control_Unit_0_b_ctrl1 1 7 2 N 20 2720
-preplace netloc Control_Unit_0_b_ctrl2 1 7 2 N 40 2710
-preplace netloc Control_Unit_0_a_ctrl1 1 7 2 N 60 2690
-preplace netloc Control_Unit_0_a_ctrl2 1 7 2 N 80 2670
-preplace netloc Control_Unit_0_ls_ctrl1 1 7 2 N 100 2650
-preplace netloc Control_Unit_0_ls_ctrl2 1 7 2 N 120 2640
-preplace netloc DispatchBuffer_0_spec_tag1_out 1 6 3 1570 250 N 250 2790
-preplace netloc DispatchBuffer_0_spec_tag2_out 1 6 3 1520 260 N 260 2830
-preplace netloc DispatchBuffer_0_branch_predict1_out 1 6 3 1490 270 N 270 N
-preplace netloc DispatchBuffer_0_branch_predict2_out 1 6 3 1480 290 N 290 N
-preplace netloc DispatchBuffer_0_Imm2_1_out 1 6 3 1650 -60 2050 50 2680
-preplace netloc DispatchBuffer_0_Imm2_2_out 1 6 3 1690 -50 2070 10 2700
-preplace netloc DispatchBuffer_0_SEI1_1_out 1 6 3 1670 -70 2090 30 2660
-preplace netloc DispatchBuffer_0_SEI1_2_out 1 6 3 1660 -80 2080 70 2630
-preplace netloc DispatchBuffer_0_SEI2_1_out 1 6 3 1700 -40 2020 90 2620
-preplace netloc DispatchBuffer_0_SEI2_2_out 1 6 3 1510 310 N 310 2570
-preplace netloc Register_Interdepend_0_WAR 1 7 1 N -250
-preplace netloc Register_Interdepend_0_RAW 1 7 1 N -270
-preplace netloc Register_Interdepend_0_WAW 1 7 1 N -230
-preplace netloc DispatchBuffer_0_RA1_out 1 6 1 1510 -300n
-preplace netloc DispatchBuffer_0_RA2_out 1 6 1 1520 -280n
-preplace netloc DispatchBuffer_0_RB1_out 1 6 1 1530 -260n
-preplace netloc DispatchBuffer_0_RB2_out 1 6 1 1540 -240n
-preplace netloc DispatchBuffer_0_RC1_out 1 6 1 1570 -220n
-preplace netloc DispatchBuffer_0_RC2_out 1 6 1 1580 -200n
-preplace netloc Register_File_0_ra1 1 8 1 2760 -440n
-preplace netloc Register_File_0_ra2 1 8 1 2750 -420n
-preplace netloc Register_File_0_rb1 1 8 1 2740 -400n
-preplace netloc Register_File_0_rb2 1 8 1 2690 -380n
-preplace netloc Register_File_0_rc1 1 8 1 2680 -360n
-preplace netloc Register_File_0_rc2 1 8 1 2670 -340n
-preplace netloc Register_File_0_v_ra1 1 8 1 2660 -320n
-preplace netloc Register_File_0_v_ra2 1 8 1 2650 -300n
-preplace netloc Register_File_0_v_rb1 1 8 1 2630 -280n
-preplace netloc Register_File_0_v_rb2 1 8 1 2620 -260n
-preplace netloc Register_File_0_v_rc1 1 8 1 2600 -240n
-preplace netloc Register_File_0_v_rc2 1 8 1 2580 -220n
-preplace netloc Control_Unit_0_FU_bits1 1 6 3 1720 230 2030 230 2600
-preplace netloc Control_Unit_0_FU_bits2 1 6 3 1740 220 2020 220 2610
-preplace netloc Reorder_Buffer_0_head 1 8 6 2860 1050 NJ 1050 N 1050 N 1050 N 1050 5940
-preplace netloc Reorder_Buffer_0_tail 1 8 6 2880 970 NJ 970 4330 930 N 930 N 930 5920
-preplace netloc Reservation_Station_0_Busy 1 8 3 2870 -910 NJ -910 3810
-preplace netloc Allocate_unit_0_valid1_out 1 7 6 2120 -1000 N -1000 3410 -730 4090 80 N 80 5430
-preplace netloc Allocate_unit_0_valid2_out 1 7 6 2130 -990 N -990 3380 -760 3850 90 N 90 5540
-preplace netloc Allocate_unit_0_RegWrite1_out 1 7 3 2210 -930 N -930 3230
-preplace netloc Allocate_unit_0_RegWrite2_out 1 7 3 2220 -920 NJ -920 3220
-preplace netloc Allocate_unit_0_RA1_out 1 7 3 2270 -680 2810J -850 3210
-preplace netloc Allocate_unit_0_RA2_out 1 7 3 2240 -700 2850J -790 3200
-preplace netloc Allocate_unit_0_RB1_out 1 7 3 2170 -10 2570J -840 3270
-preplace netloc Allocate_unit_0_RB2_out 1 7 3 2180 0 2590J -830 3260
-preplace netloc Allocate_unit_0_RC1_out 1 7 3 2230 -740 2820J -820 3250
-preplace netloc Allocate_unit_0_RC2_out 1 7 3 2200 -770 2830J -810 3240
-preplace netloc Allocate_unit_0_FU_bits1_out 1 7 3 2160 -1010 NJ -1010 3290
-preplace netloc Allocate_unit_0_FU_bits2_out 1 7 3 2190 -940 NJ -940 3280
-preplace netloc Allocate_unit_0_ROB_tag1 1 7 6 2250 -870 NJ -870 3310 -750 4110 60 N 60 5440
-preplace netloc Allocate_unit_0_ROB_tag2 1 7 6 2260 -860 NJ -860 3300 -740 3830 70 N 70 5500
-preplace netloc Issue_Unit_0_valid_issue_b 1 9 4 3500 -980 N -980 4840 -990 5560
-preplace netloc Issue_Unit_0_valid_issue_a 1 9 4 3470 -990 N -990 4830 -1000 5570
-preplace netloc Issue_Unit_0_valid_issue_ls 1 9 4 3480 -970 N -970 4850 -980 5520
-preplace netloc Issue_Unit_0_Issue_RS_b 1 9 4 3510 -1000 N -1000 4820 -1010 5260
-preplace netloc Issue_Unit_0_Issue_RS_a 1 9 4 3460 -1070 N -1070 4750 -1080 5510
-preplace netloc Issue_Unit_0_Issue_RS_ls 1 9 4 3450 -1040 N -1040 4780 -1050 5490
-preplace netloc Allocate_unit_0_RS_tag1 1 9 1 3340 -140n
-preplace netloc Allocate_unit_0_RS_tag2 1 9 1 3320 -120n
-preplace netloc Allocate_unit_0_RS_input1 1 9 1 3360 -160n
-preplace netloc Allocate_unit_0_RS_input2 1 9 1 3400 -140n
-preplace netloc ALU_0_valid_out 1 9 4 3470 880 4200 140 N 140 5420
-preplace netloc ALU_0_ROB_tag_out 1 9 4 3490 920 4240 160 N 160 5350
-preplace netloc ALU_0_alu_out 1 9 4 3500 870 4210 150 N 150 5410
-preplace netloc Reservation_Station_0_c_a 1 10 2 4080 -310 N
-preplace netloc Reservation_Station_0_z_a 1 10 2 3810 -280 4920
-preplace netloc Reservation_Station_0_PC_a 1 10 2 4040 -390 N
-preplace netloc Reservation_Station_0_ra_a 1 10 2 4050 -370 N
-preplace netloc Reservation_Station_0_rb_a 1 10 2 4060 -350 N
-preplace netloc Reservation_Station_0_rc_a 1 10 2 4070 -330 N
-preplace netloc Reservation_Station_0_v_ra_a 1 10 2 3820 -260 4930
-preplace netloc Reservation_Station_0_v_rb_a 1 10 2 4120 -240 4930
-preplace netloc Reservation_Station_0_v_rc_a 1 10 2 4130 -220 4930
-preplace netloc Reservation_Station_0_v_c_a 1 10 2 4140 -210 N
-preplace netloc Reservation_Station_0_v_z_a 1 10 2 4150 -180 4930
-preplace netloc Reservation_Station_0_spec_tag_a 1 10 2 4160 -160 4930
-preplace netloc Reservation_Station_0_a_ctrl_a 1 10 2 4170 -140 4930
-preplace netloc Reservation_Station_0_SEI1_a 1 10 2 4180 -130 N
-preplace netloc Reservation_Station_0_valid_a 1 10 2 4190 -100 4930
-preplace netloc Reservation_Station_0_ROB_tag_a 1 10 2 4030 -410 N
-preplace netloc Reservation_Station_0_FU_bits0 1 10 2 3820 -840 N
-preplace netloc Reservation_Station_0_FU_bits1 1 10 2 3840 -820 N
-preplace netloc Reservation_Station_0_FU_bits2 1 10 2 3860 -800 N
-preplace netloc Reservation_Station_0_FU_bits3 1 10 2 3870 -780 N
-preplace netloc Reservation_Station_0_FU_bits4 1 10 2 3880 -760 N
-preplace netloc Reservation_Station_0_FU_bits5 1 10 2 3890 -740 N
-preplace netloc Reservation_Station_0_FU_bits6 1 10 2 3900 -720 N
-preplace netloc Reservation_Station_0_FU_bits7 1 10 2 3910 -700 N
-preplace netloc Reservation_Station_0_Ready 1 10 2 4020 -520 N
-preplace netloc Allocate_unit_0_ROB_input1 1 9 4 3350J -1090 NJ -1090 4730 -1100 5620
-preplace netloc Allocate_unit_0_ROB_input2 1 9 4 3390J -1050 NJ -1050 4770 -1060 5610
-preplace netloc ALU_0_PC_out 1 12 1 5460 -230n
-preplace netloc Reorder_Buffer_0_wb1 1 13 1 6010 -30n
-preplace netloc Reorder_Buffer_0_wb2 1 13 1 6000 -10n
-preplace netloc Write_back_signals_0_wR1 1 7 8 2140 -980 NJ -980 3430J -920 3820J -910 4910 -920 NJ -920 NJ -920 6220
-preplace netloc Write_back_signals_0_wR2 1 7 8 2150 -970 NJ -970 3420J -940 NJ -940 4880 -950 NJ -950 NJ -950 6230
-preplace netloc Reorder_Buffer_0_reg_data1 1 7 7 2100 -960 NJ -960 NJ -960 NJ -960 4860 -970 NJ -970 5930
-preplace netloc Reorder_Buffer_0_reg_data2 1 7 7 2110 -950 NJ -950 NJ -950 NJ -950 4870 -960 NJ -960 5920
-preplace netloc Reorder_Buffer_0_RD1 1 7 7 2070 -1100 NJ -1100 NJ -1100 NJ -1100 4720 -1110 NJ -1110 5990
-preplace netloc Reorder_Buffer_0_RD2 1 7 7 2080 -1060 NJ -1060 NJ -1060 NJ -1060 4760 -1070 NJ -1070 5950
-preplace netloc Reservation_Station_0_PC_a2 1 10 2 N 290 N
-preplace netloc Reservation_Station_0_ra_a2 1 10 2 N 310 N
-preplace netloc Reservation_Station_0_ROB_tag_a2 1 10 2 N 270 N
-preplace netloc Reservation_Station_0_rb_a2 1 10 2 N 330 N
-preplace netloc Reservation_Station_0_rc_a2 1 10 2 N 350 N
-preplace netloc Reservation_Station_0_c_a2 1 10 2 N 370 N
-preplace netloc Reservation_Station_0_z_a2 1 10 2 N 390 N
-preplace netloc Reservation_Station_0_v_ra_a2 1 10 2 N 410 N
-preplace netloc Reservation_Station_0_v_rb_a2 1 10 2 N 430 N
-preplace netloc Reservation_Station_0_v_rc_a2 1 10 2 N 450 N
-preplace netloc Reservation_Station_0_v_c_a2 1 10 2 N 470 N
-preplace netloc Reservation_Station_0_v_z_a2 1 10 2 N 490 N
-preplace netloc Reservation_Station_0_spec_tag_a2 1 10 2 N 510 N
-preplace netloc Reservation_Station_0_a_ctrl_a2 1 10 2 N 530 N
-preplace netloc Reservation_Station_0_SEI1_a2 1 10 2 N 550 N
-preplace netloc Reservation_Station_0_valid_a2 1 10 2 N 570 N
-preplace netloc ALU_1_valid_out 1 9 4 3460 930 4290 190 N 190 5370
-preplace netloc ALU_1_ROB_tag_out 1 9 4 3510 890 4230 170 N 170 5390
-preplace netloc ALU_1_alu_out 1 9 4 3480 900 4250 180 N 180 5380
-preplace netloc ALU_1_PC_out 1 12 1 5440 120n
-preplace netloc Issue_Unit_0_PC_bi 1 12 1 5550 -730n
-preplace netloc Issue_Unit_0_PC_ai 1 12 1 5530 -710n
-preplace netloc Issue_Unit_0_PC_a2i 1 12 1 5510 -690n
-preplace netloc Issue_Unit_0_PC_lsi 1 12 1 5490 -670n
-preplace netloc Issue_Unit_0_Issue_RS_a2 1 9 4 3490 -1010 NJ -1010 4810 -1020 5270
-preplace netloc Issue_Unit_0_valid_issue_a2 1 9 4 3440 -1020 N -1020 4800 -1030 5580
-preplace netloc Reorder_Buffer_0_ROB1 1 7 7 2090 -1030 NJ -1030 NJ -1030 NJ -1030 4790 -1040 NJ -1040 5940
-preplace netloc Reorder_Buffer_0_ROB2 1 7 7 2270 960 NJ 960 NJ 960 4320J 920 N 920 NJ 920 5930
-preplace netloc rst_0_1 1 0 13 -630 -120 -230 -100 60 -100 380 -140 740 -350 1090 -570 N -570 2050 -890 N -890 3420 -890 N -890 4930 -900 5590
-preplace netloc clk_0_1 1 0 13 -620 -150 N -150 N -150 370 -150 730 -360 1080 -590 N -590 2030 -900 N -900 3430 -900 N -900 4920 -910 5600
-preplace netloc xlconstant_1_dout 1 0 13 -610 -380 N -380 N -380 N -380 N -380 1100 -560 N -560 2020 -730 2730 -880 N -880 N -880 4750 100 5450
-preplace netloc DispatchBuffer_0_full 1 6 9 1560J 240 NJ 240 2590J 910 NJ 910 4320J 670 N 670 NJ 670 5960J 220 NJ
-preplace netloc DispatchBuffer_0_empty 1 6 9 1470J 280 NJ 280 2580J 510 3210J 940 4310J 260 4910 210 5400J 460 5950J 250 NJ
-preplace netloc DispatchBuffer_0_Imm1_1_out 1 6 9 1490J -1120 NJ -1120 NJ -1120 NJ -1120 NJ -1120 4700 -1180 NJ -1180 NJ -1180 NJ
-preplace netloc DispatchBuffer_0_Imm1_2_out 1 6 9 1500J -1080 NJ -1080 NJ -1080 NJ -1080 NJ -1080 4740 -1090 NJ -1090 NJ -1090 6290J
-preplace netloc DispatchBuffer_0_buffer_count 1 14 1 NJ 280
-preplace netloc Allocate_unit_0_stall 1 9 6 3370J -1110 NJ -1110 4710 -1120 NJ -1120 NJ -1120 6300J
-preplace netloc Reservation_Station_0_PC0 1 10 2 3930 -680 N
-preplace netloc Reservation_Station_0_PC1 1 10 2 3950 -660 N
-preplace netloc Reservation_Station_0_PC2 1 10 2 3960 -640 N
-preplace netloc Reservation_Station_0_PC3 1 10 2 3970 -620 N
-preplace netloc Reservation_Station_0_PC4 1 10 2 3980 -600 N
-preplace netloc Reservation_Station_0_PC5 1 10 2 3990 -580 N
-preplace netloc Reservation_Station_0_PC6 1 10 2 4000 -560 N
-preplace netloc Reservation_Station_0_PC7 1 10 2 4010 -540 N
-preplace netloc Reservation_Station_0_Imm2_l 1 10 5 NJ 710 N 710 5450J 500 NJ 500 NJ
-preplace netloc Reservation_Station_0_v_rb_b 1 10 5 3940J -920 4900 -930 NJ -930 NJ -930 6310J
-preplace netloc Reservation_Station_0_ROB_tag_l 1 10 5 NJ 590 4720 720 NJ 720 5990J 320 NJ
-preplace netloc Reservation_Station_0_valid_b 1 10 5 NJ -70 4790 -50 5310J -320 NJ -320 6240J
-preplace netloc Reservation_Station_0_SEI1_l 1 10 5 NJ 730 N 730 5600J 530 NJ 530 NJ
-preplace netloc Reservation_Station_0_SEI2_l 1 10 5 4280J 680 N 680 NJ 680 6020J 650 NJ
-preplace netloc Reservation_Station_0_op_b 1 10 5 3920J -930 4890 -940 NJ -940 NJ -940 6320J
-preplace netloc Reservation_Station_0_b_ctrl_b 1 10 5 NJ -90 4800 -40 5300J -360 NJ -360 6260J
-preplace netloc Reservation_Station_0_SEI1_b 1 10 5 NJ -170 4830 -10 5270J -480 NJ -480 NJ
-preplace netloc Reservation_Station_0_ROB_tag_b 1 10 5 NJ -290 4890 0 5260J -540 NJ -540 NJ
-preplace netloc Reservation_Station_0_v_ra_l 1 10 5 4160J 690 N 690 NJ 690 6000J 410 NJ
-preplace netloc Reservation_Station_0_SEI2_b 1 10 5 NJ -150 4810 -20 5320J -340 NJ -340 6270J
-preplace netloc Reservation_Station_0_spec_tag_b 1 10 5 4100J -120 4710 20 5470J -330 NJ -330 6250J
-preplace netloc Reservation_Station_0_v_ra_b 1 10 5 4100J -200 4870 -30 5290J -380 NJ -380 NJ
-preplace netloc Reservation_Station_0_PC_l 1 10 5 NJ 610 4710 640 NJ 640 5970J 350 NJ
-preplace netloc Reservation_Station_0_v_rb_l 1 10 5 3820J 700 N 700 5360J 470 NJ 470 NJ
-preplace netloc Reservation_Station_0_ra_l 1 10 5 4010J 740 N 740 NJ 740 6010J 380 NJ
-preplace netloc Reservation_Station_0_PC_b 1 10 5 NJ -270 4850 10 5280J -510 NJ -510 NJ
-preplace netloc Reservation_Station_0_spec_tag_l 1 10 5 NJ 770 4910 750 NJ 750 NJ 750 6270J
-preplace netloc Reservation_Station_0_ls_ctrl_l 1 10 5 4260J 650 N 650 5390J 590 NJ 590 NJ
-preplace netloc Reservation_Station_0_ra_b 1 10 5 NJ -250 4780 40 5330J -450 NJ -450 NJ
-preplace netloc Reservation_Station_0_rb_l 1 10 5 4220J 640 4700 630 5300J 480 5980J 440 NJ
-preplace netloc Reservation_Station_0_rb_b 1 10 5 NJ -230 4760 30 5340J -420 NJ -420 NJ
-preplace netloc Reservation_Station_0_b_p_b 1 10 5 NJ -110 4700 50 5480J -350 NJ -350 6280J
-preplace netloc Reservation_Station_0_valid_l 1 10 5 4270J 660 N 660 5520J 620 NJ 620 NJ
-preplace netloc Reorder_Buffer_0_Busy 1 13 2 6000J 170 NJ
-preplace netloc Write_back_signals_0_wZ1 1 14 1 6270J 90n
-preplace netloc Write_back_signals_0_wC2 1 14 1 6270J 70n
-preplace netloc Write_back_signals_0_wC1 1 14 1 NJ 50
-preplace netloc Write_back_signals_0_wZ2 1 14 1 NJ 110
-levelinfo -pg 1 -650 -410 -80 210 560 920 1300 1890 2440 3040 3660 4620 5110 5770 6120 6340
-pagesize -pg 1 -db -bbox -sgen -730 -1200 6510 1410
+preplace port rst_0 -pg 1 -lvl 0 -x -590 -y 920 -defaultsOSRD
+preplace port clk_0 -pg 1 -lvl 0 -x -590 -y 890 -defaultsOSRD
+preplace port full_0 -pg 1 -lvl 14 -x 8010 -y 1440 -defaultsOSRD
+preplace port empty_0 -pg 1 -lvl 14 -x 8010 -y 1470 -defaultsOSRD
+preplace port stall_0 -pg 1 -lvl 14 -x 8010 -y 930 -defaultsOSRD
+preplace port v_rb_b_0 -pg 1 -lvl 14 -x 8010 -y 2670 -defaultsOSRD
+preplace port valid_b_0 -pg 1 -lvl 14 -x 8010 -y 2850 -defaultsOSRD
+preplace port v_ra_l_0 -pg 1 -lvl 14 -x 8010 -y 3490 -defaultsOSRD
+preplace port v_ra_b_0 -pg 1 -lvl 14 -x 8010 -y 2640 -defaultsOSRD
+preplace port v_rb_l_0 -pg 1 -lvl 14 -x 8010 -y 3520 -defaultsOSRD
+preplace port b_p_b_0 -pg 1 -lvl 14 -x 8010 -y 2790 -defaultsOSRD
+preplace port valid_l_0 -pg 1 -lvl 14 -x 8010 -y 3700 -defaultsOSRD
+preplace port wZ1_0 -pg 1 -lvl 14 -x 8010 -y 2430 -defaultsOSRD
+preplace port wC2_0 -pg 1 -lvl 14 -x 8010 -y 2400 -defaultsOSRD
+preplace port wC1_0 -pg 1 -lvl 14 -x 8010 -y 2370 -defaultsOSRD
+preplace port wZ2_0 -pg 1 -lvl 14 -x 8010 -y 2460 -defaultsOSRD
+preplace portBus Imm1_1_out_0 -pg 1 -lvl 14 -x 8010 -y 1380 -defaultsOSRD
+preplace portBus Imm1_2_out_0 -pg 1 -lvl 14 -x 8010 -y 1410 -defaultsOSRD
+preplace portBus Imm2_l_0 -pg 1 -lvl 14 -x 8010 -y 1300 -defaultsOSRD
+preplace portBus ROB_tag_l_0 -pg 1 -lvl 14 -x 8010 -y 3370 -defaultsOSRD
+preplace portBus SEI1_l_0 -pg 1 -lvl 14 -x 8010 -y 3580 -defaultsOSRD
+preplace portBus SEI2_l_0 -pg 1 -lvl 14 -x 8010 -y 3610 -defaultsOSRD
+preplace portBus op_b_0 -pg 1 -lvl 14 -x 8010 -y 2490 -defaultsOSRD
+preplace portBus b_ctrl_b_0 -pg 1 -lvl 14 -x 8010 -y 2820 -defaultsOSRD
+preplace portBus SEI1_b_0 -pg 1 -lvl 14 -x 8010 -y 2700 -defaultsOSRD
+preplace portBus ROB_tag_b_0 -pg 1 -lvl 14 -x 8010 -y 2520 -defaultsOSRD
+preplace portBus SEI2_b_0 -pg 1 -lvl 14 -x 8010 -y 2730 -defaultsOSRD
+preplace portBus spec_tag_b_0 -pg 1 -lvl 14 -x 8010 -y 2760 -defaultsOSRD
+preplace portBus PC_l_0 -pg 1 -lvl 14 -x 8010 -y 3400 -defaultsOSRD
+preplace portBus ra_l_0 -pg 1 -lvl 14 -x 8010 -y 3430 -defaultsOSRD
+preplace portBus PC_b_0 -pg 1 -lvl 14 -x 8010 -y 2550 -defaultsOSRD
+preplace portBus spec_tag_l_0 -pg 1 -lvl 14 -x 8010 -y 3640 -defaultsOSRD
+preplace portBus ls_ctrl_l_0 -pg 1 -lvl 14 -x 8010 -y 3670 -defaultsOSRD
+preplace portBus ra_b_0 -pg 1 -lvl 14 -x 8010 -y 2580 -defaultsOSRD
+preplace portBus rb_l_0 -pg 1 -lvl 14 -x 8010 -y 3460 -defaultsOSRD
+preplace portBus rb_b_0 -pg 1 -lvl 14 -x 8010 -y 360 -defaultsOSRD
+preplace portBus Busy_0 -pg 1 -lvl 14 -x 8010 -y 2020 -defaultsOSRD
+preplace inst xlconstant_0 -pg 1 -lvl 1 -x -490 -y 980 -defaultsOSRD
+preplace inst xlconstant_1 -pg 1 -lvl 1 -x -490 -y 1080 -defaultsOSRD
+preplace inst PC_0 -pg 1 -lvl 2 -x -200 -y 980 -defaultsOSRD
+preplace inst RegWrite_Ctrl_0 -pg 1 -lvl 7 -x 1640 -y 1340 -defaultsOSRD
+preplace inst Register_Interdepend_0 -pg 1 -lvl 9 -x 2870 -y 1160 -defaultsOSRD
+preplace inst Write_back_signals_0 -pg 1 -lvl 13 -x 6170 -y 2980 -defaultsOSRD
+preplace inst decode_0 -pg 1 -lvl 6 -x 1130 -y 1190 -defaultsOSRD
+preplace inst Instruction_Memory_0 -pg 1 -lvl 3 -x 120 -y 1210 -defaultsOSRD
+preplace inst Control_Unit_0 -pg 1 -lvl 8 -x 1990 -y 1290 -defaultsOSRD
+preplace inst Issue_Unit_0 -pg 1 -lvl 9 -x 2870 -y 2210 -defaultsOSRD
+preplace inst Valid_instruction_ch_0 -pg 1 -lvl 4 -x 410 -y 1240 -defaultsOSRD
+preplace inst Reservation_Station_0 -pg 1 -lvl 13 -x 6170 -y 660 -defaultsOSRD
+preplace inst decode_buffer_0 -pg 1 -lvl 5 -x 760 -y 1210 -defaultsOSRD
+preplace inst DispatchBuffer_0 -pg 1 -lvl 11 -x 4450 -y 690 -defaultsOSRD
+preplace inst Reorder_Buffer_0 -pg 1 -lvl 13 -x 6170 -y 2340 -defaultsOSRD
+preplace inst Register_File_0 -pg 1 -lvl 10 -x 3540 -y 690 -defaultsOSRD
+preplace inst ALU_0 -pg 1 -lvl 9 -x 2870 -y 3690 -defaultsOSRD
+preplace inst ALU_1 -pg 1 -lvl 9 -x 2870 -y 4410 -defaultsOSRD
+preplace inst Allocate_unit_0 -pg 1 -lvl 12 -x 5310 -y 730 -defaultsOSRD
+preplace netloc PC_0_PC_out 1 1 4 -390 1130 -30 1130 NJ 1130 560
+preplace netloc Instruction_Memory_0_instr1 1 3 2 240 1330 570J
+preplace netloc Instruction_Memory_0_instr2 1 3 2 260 1150 540J
+preplace netloc Valid_instruction_ch_0_valid1 1 4 1 560 1220n
+preplace netloc Valid_instruction_ch_0_valid2 1 4 1 580 1240n
+preplace netloc xlconstant_0_dout 1 1 12 -390 810 NJ 810 250 1050 550 1050 940J 1520 1490J 1510 NJ 1510 NJ 1510 N 1510 4030 180 4690 -10 5720
+preplace netloc decode_buffer_0_address_out1 1 5 1 N 1140
+preplace netloc decode_buffer_0_address_out2 1 5 1 N 1160
+preplace netloc decode_buffer_0_instr1_out 1 5 1 N 1180
+preplace netloc decode_buffer_0_instr2_out 1 5 1 N 1200
+preplace netloc decode_buffer_0_branch_predict1_out 1 5 1 N 1220
+preplace netloc decode_buffer_0_branch_predict2_out 1 5 1 N 1240
+preplace netloc decode_buffer_0_valid1_out 1 5 1 N 1260
+preplace netloc decode_buffer_0_valid2_out 1 5 1 N 1280
+preplace netloc decode_0_IA1_out 1 6 5 1290 310 N 310 N 310 N 310 3840
+preplace netloc decode_0_IA2_out 1 6 5 1310 320 N 320 N 320 N 320 4060
+preplace netloc decode_0_op1 1 6 5 1300 300 N 300 N 300 N 300 4040
+preplace netloc decode_0_op2 1 6 5 1320 330 N 330 N 330 N 330 4010
+preplace netloc decode_0_RA1 1 6 5 1330 970 N 970 N 970 3020 350 3960
+preplace netloc decode_0_RA2 1 6 5 1350 1010 N 1010 N 1010 3090 1030 4080
+preplace netloc decode_0_RB1 1 6 5 1340 1000 N 1000 N 1000 3100 1040 4090
+preplace netloc decode_0_RB2 1 6 5 N 1060 N 1060 2240 340 N 340 3970
+preplace netloc decode_0_RC1 1 6 5 1420 1620 N 1620 N 1620 3110 1600 3970
+preplace netloc decode_0_RC2 1 6 5 1410 1600 N 1600 N 1600 3090 1490 4120
+preplace netloc decode_0_comp1 1 6 5 N 1120 N 1120 2250 1360 3100 1300 4100
+preplace netloc decode_0_comp2 1 6 5 N 1140 N 1140 2240 1340 3080 1290 4110
+preplace netloc decode_0_CZ1 1 6 5 1450 1150 N 1150 2150 1930 N 1930 4180
+preplace netloc decode_0_CZ2 1 6 5 1480 1160 N 1160 2140 1910 N 1910 3690
+preplace netloc decode_0_Imm1_1 1 6 5 1430 1080 N 1080 2200 1880 N 1880 3770
+preplace netloc decode_0_Imm1_2 1 6 5 1470 1130 N 1130 2180 1560 N 1560 4150
+preplace netloc decode_0_Imm2_1 1 6 5 1460 1100 N 1100 2190 1610 N 1610 3910
+preplace netloc decode_0_Imm2_2 1 6 5 1440 1050 N 1050 2200 290 N 290 4020
+preplace netloc decode_0_SEI1_1 1 6 5 1450 1580 N 1580 N 1580 N 1580 4170
+preplace netloc decode_0_SEI1_2 1 6 5 1490 1110 N 1110 2400 1330 N 1330 4140
+preplace netloc decode_0_SEI2_1 1 6 5 1480 1480 N 1480 2240 1400 3090 1050 4130
+preplace netloc decode_0_SEI2_2 1 6 5 1370 1590 N 1590 N 1590 N 1590 3980
+preplace netloc decode_0_spec_tag1 1 6 5 1470 1460 N 1460 2220 1390 3140 1360 4160
+preplace netloc decode_0_spec_tag2 1 6 5 1390 1520 N 1520 2160 1550 N 1550 4200
+preplace netloc decode_0_valid1_out 1 6 5 1360 270 N 270 N 270 N 270 3730
+preplace netloc decode_0_valid2_out 1 6 5 1400 280 N 280 N 280 N 280 3810
+preplace netloc decode_0_branch_predict1_out 1 6 5 1300 1570 N 1570 N 1570 N 1570 4210
+preplace netloc decode_0_branch_predict2_out 1 6 5 1380 1470 N 1470 2210 1380 N 1380 4190
+preplace netloc RegWrite_Ctrl_0_RegWrite1 1 7 5 1760 1070 2250 200 NJ 200 3820 140 4860
+preplace netloc RegWrite_Ctrl_0_RegWrite2 1 7 5 1770 1090 2400 210 NJ 210 3830 150 5080
+preplace netloc DispatchBuffer_0_IA1_out 1 11 1 4880 140n
+preplace netloc DispatchBuffer_0_IA2_out 1 11 1 4670 160n
+preplace netloc DispatchBuffer_0_op1_out 1 6 6 1500 1450 1780 1420 2230J 1410 3120J 1280 N 1280 4700
+preplace netloc DispatchBuffer_0_op2_out 1 6 6 1510 1440 1790 1430 NJ 1430 NJ 1430 N 1430 4720
+preplace netloc DispatchBuffer_0_comp1_out 1 7 5 1820 220 N 220 N 220 3840 160 4630
+preplace netloc DispatchBuffer_0_comp2_out 1 7 5 1830 230 N 230 N 230 3850 170 4620
+preplace netloc DispatchBuffer_0_CZ1_out 1 7 5 1800 90 N 90 N 90 3710 30 4650
+preplace netloc DispatchBuffer_0_CZ2_out 1 7 5 1810 100 N 100 N 100 3720 40 4640
+preplace netloc DispatchBuffer_0_valid_out1 1 6 6 1500 170 NJ 170 NJ 170 NJ 170 3790 110 4810
+preplace netloc DispatchBuffer_0_valid_out2 1 6 6 1510 180 NJ 180 NJ 180 NJ 180 3800 120 4800
+preplace netloc Control_Unit_0_b_ctrl1 1 8 4 2130J 70 NJ 70 3690 10 4950
+preplace netloc Control_Unit_0_b_ctrl2 1 8 4 2170J 80 NJ 80 3700 20 4730
+preplace netloc Control_Unit_0_a_ctrl1 1 8 4 2120J 50 NJ 50 3670 -30 5070
+preplace netloc Control_Unit_0_a_ctrl2 1 8 4 2160J 60 NJ 60 3680 -10 4660
+preplace netloc Control_Unit_0_ls_ctrl1 1 8 4 2220J 1310 3020J 1260 N 1260 4710
+preplace netloc Control_Unit_0_ls_ctrl2 1 8 4 NJ 1320 3030J 1270 N 1270 5070
+preplace netloc DispatchBuffer_0_spec_tag1_out 1 11 1 4890 840n
+preplace netloc DispatchBuffer_0_spec_tag2_out 1 11 1 4870 860n
+preplace netloc DispatchBuffer_0_branch_predict1_out 1 11 1 4850 920n
+preplace netloc DispatchBuffer_0_branch_predict2_out 1 11 1 4830 940n
+preplace netloc DispatchBuffer_0_Imm2_1_out 1 11 1 4910 720n
+preplace netloc DispatchBuffer_0_Imm2_2_out 1 11 1 4900 740n
+preplace netloc DispatchBuffer_0_SEI1_1_out 1 11 1 4880 760n
+preplace netloc DispatchBuffer_0_SEI1_2_out 1 11 1 4860 780n
+preplace netloc DispatchBuffer_0_SEI2_1_out 1 11 1 4840 800n
+preplace netloc DispatchBuffer_0_SEI2_2_out 1 11 1 4820 820n
+preplace netloc Register_Interdepend_0_WAR 1 9 1 3040 790n
+preplace netloc Register_Interdepend_0_RAW 1 9 1 3030 770n
+preplace netloc Register_Interdepend_0_WAW 1 9 1 3050 810n
+preplace netloc DispatchBuffer_0_RA1_out 1 8 4 2410 110 N 110 3730 50 4770
+preplace netloc DispatchBuffer_0_RA2_out 1 8 4 2640 120 N 120 3740 60 4750
+preplace netloc DispatchBuffer_0_RB1_out 1 8 4 2650 130 N 130 3750 70 4740
+preplace netloc DispatchBuffer_0_RB2_out 1 8 4 2680 140 N 140 3760 80 4790
+preplace netloc DispatchBuffer_0_RC1_out 1 8 4 2700 150 N 150 3770 90 4780
+preplace netloc DispatchBuffer_0_RC2_out 1 8 4 2710 160 N 160 3780 100 4760
+preplace netloc Register_File_0_ra1 1 10 2 3910 230 5050
+preplace netloc Register_File_0_ra2 1 10 2 3920 240 5040
+preplace netloc Register_File_0_rb1 1 10 2 3890 210 5060
+preplace netloc Register_File_0_rb2 1 10 2 3870 200 4710
+preplace netloc Register_File_0_rc1 1 10 2 3930 220 4680
+preplace netloc Register_File_0_rc2 1 10 2 3940 250 5030
+preplace netloc Register_File_0_v_ra1 1 10 2 4000 310 4990
+preplace netloc Register_File_0_v_ra2 1 10 2 3950 260 5020
+preplace netloc Register_File_0_v_rb1 1 10 2 3980 270 5010
+preplace netloc Register_File_0_v_rb2 1 10 2 3990 280 5000
+preplace netloc Register_File_0_v_rc1 1 10 2 4050 290 4970
+preplace netloc Register_File_0_v_rc2 1 10 2 4070 300 4850
+preplace netloc Control_Unit_0_FU_bits1 1 8 4 2230 1350 3110J 1310 N 1310 5090
+preplace netloc Control_Unit_0_FU_bits2 1 8 4 2210 1370 3130J 1320 N 1320 4750
+preplace netloc Reorder_Buffer_0_head 1 11 3 5100 2730 NJ 2730 6330
+preplace netloc Reorder_Buffer_0_tail 1 11 3 5110 2720 5730J 2740 6320
+preplace netloc Reservation_Station_0_Busy 1 11 3 5120 1580 N 1580 6570
+preplace netloc Allocate_unit_0_valid1_out 1 9 4 3310 1350 4020J 1440 N 1440 5480
+preplace netloc Allocate_unit_0_valid2_out 1 9 4 3270 1400 NJ 1400 4770 1420 5530
+preplace netloc Allocate_unit_0_RegWrite1_out 1 9 4 3320 -50 NJ -50 N -50 5490
+preplace netloc Allocate_unit_0_RegWrite2_out 1 9 4 3330 -40 NJ -40 N -40 5470
+preplace netloc Allocate_unit_0_RA1_out 1 9 4 3190 -110 N -110 N -110 5580
+preplace netloc Allocate_unit_0_RA2_out 1 9 4 3200 -100 N -100 N -100 5570
+preplace netloc Allocate_unit_0_RB1_out 1 9 4 3210 -90 N -90 N -90 5560
+preplace netloc Allocate_unit_0_RB2_out 1 9 4 3220 -80 N -80 N -80 5550
+preplace netloc Allocate_unit_0_RC1_out 1 9 4 3230 -70 N -70 N -70 5540
+preplace netloc Allocate_unit_0_RC2_out 1 9 4 3240 -60 N -60 N -60 5520
+preplace netloc Allocate_unit_0_FU_bits1_out 1 9 4 3150 -130 NJ -130 N -130 5600
+preplace netloc Allocate_unit_0_FU_bits2_out 1 9 4 3160 -120 NJ -120 N -120 5590
+preplace netloc Allocate_unit_0_ROB_tag1 1 9 4 3260 1370 NJ 1370 4830 1400 5730
+preplace netloc Allocate_unit_0_ROB_tag2 1 9 4 3180 1410 NJ 1410 N 1410 5710
+preplace netloc Issue_Unit_0_valid_issue_b 1 9 4 N 2260 NJ 2260 N 2260 5660
+preplace netloc Issue_Unit_0_valid_issue_a 1 9 4 N 2280 NJ 2280 N 2280 5680
+preplace netloc Issue_Unit_0_valid_issue_ls 1 9 4 N 2300 NJ 2300 N 2300 5890
+preplace netloc Issue_Unit_0_Issue_RS_b 1 9 4 N 2100 N 2100 4940 20 5960
+preplace netloc Issue_Unit_0_Issue_RS_a 1 9 4 N 2120 N 2120 4980 50 5930
+preplace netloc Issue_Unit_0_Issue_RS_ls 1 9 4 N 2140 N 2140 4960 10 5950
+preplace netloc Allocate_unit_0_RS_tag1 1 12 1 5630 510n
+preplace netloc Allocate_unit_0_RS_tag2 1 12 1 5640 530n
+preplace netloc Allocate_unit_0_RS_input1 1 12 1 5610 430n
+preplace netloc Allocate_unit_0_RS_input2 1 12 1 5620 450n
+preplace netloc ALU_0_valid_out 1 9 4 3020 2690 NJ 2690 4940 2660 5770
+preplace netloc ALU_0_ROB_tag_out 1 9 4 3060 2730 NJ 2730 5080 2700 5870
+preplace netloc ALU_0_alu_out 1 9 4 3040 2710 NJ 2710 5060 2680 5810
+preplace netloc Reservation_Station_0_c_a 1 8 6 2320 1520 NJ 1520 N 1520 N 1520 5690 1530 6380
+preplace netloc Reservation_Station_0_z_a 1 8 6 2650 1900 NJ 1900 3730 1910 N 1910 N 1910 6770
+preplace netloc Reservation_Station_0_PC_a 1 8 6 2310 1460 NJ 1460 N 1460 N 1460 5780 1490 6390
+preplace netloc Reservation_Station_0_ra_a 1 8 6 2330 1500 NJ 1500 N 1500 N 1500 5740 1510 6410
+preplace netloc Reservation_Station_0_rb_a 1 8 6 2700 2780 NJ 2780 N 2780 N 2780 N 2780 6800
+preplace netloc Reservation_Station_0_rc_a 1 8 6 2710 2800 NJ 2800 N 2800 N 2800 N 2800 6810
+preplace netloc Reservation_Station_0_v_ra_a 1 8 6 2490 1840 NJ 1840 N 1840 N 1840 N 1840 6590
+preplace netloc Reservation_Station_0_v_rb_a 1 8 6 2660 1940 NJ 1940 N 1940 N 1940 N 1940 6780
+preplace netloc Reservation_Station_0_v_rc_a 1 8 6 2680 1970 NJ 1970 4200 1860 N 1860 N 1860 6580
+preplace netloc Reservation_Station_0_v_c_a 1 8 6 2460 1820 NJ 1820 N 1820 N 1820 N 1820 6540
+preplace netloc Reservation_Station_0_v_z_a 1 8 6 2470 1860 NJ 1860 4080 1870 N 1870 N 1870 6560
+preplace netloc Reservation_Station_0_spec_tag_a 1 8 6 2690 2820 NJ 2820 N 2820 N 2820 N 2820 6790
+preplace netloc Reservation_Station_0_a_ctrl_a 1 8 6 2670 1990 3130J 1620 N 1620 N 1620 N 1620 6370
+preplace netloc Reservation_Station_0_SEI1_a 1 8 6 2420 1800 NJ 1800 N 1800 N 1800 N 1800 6480
+preplace netloc Reservation_Station_0_valid_a 1 8 6 2530 1960 NJ 1960 4210 1890 N 1890 N 1890 6550
+preplace netloc Reservation_Station_0_ROB_tag_a 1 8 6 2480 1770 NJ 1770 N 1770 N 1770 N 1770 6600
+preplace netloc Reservation_Station_0_FU_bits0 1 8 6 2590 1640 NJ 1640 N 1640 N 1640 N 1640 6740
+preplace netloc Reservation_Station_0_FU_bits1 1 8 6 2600 1650 NJ 1650 N 1650 N 1650 N 1650 6730
+preplace netloc Reservation_Station_0_FU_bits2 1 8 6 2610 1660 NJ 1660 N 1660 N 1660 N 1660 6720
+preplace netloc Reservation_Station_0_FU_bits3 1 8 6 2620 1670 NJ 1670 N 1670 N 1670 N 1670 6710
+preplace netloc Reservation_Station_0_FU_bits4 1 8 6 2630 1680 NJ 1680 N 1680 N 1680 N 1680 6700
+preplace netloc Reservation_Station_0_FU_bits5 1 8 6 2640 1690 NJ 1690 N 1690 N 1690 N 1690 6690
+preplace netloc Reservation_Station_0_FU_bits6 1 8 6 2400 1440 NJ 1440 4010 1600 N 1600 N 1600 6530
+preplace netloc Reservation_Station_0_FU_bits7 1 8 6 2410 1450 NJ 1450 3960 1610 N 1610 N 1610 6520
+preplace netloc Reservation_Station_0_Ready 1 8 6 2580 1790 NJ 1790 N 1790 N 1790 N 1790 6680
+preplace netloc Allocate_unit_0_ROB_input1 1 12 1 5580 910n
+preplace netloc Allocate_unit_0_ROB_input2 1 12 1 5540 930n
+preplace netloc ALU_0_PC_out 1 9 4 3030J 2670 NJ 2670 4670 2640 5820
+preplace netloc Reorder_Buffer_0_wb1 1 12 2 5730 2870 6400
+preplace netloc Reorder_Buffer_0_wb2 1 12 2 5730 3090 6410
+preplace netloc Write_back_signals_0_wR1 1 9 5 3150 3100 NJ 3100 N 3100 NJ 3100 6330
+preplace netloc Write_back_signals_0_wR2 1 9 5 3160 2860 NJ 2860 N 2860 NJ 2860 6320
+preplace netloc Reorder_Buffer_0_reg_data1 1 9 5 3290 2840 NJ 2840 N 2840 NJ 2840 6390
+preplace netloc Reorder_Buffer_0_reg_data2 1 9 5 3300 2850 NJ 2850 N 2850 NJ 2850 6380
+preplace netloc Reorder_Buffer_0_RD1 1 9 5 3320 2750 NJ 2750 N 2750 NJ 2750 6360
+preplace netloc Reorder_Buffer_0_RD2 1 9 5 3330 2760 NJ 2760 N 2760 NJ 2760 6350
+preplace netloc Reservation_Station_0_PC_a2 1 8 6 2270 1470 NJ 1470 N 1470 N 1470 5760 1500 6350
+preplace netloc Reservation_Station_0_ra_a2 1 8 6 2290 1540 NJ 1540 N 1540 N 1540 5550 1550 6360
+preplace netloc Reservation_Station_0_ROB_tag_a2 1 8 6 2370 1780 NJ 1780 N 1780 N 1780 N 1780 6460
+preplace netloc Reservation_Station_0_rb_a2 1 8 6 2630 2790 NJ 2790 N 2790 N 2790 N 2790 6750
+preplace netloc Reservation_Station_0_rc_a2 1 8 6 2640 2810 NJ 2810 N 2810 N 2810 N 2810 6760
+preplace netloc Reservation_Station_0_c_a2 1 8 6 2280 1530 NJ 1530 N 1530 N 1530 5670 1540 6330
+preplace netloc Reservation_Station_0_z_a2 1 8 6 2430 1920 NJ 1920 N 1920 N 1920 N 1920 6500
+preplace netloc Reservation_Station_0_v_ra_a2 1 8 6 2380 1850 NJ 1850 N 1850 N 1850 N 1850 6450
+preplace netloc Reservation_Station_0_v_rb_a2 1 8 6 2440 1950 NJ 1950 N 1950 N 1950 N 1950 6510
+preplace netloc Reservation_Station_0_v_rc_a2 1 8 6 2450 1980 NJ 1980 N 1980 N 1980 5790 1930 6490
+preplace netloc Reservation_Station_0_v_c_a2 1 8 6 2340 1830 NJ 1830 N 1830 N 1830 N 1830 6420
+preplace netloc Reservation_Station_0_v_z_a2 1 8 6 2360 1870 NJ 1870 3920 1880 N 1880 N 1880 6440
+preplace netloc Reservation_Station_0_spec_tag_a2 1 8 6 2260 1630 NJ 1630 N 1630 N 1630 N 1630 6340
+preplace netloc Reservation_Station_0_a_ctrl_a2 1 8 6 2250 1420 NJ 1420 N 1420 4740 1430 5700 1570 6320
+preplace netloc Reservation_Station_0_SEI1_a2 1 8 6 2300 1810 NJ 1810 N 1810 N 1810 N 1810 6400
+preplace netloc Reservation_Station_0_valid_a2 1 8 6 2350 1890 NJ 1890 3950 1900 N 1900 N 1900 6430
+preplace netloc ALU_1_valid_out 1 9 4 3050 2700 NJ 2700 5030 2670 5650
+preplace netloc ALU_1_ROB_tag_out 1 9 4 3090 2740 NJ 2740 5090 2710 5910
+preplace netloc ALU_1_alu_out 1 9 4 3080 2720 NJ 2720 5070 2690 5830
+preplace netloc ALU_1_PC_out 1 9 4 3070J 2680 NJ 2680 4800 2650 5490
+preplace netloc Issue_Unit_0_PC_bi 1 9 4 NJ 2160 NJ 2160 N 2160 5480
+preplace netloc Issue_Unit_0_PC_ai 1 9 4 NJ 2180 NJ 2180 N 2180 5480
+preplace netloc Issue_Unit_0_PC_a2i 1 9 4 NJ 2200 NJ 2200 N 2200 5480
+preplace netloc Issue_Unit_0_PC_lsi 1 9 4 NJ 2220 NJ 2220 N 2220 5480
+preplace netloc Issue_Unit_0_Issue_RS_a2 1 9 4 3070 190 3810 130 4860 30 5940
+preplace netloc Issue_Unit_0_valid_issue_a2 1 9 4 3030 2290 NJ 2290 N 2290 5800
+preplace netloc Reorder_Buffer_0_ROB1 1 9 5 3240 2830 NJ 2830 N 2830 NJ 2830 6370
+preplace netloc Reorder_Buffer_0_ROB2 1 9 5 3280 2770 NJ 2770 N 2770 NJ 2770 6340
+preplace netloc rst_0_1 1 0 13 NJ 920 -400 830 -20 1140 270 1120 570 1060 930 1530 1510 1490 NJ 1490 NJ 1490 3060 260 3860J -20 N -20 5880
+preplace netloc clk_0_1 1 0 13 NJ 890 -380 820 NJ 820 NJ 820 580 820 950 410 N 410 NJ 410 NJ 410 3090 250 3880J 0 N 0 5860
+preplace netloc xlconstant_1_dout 1 1 12 -410 240 NJ 240 NJ 240 NJ 240 NJ 240 N 240 NJ 240 NJ 240 NJ 240 3900 190 5090 -30 5750
+preplace netloc DispatchBuffer_0_full 1 11 3 4920 60 5850J 1520 6950J
+preplace netloc DispatchBuffer_0_empty 1 11 3 4930 70 5790J 1560 6970J
+preplace netloc DispatchBuffer_0_Imm1_1_out 1 11 3 4900 40 5920J 1470 6910J
+preplace netloc DispatchBuffer_0_Imm1_2_out 1 11 3 4910 80 5900J 1480 6930J
+preplace netloc Allocate_unit_0_stall 1 12 2 5840J 1460 6890J
+preplace netloc Reservation_Station_0_PC0 1 8 6 2540 1700 NJ 1700 N 1700 N 1700 N 1700 6670
+preplace netloc Reservation_Station_0_PC1 1 8 6 2550 1710 NJ 1710 N 1710 N 1710 N 1710 6660
+preplace netloc Reservation_Station_0_PC2 1 8 6 2560 1720 NJ 1720 N 1720 N 1720 N 1720 6650
+preplace netloc Reservation_Station_0_PC3 1 8 6 2570 1730 NJ 1730 N 1730 N 1730 N 1730 6640
+preplace netloc Reservation_Station_0_PC4 1 8 6 2390 1480 NJ 1480 4000 1590 N 1590 N 1590 6470
+preplace netloc Reservation_Station_0_PC5 1 8 6 2500 1740 NJ 1740 N 1740 N 1740 N 1740 6630
+preplace netloc Reservation_Station_0_PC6 1 8 6 2510 1750 NJ 1750 N 1750 N 1750 N 1750 6620
+preplace netloc Reservation_Station_0_PC7 1 8 6 2520 1760 NJ 1760 N 1760 N 1760 N 1760 6610
+preplace netloc Reservation_Station_0_Imm2_l 1 13 1 N 1300
+preplace netloc Reservation_Station_0_v_rb_b 1 13 1 7090 400n
+preplace netloc Reservation_Station_0_ROB_tag_l 1 13 1 6960 1180n
+preplace netloc Reservation_Station_0_valid_b 1 13 1 6980 520n
+preplace netloc Reservation_Station_0_SEI1_l 1 13 1 6860 1320n
+preplace netloc Reservation_Station_0_SEI2_l 1 13 1 6850 1340n
+preplace netloc Reservation_Station_0_op_b 1 13 1 7140 280n
+preplace netloc Reservation_Station_0_b_ctrl_b 1 13 1 7000 500n
+preplace netloc Reservation_Station_0_SEI1_b 1 13 1 7080 420n
+preplace netloc Reservation_Station_0_ROB_tag_b 1 13 1 7130 300n
+preplace netloc Reservation_Station_0_v_ra_l 1 13 1 6880 1260n
+preplace netloc Reservation_Station_0_SEI2_b 1 13 1 7060 440n
+preplace netloc Reservation_Station_0_spec_tag_b 1 13 1 7040 460n
+preplace netloc Reservation_Station_0_v_ra_b 1 13 1 7100 380n
+preplace netloc Reservation_Station_0_PC_l 1 13 1 6940 1200n
+preplace netloc Reservation_Station_0_v_rb_l 1 13 1 6870 1280n
+preplace netloc Reservation_Station_0_ra_l 1 13 1 6920 1220n
+preplace netloc Reservation_Station_0_PC_b 1 13 1 7120 320n
+preplace netloc Reservation_Station_0_spec_tag_l 1 13 1 6840 1360n
+preplace netloc Reservation_Station_0_ls_ctrl_l 1 13 1 6830 1380n
+preplace netloc Reservation_Station_0_ra_b 1 13 1 7110 340n
+preplace netloc Reservation_Station_0_rb_l 1 13 1 6900 1240n
+preplace netloc Reservation_Station_0_rb_b 1 13 1 N 360
+preplace netloc Reservation_Station_0_b_p_b 1 13 1 7020 480n
+preplace netloc Reservation_Station_0_valid_l 1 13 1 6820 1400n
+preplace netloc Reorder_Buffer_0_Busy 1 13 1 6990J 2020n
+preplace netloc Write_back_signals_0_wZ1 1 13 1 7050J 2430n
+preplace netloc Write_back_signals_0_wC2 1 13 1 7030J 2400n
+preplace netloc Write_back_signals_0_wC1 1 13 1 7010J 2370n
+preplace netloc Write_back_signals_0_wZ2 1 13 1 7070J 2460n
+preplace netloc Allocate_unit_0_op2_out 1 9 4 3170 1390 NJ 1390 NJ 1390 5500
+preplace netloc Allocate_unit_0_op1_out 1 9 4 3250 1340 NJ 1340 4890J 1380 5510
+levelinfo -pg 1 -590 -490 -200 120 410 760 1130 1640 1990 2870 3540 4450 5310 6170 8010
+pagesize -pg 1 -db -bbox -sgen -670 -140 8180 4620
 "
 }
 0

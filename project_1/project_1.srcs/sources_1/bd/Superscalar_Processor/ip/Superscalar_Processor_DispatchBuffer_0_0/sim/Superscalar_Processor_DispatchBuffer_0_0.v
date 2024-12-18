@@ -57,6 +57,7 @@
 module Superscalar_Processor_DispatchBuffer_0_0 (
   clk,
   rst,
+  stall,
   IA1_in,
   IA2_in,
   op1_in,
@@ -125,6 +126,7 @@ input wire clk;
 (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME rst, POLARITY ACTIVE_LOW, INSERT_VIP 0" *)
 (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 rst RST" *)
 input wire rst;
+input wire stall;
 input wire [15 : 0] IA1_in;
 input wire [15 : 0] IA2_in;
 input wire [3 : 0] op1_in;
@@ -197,6 +199,7 @@ output wire empty;
   ) inst (
     .clk(clk),
     .rst(rst),
+    .stall(stall),
     .IA1_in(IA1_in),
     .IA2_in(IA2_in),
     .op1_in(op1_in),

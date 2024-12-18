@@ -57,6 +57,7 @@
 module Superscalar_Processor_decode_buffer_0_0 (
   clk,
   rst,
+  stall,
   PC_in,
   instr1_in,
   valid1_in,
@@ -80,6 +81,7 @@ input wire clk;
 (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME rst, POLARITY ACTIVE_LOW, INSERT_VIP 0" *)
 (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 rst RST" *)
 input wire rst;
+input wire stall;
 input wire [15 : 0] PC_in;
 input wire [15 : 0] instr1_in;
 input wire valid1_in;
@@ -99,6 +101,7 @@ output wire valid2_out;
   decode_buffer inst (
     .clk(clk),
     .rst(rst),
+    .stall(stall),
     .PC_in(PC_in),
     .instr1_in(instr1_in),
     .valid1_in(valid1_in),

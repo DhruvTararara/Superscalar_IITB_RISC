@@ -157,16 +157,16 @@ module Reorder_Buffer(
             if (!full) begin
                 if (valid1 & valid2) begin
                     {Busy1[ROB_tag1], Busy1[ROB_tag2]} <= {!Busy1[ROB_tag1], !Busy1[ROB_tag2]};
-                    {PC[ROB_tag1], reg_data[ROB_tag1], RD[ROB_tag1], RCZ[ROB_tag1], spec_tag[ROB_tag1]} <= ROB_input1;
-                    {PC[ROB_tag2], reg_data[ROB_tag2], RD[ROB_tag2], RCZ[ROB_tag2], spec_tag[ROB_tag2]} <= ROB_input2;
+                    {PC[ROB_tag1], RD[ROB_tag1], RCZ[ROB_tag1], spec_tag[ROB_tag1]} <= ROB_input1;
+                    {PC[ROB_tag2], RD[ROB_tag2], RCZ[ROB_tag2], spec_tag[ROB_tag2]} <= ROB_input2;
                 end
                 else if (valid1 & !valid2) begin
                     Busy1[ROB_tag1] <= !Busy1[ROB_tag1];
-                    {PC[ROB_tag1], reg_data[ROB_tag1], RD[ROB_tag1], RCZ[ROB_tag1], spec_tag[ROB_tag1]} <= ROB_input1;
+                    {PC[ROB_tag1], RD[ROB_tag1], RCZ[ROB_tag1], spec_tag[ROB_tag1]} <= ROB_input1;
                 end
                 else if (!valid1 & valid2) begin
                     Busy1[ROB_tag2] <= !Busy1[ROB_tag2];
-                    {PC[ROB_tag2], reg_data[ROB_tag2], RD[ROB_tag2], RCZ[ROB_tag2], spec_tag[ROB_tag2]} <= ROB_input2;
+                    {PC[ROB_tag2], RD[ROB_tag2], RCZ[ROB_tag2], spec_tag[ROB_tag2]} <= ROB_input2;
                 end
                 else begin
                 end
@@ -282,7 +282,7 @@ module Reorder_Buffer(
                     else s_ctrl <= 2'b00;//No misprediction
                 end
                 else begin
-                    s_ctrl <= 2'b11;//No valid instruction at head of ROB
+                    s_ctrl <= s_ctrl;//No valid instruction at head of ROB
                 end
             end
             //Processor is empty (head = tail)

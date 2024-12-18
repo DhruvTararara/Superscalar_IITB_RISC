@@ -1,7 +1,7 @@
 //Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2019.1 (win64) Build 2552052 Fri May 24 14:49:42 MDT 2019
-//Date        : Sun Dec  8 21:03:06 2024
+//Date        : Wed Dec 18 14:33:11 2024
 //Host        : CHEEMz-PC running 64-bit major release  (build 9200)
 //Command     : generate_target Superscalar_Processor_wrapper.bd
 //Design      : Superscalar_Processor_wrapper
@@ -24,7 +24,6 @@ module Superscalar_Processor_wrapper
     SEI2_l_0,
     b_ctrl_b_0,
     b_p_b_0,
-    buffer_count_0,
     clk_0,
     empty_0,
     full_0,
@@ -62,7 +61,6 @@ module Superscalar_Processor_wrapper
   output [15:0]SEI2_l_0;
   output [3:0]b_ctrl_b_0;
   output b_p_b_0;
-  output [2:0]buffer_count_0;
   input clk_0;
   output empty_0;
   output full_0;
@@ -101,7 +99,6 @@ module Superscalar_Processor_wrapper
   wire [15:0]SEI2_l_0;
   wire [3:0]b_ctrl_b_0;
   wire b_p_b_0;
-  wire [2:0]buffer_count_0;
   wire clk_0;
   wire empty_0;
   wire full_0;
@@ -141,7 +138,6 @@ module Superscalar_Processor_wrapper
         .SEI2_l_0(SEI2_l_0),
         .b_ctrl_b_0(b_ctrl_b_0),
         .b_p_b_0(b_p_b_0),
-        .buffer_count_0(buffer_count_0),
         .clk_0(clk_0),
         .empty_0(empty_0),
         .full_0(full_0),

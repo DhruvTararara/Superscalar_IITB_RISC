@@ -57,6 +57,8 @@
 module Superscalar_Processor_Register_File_0_0 (
   clk,
   rst,
+  op1,
+  op2,
   ROB_tag1,
   ROB_tag2,
   RegWrite1,
@@ -102,6 +104,8 @@ input wire clk;
 (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME rst, POLARITY ACTIVE_LOW, INSERT_VIP 0" *)
 (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 rst RST" *)
 input wire rst;
+input wire [3 : 0] op1;
+input wire [3 : 0] op2;
 input wire [2 : 0] ROB_tag1;
 input wire [2 : 0] ROB_tag2;
 input wire RegWrite1;
@@ -143,6 +147,8 @@ output wire v_rc2;
   Register_File inst (
     .clk(clk),
     .rst(rst),
+    .op1(op1),
+    .op2(op2),
     .ROB_tag1(ROB_tag1),
     .ROB_tag2(ROB_tag2),
     .RegWrite1(RegWrite1),

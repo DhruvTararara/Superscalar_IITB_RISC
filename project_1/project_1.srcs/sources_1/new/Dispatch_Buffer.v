@@ -10,7 +10,7 @@ module DispatchBuffer #(
 )(
     input wire clk,
     input wire rst,
-    
+    input stall,
     // Input interface - Decoded instructions
     input [15:0] IA1_in, IA2_in,
     input wire [OP_WIDTH-1:0] op1_in,
@@ -99,27 +99,33 @@ module DispatchBuffer #(
     wire [$clog2(BUFFER_SIZE):0] count;
     
     // Status signals
-    assign full = (count >= 3);
-    assign empty = (count == 3'd0);
-    assign count = (tail - head - Busy[head] - Busy[head + 2'd1] + valid_in1 + valid_in2) % 4;//tail - head - (instructions added) - (instructions committed)
-    reg [2:0] i_t [3:0];
-    reg [2:0] h_i_1 [3:0];
+    reg [1:0] n_t, n_h;
     reg [3:0] Busy1, Busy2;
-    
-    //Busy bits (depends totally on head and tail values)
+    assign full = (count >= 2'd3);
+    assign empty = (count == 2'b00);
+    assign count = (tail - head - (Busy[head] & stall) - (Busy[head + 2'd1] & stall) + valid_in1 + valid_in2) % 4;//tail - head - (instructions added) - (instructions committed)
     assign Busy = Busy1 ^ Busy2;
-    
-    //Instruction incoming (Allowed even if there stall is 1)
-    always @ (posedge clk) begin
-        if (rst) begin
-            tail <= 2'b00;
-            Busy1 <= 4'b1111;
+    //t-logic
+    always @ (*) begin
+        if (rst) n_t <= 2'b00;
+        else begin
+            if (!full) begin
+                if (valid_in1 & valid_in2) n_t <= tail + 2'b10;
+                else if (valid_in1 & !valid_in2) n_t <= tail + 2'b01;
+                else n_t <= tail;
+            end
         end
+    end
+    always @ (posedge clk) begin
+        if (rst) tail <= 2'b00;
+        else tail <= n_t;
+    end
+    always @ (posedge clk) begin
+        if (rst) Busy1 <= 4'b1111;
         else begin
             if (!full) begin
                 if (valid_in1 & valid_in2) begin
                     {Busy1[tail], Busy1[tail + 2'd1]} <= {!Busy1[tail], !Busy1[tail + 2'd1]};
-                    tail <= tail +2'd2;
                     op[tail] <= op1_in;
                     RA[tail] <= RA1_in;
                     RB[tail] <= RB1_in;
@@ -147,9 +153,8 @@ module DispatchBuffer #(
                     IA[tail + 1] <= IA2_in;
                     spec_tag[tail + 1] <= spec_tag2_in;
                 end
-                else if (valid_in1 & !valid_in2) begin
+                else if (valid_in1 & ! valid_in2) begin
                     Busy1[tail] <= !Busy1[tail];
-                    tail <= tail + 2'd1;
                     op[tail] <= op1_in;
                     RA[tail] <= RA1_in;
                     RB[tail] <= RB1_in;
@@ -165,8 +170,6 @@ module DispatchBuffer #(
                     spec_tag[tail] <= spec_tag1_in;
                 end
                 else begin
-                    tail <= tail;
-                    head <= head;
                 end
             end
             else begin
@@ -174,14 +177,28 @@ module DispatchBuffer #(
         end
     end
     
-    //Instruction Outgoing (Not allowed if stall is 1)
+    //h-logic
     always @ (*) begin
-        if (rst) begin
-            Busy2 <= 4'b1111;
-        end
+        if (rst) n_h <= 2'b00;
         else begin
-            if (!empty) begin
-                if (Busy[head] & Busy[head + 2'd1]) begin
+            if (!stall & !empty) begin
+                if ((Busy[head] & Busy[head + 2'b01]) | (Busy[head] & valid_in1) | (valid_in1 & valid_in2)) n_h <= head + 2'b10;
+                else if (Busy[head] & valid_in1) n_h <= head + 2'b01;
+                else n_h <= head;
+            end
+            else n_h <= head;
+        end
+    end
+    always @ (posedge clk) begin
+        if (rst) head <= 2'b00;
+        else head <= n_h;
+    end
+    always @ (posedge clk) begin
+        if (rst) Busy2 <= 4'b1111;
+        else begin
+            if (!stall & !empty) begin
+                if (Busy[head] & Busy[head + 2'b01]) begin
+                    {Busy2[head], Busy2[head + 2'd1]} <= {!Busy2[head], !Busy2[head + 2'd1]};
                     op1_out <= op[head];
                     RA1_out <= RA[head];
                     RB1_out <= RB[head];
@@ -210,7 +227,8 @@ module DispatchBuffer #(
                     spec_tag2_out <= spec_tag[head + 1];
                     {valid_out1, valid_out2} <= 2'b11;
                 end
-                else if (Busy[head] & !Busy[head + 3'd1]) begin
+                else if (Busy[head] & valid_in1) begin
+                    {Busy2[head], Busy2[head + 2'd1]} <= {!Busy2[head], !Busy2[head + 2'd1]};
                     op1_out <= op[head];
                     RA1_out <= RA[head];
                     RB1_out <= RB[head];
@@ -224,37 +242,247 @@ module DispatchBuffer #(
                     branch_predict1_out <= branch_predict[head];
                     IA1_out <= IA[head];
                     spec_tag1_out <= spec_tag[head];
-                    {valid_out1, valid_out2} <= 2'b10;
+                    op2_out <= op1_in;
+                    RA2_out <= RA1_in;
+                    RB2_out <= RB1_in;
+                    RC2_out <= RC1_in;
+                    comp2_out <= comp1_in;
+                    CZ2_out <= CZ1_in;
+                    Imm1_2_out <= Imm1_1_in;
+                    Imm2_2_out <= Imm2_1_in;
+                    SEI1_2_out <= SEI1_1_in;
+                    SEI2_2_out <= SEI2_1_in;
+                    branch_predict2_out <= branch_predict1_in;
+                    IA2_out <= IA1_in;
+                    spec_tag2_out <= spec_tag1_in;
+                    {valid_out1, valid_out2} <= 2'b11;
+                end
+                else if (valid_in1 & valid_in2) begin
+                    {Busy2[head], Busy2[head + 2'd1]} <= {!Busy2[head], !Busy2[head + 2'd1]};
+                    op1_out <= op1_in;
+                    RA1_out <= RA1_in;
+                    RB1_out <= RB1_in;
+                    RC1_out <= RC1_in;
+                    comp1_out <= comp1_in;
+                    CZ1_out <= CZ1_in;
+                    Imm1_1_out <= Imm1_1_in;
+                    Imm2_1_out <= Imm2_1_in;
+                    SEI1_1_out <= SEI1_1_in;
+                    SEI2_1_out <= SEI2_1_in;
+                    branch_predict1_out <= branch_predict1_in;
+                    IA1_out <= IA1_in;
+                    spec_tag1_out <= spec_tag1_in;
+                    op2_out <= op2_in;
+                    RA2_out <= RA2_in;
+                    RB2_out <= RB2_in;
+                    RC2_out <= RC2_in;
+                    comp2_out <= comp2_in;
+                    CZ2_out <= CZ2_in;
+                    Imm1_2_out <= Imm1_2_in;
+                    Imm2_2_out <= Imm2_2_in;
+                    SEI1_2_out <= SEI1_2_in;
+                    SEI2_2_out <= SEI2_2_in;
+                    branch_predict2_out <= branch_predict2_in;
+                    IA2_out <= IA2_in;
+                    spec_tag2_out <= spec_tag2_in;
+                    {valid_out1, valid_out2} <= 2'b11;
+                end
+                else if (Busy[head]) begin
+                    Busy2[head] <= !Busy2[head];
+                    op1_out <= op[head];
+                    RA1_out <= RA[head];
+                    RB1_out <= RB[head];
+                    RC1_out <= RC[head];
+                    comp1_out <= comp[head];
+                    CZ1_out <= CZ[head];
+                    Imm1_1_out <= Imm1[head];
+                    Imm2_1_out <= Imm2[head];
+                    SEI1_1_out <= SEI1[head];
+                    SEI2_1_out <= SEI2[head];
+                    branch_predict1_out <= branch_predict[head];
+                    IA1_out <= IA[head];
+                    spec_tag1_out <= spec_tag[head];
+                    {valid_out1, valid_out2} <= 2'b01;
+                end
+                else if (valid_in1) begin
+                    Busy2[head] <= !Busy2[head];
+                    op1_out <= op1_in;
+                    RA1_out <= RA1_in;
+                    RB1_out <= RB1_in;
+                    RC1_out <= RC1_in;
+                    comp1_out <= comp1_in;
+                    CZ1_out <= CZ1_in;
+                    Imm1_1_out <= Imm1_1_in;
+                    Imm2_1_out <= Imm2_1_in;
+                    SEI1_1_out <= SEI1_1_in;
+                    SEI2_1_out <= SEI2_1_in;
+                    branch_predict1_out <= branch_predict1_in;
+                    IA1_out <= IA1_in;
+                    spec_tag1_out <= spec_tag1_in;
+                    {valid_out1, valid_out2} <= 2'b01;
                 end
                 else begin
                     {valid_out1, valid_out2} <= 2'b00;
                 end
             end
+            //Can add the case of half-stall
             else begin
+                {valid_out1, valid_out2} <= 2'b00;
             end
         end
     end
-    always @ (posedge clk) begin
-        if (rst) begin
-            head <= 2'b00;
-        end
-        else begin
-            if (!empty) begin
-                if (Busy[head] & Busy[head + 2'd1]) begin
-                    {Busy2[head], Busy2[head + 2'd1]} <= {!Busy2[head], !Busy2[head + 2'd1]};
-                    head <= head + 2'd2;
-                end
-                else if (Busy[head] & !Busy[head + 3'd1]) begin
-                    Busy2[head] <= !Busy2[head];
-                    head <= head + 2'd1;
-                end
-                else begin
-                    head <= head;
-                end
-            end
-            else begin
-            end
-        end
-    end
+    //==============================================================
+    
+    
+//    reg [2:0] i_t [3:0];
+//    reg [2:0] h_i_1 [3:0];
+    
+    
+//    //Busy bits (depends totally on head and tail values)
+//    assign Busy = Busy1 ^ Busy2;
+    
+//    //Instruction incoming (Allowed even if there stall is 1)
+//    always @ (posedge clk) begin
+//        if (rst) begin
+//            tail <= 2'b00;
+//            Busy1 <= 4'b1111;
+//        end
+//        else begin
+//            if (!full) begin
+//                if (valid_in1 & valid_in2) begin
+//                    {Busy1[tail], Busy1[tail + 2'd1]} <= {!Busy1[tail], !Busy1[tail + 2'd1]};
+//                    tail <= tail +2'd2;
+//                    op[tail] <= op1_in;
+//                    RA[tail] <= RA1_in;
+//                    RB[tail] <= RB1_in;
+//                    RC[tail] <= RC1_in;
+//                    comp[tail] <= comp1_in;
+//                    CZ[tail] <= CZ1_in;
+//                    Imm1[tail] <= Imm1_1_in;
+//                    Imm2[tail] <= Imm2_1_in;
+//                    SEI1[tail] <= SEI1_1_in;
+//                    SEI2[tail] <= SEI2_1_in;
+//                    branch_predict[tail] <= branch_predict1_in;
+//                    IA[tail] <= IA1_in;
+//                    spec_tag[tail] <= spec_tag1_in;
+//                    op[(tail + 1) % BUFFER_SIZE] <= op2_in;
+//                    RA[(tail + 1) % BUFFER_SIZE] <= RA2_in;
+//                    RB[(tail + 1) % BUFFER_SIZE] <= RB2_in;
+//                    RC[(tail + 1) % BUFFER_SIZE] <= RC2_in;
+//                    comp[(tail + 1) % BUFFER_SIZE] <= comp2_in;
+//                    CZ[(tail + 1) % BUFFER_SIZE] <= CZ2_in;
+//                    Imm1[(tail + 1) % BUFFER_SIZE] <= Imm1_2_in;
+//                    Imm2[(tail + 1) % BUFFER_SIZE] <= Imm2_2_in;
+//                    SEI1[(tail + 1) % BUFFER_SIZE] <= SEI1_2_in;
+//                    SEI2[(tail + 1) % BUFFER_SIZE] <= SEI2_2_in;
+//                    branch_predict[(tail + 1) % BUFFER_SIZE] <= branch_predict2_in;
+//                    IA[tail + 1] <= IA2_in;
+//                    spec_tag[tail + 1] <= spec_tag2_in;
+//                end
+//                else if (valid_in1 & !valid_in2) begin
+//                    Busy1[tail] <= !Busy1[tail];
+//                    tail <= tail + 2'd1;
+//                    op[tail] <= op1_in;
+//                    RA[tail] <= RA1_in;
+//                    RB[tail] <= RB1_in;
+//                    RC[tail] <= RC1_in;
+//                    comp[tail] <= comp1_in;
+//                    CZ[tail] <= CZ1_in;
+//                    Imm1[tail] <= Imm1_1_in;
+//                    Imm2[tail] <= Imm2_1_in;
+//                    SEI1[tail] <= SEI1_1_in;
+//                    SEI2[tail] <= SEI2_1_in;
+//                    branch_predict[tail] <= branch_predict1_in;
+//                    IA[tail] <= IA1_in;
+//                    spec_tag[tail] <= spec_tag1_in;
+//                end
+//                else begin
+//                    tail <= tail;
+//                    head <= head;
+//                end
+//            end
+//            else begin
+//            end
+//        end
+//    end
+    
+//    //Instruction Outgoing (Not allowed if stall is 1)
+//    always @ (*) begin
+//        if (rst) begin
+//            Busy2 <= 4'b1111;
+//        end
+//        else begin
+//            if (!empty) begin
+//                if (Busy[head] & Busy[head + 2'd1]) begin
+//                    op1_out <= op[head];
+//                    RA1_out <= RA[head];
+//                    RB1_out <= RB[head];
+//                    RC1_out <= RC[head];
+//                    comp1_out <= comp[head];
+//                    CZ1_out <= CZ[head];
+//                    Imm1_1_out <= Imm1[head];
+//                    Imm2_1_out <= Imm2[head];
+//                    SEI1_1_out <= SEI1[head];
+//                    SEI2_1_out <= SEI2[head];
+//                    branch_predict1_out <= branch_predict[head];
+//                    IA1_out <= IA[head];
+//                    spec_tag1_out <= spec_tag[head];
+//                    op2_out <= op[(head + 1) % BUFFER_SIZE];
+//                    RA2_out <= RA[(head + 1) % BUFFER_SIZE];
+//                    RB2_out <= RB[(head + 1) % BUFFER_SIZE];
+//                    RC2_out <= RC[(head + 1) % BUFFER_SIZE];
+//                    comp2_out <= comp[(head + 1) % BUFFER_SIZE];
+//                    CZ2_out <= CZ[(head + 1) % BUFFER_SIZE];
+//                    Imm1_2_out <= Imm1[(head + 1) % BUFFER_SIZE];
+//                    Imm2_2_out <= Imm2[(head + 1) % BUFFER_SIZE];
+//                    SEI1_2_out <= SEI1[(head + 1) % BUFFER_SIZE];
+//                    SEI2_2_out <= SEI2[(head + 1) % BUFFER_SIZE];
+//                    branch_predict2_out <= branch_predict[(head + 1) % BUFFER_SIZE];
+//                    IA2_out <= IA[head + 1];
+//                    spec_tag2_out <= spec_tag[head + 1];
+//                end
+//                else if (Busy[head] & !Busy[head + 3'd1]) begin
+//                    op1_out <= op[head];
+//                    RA1_out <= RA[head];
+//                    RB1_out <= RB[head];
+//                    RC1_out <= RC[head];
+//                    comp1_out <= comp[head];
+//                    CZ1_out <= CZ[head];
+//                    Imm1_1_out <= Imm1[head];
+//                    Imm2_1_out <= Imm2[head];
+//                    SEI1_1_out <= SEI1[head];
+//                    SEI2_1_out <= SEI2[head];
+//                    branch_predict1_out <= branch_predict[head];
+//                    IA1_out <= IA[head];
+//                    spec_tag1_out <= spec_tag[head];
+//                end
+//                else begin
+//                end
+//            end
+//            else begin
+//            end
+//        end
+//    end
+//    always @ (posedge clk) begin
+//        if (rst) begin
+//            head <= 2'b00;
+//        end
+//        else begin
+//            if (Busy[head] & Busy[head + 2'd1]) begin
+//                {Busy2[head], Busy2[head + 2'd1]} <= {!Busy2[head], !Busy2[head + 2'd1]};
+//                head <= head + 2'd2;
+//                {valid_out1, valid_out2} <= 2'b11;
+//            end
+//            else if (Busy[head] & !Busy[head + 3'd1]) begin
+//                Busy2[head] <= !Busy2[head];
+//                head <= head + 2'd1;
+//                {valid_out1, valid_out2} <= 2'b10;
+//            end
+//            else begin
+//                head <= head;
+//                {valid_out1, valid_out2} <= 2'b00;
+//            end
+//        end
+//    end
 
 endmodule

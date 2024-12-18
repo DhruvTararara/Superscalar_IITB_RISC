@@ -87,8 +87,8 @@ output wire [5 : 0] a_ctrl1;
 output wire [5 : 0] a_ctrl2;
 output wire [2 : 0] ls_ctrl1;
 output wire [2 : 0] ls_ctrl2;
-output wire [1 : 0] FU_bits1;
-output wire [1 : 0] FU_bits2;
+output wire [2 : 0] FU_bits1;
+output wire [2 : 0] FU_bits2;
 
   Control_Unit inst (
     .op1(op1),

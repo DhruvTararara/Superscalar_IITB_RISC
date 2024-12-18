@@ -1,6 +1,7 @@
 `timescale 1ns / 1ps
 module Register_File(
     input clk, rst,
+    input [3:0] op1, op2,
     //Allocate Unit
     input [2:0] ROB_tag1, ROB_tag2,
     input RegWrite1, RegWrite2,
@@ -20,6 +21,7 @@ module Register_File(
     reg [19:0] ARF [7:0];//3 bits - RR tag, 16 bits - data, 1 bit - Valid
     integer i;
     reg [7:0] da;
+    reg [2:0] Rd1, Rd2;
     wire [15:0] RA1, RA2, RB1, RB2, RC1, RC2;
     assign RA1 = RAA1;
     assign RA2 = RAA2;
@@ -27,19 +29,36 @@ module Register_File(
     assign RB2 = RBB2;
     assign RC1 = RCC1;
     assign RC2 = RCC2;
+    //Change RC to Rd
+    always @ (*) begin
+        case (op1)
+            4'b1101, 4'b0011, 4'b1100: Rd1 <= RAA1;
+            4'b0000: Rd1 <= RBB1;
+            4'b0001, 4'b0010: Rd1 <= RCC1;
+            default: Rd1 <= RCC1;
+        endcase
+    end
+    always @ (*) begin
+        case (op2)
+            4'b1101, 4'b0011, 4'b1100: Rd2 <= RAA2;
+            4'b0000: Rd2 <= RBB2;
+            4'b0001, 4'b0010: Rd2 <= RCC2;
+            default: Rd2 <= RCC2;
+        endcase
+    end
     always @ (posedge clk) begin
         if (rst) da <= 8'd0;
         else begin
             if (valid1 & valid2) begin
                 if (RegWrite1 & RegWrite2) 
-                    if (WAW) da[RC1] <= 1'b1;
-                    else {da[RC1], da[RC2]} <= 2'b11;
-                else if (RegWrite1 & !RegWrite2) da[RC1] <= 1'b1;
-                else if (!RegWrite1 & RegWrite2) da[RC2] <= 1'b1;
+                    if (WAW) da[Rd1] <= 1'b1;
+                    else {da[Rd1], da[Rd2]} <= 2'b11;
+                else if (RegWrite1 & !RegWrite2) da[Rd1] <= 1'b1;
+                else if (!RegWrite1 & RegWrite2) da[Rd2] <= 1'b1;
                 else ;
             end
-            else if (valid1 & RegWrite1 & !valid2) da[RC1] <= 1'b1;
-            else if (!valid1 & valid2 & RegWrite2) da[RC2] <= 1'b1;
+            else if (valid1 & RegWrite1 & !valid2) da[Rd1] <= 1'b1;
+            else if (!valid1 & valid2 & RegWrite2) da[Rd2] <= 1'b1;
             else begin
             end
         end
@@ -62,48 +81,48 @@ module Register_File(
     //Destination Allocate
     always @ (posedge clk) begin
         if (rst) begin
-            ARF[0] <= 20'd0;
-            ARF[1] <= 20'd0;
-            ARF[2] <= 20'd0;
-            ARF[3] <= 20'd0;
-            ARF[4] <= 20'd0;
-            ARF[5] <= 20'd0;
-            ARF[6] <= 20'd0;
-            ARF[7] <= 20'd0;
+            ARF[0] <= 20'd1;
+            ARF[1] <= 20'd1;
+            ARF[2] <= 20'd1;
+            ARF[3] <= 20'd1;
+            ARF[4] <= 20'd1;
+            ARF[5] <= 20'd1;
+            ARF[6] <= 20'd1;
+            ARF[7] <= 20'd1;
         end
         else begin
             //Destnation Allocate
             if (valid1 & valid2) begin
                 if (RegWrite1 & RegWrite2) begin
                     if (WAW) begin
-                         ARF[RC1][0] <= 1'b0;
-                         ARF[RC1][19:17] <= ROB_tag2;
+                         ARF[Rd1][0] <= 1'b0;
+                         ARF[Rd1][19:17] <= ROB_tag2;
                     end
                     else begin
-                        ARF[RC1][0] <= 1'b0;
-                        ARF[RC2][0] <= 1'b0;
-                        ARF[RC1][19:17] <= ROB_tag1;
-                        ARF[RC2][19:17] <= ROB_tag2;
+                        ARF[Rd1][0] <= 1'b0;
+                        ARF[Rd2][0] <= 1'b0;
+                        ARF[Rd1][19:17] <= ROB_tag1;
+                        ARF[Rd2][19:17] <= ROB_tag2;
                     end
                 end
                 else if (RegWrite1 & !RegWrite2) begin
-                    ARF[RC1][0] <= 1'b0;
-                    ARF[RC1][19:17] <= ROB_tag1;
+                    ARF[Rd1][0] <= 1'b0;
+                    ARF[Rd1][19:17] <= ROB_tag1;
                 end
                 else if (!RegWrite1 & RegWrite2) begin
-                    ARF[RC2][0] <= 1'b0;
-                    ARF[RC2][19:17] <= ROB_tag2;
+                    ARF[Rd2][0] <= 1'b0;
+                    ARF[Rd2][19:17] <= ROB_tag2;
                 end
                 else begin
                 end
             end
             else if (valid1 & RegWrite1 & !valid2) begin
-                ARF[RC1][0] <= 1'b0;
-                ARF[RC1][19:17] <= ROB_tag1;
+                ARF[Rd1][0] <= 1'b0;
+                ARF[Rd1][19:17] <= ROB_tag1;
             end
             else if (!valid1 & valid2 & RegWrite2) begin
-                ARF[RC2][0] <= 1'b0;
-                ARF[RC2][19:17] <= ROB_tag2;
+                ARF[Rd2][0] <= 1'b0;
+                ARF[Rd2][19:17] <= ROB_tag2;
             end
             else begin
             end

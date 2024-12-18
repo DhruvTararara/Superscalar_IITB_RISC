@@ -17,8 +17,8 @@ module ALU(
     assign ROB_tag_out = ROB_tag;
     wire select = ((!c) & (a_ctrl[1])) | ((!z) & (a_ctrl[0]));
     wire [1:0] ALUOp = a_ctrl[3:2];
-    wire rb_comp = (a_ctrl[5])? ~rb: rb;
-    wire rb_final = (a_ctrl[4])? SEI1: rb_comp;
+    wire [15:0] rb_comp = (a_ctrl[5])? ~rb: rb;
+    wire [15:0] rb_final = (a_ctrl[4])? SEI1: rb_comp;
     always @ (*) begin
         if (select) begin
             alu_out <= rc;

@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Sun Dec  8 21:03:06 2024" VIVADOVERSION="2019.1">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Wed Dec 18 14:33:11 2024" VIVADOVERSION="2019.1">
 
   <SYSTEMINFO ARCH="kintex7" DEVICE="7k70t" NAME="Superscalar_Processor" PACKAGE="fbv676" SPEEDGRADE="-1"/>
 
@@ -7,25 +7,25 @@
     <PORT DIR="I" NAME="rst_0" SIGIS="rst" SIGNAME="External_Ports_rst_0">
       <CONNECTIONS>
         <CONNECTION INSTANCE="PC_0" PORT="rst"/>
-        <CONNECTION INSTANCE="Register_File_0" PORT="rst"/>
-        <CONNECTION INSTANCE="Valid_instruction_ch_0" PORT="rst"/>
         <CONNECTION INSTANCE="decode_0" PORT="rst"/>
         <CONNECTION INSTANCE="Instruction_Memory_0" PORT="rst"/>
-        <CONNECTION INSTANCE="Reorder_Buffer_0" PORT="rst"/>
+        <CONNECTION INSTANCE="Valid_instruction_ch_0" PORT="rst"/>
+        <CONNECTION INSTANCE="Reservation_Station_0" PORT="rst"/>
         <CONNECTION INSTANCE="decode_buffer_0" PORT="rst"/>
         <CONNECTION INSTANCE="DispatchBuffer_0" PORT="rst"/>
-        <CONNECTION INSTANCE="Reservation_Station_0" PORT="rst"/>
+        <CONNECTION INSTANCE="Reorder_Buffer_0" PORT="rst"/>
+        <CONNECTION INSTANCE="Register_File_0" PORT="rst"/>
       </CONNECTIONS>
     </PORT>
     <PORT CLKFREQUENCY="100000000" DIR="I" NAME="clk_0" SIGIS="clk" SIGNAME="External_Ports_clk_0">
       <CONNECTIONS>
         <CONNECTION INSTANCE="PC_0" PORT="clk"/>
-        <CONNECTION INSTANCE="Register_File_0" PORT="clk"/>
         <CONNECTION INSTANCE="decode_0" PORT="clk"/>
-        <CONNECTION INSTANCE="Reorder_Buffer_0" PORT="clk"/>
+        <CONNECTION INSTANCE="Reservation_Station_0" PORT="clk"/>
         <CONNECTION INSTANCE="decode_buffer_0" PORT="clk"/>
         <CONNECTION INSTANCE="DispatchBuffer_0" PORT="clk"/>
-        <CONNECTION INSTANCE="Reservation_Station_0" PORT="clk"/>
+        <CONNECTION INSTANCE="Reorder_Buffer_0" PORT="clk"/>
+        <CONNECTION INSTANCE="Register_File_0" PORT="clk"/>
       </CONNECTIONS>
     </PORT>
     <PORT DIR="O" NAME="full_0" SIGIS="undef" SIGNAME="DispatchBuffer_0_full">
@@ -48,7 +48,6 @@
         <CONNECTION INSTANCE="DispatchBuffer_0" PORT="Imm1_2_out"/>
       </CONNECTIONS>
     </PORT>
-    <PORT DIR="O" LEFT="2" NAME="buffer_count_0" RIGHT="0" SIGIS="undef"/>
     <PORT DIR="O" NAME="stall_0" SIGIS="undef" SIGNAME="Allocate_unit_0_stall">
       <CONNECTIONS>
         <CONNECTION INSTANCE="Allocate_unit_0" PORT="stall"/>
@@ -298,20 +297,20 @@
         </PORT>
         <PORT DIR="O" NAME="valid_out" SIGIS="undef" SIGNAME="ALU_0_valid_out">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="Reorder_Buffer_0" PORT="valid_a_cdb"/>
             <CONNECTION INSTANCE="Reservation_Station_0" PORT="valid_a_cdb"/>
+            <CONNECTION INSTANCE="Reorder_Buffer_0" PORT="valid_a_cdb"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" LEFT="2" NAME="ROB_tag_out" RIGHT="0" SIGIS="undef" SIGNAME="ALU_0_ROB_tag_out">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="Reorder_Buffer_0" PORT="ROB_a_cdb"/>
             <CONNECTION INSTANCE="Reservation_Station_0" PORT="ROB_a_cdb"/>
+            <CONNECTION INSTANCE="Reorder_Buffer_0" PORT="ROB_a_cdb"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" LEFT="15" NAME="alu_out" RIGHT="0" SIGIS="undef" SIGNAME="ALU_0_alu_out">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="Reorder_Buffer_0" PORT="alu_out"/>
             <CONNECTION INSTANCE="Reservation_Station_0" PORT="alu_out"/>
+            <CONNECTION INSTANCE="Reorder_Buffer_0" PORT="alu_out"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" LEFT="15" NAME="PC_out" RIGHT="0" SIGIS="undef" SIGNAME="ALU_0_PC_out">
@@ -411,20 +410,20 @@
         </PORT>
         <PORT DIR="O" NAME="valid_out" SIGIS="undef" SIGNAME="ALU_1_valid_out">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="Reorder_Buffer_0" PORT="valid_a2_cdb"/>
             <CONNECTION INSTANCE="Reservation_Station_0" PORT="valid_a2_cdb"/>
+            <CONNECTION INSTANCE="Reorder_Buffer_0" PORT="valid_a2_cdb"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" LEFT="2" NAME="ROB_tag_out" RIGHT="0" SIGIS="undef" SIGNAME="ALU_1_ROB_tag_out">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="Reorder_Buffer_0" PORT="ROB_a2_cdb"/>
             <CONNECTION INSTANCE="Reservation_Station_0" PORT="ROB_a2_cdb"/>
+            <CONNECTION INSTANCE="Reorder_Buffer_0" PORT="ROB_a2_cdb"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" LEFT="15" NAME="alu_out" RIGHT="0" SIGIS="undef" SIGNAME="ALU_1_alu_out">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="Reorder_Buffer_0" PORT="alu2_out"/>
             <CONNECTION INSTANCE="Reservation_Station_0" PORT="alu2_out"/>
+            <CONNECTION INSTANCE="Reorder_Buffer_0" PORT="alu2_out"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" LEFT="15" NAME="PC_out" RIGHT="0" SIGIS="undef" SIGNAME="ALU_1_PC_out">
@@ -512,34 +511,34 @@
             <CONNECTION INSTANCE="xlconstant_1" PORT="dout"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="2" NAME="RAA1" RIGHT="0" SIGIS="undef" SIGNAME="Allocate_unit_0_RA1_out">
+        <PORT DIR="I" LEFT="2" NAME="RAA1" RIGHT="0" SIGIS="undef" SIGNAME="DispatchBuffer_0_RA1_out">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="Allocate_unit_0" PORT="RA1_out"/>
+            <CONNECTION INSTANCE="DispatchBuffer_0" PORT="RA1_out"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="2" NAME="RAA2" RIGHT="0" SIGIS="undef" SIGNAME="Allocate_unit_0_RA2_out">
+        <PORT DIR="I" LEFT="2" NAME="RAA2" RIGHT="0" SIGIS="undef" SIGNAME="DispatchBuffer_0_RA2_out">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="Allocate_unit_0" PORT="RA2_out"/>
+            <CONNECTION INSTANCE="DispatchBuffer_0" PORT="RA2_out"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="2" NAME="RBB1" RIGHT="0" SIGIS="undef" SIGNAME="Allocate_unit_0_RB1_out">
+        <PORT DIR="I" LEFT="2" NAME="RBB1" RIGHT="0" SIGIS="undef" SIGNAME="DispatchBuffer_0_RB1_out">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="Allocate_unit_0" PORT="RB1_out"/>
+            <CONNECTION INSTANCE="DispatchBuffer_0" PORT="RB1_out"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="2" NAME="RBB2" RIGHT="0" SIGIS="undef" SIGNAME="Allocate_unit_0_RB2_out">
+        <PORT DIR="I" LEFT="2" NAME="RBB2" RIGHT="0" SIGIS="undef" SIGNAME="DispatchBuffer_0_RB2_out">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="Allocate_unit_0" PORT="RB2_out"/>
+            <CONNECTION INSTANCE="DispatchBuffer_0" PORT="RB2_out"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="2" NAME="RCC1" RIGHT="0" SIGIS="undef" SIGNAME="Allocate_unit_0_RC1_out">
+        <PORT DIR="I" LEFT="2" NAME="RCC1" RIGHT="0" SIGIS="undef" SIGNAME="DispatchBuffer_0_RC1_out">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="Allocate_unit_0" PORT="RC1_out"/>
+            <CONNECTION INSTANCE="DispatchBuffer_0" PORT="RC1_out"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="2" NAME="RCC2" RIGHT="0" SIGIS="undef" SIGNAME="Allocate_unit_0_RC2_out">
+        <PORT DIR="I" LEFT="2" NAME="RCC2" RIGHT="0" SIGIS="undef" SIGNAME="DispatchBuffer_0_RC2_out">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="Allocate_unit_0" PORT="RC2_out"/>
+            <CONNECTION INSTANCE="DispatchBuffer_0" PORT="RC2_out"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" NAME="valid1" SIGIS="undef" SIGNAME="DispatchBuffer_0_valid_out1">
@@ -712,12 +711,12 @@
             <CONNECTION INSTANCE="DispatchBuffer_0" PORT="Imm2_2_out"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="1" NAME="FU_bits1" RIGHT="0" SIGIS="undef" SIGNAME="Control_Unit_0_FU_bits1">
+        <PORT DIR="I" LEFT="2" NAME="FU_bits1" RIGHT="0" SIGIS="undef" SIGNAME="Control_Unit_0_FU_bits1">
           <CONNECTIONS>
             <CONNECTION INSTANCE="Control_Unit_0" PORT="FU_bits1"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="1" NAME="FU_bits2" RIGHT="0" SIGIS="undef" SIGNAME="Control_Unit_0_FU_bits2">
+        <PORT DIR="I" LEFT="2" NAME="FU_bits2" RIGHT="0" SIGIS="undef" SIGNAME="Control_Unit_0_FU_bits2">
           <CONNECTIONS>
             <CONNECTION INSTANCE="Control_Unit_0" PORT="FU_bits2"/>
           </CONNECTIONS>
@@ -744,16 +743,26 @@
         </PORT>
         <PORT DIR="O" NAME="valid1_out" SIGIS="undef" SIGNAME="Allocate_unit_0_valid1_out">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="Register_File_0" PORT="valid1"/>
-            <CONNECTION INSTANCE="Reorder_Buffer_0" PORT="valid1"/>
             <CONNECTION INSTANCE="Reservation_Station_0" PORT="valid1"/>
+            <CONNECTION INSTANCE="Reorder_Buffer_0" PORT="valid1"/>
+            <CONNECTION INSTANCE="Register_File_0" PORT="valid1"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="valid2_out" SIGIS="undef" SIGNAME="Allocate_unit_0_valid2_out">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="Register_File_0" PORT="valid2"/>
-            <CONNECTION INSTANCE="Reorder_Buffer_0" PORT="valid2"/>
             <CONNECTION INSTANCE="Reservation_Station_0" PORT="valid2"/>
+            <CONNECTION INSTANCE="Reorder_Buffer_0" PORT="valid2"/>
+            <CONNECTION INSTANCE="Register_File_0" PORT="valid2"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="3" NAME="op1_out" RIGHT="0" SIGIS="undef" SIGNAME="Allocate_unit_0_op1_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Register_File_0" PORT="op1"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="3" NAME="op2_out" RIGHT="0" SIGIS="undef" SIGNAME="Allocate_unit_0_op2_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Register_File_0" PORT="op2"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="RegWrite1_out" SIGIS="undef" SIGNAME="Allocate_unit_0_RegWrite1_out">
@@ -769,37 +778,31 @@
         <PORT DIR="O" LEFT="2" NAME="RA1_out" RIGHT="0" SIGIS="undef" SIGNAME="Allocate_unit_0_RA1_out">
           <CONNECTIONS>
             <CONNECTION INSTANCE="Register_File_0" PORT="RAA1"/>
-            <CONNECTION INSTANCE="Allocate_unit_0" PORT="RAA1"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" LEFT="2" NAME="RA2_out" RIGHT="0" SIGIS="undef" SIGNAME="Allocate_unit_0_RA2_out">
           <CONNECTIONS>
             <CONNECTION INSTANCE="Register_File_0" PORT="RAA2"/>
-            <CONNECTION INSTANCE="Allocate_unit_0" PORT="RAA2"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" LEFT="2" NAME="RB1_out" RIGHT="0" SIGIS="undef" SIGNAME="Allocate_unit_0_RB1_out">
           <CONNECTIONS>
             <CONNECTION INSTANCE="Register_File_0" PORT="RBB1"/>
-            <CONNECTION INSTANCE="Allocate_unit_0" PORT="RBB1"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" LEFT="2" NAME="RB2_out" RIGHT="0" SIGIS="undef" SIGNAME="Allocate_unit_0_RB2_out">
           <CONNECTIONS>
             <CONNECTION INSTANCE="Register_File_0" PORT="RBB2"/>
-            <CONNECTION INSTANCE="Allocate_unit_0" PORT="RBB2"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" LEFT="2" NAME="RC1_out" RIGHT="0" SIGIS="undef" SIGNAME="Allocate_unit_0_RC1_out">
           <CONNECTIONS>
             <CONNECTION INSTANCE="Register_File_0" PORT="RCC1"/>
-            <CONNECTION INSTANCE="Allocate_unit_0" PORT="RCC1"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" LEFT="2" NAME="RC2_out" RIGHT="0" SIGIS="undef" SIGNAME="Allocate_unit_0_RC2_out">
           <CONNECTIONS>
             <CONNECTION INSTANCE="Register_File_0" PORT="RCC2"/>
-            <CONNECTION INSTANCE="Allocate_unit_0" PORT="RCC2"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" LEFT="2" NAME="RS_tag1" RIGHT="0" SIGIS="undef" SIGNAME="Allocate_unit_0_RS_tag1">
@@ -824,14 +827,14 @@
         </PORT>
         <PORT DIR="O" LEFT="2" NAME="ROB_tag1" RIGHT="0" SIGIS="undef" SIGNAME="Allocate_unit_0_ROB_tag1">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="Register_File_0" PORT="ROB_tag1"/>
             <CONNECTION INSTANCE="Reorder_Buffer_0" PORT="ROB_tag1"/>
+            <CONNECTION INSTANCE="Register_File_0" PORT="ROB_tag1"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" LEFT="2" NAME="ROB_tag2" RIGHT="0" SIGIS="undef" SIGNAME="Allocate_unit_0_ROB_tag2">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="Register_File_0" PORT="ROB_tag2"/>
             <CONNECTION INSTANCE="Reorder_Buffer_0" PORT="ROB_tag2"/>
+            <CONNECTION INSTANCE="Register_File_0" PORT="ROB_tag2"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" LEFT="136" NAME="RS_input1" RIGHT="0" SIGIS="undef" SIGNAME="Allocate_unit_0_RS_input1">
@@ -939,13 +942,13 @@
             <CONNECTION INSTANCE="Allocate_unit_0" PORT="ls_ctrl2"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="1" NAME="FU_bits1" RIGHT="0" SIGIS="undef" SIGNAME="Control_Unit_0_FU_bits1">
+        <PORT DIR="O" LEFT="2" NAME="FU_bits1" RIGHT="0" SIGIS="undef" SIGNAME="Control_Unit_0_FU_bits1">
           <CONNECTIONS>
             <CONNECTION INSTANCE="Register_Interdepend_0" PORT="FU_bits1"/>
             <CONNECTION INSTANCE="Allocate_unit_0" PORT="FU_bits1"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="1" NAME="FU_bits2" RIGHT="0" SIGIS="undef" SIGNAME="Control_Unit_0_FU_bits2">
+        <PORT DIR="O" LEFT="2" NAME="FU_bits2" RIGHT="0" SIGIS="undef" SIGNAME="Control_Unit_0_FU_bits2">
           <CONNECTIONS>
             <CONNECTION INSTANCE="Register_Interdepend_0" PORT="FU_bits2"/>
             <CONNECTION INSTANCE="Allocate_unit_0" PORT="FU_bits2"/>
@@ -976,6 +979,11 @@
         <PORT DIR="I" NAME="rst" SIGIS="rst" SIGNAME="External_Ports_rst_0">
           <CONNECTIONS>
             <CONNECTION INSTANCE="External_Ports" PORT="rst_0"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="stall" SIGIS="undef" SIGNAME="xlconstant_0_dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="xlconstant_0" PORT="dout"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" LEFT="15" NAME="IA1_in" RIGHT="0" SIGIS="undef" SIGNAME="decode_0_IA1_out">
@@ -1155,31 +1163,37 @@
         <PORT DIR="O" LEFT="2" NAME="RA1_out" RIGHT="0" SIGIS="undef" SIGNAME="DispatchBuffer_0_RA1_out">
           <CONNECTIONS>
             <CONNECTION INSTANCE="Register_Interdepend_0" PORT="RA1"/>
+            <CONNECTION INSTANCE="Allocate_unit_0" PORT="RAA1"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" LEFT="2" NAME="RA2_out" RIGHT="0" SIGIS="undef" SIGNAME="DispatchBuffer_0_RA2_out">
           <CONNECTIONS>
             <CONNECTION INSTANCE="Register_Interdepend_0" PORT="RA2"/>
+            <CONNECTION INSTANCE="Allocate_unit_0" PORT="RAA2"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" LEFT="2" NAME="RB1_out" RIGHT="0" SIGIS="undef" SIGNAME="DispatchBuffer_0_RB1_out">
           <CONNECTIONS>
             <CONNECTION INSTANCE="Register_Interdepend_0" PORT="RB1"/>
+            <CONNECTION INSTANCE="Allocate_unit_0" PORT="RBB1"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" LEFT="2" NAME="RB2_out" RIGHT="0" SIGIS="undef" SIGNAME="DispatchBuffer_0_RB2_out">
           <CONNECTIONS>
             <CONNECTION INSTANCE="Register_Interdepend_0" PORT="RB2"/>
+            <CONNECTION INSTANCE="Allocate_unit_0" PORT="RBB2"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" LEFT="2" NAME="RC1_out" RIGHT="0" SIGIS="undef" SIGNAME="DispatchBuffer_0_RC1_out">
           <CONNECTIONS>
             <CONNECTION INSTANCE="Register_Interdepend_0" PORT="RC1"/>
+            <CONNECTION INSTANCE="Allocate_unit_0" PORT="RCC1"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" LEFT="2" NAME="RC2_out" RIGHT="0" SIGIS="undef" SIGNAME="DispatchBuffer_0_RC2_out">
           <CONNECTIONS>
             <CONNECTION INSTANCE="Register_Interdepend_0" PORT="RC2"/>
+            <CONNECTION INSTANCE="Allocate_unit_0" PORT="RCC2"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="comp1_out" SIGIS="undef" SIGNAME="DispatchBuffer_0_comp1_out">
@@ -1454,26 +1468,26 @@
         </PORT>
         <PORT DIR="O" NAME="valid_issue_b" SIGIS="undef" SIGNAME="Issue_Unit_0_valid_issue_b">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="Reorder_Buffer_0" PORT="valid_bi"/>
             <CONNECTION INSTANCE="Reservation_Station_0" PORT="valid_issue_b"/>
+            <CONNECTION INSTANCE="Reorder_Buffer_0" PORT="valid_bi"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="valid_issue_a" SIGIS="undef" SIGNAME="Issue_Unit_0_valid_issue_a">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="Reorder_Buffer_0" PORT="valid_ai"/>
             <CONNECTION INSTANCE="Reservation_Station_0" PORT="valid_issue_a"/>
+            <CONNECTION INSTANCE="Reorder_Buffer_0" PORT="valid_ai"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="valid_issue_ls" SIGIS="undef" SIGNAME="Issue_Unit_0_valid_issue_ls">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="Reorder_Buffer_0" PORT="valid_lsi"/>
             <CONNECTION INSTANCE="Reservation_Station_0" PORT="valid_issue_ls"/>
+            <CONNECTION INSTANCE="Reorder_Buffer_0" PORT="valid_lsi"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="valid_issue_a2" SIGIS="undef" SIGNAME="Issue_Unit_0_valid_issue_a2">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="Reorder_Buffer_0" PORT="valid_a2i"/>
             <CONNECTION INSTANCE="Reservation_Station_0" PORT="valid_issue_a2"/>
+            <CONNECTION INSTANCE="Reorder_Buffer_0" PORT="valid_a2i"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>
@@ -1611,6 +1625,16 @@
         <PORT DIR="I" NAME="rst" SIGIS="rst" SIGNAME="External_Ports_rst_0">
           <CONNECTIONS>
             <CONNECTION INSTANCE="External_Ports" PORT="rst_0"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="3" NAME="op1" RIGHT="0" SIGIS="undef" SIGNAME="Allocate_unit_0_op1_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Allocate_unit_0" PORT="op1_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="3" NAME="op2" RIGHT="0" SIGIS="undef" SIGNAME="Allocate_unit_0_op2_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Allocate_unit_0" PORT="op2_out"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" LEFT="2" NAME="ROB_tag1" RIGHT="0" SIGIS="undef" SIGNAME="Allocate_unit_0_ROB_tag1">
@@ -2943,6 +2967,11 @@
             <CONNECTION INSTANCE="External_Ports" PORT="rst_0"/>
           </CONNECTIONS>
         </PORT>
+        <PORT DIR="I" NAME="stall" SIGIS="undef" SIGNAME="xlconstant_0_dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="xlconstant_0" PORT="dout"/>
+          </CONNECTIONS>
+        </PORT>
         <PORT DIR="I" LEFT="15" NAME="PC_in" RIGHT="0" SIGIS="undef" SIGNAME="PC_0_PC_out">
           <CONNECTIONS>
             <CONNECTION INSTANCE="PC_0" PORT="PC_out"/>
@@ -3040,17 +3069,19 @@
             <CONNECTION INSTANCE="PC_0" PORT="branch_resolve_PC"/>
             <CONNECTION INSTANCE="RegWrite_Ctrl_0" PORT="stall"/>
             <CONNECTION INSTANCE="Valid_instruction_ch_0" PORT="branch_predict1"/>
-            <CONNECTION INSTANCE="Reorder_Buffer_0" PORT="valid_b_cdb"/>
-            <CONNECTION INSTANCE="Reorder_Buffer_0" PORT="valid_ls_cdb"/>
-            <CONNECTION INSTANCE="Reorder_Buffer_0" PORT="misprediction"/>
-            <CONNECTION INSTANCE="decode_buffer_0" PORT="branch_predict1_in"/>
-            <CONNECTION INSTANCE="decode_buffer_0" PORT="branch_predict2_in"/>
             <CONNECTION INSTANCE="Reservation_Station_0" PORT="valid_b_cdb"/>
             <CONNECTION INSTANCE="Reservation_Station_0" PORT="valid_ls_cdb"/>
             <CONNECTION INSTANCE="Reservation_Station_0" PORT="reg_data_b"/>
             <CONNECTION INSTANCE="Reservation_Station_0" PORT="dm_data"/>
             <CONNECTION INSTANCE="Reservation_Station_0" PORT="ROB_b_cdb"/>
             <CONNECTION INSTANCE="Reservation_Station_0" PORT="ROB_ls_cdb"/>
+            <CONNECTION INSTANCE="decode_buffer_0" PORT="stall"/>
+            <CONNECTION INSTANCE="decode_buffer_0" PORT="branch_predict1_in"/>
+            <CONNECTION INSTANCE="decode_buffer_0" PORT="branch_predict2_in"/>
+            <CONNECTION INSTANCE="DispatchBuffer_0" PORT="stall"/>
+            <CONNECTION INSTANCE="Reorder_Buffer_0" PORT="valid_b_cdb"/>
+            <CONNECTION INSTANCE="Reorder_Buffer_0" PORT="valid_ls_cdb"/>
+            <CONNECTION INSTANCE="Reorder_Buffer_0" PORT="misprediction"/>
             <CONNECTION INSTANCE="Allocate_unit_0" PORT="RR_stall"/>
           </CONNECTIONS>
         </PORT>
@@ -3069,6 +3100,8 @@
         <PORT DIR="O" LEFT="0" NAME="dout" RIGHT="0" SIGIS="undef" SIGNAME="xlconstant_1_dout">
           <CONNECTIONS>
             <CONNECTION INSTANCE="PC_0" PORT="PC_Write"/>
+            <CONNECTION INSTANCE="DispatchBuffer_0" PORT="issue1"/>
+            <CONNECTION INSTANCE="DispatchBuffer_0" PORT="issue2"/>
             <CONNECTION INSTANCE="Reorder_Buffer_0" PORT="spec_tag_b"/>
             <CONNECTION INSTANCE="Reorder_Buffer_0" PORT="PC_b_cdb"/>
             <CONNECTION INSTANCE="Reorder_Buffer_0" PORT="PC_ls_cdb"/>
@@ -3076,8 +3109,6 @@
             <CONNECTION INSTANCE="Reorder_Buffer_0" PORT="dm_data"/>
             <CONNECTION INSTANCE="Reorder_Buffer_0" PORT="ROB_b_cdb"/>
             <CONNECTION INSTANCE="Reorder_Buffer_0" PORT="ROB_ls_cdb"/>
-            <CONNECTION INSTANCE="DispatchBuffer_0" PORT="issue1"/>
-            <CONNECTION INSTANCE="DispatchBuffer_0" PORT="issue2"/>
             <CONNECTION INSTANCE="Allocate_unit_0" PORT="CWrite1"/>
             <CONNECTION INSTANCE="Allocate_unit_0" PORT="ZWrite1"/>
             <CONNECTION INSTANCE="Allocate_unit_0" PORT="CWrite2"/>

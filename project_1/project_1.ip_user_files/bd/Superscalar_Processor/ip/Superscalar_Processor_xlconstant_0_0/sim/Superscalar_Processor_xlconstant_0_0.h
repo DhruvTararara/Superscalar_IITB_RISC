@@ -1,4 +1,4 @@
-// (c) Copyright 1995-2024 Xilinx, Inc. All rights reserved.
+// (c) Copyright 1995-2014 Xilinx, Inc. All rights reserved.
 // 
 // This file contains confidential and proprietary information
 // of Xilinx, Inc. and is protected under U.S. and
@@ -47,75 +47,21 @@
 // DO NOT MODIFY THIS FILE.
 
 
-// IP VLNV: xilinx.com:module_ref:decode_buffer:1.0
+// IP VLNV: xilinx.com:ip:xlconstant:1.1
 // IP Revision: 1
 
-`timescale 1ns/1ps
+#ifndef _Superscalar_Processor_xlconstant_0_0_H_
+#define _Superscalar_Processor_xlconstant_0_0_H_
 
-(* IP_DEFINITION_SOURCE = "module_ref" *)
-(* DowngradeIPIdentifiedWarnings = "yes" *)
-module Superscalar_Processor_decode_buffer_0_0 (
-  clk,
-  rst,
-  stall,
-  PC_in,
-  instr1_in,
-  valid1_in,
-  valid2_in,
-  instr2_in,
-  branch_predict1_in,
-  branch_predict2_in,
-  address_out1,
-  address_out2,
-  instr1_out,
-  instr2_out,
-  branch_predict1_out,
-  branch_predict2_out,
-  valid1_out,
-  valid2_out
-);
+#include "xlconstant_v1_1_6.h"
+#include "systemc.h"
+class Superscalar_Processor_xlconstant_0_0 : public sc_module {
+  public:
+xlconstant_v1_1_6<1,0> mod;
+  sc_out< sc_bv<1> > dout;
+Superscalar_Processor_xlconstant_0_0 (sc_core::sc_module_name name) :sc_module(name), mod("mod") {
+    mod.dout(dout);
+  }
+};
 
-(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk, ASSOCIATED_RESET rst, FREQ_HZ 100000000, PHASE 0.000, CLK_DOMAIN Superscalar_Processor_clk_0, INSERT_VIP 0" *)
-(* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk CLK" *)
-input wire clk;
-(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME rst, POLARITY ACTIVE_LOW, INSERT_VIP 0" *)
-(* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 rst RST" *)
-input wire rst;
-input wire stall;
-input wire [15 : 0] PC_in;
-input wire [15 : 0] instr1_in;
-input wire valid1_in;
-input wire valid2_in;
-input wire [15 : 0] instr2_in;
-input wire branch_predict1_in;
-input wire branch_predict2_in;
-output wire [15 : 0] address_out1;
-output wire [15 : 0] address_out2;
-output wire [15 : 0] instr1_out;
-output wire [15 : 0] instr2_out;
-output wire branch_predict1_out;
-output wire branch_predict2_out;
-output wire valid1_out;
-output wire valid2_out;
-
-  decode_buffer inst (
-    .clk(clk),
-    .rst(rst),
-    .stall(stall),
-    .PC_in(PC_in),
-    .instr1_in(instr1_in),
-    .valid1_in(valid1_in),
-    .valid2_in(valid2_in),
-    .instr2_in(instr2_in),
-    .branch_predict1_in(branch_predict1_in),
-    .branch_predict2_in(branch_predict2_in),
-    .address_out1(address_out1),
-    .address_out2(address_out2),
-    .instr1_out(instr1_out),
-    .instr2_out(instr2_out),
-    .branch_predict1_out(branch_predict1_out),
-    .branch_predict2_out(branch_predict2_out),
-    .valid1_out(valid1_out),
-    .valid2_out(valid2_out)
-  );
-endmodule
+#endif
