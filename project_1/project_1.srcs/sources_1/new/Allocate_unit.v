@@ -11,6 +11,7 @@ module Allocate_unit(
     input RegWrite1, RegWrite2,
     input CWrite1, ZWrite1, CWrite2, ZWrite2,
     input [2:0] RAA1, RAA2, RBB1, RBB2, RCC1, RCC2,//input from Dispatch buffer
+    input [2:0] Rd1, Rd2,
     input valid1, valid2,//input from Dispatch buffer
     input [15:0] ra1, ra2, rb1, rb2, rc1, rc2,//input from Register File
     input v_ra1, v_ra2, v_rb1, v_rb2, v_rc1, v_rc2,//input from Register File
@@ -23,7 +24,7 @@ module Allocate_unit(
     input [8:0] Imm2_1, Imm2_2,
     input [2:0] FU_bits1, FU_bits2,
     input [15:0] SEI1_1, SEI1_2, SEI2_1, SEI2_2,
-    output reg valid1_out, valid2_out,//output to Register File
+    output valid1_out, valid2_out,//output to Register File
     output [3:0] op1_out, op2_out,
     output RegWrite1_out, RegWrite2_out,//output to Register File
     output [2:0] RA1_out, RA2_out, RB1_out, RB2_out, RC1_out, RC2_out,//output to Register File
@@ -36,7 +37,7 @@ module Allocate_unit(
     
     reg erb;
 //    wire [2:0] RR_sum = RR_free_bitmap[0] + RR_free_bitmap[1] + RR_free_bitmap[2] + RR_free_bitmap[3] + RR_free_bitmap[4] + RR_free_bitmap[5] + RR_free_bitmap[6] + RR_free_bitmap[7];
-    wire [3:0] RS_sum = ~(RS_free_bitmap[0] + RS_free_bitmap[1] + RS_free_bitmap[2] + RS_free_bitmap[3] + RS_free_bitmap[4] + RS_free_bitmap[5] + RS_free_bitmap[6] + RS_free_bitmap[7]);
+    wire [3:0] RS_sum = (~RS_free_bitmap[0] + ~RS_free_bitmap[1] + ~RS_free_bitmap[2] + ~RS_free_bitmap[3] + ~RS_free_bitmap[4] + ~RS_free_bitmap[5] + ~RS_free_bitmap[6] + ~RS_free_bitmap[7]);
     wire [3:0] ROB_sum = 4'd8 - ((ROB_tail - ROB_head) % 8);//ROB_free_bitmap[0] + ROB_free_bitmap[1] + ROB_free_bitmap[2] + ROB_free_bitmap[3] + ROB_free_bitmap[4] + ROB_free_bitmap[5] + ROB_free_bitmap[6] + ROB_free_bitmap[7];
     wire [2:0] free_RS1, free_RS2;
     wire [2:0] free_ROB1, free_ROB2;
@@ -70,12 +71,11 @@ module Allocate_unit(
     
     assign free_ROB1 = ROB_tail;
     assign free_ROB2 = ROB_tail + 3'd1;
-    
+    assign valid1_out = valid1;
+    assign valid2_out = valid2;
     always @ (*) begin
         if (valid1 & valid2) begin
             if (!RR_stall && (ROB_sum >= 2) && (RS_sum >= 2)) begin
-                valid1_out <= 1'b1;
-                valid2_out <= 1'b1;
                 RS_tag1 <= free_RS1;
                 RS_tag2 <= free_RS2;
                 ROB_tag1 <= free_ROB1;
@@ -92,8 +92,9 @@ module Allocate_unit(
                              v_c2, z2, v_z2, rc2, v_rc2,
                              a_ctrl2, Imm2_2, ls_ctrl2, SEI1_2, 
                              SEI2_2, FU_bits2};
-                ROB_input1 <= {PC1, RC1, {RegWrite1, CWrite1, ZWrite1}, spec_tag1};
-                ROB_input2 <= {PC2, RC2, {RegWrite2, CWrite2, ZWrite2}, spec_tag2};
+                ROB_input1 <= {PC1, Rd1, {RegWrite1, CWrite1, ZWrite1}, spec_tag1};
+                ROB_input2 <= {PC2, Rd2, {RegWrite2, CWrite2, ZWrite2}, spec_tag2};
+                stall <= 1'b0;
             end
             else begin
                 stall <= 1'b1;
@@ -101,23 +102,21 @@ module Allocate_unit(
         end
         else if (valid1 & !valid2) begin
             if (!RR_stall & (ROB_sum >= 1) & (RS_sum >= 1)) begin
-                valid1_out <= 1'b1;
-                valid2_out <= 1'b0;
                 RS_tag1 <= free_RS1;
                 ROB_tag1 <= free_ROB1;
                 RS_input1 <= {op1, ROB_tag1, PC1, ra1, rb1, v_ra1, v_rb1, spec_tag1, branch_predict1, b_ctrl1, c1, v_c1, z1, v_z1, rc1, v_rc1, a_ctrl1, Imm2_1, ls_ctrl1, SEI1_1, SEI2_1, FU_bits1};
-                ROB_input1 <= {PC1, RC1, {RegWrite1, CWrite1, ZWrite1}, spec_tag1};
+                ROB_input1 <= {PC1, Rd1, {RegWrite1, CWrite1, ZWrite1}, spec_tag1};
+                stall <= 1'b0;
             end
             else stall <= 1'b1;
         end
         else if (!valid1 & valid2) begin
             if (!RR_stall && (ROB_sum >= 1) && (RS_sum >= 1)) begin
-                valid1_out <= 1'b0;
-                valid2_out <= 1'b1;
                 RS_tag2 <= free_RS1;
                 ROB_tag2 <= free_ROB1;
                 RS_input2 <= {op2, ROB_tag2, PC2, ra2, rb2, v_ra2, v_rb2, spec_tag2, branch_predict2, b_ctrl2, c2, v_c2, z2, v_z2, rc2, v_rc2, a_ctrl2, Imm2_2, ls_ctrl2, SEI1_2, SEI2_2, FU_bits2};
-                ROB_input2 <= {PC2, RC2, {RegWrite2, CWrite2, ZWrite2}, spec_tag2};
+                ROB_input2 <= {PC2, Rd2, {RegWrite2, CWrite2, ZWrite2}, spec_tag2};
+                stall <= 1'b0;
             end
             else stall <= 1'b1;
         end

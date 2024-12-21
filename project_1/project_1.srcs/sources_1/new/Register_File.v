@@ -1,8 +1,8 @@
 `timescale 1ns / 1ps
 module Register_File(
     input clk, rst,
-    input [3:0] op1, op2,
     //Allocate Unit
+    input [3:0] op1, op2,
     input [2:0] ROB_tag1, ROB_tag2,
     input RegWrite1, RegWrite2,
     input [2:0] RAA1, RAA2, RBB1, RBB2, RCC1, RCC2,
@@ -12,23 +12,82 @@ module Register_File(
     input WAR, WAW,
     //From Write back stage==============
     input wb1, wb2,// wb = 1 when RegWrite = 1 (R bit in ROB) and valid bit = 1 (in ROB)
-    input ROB1, ROB2,
+    input [2:0] ROB1, ROB2,
     input [2:0] RD1, RD2,
     input [15:0] reg_data1, reg_data2,
     //===================================
+    //Common Data Bus (CDB)============
+    input valid_b_cdb, valid_a_cdb, valid_a2_cdb, valid_ls_cdb,
+    input [15:0] reg_data_b, alu_out, alu2_out, dm_data,
+    input [2:0] ROB_b_cdb, ROB_a_cdb, ROB_a2_cdb, ROB_ls_cdb,
+    //=================================
     output [15:0] ra1, ra2, rb1, rb2, rc1, rc2,
-    output v_ra1, v_ra2, v_rb1, v_rb2, v_rc1, v_rc2);
+    output v_ra1, v_ra2, v_rb1, v_rb2, v_rc1, v_rc2,
+    output [2:0] RDD1_out, RDD2_out);
     reg [19:0] ARF [7:0];//3 bits - RR tag, 16 bits - data, 1 bit - Valid
     integer i;
     reg [7:0] da;
     reg [2:0] Rd1, Rd2;
     wire [15:0] RA1, RA2, RB1, RB2, RC1, RC2;
+    
+    //Source Read (Priority: RAW bit(for 2nd instruction) -> valid bit in registers -> valid bit in CDB)
+    assign ra1 = (ARF[RA1][0])? ARF[RA1][16:1]: ((ARF[RA1][19:17] == ROB_b_cdb) & valid_b_cdb)? reg_data_b: 
+                                                ((ARF[RA1][19:17] == ROB_a_cdb) & valid_a_cdb)? alu_out: 
+                                                ((ARF[RA1][19:17] == ROB_a2_cdb) & valid_a2_cdb)? alu2_out: 
+                                                ((ARF[RA1][19:17] == ROB_ls_cdb) & valid_ls_cdb)? dm_data: {13'b0, ARF[RA1][19:17]};
+    assign ra2 = (RAW[0])? ROB_tag1: (ARF[RA2][0])? ARF[RA2][16:1]: ((ARF[RA2][19:17] == ROB_b_cdb) & valid_b_cdb)? reg_data_b: 
+                                                ((ARF[RA2][19:17] == ROB_a_cdb) & valid_a_cdb)? alu_out: 
+                                                ((ARF[RA2][19:17] == ROB_a2_cdb) & valid_a2_cdb)? alu2_out: 
+                                                ((ARF[RA2][19:17] == ROB_ls_cdb) & valid_ls_cdb)? dm_data: {13'b0, ARF[RA2][19:17]};
+    assign rb1 = (ARF[RB1][0])? ARF[RB1][16:1]: ((ARF[RB1][19:17] == ROB_b_cdb) & valid_b_cdb)? reg_data_b: 
+                                                ((ARF[RB1][19:17] == ROB_a_cdb) & valid_a_cdb)? alu_out: 
+                                                ((ARF[RB1][19:17] == ROB_a2_cdb) & valid_a2_cdb)? alu2_out: 
+                                                ((ARF[RB1][19:17] == ROB_ls_cdb) & valid_ls_cdb)? dm_data: {13'b0, ARF[RB1][19:17]};
+    assign rb2 = (RAW[1])? ROB_tag1: (ARF[RB2][0])? ARF[RB2][16:1]: ((ARF[RB2][19:17] == ROB_b_cdb) & valid_b_cdb)? reg_data_b: 
+                                                ((ARF[RB2][19:17] == ROB_a_cdb) & valid_a_cdb)? alu_out: 
+                                                ((ARF[RB2][19:17] == ROB_a2_cdb) & valid_a2_cdb)? alu2_out: 
+                                                ((ARF[RB2][19:17] == ROB_ls_cdb) & valid_ls_cdb)? dm_data: {13'b0, ARF[RB2][19:17]};
+    assign rc1 = (ARF[RC1][0])? ARF[RC1][16:1]: ((ARF[RC1][19:17] == ROB_b_cdb) & valid_b_cdb)? reg_data_b: 
+                                                ((ARF[RC1][19:17] == ROB_a_cdb) & valid_a_cdb)? alu_out: 
+                                                ((ARF[RC1][19:17] == ROB_a2_cdb) & valid_a2_cdb)? alu2_out: 
+                                                ((ARF[RC1][19:17] == ROB_ls_cdb) & valid_ls_cdb)? dm_data: {13'b0, ARF[RC1][19:17]};
+    assign rc2 = (RAW[2])? ROB_tag1: (ARF[RC2][0])? ARF[RC2][16:1]: ((ARF[RC2][19:17] == ROB_b_cdb) & valid_b_cdb)? reg_data_b: 
+                                                ((ARF[RC2][19:17] == ROB_a_cdb) & valid_a_cdb)? alu_out: 
+                                                ((ARF[RC2][19:17] == ROB_a2_cdb) & valid_a2_cdb)? alu2_out: 
+                                                ((ARF[RC2][19:17] == ROB_ls_cdb) & valid_ls_cdb)? dm_data: {13'b0, ARF[RC2][19:17]};
+    assign v_ra1 = ARF[RA1][0] | ((ARF[RA1][19:17] == ROB_b_cdb) & valid_b_cdb & !ARF[RA1][0]) 
+                               | ((ARF[RA1][19:17] == ROB_a_cdb) & valid_a_cdb & !ARF[RA1][0])
+                               | ((ARF[RA1][19:17] == ROB_a2_cdb) & valid_a2_cdb & !ARF[RA1][0])
+                               | ((ARF[RA1][19:17] == ROB_ls_cdb) & valid_ls_cdb & !ARF[RA1][0]);
+    assign v_ra2 = (!RAW[0] & ARF[RA2][0]) | ((ARF[RA2][19:17] == ROB_b_cdb) & valid_b_cdb & !ARF[RA2][0]) 
+                               | ((ARF[RA2][19:17] == ROB_a_cdb) & valid_a_cdb & !ARF[RA2][0])
+                               | ((ARF[RA2][19:17] == ROB_a2_cdb) & valid_a2_cdb & !ARF[RA2][0])
+                               | ((ARF[RA2][19:17] == ROB_ls_cdb) & valid_ls_cdb & !ARF[RA2][0]);
+    assign v_rb1 = ARF[RB1][0] | ((ARF[RB1][19:17] == ROB_b_cdb) & valid_b_cdb & !ARF[RB1][0]) 
+                               | ((ARF[RB1][19:17] == ROB_a_cdb) & valid_a_cdb & !ARF[RB1][0])
+                               | ((ARF[RB1][19:17] == ROB_a2_cdb) & valid_a2_cdb & !ARF[RB1][0])
+                               | ((ARF[RB1][19:17] == ROB_ls_cdb) & valid_ls_cdb & !ARF[RB1][0]);
+    assign v_rb2 = (!RAW[1] & ARF[RB2][0]) | ((ARF[RB2][19:17] == ROB_b_cdb) & valid_b_cdb & !ARF[RB2][0]) 
+                               | ((ARF[RB2][19:17] == ROB_a_cdb) & valid_a_cdb & !ARF[RB2][0])
+                               | ((ARF[RB2][19:17] == ROB_a2_cdb) & valid_a2_cdb & !ARF[RB2][0])
+                               | ((ARF[RB2][19:17] == ROB_ls_cdb) & valid_ls_cdb & !ARF[RB2][0]);
+    assign v_rc1 = ARF[RC1][0] | ((ARF[RC1][19:17] == ROB_b_cdb) & valid_b_cdb & !ARF[RC1][0]) 
+                               | ((ARF[RC1][19:17] == ROB_a_cdb) & valid_a_cdb & !ARF[RC1][0])
+                               | ((ARF[RC1][19:17] == ROB_a2_cdb) & valid_a2_cdb & !ARF[RC1][0])
+                               | ((ARF[RC1][19:17] == ROB_ls_cdb) & valid_ls_cdb & !ARF[RC1][0]);
+    assign v_rc2 = (!RAW[2] & ARF[RC2][0]) | ((ARF[RC2][19:17] == ROB_b_cdb) & valid_b_cdb & !ARF[RC2][0]) 
+                               | ((ARF[RC2][19:17] == ROB_a_cdb) & valid_a_cdb & !ARF[RC2][0])
+                               | ((ARF[RC2][19:17] == ROB_a2_cdb) & valid_a2_cdb & !ARF[RC2][0])
+                               | ((ARF[RC2][19:17] == ROB_ls_cdb) & valid_ls_cdb & !ARF[RC2][0]);
+    
     assign RA1 = RAA1;
     assign RA2 = RAA2;
     assign RB1 = RBB1;
     assign RB2 = RBB2;
     assign RC1 = RCC1;
     assign RC2 = RCC2;
+    assign RDD1_out = Rd1;
+    assign RDD2_out = Rd2;
     //Change RC to Rd
     always @ (*) begin
         case (op1)
@@ -46,37 +105,104 @@ module Register_File(
             default: Rd2 <= RCC2;
         endcase
     end
+    reg [7:0] rw1, rw2, WB1, WB2;
+    wire [7:0] rw, WB;
+    always @ (*) begin
+        if (valid1 & RegWrite1) begin
+            case (Rd1)
+                3'b000: rw1 <= 8'b00000001;
+                3'b001: rw1 <= 8'b00000010;
+                3'b010: rw1 <= 8'b00000100;
+                3'b011: rw1 <= 8'b00001000;
+                3'b100: rw1 <= 8'b00010000;
+                3'b101: rw1 <= 8'b00100000;
+                3'b110: rw1 <= 8'b01000000;
+                3'b111: rw1 <= 8'b10000000;
+                default: rw1 <= 8'b00000000;
+            endcase
+        end
+        else rw1 <= 8'b00000000;
+    end
+    always @ (*) begin
+        if (valid2 & RegWrite2) begin
+            case (Rd2)
+                3'b000: rw2 <= 8'b00000001;
+                3'b001: rw2 <= 8'b00000010;
+                3'b010: rw2 <= 8'b00000100;
+                3'b011: rw2 <= 8'b00001000;
+                3'b100: rw2 <= 8'b00010000;
+                3'b101: rw2 <= 8'b00100000;
+                3'b110: rw2 <= 8'b01000000;
+                3'b111: rw2 <= 8'b10000000;
+                default: rw2 <= 8'b00000000;
+            endcase
+        end
+        else rw2 <= 8'b00000000;
+    end
+    always @ (*) begin
+        if (wb1) begin
+            case (RD1)
+                3'b000: WB1 <= 8'b00000001;
+                3'b001: WB1 <= 8'b00000010;
+                3'b010: WB1 <= 8'b00000100;
+                3'b011: WB1 <= 8'b00001000;
+                3'b100: WB1 <= 8'b00010000;
+                3'b101: WB1 <= 8'b00100000;
+                3'b110: WB1 <= 8'b01000000;
+                3'b111: WB1 <= 8'b10000000;
+                default: WB1 <= 8'b00000000;
+            endcase
+        end
+        else WB1 <= 8'b00000000;
+    end
+    always @ (*) begin
+        if (wb2) begin
+            case (RD2)
+                3'b000: WB2 <= 8'b00000001;
+                3'b001: WB2 <= 8'b00000010;
+                3'b010: WB2 <= 8'b00000100;
+                3'b011: WB2 <= 8'b00001000;
+                3'b100: WB2 <= 8'b00010000;
+                3'b101: WB2 <= 8'b00100000;
+                3'b110: WB2 <= 8'b01000000;
+                3'b111: WB2 <= 8'b10000000;
+                default: WB2 <= 8'b00000000;
+            endcase
+        end
+        else WB2 <= 8'b00000000;
+    end
+    assign rw = rw1 | rw2;
+    assign WB = WB1 | WB2;
     always @ (posedge clk) begin
         if (rst) da <= 8'd0;
         else begin
-            if (valid1 & valid2) begin
-                if (RegWrite1 & RegWrite2) 
-                    if (WAW) da[Rd1] <= 1'b1;
-                    else {da[Rd1], da[Rd2]} <= 2'b11;
-                else if (RegWrite1 & !RegWrite2) da[Rd1] <= 1'b1;
-                else if (!RegWrite1 & RegWrite2) da[Rd2] <= 1'b1;
-                else ;
-            end
-            else if (valid1 & RegWrite1 & !valid2) da[Rd1] <= 1'b1;
-            else if (!valid1 & valid2 & RegWrite2) da[Rd2] <= 1'b1;
-            else begin
-            end
+            da[0] <= (~rw[0] & ~WB[0] & da[0]) | rw[0];
+            da[1] <= (~rw[1] & ~WB[1] & da[1]) | rw[1];
+            da[2] <= (~rw[2] & ~WB[2] & da[2]) | rw[2];
+            da[3] <= (~rw[3] & ~WB[3] & da[3]) | rw[3];
+            da[4] <= (~rw[4] & ~WB[4] & da[4]) | rw[4];
+            da[5] <= (~rw[5] & ~WB[5] & da[5]) | rw[5];
+            da[6] <= (~rw[6] & ~WB[6] & da[6]) | rw[6];
+            da[7] <= (~rw[7] & ~WB[7] & da[7]) | rw[7];
         end
     end
-    
-    //Source Read
-    assign ra1 = (ARF[RA1][0])? ARF[RA1][16:1]: {13'b0, ARF[RA1][19:17]};
-    assign ra2 = (ARF[RA2][0])? ARF[RA2][16:1]: (RAW[0])? ROB_tag1: {13'b0, ARF[RA2][19:17]};
-    assign rb1 = (ARF[RB1][0])? ARF[RB1][16:1]: {13'b0, ARF[RB1][19:17]};
-    assign rb2 = (ARF[RB2][0])? ARF[RB2][16:1]: (RAW[1])? ROB_tag1: {13'b0, ARF[RB2][19:17]};
-    assign rc1 = (ARF[RC1][0])? ARF[RC1][16:1]: {13'b0, ARF[RC1][19:17]};
-    assign rc2 = (ARF[RC2][0])? ARF[RC2][16:1]: (RAW[2])? ROB_tag1: {13'b0, ARF[RC2][19:17]};
-    assign v_ra1 = ARF[RA1][0];
-    assign v_ra2 = ARF[RA2][0];
-    assign v_rb1 = ARF[RB1][0];
-    assign v_rb2 = ARF[RB2][0];
-    assign v_rc1 = ARF[RC1][0];
-    assign v_rc2 = ARF[RC2][0];
+//    always @ (posedge clk) begin
+//        if (rst) da <= 8'd0;
+//        else begin
+//            if (valid1 & valid2) begin
+//                if (RegWrite1 & RegWrite2) 
+//                    if (WAW) da[Rd1] <= 1'b1;
+//                    else {da[Rd1], da[Rd2]} <= 2'b11;
+//                else if (RegWrite1 & !RegWrite2) da[Rd1] <= 1'b1;
+//                else if (!RegWrite1 & RegWrite2) da[Rd2] <= 1'b1;
+//                else ;
+//            end
+//            else if (valid1 & RegWrite1 & !valid2) da[Rd1] <= 1'b1;
+//            else if (!valid1 & valid2 & RegWrite2) da[Rd2] <= 1'b1;
+//            else begin
+//            end
+//        end
+//    end
     
     //Destination Allocate
     always @ (posedge clk) begin
@@ -130,27 +256,23 @@ module Register_File(
             //Write Back
             if (wb1 & wb2) begin
                 if (RD1 == RD2) begin
-                    if (!da[RD1]) begin
-                        if (ARF[RD1][19:17] == ROB2) ARF[RD1][16:0]<= {reg_data2, 1'b1};
-                    end
-                    else begin
-                        if (ARF[RD1][19:17] == ROB2) ARF[RD2][16:1]<= reg_data2;
-                    end
+                    if (ARF[RD1][19:17] == ROB2) ARF[RD1][16:0]<= {reg_data2, 1'b1};
+                    else ARF[RD2][16:1]<= reg_data2;
                 end
                 else begin
-                    if (!da[RD1]) begin if (ARF[RD1][19:17] == ROB1) ARF[RD1][16:0]<= {reg_data1, 1'b1}; end
-                    else begin if (ARF[RD1][19:17] == ROB1) ARF[RD1][16:1]<= reg_data1; end
-                    if (!da[RD2]) begin if (ARF[RD2][19:17] == ROB2) ARF[RD2][16:0]<= {reg_data2, 1'b1}; end
-                    else begin if (ARF[RD2][19:17] == ROB2) ARF[RD2][16:1]<= reg_data2; end
+                    if (ARF[RD1][19:17] == ROB1) ARF[RD1][16:0]<= {reg_data1, 1'b1};
+                    else ARF[RD1][16:1]<= reg_data1;
+                    if (ARF[RD2][19:17] == ROB2) ARF[RD2][16:0]<= {reg_data2, 1'b1};
+                    else ARF[RD2][16:1]<= reg_data2;
                 end
             end
             else if (wb1 & !wb2) begin
-                if (!da[RD1]) begin if (ARF[RD1][19:17] == ROB1) ARF[RD1][16:0]<= {reg_data1, 1'b1}; end
-                else begin if (ARF[RD1][19:17] == ROB1) ARF[RD1][16:1]<= reg_data1; end
+                if (ARF[RD1][19:17] == ROB1) ARF[RD1][16:0]<= {reg_data1, 1'b1};
+                else ARF[RD1][16:1]<= reg_data1;
             end
             else if (!wb1 & wb2) begin
-                if (!da[RD2]) begin if (ARF[RD2][19:17] == ROB2) ARF[RD2][16:0]<= {reg_data2, 1'b1}; end
-                else begin if (ARF[RD2][19:17] == ROB2) ARF[RD2][16:1]<= reg_data2; end
+                if (ARF[RD2][19:17] == ROB2) ARF[RD2][16:0]<= {reg_data2, 1'b1};
+                else ARF[RD2][16:1]<= reg_data2;
             end
             else begin
             end

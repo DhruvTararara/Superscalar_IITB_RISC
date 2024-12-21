@@ -54,7 +54,7 @@
 
 (* IP_DEFINITION_SOURCE = "module_ref" *)
 (* DowngradeIPIdentifiedWarnings = "yes" *)
-module Superscalar_Processor_Register_File_0_0 (
+module Superscalar_Processor_Register_File_1_0 (
   clk,
   rst,
   op1,
@@ -84,6 +84,18 @@ module Superscalar_Processor_Register_File_0_0 (
   RD2,
   reg_data1,
   reg_data2,
+  valid_b_cdb,
+  valid_a_cdb,
+  valid_a2_cdb,
+  valid_ls_cdb,
+  reg_data_b,
+  alu_out,
+  alu2_out,
+  dm_data,
+  ROB_b_cdb,
+  ROB_a_cdb,
+  ROB_a2_cdb,
+  ROB_ls_cdb,
   ra1,
   ra2,
   rb1,
@@ -95,7 +107,9 @@ module Superscalar_Processor_Register_File_0_0 (
   v_rb1,
   v_rb2,
   v_rc1,
-  v_rc2
+  v_rc2,
+  RDD1_out,
+  RDD2_out
 );
 
 (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk, ASSOCIATED_RESET rst, FREQ_HZ 100000000, PHASE 0.000, CLK_DOMAIN Superscalar_Processor_clk_0, INSERT_VIP 0" *)
@@ -125,12 +139,24 @@ input wire WAR;
 input wire WAW;
 input wire wb1;
 input wire wb2;
-input wire ROB1;
-input wire ROB2;
+input wire [2 : 0] ROB1;
+input wire [2 : 0] ROB2;
 input wire [2 : 0] RD1;
 input wire [2 : 0] RD2;
 input wire [15 : 0] reg_data1;
 input wire [15 : 0] reg_data2;
+input wire valid_b_cdb;
+input wire valid_a_cdb;
+input wire valid_a2_cdb;
+input wire valid_ls_cdb;
+input wire [15 : 0] reg_data_b;
+input wire [15 : 0] alu_out;
+input wire [15 : 0] alu2_out;
+input wire [15 : 0] dm_data;
+input wire [2 : 0] ROB_b_cdb;
+input wire [2 : 0] ROB_a_cdb;
+input wire [2 : 0] ROB_a2_cdb;
+input wire [2 : 0] ROB_ls_cdb;
 output wire [15 : 0] ra1;
 output wire [15 : 0] ra2;
 output wire [15 : 0] rb1;
@@ -143,6 +169,8 @@ output wire v_rb1;
 output wire v_rb2;
 output wire v_rc1;
 output wire v_rc2;
+output wire [2 : 0] RDD1_out;
+output wire [2 : 0] RDD2_out;
 
   Register_File inst (
     .clk(clk),
@@ -174,6 +202,18 @@ output wire v_rc2;
     .RD2(RD2),
     .reg_data1(reg_data1),
     .reg_data2(reg_data2),
+    .valid_b_cdb(valid_b_cdb),
+    .valid_a_cdb(valid_a_cdb),
+    .valid_a2_cdb(valid_a2_cdb),
+    .valid_ls_cdb(valid_ls_cdb),
+    .reg_data_b(reg_data_b),
+    .alu_out(alu_out),
+    .alu2_out(alu2_out),
+    .dm_data(dm_data),
+    .ROB_b_cdb(ROB_b_cdb),
+    .ROB_a_cdb(ROB_a_cdb),
+    .ROB_a2_cdb(ROB_a2_cdb),
+    .ROB_ls_cdb(ROB_ls_cdb),
     .ra1(ra1),
     .ra2(ra2),
     .rb1(rb1),
@@ -185,6 +225,8 @@ output wire v_rc2;
     .v_rb1(v_rb1),
     .v_rb2(v_rb2),
     .v_rc1(v_rc1),
-    .v_rc2(v_rc2)
+    .v_rc2(v_rc2),
+    .RDD1_out(RDD1_out),
+    .RDD2_out(RDD2_out)
   );
 endmodule

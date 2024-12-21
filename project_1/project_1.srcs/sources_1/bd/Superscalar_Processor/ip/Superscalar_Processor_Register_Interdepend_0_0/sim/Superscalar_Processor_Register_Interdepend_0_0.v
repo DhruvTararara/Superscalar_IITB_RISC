@@ -63,6 +63,8 @@ module Superscalar_Processor_Register_Interdepend_0_0 (
   RB2,
   RC1,
   RC2,
+  Rd1,
+  Rd2,
   FU_bits1,
   FU_bits2,
   RAW,
@@ -72,14 +74,16 @@ module Superscalar_Processor_Register_Interdepend_0_0 (
 
 input wire RW1;
 input wire RW2;
-input wire RA1;
-input wire RA2;
-input wire RB1;
-input wire RB2;
-input wire RC1;
-input wire RC2;
-input wire FU_bits1;
-input wire FU_bits2;
+input wire [2 : 0] RA1;
+input wire [2 : 0] RA2;
+input wire [2 : 0] RB1;
+input wire [2 : 0] RB2;
+input wire [2 : 0] RC1;
+input wire [2 : 0] RC2;
+input wire [2 : 0] Rd1;
+input wire [2 : 0] Rd2;
+input wire [2 : 0] FU_bits1;
+input wire [2 : 0] FU_bits2;
 output wire [2 : 0] RAW;
 output wire WAR;
 output wire WAW;
@@ -93,6 +97,8 @@ output wire WAW;
     .RB2(RB2),
     .RC1(RC1),
     .RC2(RC2),
+    .Rd1(Rd1),
+    .Rd2(Rd2),
     .FU_bits1(FU_bits1),
     .FU_bits2(FU_bits2),
     .RAW(RAW),

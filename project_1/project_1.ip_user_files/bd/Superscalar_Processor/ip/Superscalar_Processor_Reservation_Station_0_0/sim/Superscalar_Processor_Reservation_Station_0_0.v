@@ -84,6 +84,12 @@ module Superscalar_Processor_Reservation_Station_0_0 (
   ROB_a_cdb,
   ROB_a2_cdb,
   ROB_ls_cdb,
+  wb1,
+  wb2,
+  ROB1,
+  ROB2,
+  reg_data1,
+  reg_data2,
   FU_bits0,
   FU_bits1,
   FU_bits2,
@@ -193,6 +199,12 @@ input wire [2 : 0] ROB_b_cdb;
 input wire [2 : 0] ROB_a_cdb;
 input wire [2 : 0] ROB_a2_cdb;
 input wire [2 : 0] ROB_ls_cdb;
+input wire wb1;
+input wire wb2;
+input wire [2 : 0] ROB1;
+input wire [2 : 0] ROB2;
+input wire [15 : 0] reg_data1;
+input wire [15 : 0] reg_data2;
 output wire [2 : 0] FU_bits0;
 output wire [2 : 0] FU_bits1;
 output wire [2 : 0] FU_bits2;
@@ -298,6 +310,12 @@ output wire valid_l;
     .ROB_a_cdb(ROB_a_cdb),
     .ROB_a2_cdb(ROB_a2_cdb),
     .ROB_ls_cdb(ROB_ls_cdb),
+    .wb1(wb1),
+    .wb2(wb2),
+    .ROB1(ROB1),
+    .ROB2(ROB2),
+    .reg_data1(reg_data1),
+    .reg_data2(reg_data2),
     .FU_bits0(FU_bits0),
     .FU_bits1(FU_bits1),
     .FU_bits2(FU_bits2),

@@ -8,7 +8,6 @@
   "../../../bd/Superscalar_Processor/ip/Superscalar_Processor_Reservation_Station_0_0/sim/Superscalar_Processor_Reservation_Station_0_0.v" \
   "../../../bd/Superscalar_Processor/ip/Superscalar_Processor_Reorder_Buffer_0_0/sim/Superscalar_Processor_Reorder_Buffer_0_0.v" \
   "../../../bd/Superscalar_Processor/ip/Superscalar_Processor_Register_Interdepend_0_0/sim/Superscalar_Processor_Register_Interdepend_0_0.v" \
-  "../../../bd/Superscalar_Processor/ip/Superscalar_Processor_Register_File_0_0/sim/Superscalar_Processor_Register_File_0_0.v" \
   "../../../bd/Superscalar_Processor/ip/Superscalar_Processor_ALU_0_0/sim/Superscalar_Processor_ALU_0_0.v" \
 -endlib
 -makelib xcelium_lib/xlconstant_v1_1_6 \
@@ -23,6 +22,7 @@
   "../../../bd/Superscalar_Processor/ip/Superscalar_Processor_Write_back_signals_0_0/sim/Superscalar_Processor_Write_back_signals_0_0.v" \
   "../../../bd/Superscalar_Processor/ip/Superscalar_Processor_ALU_1_0/sim/Superscalar_Processor_ALU_1_0.v" \
   "../../../bd/Superscalar_Processor/ip/Superscalar_Processor_xlconstant_1_0/sim/Superscalar_Processor_xlconstant_1_0.v" \
+  "../../../bd/Superscalar_Processor/ip/Superscalar_Processor_Register_File_1_0/sim/Superscalar_Processor_Register_File_1_0.v" \
   "../../../bd/Superscalar_Processor/sim/Superscalar_Processor.v" \
 -endlib
 -makelib xcelium_lib/xil_defaultlib \

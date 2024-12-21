@@ -1,7 +1,7 @@
 //Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2019.1 (win64) Build 2552052 Fri May 24 14:49:42 MDT 2019
-//Date        : Wed Dec 18 14:33:11 2024
+//Date        : Fri Dec 20 18:08:56 2024
 //Host        : CHEEMz-PC running 64-bit major release  (build 9200)
 //Command     : generate_target Superscalar_Processor.bd
 //Design      : Superscalar_Processor
@@ -172,26 +172,28 @@ module Superscalar_Processor
   wire [15:0]PC_0_PC_out;
   wire RegWrite_Ctrl_0_RegWrite1;
   wire RegWrite_Ctrl_0_RegWrite2;
-  wire [15:0]Register_File_0_ra1;
-  wire [15:0]Register_File_0_ra2;
-  wire [15:0]Register_File_0_rb1;
-  wire [15:0]Register_File_0_rb2;
-  wire [15:0]Register_File_0_rc1;
-  wire [15:0]Register_File_0_rc2;
-  wire Register_File_0_v_ra1;
-  wire Register_File_0_v_ra2;
-  wire Register_File_0_v_rb1;
-  wire Register_File_0_v_rb2;
-  wire Register_File_0_v_rc1;
-  wire Register_File_0_v_rc2;
+  wire [2:0]Register_File_1_RDD1_out;
+  wire [2:0]Register_File_1_RDD2_out;
+  wire [15:0]Register_File_1_ra1;
+  wire [15:0]Register_File_1_ra2;
+  wire [15:0]Register_File_1_rb1;
+  wire [15:0]Register_File_1_rb2;
+  wire [15:0]Register_File_1_rc1;
+  wire [15:0]Register_File_1_rc2;
+  wire Register_File_1_v_ra1;
+  wire Register_File_1_v_ra2;
+  wire Register_File_1_v_rb1;
+  wire Register_File_1_v_rb2;
+  wire Register_File_1_v_rc1;
+  wire Register_File_1_v_rc2;
   wire [2:0]Register_Interdepend_0_RAW;
   wire Register_Interdepend_0_WAR;
   wire Register_Interdepend_0_WAW;
   wire [7:0]Reorder_Buffer_0_Busy;
   wire [2:0]Reorder_Buffer_0_RD1;
   wire [2:0]Reorder_Buffer_0_RD2;
-  wire [15:0]Reorder_Buffer_0_ROB1;
-  wire [15:0]Reorder_Buffer_0_ROB2;
+  wire [2:0]Reorder_Buffer_0_ROB1;
+  wire [2:0]Reorder_Buffer_0_ROB2;
   wire [2:0]Reorder_Buffer_0_head;
   wire [15:0]Reorder_Buffer_0_reg_data1;
   wire [15:0]Reorder_Buffer_0_reg_data2;
@@ -436,6 +438,8 @@ module Superscalar_Processor
         .RS_input2(Allocate_unit_0_RS_input2),
         .RS_tag1(Allocate_unit_0_RS_tag1),
         .RS_tag2(Allocate_unit_0_RS_tag2),
+        .Rd1(Register_File_1_RDD1_out),
+        .Rd2(Register_File_1_RDD2_out),
         .RegWrite1(RegWrite_Ctrl_0_RegWrite1),
         .RegWrite1_out(Allocate_unit_0_RegWrite1_out),
         .RegWrite2(RegWrite_Ctrl_0_RegWrite2),
@@ -460,23 +464,23 @@ module Superscalar_Processor
         .op1_out(Allocate_unit_0_op1_out),
         .op2(DispatchBuffer_0_op2_out),
         .op2_out(Allocate_unit_0_op2_out),
-        .ra1(Register_File_0_ra1),
-        .ra2(Register_File_0_ra2),
-        .rb1(Register_File_0_rb1),
-        .rb2(Register_File_0_rb2),
-        .rc1(Register_File_0_rc1),
-        .rc2(Register_File_0_rc2),
+        .ra1(Register_File_1_ra1),
+        .ra2(Register_File_1_ra2),
+        .rb1(Register_File_1_rb1),
+        .rb2(Register_File_1_rb2),
+        .rc1(Register_File_1_rc1),
+        .rc2(Register_File_1_rc2),
         .spec_tag1(DispatchBuffer_0_spec_tag1_out),
         .spec_tag2(DispatchBuffer_0_spec_tag2_out),
         .stall(Allocate_unit_0_stall),
         .v_c1(xlconstant_1_dout),
         .v_c2(xlconstant_1_dout),
-        .v_ra1(Register_File_0_v_ra1),
-        .v_ra2(Register_File_0_v_ra2),
-        .v_rb1(Register_File_0_v_rb1),
-        .v_rb2(Register_File_0_v_rb2),
-        .v_rc1(Register_File_0_v_rc1),
-        .v_rc2(Register_File_0_v_rc2),
+        .v_ra1(Register_File_1_v_ra1),
+        .v_ra2(Register_File_1_v_ra2),
+        .v_rb1(Register_File_1_v_rb1),
+        .v_rb2(Register_File_1_v_rb2),
+        .v_rc1(Register_File_1_v_rc1),
+        .v_rc2(Register_File_1_v_rc2),
         .v_z1(xlconstant_1_dout),
         .v_z2(xlconstant_1_dout),
         .valid1(DispatchBuffer_0_valid_out1),
@@ -621,7 +625,7 @@ module Superscalar_Processor
         .stall(xlconstant_0_dout),
         .valid1(DispatchBuffer_0_valid_out1),
         .valid2(DispatchBuffer_0_valid_out2));
-  Superscalar_Processor_Register_File_0_0 Register_File_0
+  Superscalar_Processor_Register_File_1_0 Register_File_1
        (.FU_bits1(Allocate_unit_0_FU_bits1_out),
         .FU_bits2(Allocate_unit_0_FU_bits2_out),
         .RAA1(Allocate_unit_0_RA1_out),
@@ -633,48 +637,64 @@ module Superscalar_Processor
         .RCC2(Allocate_unit_0_RC2_out),
         .RD1(Reorder_Buffer_0_RD1),
         .RD2(Reorder_Buffer_0_RD2),
-        .ROB1(Reorder_Buffer_0_ROB1[0]),
-        .ROB2(Reorder_Buffer_0_ROB2[0]),
+        .RDD1_out(Register_File_1_RDD1_out),
+        .RDD2_out(Register_File_1_RDD2_out),
+        .ROB1(Reorder_Buffer_0_ROB1),
+        .ROB2(Reorder_Buffer_0_ROB2),
+        .ROB_a2_cdb(ALU_1_ROB_tag_out),
+        .ROB_a_cdb(ALU_0_ROB_tag_out),
+        .ROB_b_cdb({1'b0,1'b0,xlconstant_0_dout}),
+        .ROB_ls_cdb({1'b0,1'b0,xlconstant_0_dout}),
         .ROB_tag1(Allocate_unit_0_ROB_tag1),
         .ROB_tag2(Allocate_unit_0_ROB_tag2),
         .RegWrite1(Allocate_unit_0_RegWrite1_out),
         .RegWrite2(Allocate_unit_0_RegWrite2_out),
         .WAR(Register_Interdepend_0_WAR),
         .WAW(Register_Interdepend_0_WAW),
+        .alu2_out(ALU_1_alu_out),
+        .alu_out(ALU_0_alu_out),
         .clk(clk_0_1),
+        .dm_data({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,xlconstant_0_dout}),
         .op1(Allocate_unit_0_op1_out),
         .op2(Allocate_unit_0_op2_out),
-        .ra1(Register_File_0_ra1),
-        .ra2(Register_File_0_ra2),
-        .rb1(Register_File_0_rb1),
-        .rb2(Register_File_0_rb2),
-        .rc1(Register_File_0_rc1),
-        .rc2(Register_File_0_rc2),
+        .ra1(Register_File_1_ra1),
+        .ra2(Register_File_1_ra2),
+        .rb1(Register_File_1_rb1),
+        .rb2(Register_File_1_rb2),
+        .rc1(Register_File_1_rc1),
+        .rc2(Register_File_1_rc2),
         .reg_data1(Reorder_Buffer_0_reg_data1),
         .reg_data2(Reorder_Buffer_0_reg_data2),
+        .reg_data_b({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,xlconstant_0_dout}),
         .rst(rst_0_1),
-        .v_ra1(Register_File_0_v_ra1),
-        .v_ra2(Register_File_0_v_ra2),
-        .v_rb1(Register_File_0_v_rb1),
-        .v_rb2(Register_File_0_v_rb2),
-        .v_rc1(Register_File_0_v_rc1),
-        .v_rc2(Register_File_0_v_rc2),
+        .v_ra1(Register_File_1_v_ra1),
+        .v_ra2(Register_File_1_v_ra2),
+        .v_rb1(Register_File_1_v_rb1),
+        .v_rb2(Register_File_1_v_rb2),
+        .v_rc1(Register_File_1_v_rc1),
+        .v_rc2(Register_File_1_v_rc2),
         .valid1(Allocate_unit_0_valid1_out),
         .valid2(Allocate_unit_0_valid2_out),
+        .valid_a2_cdb(ALU_1_valid_out),
+        .valid_a_cdb(ALU_0_valid_out),
+        .valid_b_cdb(xlconstant_0_dout),
+        .valid_ls_cdb(xlconstant_0_dout),
         .wb1(Write_back_signals_0_wR1),
         .wb2(Write_back_signals_0_wR2));
   Superscalar_Processor_Register_Interdepend_0_0 Register_Interdepend_0
-       (.FU_bits1(Control_Unit_0_FU_bits1[0]),
-        .FU_bits2(Control_Unit_0_FU_bits2[0]),
-        .RA1(DispatchBuffer_0_RA1_out[0]),
-        .RA2(DispatchBuffer_0_RA2_out[0]),
+       (.FU_bits1(Control_Unit_0_FU_bits1),
+        .FU_bits2(Control_Unit_0_FU_bits2),
+        .RA1(DispatchBuffer_0_RA1_out),
+        .RA2(DispatchBuffer_0_RA2_out),
         .RAW(Register_Interdepend_0_RAW),
-        .RB1(DispatchBuffer_0_RB1_out[0]),
-        .RB2(DispatchBuffer_0_RB2_out[0]),
-        .RC1(DispatchBuffer_0_RC1_out[0]),
-        .RC2(DispatchBuffer_0_RC2_out[0]),
+        .RB1(DispatchBuffer_0_RB1_out),
+        .RB2(DispatchBuffer_0_RB2_out),
+        .RC1(DispatchBuffer_0_RC1_out),
+        .RC2(DispatchBuffer_0_RC2_out),
         .RW1(RegWrite_Ctrl_0_RegWrite1),
         .RW2(RegWrite_Ctrl_0_RegWrite2),
+        .Rd1(Register_File_1_RDD1_out),
+        .Rd2(Register_File_1_RDD2_out),
         .WAR(Register_Interdepend_0_WAR),
         .WAW(Register_Interdepend_0_WAW));
   Superscalar_Processor_Reorder_Buffer_0_0 Reorder_Buffer_0
@@ -746,6 +766,8 @@ module Superscalar_Processor
         .PC_a2(Reservation_Station_0_PC_a2),
         .PC_b(Reservation_Station_0_PC_b),
         .PC_l(Reservation_Station_0_PC_l),
+        .ROB1(Reorder_Buffer_0_ROB1),
+        .ROB2(Reorder_Buffer_0_ROB2),
         .ROB_a2_cdb(ALU_1_ROB_tag_out),
         .ROB_a_cdb(ALU_0_ROB_tag_out),
         .ROB_b_cdb({1'b0,1'b0,xlconstant_0_dout}),
@@ -791,6 +813,8 @@ module Superscalar_Processor
         .rb_l(Reservation_Station_0_rb_l),
         .rc_a(Reservation_Station_0_rc_a),
         .rc_a2(Reservation_Station_0_rc_a2),
+        .reg_data1(Reorder_Buffer_0_reg_data1),
+        .reg_data2(Reorder_Buffer_0_reg_data2),
         .reg_data_b({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,xlconstant_0_dout}),
         .rst(rst_0_1),
         .spec_tag_a(Reservation_Station_0_spec_tag_a),
@@ -825,6 +849,8 @@ module Superscalar_Processor
         .valid_issue_ls(Issue_Unit_0_valid_issue_ls),
         .valid_l(Reservation_Station_0_valid_l),
         .valid_ls_cdb(xlconstant_0_dout),
+        .wb1(Write_back_signals_0_wR1),
+        .wb2(Write_back_signals_0_wR2),
         .z_a(Reservation_Station_0_z_a),
         .z_a2(Reservation_Station_0_z_a2));
   Superscalar_Processor_Valid_instruction_ch_0_0 Valid_instruction_ch_0

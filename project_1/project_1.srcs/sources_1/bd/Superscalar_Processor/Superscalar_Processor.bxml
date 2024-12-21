@@ -2,10 +2,10 @@
 <Root MajorVersion="0" MinorVersion="37">
   <CompositeFile CompositeFileTopName="Superscalar_Processor" CanBeSetAsTop="false" CanDisplayChildGraph="true">
     <Description>Composite Fileset</Description>
-    <Generation Name="SYNTHESIS" State="STALE" Timestamp="1734512591"/>
-    <Generation Name="IMPLEMENTATION" State="STALE" Timestamp="1734512591"/>
-    <Generation Name="SIMULATION" State="GENERATED" Timestamp="1734512592"/>
-    <Generation Name="HW_HANDOFF" State="GENERATED" Timestamp="1734512592"/>
+    <Generation Name="SYNTHESIS" State="STALE" Timestamp="1734698336"/>
+    <Generation Name="IMPLEMENTATION" State="STALE" Timestamp="1734698336"/>
+    <Generation Name="SIMULATION" State="GENERATED" Timestamp="1734698337"/>
+    <Generation Name="HW_HANDOFF" State="GENERATED" Timestamp="1734698337"/>
     <FileCollection Name="SOURCES" Type="SOURCES">
       <File Name="ip\Superscalar_Processor_decode_buffer_0_0\Superscalar_Processor_decode_buffer_0_0.xci" Type="IP">
         <Instance HierarchyPath="decode_buffer_0"/>
@@ -79,14 +79,6 @@
         <UsedIn Val="IMPLEMENTATION"/>
         <UsedIn Val="SIMULATION"/>
       </File>
-      <File Name="ip\Superscalar_Processor_Register_File_0_0\Superscalar_Processor_Register_File_0_0.xci" Type="IP">
-        <Instance HierarchyPath="Register_File_0"/>
-        <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true" IsStatusTracked="true"/>
-        <Library Name="xil_defaultlib"/>
-        <UsedIn Val="SYNTHESIS"/>
-        <UsedIn Val="IMPLEMENTATION"/>
-        <UsedIn Val="SIMULATION"/>
-      </File>
       <File Name="ip\Superscalar_Processor_ALU_0_0\Superscalar_Processor_ALU_0_0.xci" Type="IP">
         <Instance HierarchyPath="ALU_0"/>
         <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true" IsStatusTracked="true"/>
@@ -153,6 +145,14 @@
       </File>
       <File Name="ip\Superscalar_Processor_xlconstant_1_0\Superscalar_Processor_xlconstant_1_0.xci" Type="IP">
         <Instance HierarchyPath="xlconstant_1"/>
+        <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true" IsStatusTracked="true"/>
+        <Library Name="xil_defaultlib"/>
+        <UsedIn Val="SYNTHESIS"/>
+        <UsedIn Val="IMPLEMENTATION"/>
+        <UsedIn Val="SIMULATION"/>
+      </File>
+      <File Name="ip\Superscalar_Processor_Register_File_1_0\Superscalar_Processor_Register_File_1_0.xci" Type="IP">
+        <Instance HierarchyPath="Register_File_1"/>
         <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true" IsStatusTracked="true"/>
         <Library Name="xil_defaultlib"/>
         <UsedIn Val="SYNTHESIS"/>

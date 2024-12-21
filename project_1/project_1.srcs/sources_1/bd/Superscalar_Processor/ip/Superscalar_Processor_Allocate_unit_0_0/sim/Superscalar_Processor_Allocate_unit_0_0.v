@@ -75,6 +75,8 @@ module Superscalar_Processor_Allocate_unit_0_0 (
   RBB2,
   RCC1,
   RCC2,
+  Rd1,
+  Rd2,
   valid1,
   valid2,
   ra1,
@@ -160,6 +162,8 @@ input wire [2 : 0] RBB1;
 input wire [2 : 0] RBB2;
 input wire [2 : 0] RCC1;
 input wire [2 : 0] RCC2;
+input wire [2 : 0] Rd1;
+input wire [2 : 0] Rd2;
 input wire valid1;
 input wire valid2;
 input wire [15 : 0] ra1;
@@ -245,6 +249,8 @@ output wire stall;
     .RBB2(RBB2),
     .RCC1(RCC1),
     .RCC2(RCC2),
+    .Rd1(Rd1),
+    .Rd2(Rd2),
     .valid1(valid1),
     .valid2(valid2),
     .ra1(ra1),

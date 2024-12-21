@@ -26,7 +26,7 @@ module Reorder_Buffer(
     output reg [2:0] wb1, wb2,//wb = {R, C, Z}
     output reg [15:0] reg_data1, reg_data2,
     output reg [2:0] RD1, RD2,
-    output reg [15:0] ROB1, ROB2,
+    output reg [2:0] ROB1, ROB2,
     //=========================================
     output wire [7:0] Busy,
     output reg [2:0] head,
@@ -49,7 +49,7 @@ module Reorder_Buffer(
     wire full, empty;
     assign full = (count >= 7);
     assign empty = (count == 4'd0);
-    assign count = (tail - head - valid[head] - valid[head + 3'd1] + valid1 + valid2) % 8;//tail - head - (instructions added) - (instructions committed)
+    assign count = (tail - head) % 8;//tail - head - (instructions added) - (instructions committed)
     integer i, j;
     reg [3:0] i_t [7:0];
     reg [3:0] h_i_1 [7:0];
@@ -64,15 +64,13 @@ module Reorder_Buffer(
         end
         else begin
             if ((PC_b_cdb == PC[0] && valid_b_cdb) || (PC_a_cdb == PC[0] && valid_a_cdb) || (PC_a2_cdb == PC[0] && valid_a2_cdb) || (PC_ls_cdb == PC[0] && valid_ls_cdb)) Finished[0] <= Busy[0];
-            else if ((PC_b_cdb == PC[1] && valid_b_cdb) || (PC_a_cdb == PC[1] && valid_a_cdb) || (PC_a2_cdb == PC[0] && valid_a2_cdb) || (PC_ls_cdb == PC[1] && valid_ls_cdb)) Finished[0] <= Busy[1];
-            else if ((PC_b_cdb == PC[2] && valid_b_cdb) || (PC_a_cdb == PC[2] && valid_a_cdb) || (PC_a2_cdb == PC[0] && valid_a2_cdb) || (PC_ls_cdb == PC[2] && valid_ls_cdb)) Finished[0] <= Busy[2];
-            else if ((PC_b_cdb == PC[3] && valid_b_cdb) || (PC_a_cdb == PC[3] && valid_a_cdb) || (PC_a2_cdb == PC[0] && valid_a2_cdb) || (PC_ls_cdb == PC[3] && valid_ls_cdb)) Finished[0] <= Busy[3];
-            else if ((PC_b_cdb == PC[4] && valid_b_cdb) || (PC_a_cdb == PC[4] && valid_a_cdb) || (PC_a2_cdb == PC[0] && valid_a2_cdb) || (PC_ls_cdb == PC[4] && valid_ls_cdb)) Finished[0] <= Busy[4];
-            else if ((PC_b_cdb == PC[5] && valid_b_cdb) || (PC_a_cdb == PC[5] && valid_a_cdb) || (PC_a2_cdb == PC[0] && valid_a2_cdb) || (PC_ls_cdb == PC[5] && valid_ls_cdb)) Finished[0] <= Busy[5];
-            else if ((PC_b_cdb == PC[6] && valid_b_cdb) || (PC_a_cdb == PC[6] && valid_a_cdb) || (PC_a2_cdb == PC[0] && valid_a2_cdb) || (PC_ls_cdb == PC[6] && valid_ls_cdb)) Finished[0] <= Busy[6];
-            else if ((PC_b_cdb == PC[7] && valid_b_cdb) || (PC_a_cdb == PC[7] && valid_a_cdb) || (PC_a2_cdb == PC[0] && valid_a2_cdb) || (PC_ls_cdb == PC[7] && valid_ls_cdb)) Finished[0] <= Busy[7];
-            else begin
-            end
+            if ((PC_b_cdb == PC[1] && valid_b_cdb) || (PC_a_cdb == PC[1] && valid_a_cdb) || (PC_a2_cdb == PC[1] && valid_a2_cdb) || (PC_ls_cdb == PC[1] && valid_ls_cdb)) Finished[1] <= Busy[1];
+            if ((PC_b_cdb == PC[2] && valid_b_cdb) || (PC_a_cdb == PC[2] && valid_a_cdb) || (PC_a2_cdb == PC[2] && valid_a2_cdb) || (PC_ls_cdb == PC[2] && valid_ls_cdb)) Finished[2] <= Busy[2];
+            if ((PC_b_cdb == PC[3] && valid_b_cdb) || (PC_a_cdb == PC[3] && valid_a_cdb) || (PC_a2_cdb == PC[3] && valid_a2_cdb) || (PC_ls_cdb == PC[3] && valid_ls_cdb)) Finished[3] <= Busy[3];
+            if ((PC_b_cdb == PC[4] && valid_b_cdb) || (PC_a_cdb == PC[4] && valid_a_cdb) || (PC_a2_cdb == PC[4] && valid_a2_cdb) || (PC_ls_cdb == PC[4] && valid_ls_cdb)) Finished[4] <= Busy[4];
+            if ((PC_b_cdb == PC[5] && valid_b_cdb) || (PC_a_cdb == PC[5] && valid_a_cdb) || (PC_a2_cdb == PC[5] && valid_a2_cdb) || (PC_ls_cdb == PC[5] && valid_ls_cdb)) Finished[5] <= Busy[5];
+            if ((PC_b_cdb == PC[6] && valid_b_cdb) || (PC_a_cdb == PC[6] && valid_a_cdb) || (PC_a2_cdb == PC[6] && valid_a2_cdb) || (PC_ls_cdb == PC[6] && valid_ls_cdb)) Finished[6] <= Busy[6];
+            if ((PC_b_cdb == PC[7] && valid_b_cdb) || (PC_a_cdb == PC[7] && valid_a_cdb) || (PC_a2_cdb == PC[7] && valid_a2_cdb) || (PC_ls_cdb == PC[7] && valid_ls_cdb)) Finished[7] <= Busy[7];
         end
     end
     //Issued bits
@@ -82,61 +80,75 @@ module Reorder_Buffer(
         end
         else begin
             if ((PC_bi == PC[0] && valid_bi) || (PC_ai == PC[0] && valid_ai) || (PC_a2i == PC[0] && valid_a2i) || (PC_lsi == PC[0] && valid_lsi)) Issued[0] <= Busy[0];
-            else if ((PC_bi == PC[1] && valid_bi) || (PC_ai == PC[1] && valid_ai) || (PC_a2i == PC[0] && valid_a2i) || (PC_lsi == PC[1] && valid_lsi)) Issued[0] <= Busy[1];
-            else if ((PC_bi == PC[2] && valid_bi) || (PC_ai == PC[2] && valid_ai) || (PC_a2i == PC[0] && valid_a2i) || (PC_lsi == PC[2] && valid_lsi)) Issued[0] <= Busy[2];
-            else if ((PC_bi == PC[3] && valid_bi) || (PC_ai == PC[3] && valid_ai) || (PC_a2i == PC[0] && valid_a2i) || (PC_lsi == PC[3] && valid_lsi)) Issued[0] <= Busy[3];
-            else if ((PC_bi == PC[4] && valid_bi) || (PC_ai == PC[4] && valid_ai) || (PC_a2i == PC[0] && valid_a2i) || (PC_lsi == PC[4] && valid_lsi)) Issued[0] <= Busy[4];
-            else if ((PC_bi == PC[5] && valid_bi) || (PC_ai == PC[5] && valid_ai) || (PC_a2i == PC[0] && valid_a2i) || (PC_lsi == PC[5] && valid_lsi)) Issued[0] <= Busy[5];
-            else if ((PC_bi == PC[6] && valid_bi) || (PC_ai == PC[6] && valid_ai) || (PC_a2i == PC[0] && valid_a2i) || (PC_lsi == PC[6] && valid_lsi)) Issued[0] <= Busy[6];
-            else if ((PC_bi == PC[7] && valid_bi) || (PC_ai == PC[7] && valid_ai) || (PC_a2i == PC[0] && valid_a2i) || (PC_lsi == PC[7] && valid_lsi)) Issued[0] <= Busy[7];
-            else begin
-            end
+            if ((PC_bi == PC[1] && valid_bi) || (PC_ai == PC[1] && valid_ai) || (PC_a2i == PC[1] && valid_a2i) || (PC_lsi == PC[1] && valid_lsi)) Issued[1] <= Busy[1];
+            if ((PC_bi == PC[2] && valid_bi) || (PC_ai == PC[2] && valid_ai) || (PC_a2i == PC[2] && valid_a2i) || (PC_lsi == PC[2] && valid_lsi)) Issued[2] <= Busy[2];
+            if ((PC_bi == PC[3] && valid_bi) || (PC_ai == PC[3] && valid_ai) || (PC_a2i == PC[3] && valid_a2i) || (PC_lsi == PC[3] && valid_lsi)) Issued[3] <= Busy[3];
+            if ((PC_bi == PC[4] && valid_bi) || (PC_ai == PC[4] && valid_ai) || (PC_a2i == PC[4] && valid_a2i) || (PC_lsi == PC[4] && valid_lsi)) Issued[4] <= Busy[4];
+            if ((PC_bi == PC[5] && valid_bi) || (PC_ai == PC[5] && valid_ai) || (PC_a2i == PC[5] && valid_a2i) || (PC_lsi == PC[5] && valid_lsi)) Issued[5] <= Busy[5];
+            if ((PC_bi == PC[6] && valid_bi) || (PC_ai == PC[6] && valid_ai) || (PC_a2i == PC[6] && valid_a2i) || (PC_lsi == PC[6] && valid_lsi)) Issued[6] <= Busy[6];
+            if ((PC_bi == PC[7] && valid_bi) || (PC_ai == PC[7] && valid_ai) || (PC_a2i == PC[7] && valid_a2i) || (PC_lsi == PC[7] && valid_lsi)) Issued[7] <= Busy[7];
         end
     end
     //Speculative bits
     always @ (posedge clk) begin
         if (rst) Speculative <= 8'b11111111;
         else begin
-            if (spec_tag_b == spec_tag[head] && valid_b_cdb) begin
+            if ((spec_tag[head] == 2'b00) && (Busy[head])) Speculative[head] <= 1'b0;
+            else if (spec_tag_b == spec_tag[head] && valid_b_cdb) begin
                 Speculative[head] <= 1'b0;
                 if (!misprediction) spec_tag[head] <= 2'd0;
                 else spec_tag[head] <= spec_tag[head];
             end
+            else Speculative[head] <= 1'b1;
+            if ((spec_tag[head + 1] == 2'b00) && (Busy[head + 1])) Speculative[head + 1] <= 1'b0;
             else if (spec_tag_b == spec_tag[head + 1] && valid_b_cdb) begin
                 Speculative[head + 1] <= 1'b0;
                 if (!misprediction) spec_tag[head + 1] <= 2'd0;
                 else spec_tag[head + 1] <= spec_tag[head + 1];
             end
+            else Speculative[head + 1] <= 1'b1;
+            if ((spec_tag[head + 2] == 2'b00) && (Busy[head + 2])) Speculative[head + 2] <= 1'b0;
             else if (spec_tag_b == spec_tag[head + 2] && valid_b_cdb) begin
                 Speculative[head + 2] <= 1'b0;
                 if (!misprediction) spec_tag[head + 2] <= 2'd0;
                 else spec_tag[head + 2] <= spec_tag[head + 2];
             end
+            else Speculative[head + 2] <= 1'b1;
+            if ((spec_tag[head + 3] == 2'b00) && (Busy[head + 3])) Speculative[head + 3] <= 1'b0;
             else if (spec_tag_b == spec_tag[head + 3] && valid_b_cdb) begin
                 Speculative[head + 3] <= 1'b0;
                 if (!misprediction) spec_tag[head + 3] <= 2'd0;
                 else spec_tag[head + 3] <= spec_tag[head + 3];
             end
+            else Speculative[head + 3] <= 1'b1;
+            if ((spec_tag[head + 4] == 2'b00) && (Busy[head + 4])) Speculative[head + 4] <= 1'b0;
             else if (spec_tag_b == spec_tag[head] && valid_b_cdb) begin
                 Speculative[head + 4] <= 1'b0;
                 if (!misprediction) spec_tag[head + 4] <= 2'd0;
                 else spec_tag[head + 4] <= spec_tag[head + 4];
             end
+            else Speculative[head + 4] <= 1'b1;
+            if ((spec_tag[head + 5] == 2'b00) && (Busy[head + 5])) Speculative[head + 5] <= 1'b0;
             else if (spec_tag_b == spec_tag[head + 5] && valid_b_cdb) begin
                 Speculative[head + 5] <= 1'b0;
                 if (!misprediction) spec_tag[head + 5] <= 2'd0;
                 else spec_tag[head + 5] <= spec_tag[head + 5];
             end
+            else Speculative[head + 5] <= 1'b1;
+            if ((spec_tag[head + 6] == 2'b00) && (Busy[head + 6])) Speculative[head + 6] <= 1'b0;
             else if (spec_tag_b == spec_tag[head + 6] && valid_b_cdb) begin
                 Speculative[head + 6] <= 1'b0;
                 if (!misprediction) spec_tag[head + 6] <= 2'd0;
                 else spec_tag[head + 6] <= spec_tag[head + 6];
             end
+            else Speculative[head + 6] <= 1'b1;
+            if ((spec_tag[head + 7] == 2'b00) && (Busy[head + 7])) Speculative[head + 7] <= 1'b0;
             else if (spec_tag_b == spec_tag[head + 7] && valid_b_cdb) begin
                 Speculative[head + 7] <= 1'b0;
                 if (!misprediction) spec_tag[head + 7] <= 2'd0;
                 else spec_tag[head + 7] <= spec_tag[head + 7];
             end
+            else Speculative[head + 7] <= 1'b1;
         end
     end
     //Valid bits
@@ -151,6 +163,7 @@ module Reorder_Buffer(
     always @ (posedge clk) begin
         if (rst) begin
             valid <= 8'd0;
+            Busy1 <= 8'b11111111;
         end
         else begin
             //Use stall signal in this if statement only (Write Back is allowed even if processor is stalled)
@@ -182,20 +195,23 @@ module Reorder_Buffer(
         end
     end
     
-    //Commit (with change in value of head and control values for change in tail)
+    //Commit (with change in value of head)
     always @ (posedge clk) begin
-        if (rst) head <= 3'd0;
+        if (rst) begin
+            head <= 3'd0;
+            Busy2 <= 8'b11111111;
+        end
         else begin 
             if (!empty) begin
                 if (valid[head] & valid[head + 3'd1]) begin
-                    {Busy1[head], Busy1[head]} <= {!Busy1[head], !Busy1[head]};
+                    {Busy2[head], Busy2[head + 1]} <= {!Busy2[head], !Busy2[head + 1]};
                     head <= head + 3'd2;
                     {reg_data1, reg_data2} <= {reg_data[head], reg_data[head + 3'd1]};
                     {RD1, RD2} <= {RD[head], RD[head + 3'd1]};
                     {ROB1, ROB2} <= {head, head + 3'd1};
                     if (spec_tag[head] != 2'b00) begin
                         //Register Update
-                        if (RCZ[head][2]) {wb1[2], wb2[2]} <= 2'b01;
+                        if (RCZ[head][2]) {wb1[2], wb2[2]} <= 2'b10;
                         else {wb1[2], wb2[2]} <= 2'b00;
                         //Carry flag Update
                         //Zero flag Update
@@ -221,8 +237,11 @@ module Reorder_Buffer(
                     
                 end
                 else if (valid[head] & !valid[head + 3'd1]) begin
-                    Busy1[head] <= !Busy1[head];
+                    Busy2[head] <= !Busy2[head];
                     head <= head + 3'd1;
+                    {reg_data1} <= {reg_data[head]};
+                    {RD1} <= {RD[head]};
+                    {ROB1} <= {head};
                     if (spec_tag[head] != 2'b00) begin
                         //Register Update
                         if (RCZ[head][2]) {wb1[2], wb2[2]} <= 2'b10;
@@ -246,7 +265,7 @@ module Reorder_Buffer(
     
     //Tail value (using control signals s_ctrl: for Instruction commit; and n_ctrl: for newly dispatched instructions)
     reg [1:0] n_ctrl;
-    always @ (posedge clk) begin
+    always @ (*) begin
         if (rst) begin
         end
         else begin
