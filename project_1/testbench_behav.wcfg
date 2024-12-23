@@ -11,15 +11,15 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="49754331fs"></ZoomStartTime>
-      <ZoomEndTime time="449754332fs"></ZoomEndTime>
-      <Cursor1Time time="200000000fs"></Cursor1Time>
+      <ZoomStartTime time="0fs"></ZoomStartTime>
+      <ZoomEndTime time="300000001fs"></ZoomEndTime>
+      <Cursor1Time time="300000000fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="156"></NameColumnWidth>
-      <ValueColumnWidth column_width="91"></ValueColumnWidth>
+      <ValueColumnWidth column_width="86"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="6" />
+   <WVObjectSize size="27" />
    <wvobject fp_name="/testbench/clk_0" type="logic">
       <obj_property name="ElementShortName">clk_0</obj_property>
       <obj_property name="ObjectShortName">clk_0</obj_property>
@@ -36,13 +36,138 @@
       <obj_property name="ElementShortName">tail[2:0]</obj_property>
       <obj_property name="ObjectShortName">tail[2:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/testbench/processor/Superscalar_Processor_i/Reorder_Buffer_0/inst/valid" type="array">
-      <obj_property name="ElementShortName">valid[7:0]</obj_property>
-      <obj_property name="ObjectShortName">valid[7:0]</obj_property>
-      <obj_property name="isExpanded"></obj_property>
-   </wvobject>
    <wvobject fp_name="/testbench/processor/Superscalar_Processor_i/Reorder_Buffer_0/inst/empty" type="logic">
       <obj_property name="ElementShortName">empty</obj_property>
       <obj_property name="ObjectShortName">empty</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/processor/Superscalar_Processor_i/ALU_0/inst/valid_out" type="logic">
+      <obj_property name="ElementShortName">valid_out</obj_property>
+      <obj_property name="ObjectShortName">valid_out</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/processor/Superscalar_Processor_i/ALU_0/inst/alu_out" type="array">
+      <obj_property name="ElementShortName">alu_out[15:0]</obj_property>
+      <obj_property name="ObjectShortName">alu_out[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/processor/Superscalar_Processor_i/ALU_0/inst/ROB_tag_out" type="array">
+      <obj_property name="ElementShortName">ROB_tag_out[2:0]</obj_property>
+      <obj_property name="ObjectShortName">ROB_tag_out[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/processor/Superscalar_Processor_i/ALU_0/inst/PC_out" type="array">
+      <obj_property name="ElementShortName">PC_out[15:0]</obj_property>
+      <obj_property name="ObjectShortName">PC_out[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/processor/Superscalar_Processor_i/ALU_1/inst/valid_out" type="logic">
+      <obj_property name="ElementShortName">valid_out</obj_property>
+      <obj_property name="ObjectShortName">valid_out</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/processor/Superscalar_Processor_i/ALU_1/inst/alu_out" type="array">
+      <obj_property name="ElementShortName">alu_out[15:0]</obj_property>
+      <obj_property name="ObjectShortName">alu_out[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/processor/Superscalar_Processor_i/ALU_1/inst/ROB_tag_out" type="array">
+      <obj_property name="ElementShortName">ROB_tag_out[2:0]</obj_property>
+      <obj_property name="ObjectShortName">ROB_tag_out[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/processor/Superscalar_Processor_i/ALU_1/inst/PC_out" type="array">
+      <obj_property name="ElementShortName">PC_out[15:0]</obj_property>
+      <obj_property name="ObjectShortName">PC_out[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/processor/Superscalar_Processor_i/Register_File_1/inst/WAW" type="logic">
+      <obj_property name="ElementShortName">WAW</obj_property>
+      <obj_property name="ObjectShortName">WAW</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/processor/Superscalar_Processor_i/Register_File_1/inst/RegWrite1" type="logic">
+      <obj_property name="ElementShortName">RegWrite1</obj_property>
+      <obj_property name="ObjectShortName">RegWrite1</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/processor/Superscalar_Processor_i/Register_File_1/inst/RegWrite2" type="logic">
+      <obj_property name="ElementShortName">RegWrite2</obj_property>
+      <obj_property name="ObjectShortName">RegWrite2</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/processor/Superscalar_Processor_i/Register_File_1/inst/ROB_tag2" type="array">
+      <obj_property name="ElementShortName">ROB_tag2[2:0]</obj_property>
+      <obj_property name="ObjectShortName">ROB_tag2[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/processor/Superscalar_Processor_i/Register_File_1/inst/Rd1" type="array">
+      <obj_property name="ElementShortName">Rd1[2:0]</obj_property>
+      <obj_property name="ObjectShortName">Rd1[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/processor/Superscalar_Processor_i/Register_File_1/inst/Rd2" type="array">
+      <obj_property name="ElementShortName">Rd2[2:0]</obj_property>
+      <obj_property name="ObjectShortName">Rd2[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/processor/Superscalar_Processor_i/Register_File_1/inst/ARF" type="array">
+      <obj_property name="ElementShortName">ARF[7:0][19:0]</obj_property>
+      <obj_property name="ObjectShortName">ARF[7:0][19:0]</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+      <wvobject fp_name="/testbench/processor/Superscalar_Processor_i/Register_File_1/inst/ARF[7]" type="array">
+         <obj_property name="ElementShortName">[7][19:0]</obj_property>
+         <obj_property name="ObjectShortName">[7][19:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/processor/Superscalar_Processor_i/Register_File_1/inst/ARF[6]" type="array">
+         <obj_property name="ElementShortName">[6][19:0]</obj_property>
+         <obj_property name="ObjectShortName">[6][19:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/processor/Superscalar_Processor_i/Register_File_1/inst/ARF[5]" type="array">
+         <obj_property name="ElementShortName">[5][19:0]</obj_property>
+         <obj_property name="ObjectShortName">[5][19:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/processor/Superscalar_Processor_i/Register_File_1/inst/ARF[4]" type="array">
+         <obj_property name="ElementShortName">[4][19:0]</obj_property>
+         <obj_property name="ObjectShortName">[4][19:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/processor/Superscalar_Processor_i/Register_File_1/inst/ARF[3]" type="array">
+         <obj_property name="ElementShortName">[3][19:0]</obj_property>
+         <obj_property name="ObjectShortName">[3][19:0]</obj_property>
+         <obj_property name="Radix">BINARYRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/processor/Superscalar_Processor_i/Register_File_1/inst/ARF[2]" type="array">
+         <obj_property name="ElementShortName">[2][19:0]</obj_property>
+         <obj_property name="ObjectShortName">[2][19:0]</obj_property>
+         <obj_property name="Radix">BINARYRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/processor/Superscalar_Processor_i/Register_File_1/inst/ARF[1]" type="array">
+         <obj_property name="ElementShortName">[1][19:0]</obj_property>
+         <obj_property name="ObjectShortName">[1][19:0]</obj_property>
+         <obj_property name="Radix">BINARYRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/processor/Superscalar_Processor_i/Register_File_1/inst/ARF[0]" type="array">
+         <obj_property name="ElementShortName">[0][19:0]</obj_property>
+         <obj_property name="ObjectShortName">[0][19:0]</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="/testbench/processor/Superscalar_Processor_i/Reorder_Buffer_0/inst/reg_data" type="array">
+      <obj_property name="ElementShortName">reg_data[7:0][15:0]</obj_property>
+      <obj_property name="ObjectShortName">reg_data[7:0][15:0]</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/processor/Superscalar_Processor_i/Reorder_Buffer_0/inst/PC" type="array">
+      <obj_property name="ElementShortName">PC[7:0][15:0]</obj_property>
+      <obj_property name="ObjectShortName">PC[7:0][15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/processor/Superscalar_Processor_i/Reorder_Buffer_0/inst/Busy" type="array">
+      <obj_property name="ElementShortName">Busy[7:0]</obj_property>
+      <obj_property name="ObjectShortName">Busy[7:0]</obj_property>
+      <obj_property name="Radix">BINARYRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/processor/Superscalar_Processor_i/Reorder_Buffer_0/inst/Issued" type="array">
+      <obj_property name="ElementShortName">Issued[7:0]</obj_property>
+      <obj_property name="ObjectShortName">Issued[7:0]</obj_property>
+      <obj_property name="Radix">BINARYRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/processor/Superscalar_Processor_i/Reorder_Buffer_0/inst/Finished" type="array">
+      <obj_property name="ElementShortName">Finished[7:0]</obj_property>
+      <obj_property name="ObjectShortName">Finished[7:0]</obj_property>
+      <obj_property name="Radix">BINARYRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/processor/Superscalar_Processor_i/Reorder_Buffer_0/inst/Speculative" type="array">
+      <obj_property name="ElementShortName">Speculative[7:0]</obj_property>
+      <obj_property name="ObjectShortName">Speculative[7:0]</obj_property>
+      <obj_property name="Radix">BINARYRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/processor/Superscalar_Processor_i/Reorder_Buffer_0/inst/valid" type="array">
+      <obj_property name="ElementShortName">valid[7:0]</obj_property>
+      <obj_property name="ObjectShortName">valid[7:0]</obj_property>
+      <obj_property name="Radix">BINARYRADIX</obj_property>
    </wvobject>
 </wave_config>

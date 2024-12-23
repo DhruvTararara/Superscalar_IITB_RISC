@@ -64,13 +64,29 @@ module Reorder_Buffer(
         end
         else begin
             if ((PC_b_cdb == PC[0] && valid_b_cdb) || (PC_a_cdb == PC[0] && valid_a_cdb) || (PC_a2_cdb == PC[0] && valid_a2_cdb) || (PC_ls_cdb == PC[0] && valid_ls_cdb)) Finished[0] <= Busy[0];
+            else if (Busy[0]) Finished[0] <= Finished[0];
+            else Finished[0] <= 1'b0;
             if ((PC_b_cdb == PC[1] && valid_b_cdb) || (PC_a_cdb == PC[1] && valid_a_cdb) || (PC_a2_cdb == PC[1] && valid_a2_cdb) || (PC_ls_cdb == PC[1] && valid_ls_cdb)) Finished[1] <= Busy[1];
+            else if (Busy[1]) Finished[1] <= Finished[1];
+            else Finished[1] <= 1'b0;
             if ((PC_b_cdb == PC[2] && valid_b_cdb) || (PC_a_cdb == PC[2] && valid_a_cdb) || (PC_a2_cdb == PC[2] && valid_a2_cdb) || (PC_ls_cdb == PC[2] && valid_ls_cdb)) Finished[2] <= Busy[2];
+            else if (Busy[2]) Finished[2] <= Finished[2];
+            else Finished[2] <= 1'b0;
             if ((PC_b_cdb == PC[3] && valid_b_cdb) || (PC_a_cdb == PC[3] && valid_a_cdb) || (PC_a2_cdb == PC[3] && valid_a2_cdb) || (PC_ls_cdb == PC[3] && valid_ls_cdb)) Finished[3] <= Busy[3];
+            else if (Busy[3]) Finished[3] <= Finished[3];
+            else Finished[3] <= 1'b0;
             if ((PC_b_cdb == PC[4] && valid_b_cdb) || (PC_a_cdb == PC[4] && valid_a_cdb) || (PC_a2_cdb == PC[4] && valid_a2_cdb) || (PC_ls_cdb == PC[4] && valid_ls_cdb)) Finished[4] <= Busy[4];
+            else if (Busy[4]) Finished[4] <= Finished[4];
+            else Finished[4] <= 1'b0;
             if ((PC_b_cdb == PC[5] && valid_b_cdb) || (PC_a_cdb == PC[5] && valid_a_cdb) || (PC_a2_cdb == PC[5] && valid_a2_cdb) || (PC_ls_cdb == PC[5] && valid_ls_cdb)) Finished[5] <= Busy[5];
+            else if (Busy[5]) Finished[5] <= Finished[5];
+            else Finished[5] <= 1'b0;
             if ((PC_b_cdb == PC[6] && valid_b_cdb) || (PC_a_cdb == PC[6] && valid_a_cdb) || (PC_a2_cdb == PC[6] && valid_a2_cdb) || (PC_ls_cdb == PC[6] && valid_ls_cdb)) Finished[6] <= Busy[6];
+            else if (Busy[6]) Finished[6] <= Finished[6];
+            else Finished[6] <= 1'b0;
             if ((PC_b_cdb == PC[7] && valid_b_cdb) || (PC_a_cdb == PC[7] && valid_a_cdb) || (PC_a2_cdb == PC[7] && valid_a2_cdb) || (PC_ls_cdb == PC[7] && valid_ls_cdb)) Finished[7] <= Busy[7];
+            else if (Busy[7]) Finished[7] <= Finished[7];
+            else Finished[7] <= 1'b0;
         end
     end
     //Issued bits
@@ -80,13 +96,29 @@ module Reorder_Buffer(
         end
         else begin
             if ((PC_bi == PC[0] && valid_bi) || (PC_ai == PC[0] && valid_ai) || (PC_a2i == PC[0] && valid_a2i) || (PC_lsi == PC[0] && valid_lsi)) Issued[0] <= Busy[0];
+            else if (Busy[0]) Issued[0] <= Issued[0];
+            else Issued[0] <= 1'b0;
             if ((PC_bi == PC[1] && valid_bi) || (PC_ai == PC[1] && valid_ai) || (PC_a2i == PC[1] && valid_a2i) || (PC_lsi == PC[1] && valid_lsi)) Issued[1] <= Busy[1];
+            else if (Busy[1]) Issued[1] <= Issued[1];
+            else Issued[1] <= 1'b0;
             if ((PC_bi == PC[2] && valid_bi) || (PC_ai == PC[2] && valid_ai) || (PC_a2i == PC[2] && valid_a2i) || (PC_lsi == PC[2] && valid_lsi)) Issued[2] <= Busy[2];
+            else if (Busy[2]) Issued[2] <= Issued[2];
+            else Issued[2] <= 1'b0;
             if ((PC_bi == PC[3] && valid_bi) || (PC_ai == PC[3] && valid_ai) || (PC_a2i == PC[3] && valid_a2i) || (PC_lsi == PC[3] && valid_lsi)) Issued[3] <= Busy[3];
+            else if (Busy[3]) Issued[3] <= Issued[3];
+            else Issued[3] <= 1'b0;
             if ((PC_bi == PC[4] && valid_bi) || (PC_ai == PC[4] && valid_ai) || (PC_a2i == PC[4] && valid_a2i) || (PC_lsi == PC[4] && valid_lsi)) Issued[4] <= Busy[4];
+            else if (Busy[4]) Issued[4] <= Issued[4];
+            else Issued[4] <= 1'b0;
             if ((PC_bi == PC[5] && valid_bi) || (PC_ai == PC[5] && valid_ai) || (PC_a2i == PC[5] && valid_a2i) || (PC_lsi == PC[5] && valid_lsi)) Issued[5] <= Busy[5];
+            else if (Busy[5]) Issued[5] <= Issued[5];
+            else Issued[5] <= 1'b0;
             if ((PC_bi == PC[6] && valid_bi) || (PC_ai == PC[6] && valid_ai) || (PC_a2i == PC[6] && valid_a2i) || (PC_lsi == PC[6] && valid_lsi)) Issued[6] <= Busy[6];
+            else if (Busy[6]) Issued[6] <= Issued[6];
+            else Issued[6] <= 1'b0;
             if ((PC_bi == PC[7] && valid_bi) || (PC_ai == PC[7] && valid_ai) || (PC_a2i == PC[7] && valid_a2i) || (PC_lsi == PC[7] && valid_lsi)) Issued[7] <= Busy[7];
+            else if (Busy[7]) Issued[7] <= Issued[7];
+            else Issued[7] <= 1'b0;
         end
     end
     //Speculative bits
@@ -99,56 +131,64 @@ module Reorder_Buffer(
                 if (!misprediction) spec_tag[head] <= 2'd0;
                 else spec_tag[head] <= spec_tag[head];
             end
+            else if (Busy[head]) Speculative[head] <= Speculative[head];
             else Speculative[head] <= 1'b1;
-            if ((spec_tag[head + 1] == 2'b00) && (Busy[head + 1])) Speculative[head + 1] <= 1'b0;
-            else if (spec_tag_b == spec_tag[head + 1] && valid_b_cdb) begin
-                Speculative[head + 1] <= 1'b0;
-                if (!misprediction) spec_tag[head + 1] <= 2'd0;
-                else spec_tag[head + 1] <= spec_tag[head + 1];
+            if ((spec_tag[(head+1)%8] == 2'b00) && (Busy[(head+1)%8])) Speculative[(head+1)%8] <= 1'b0;
+            else if (spec_tag_b == spec_tag[(head+1)%8] && valid_b_cdb) begin
+                Speculative[(head+1)%8] <= 1'b0;
+                if (!misprediction) spec_tag[(head+1)%8] <= 2'd0;
+                else spec_tag[(head+1)%8] <= spec_tag[(head+1)%8];
             end
-            else Speculative[head + 1] <= 1'b1;
-            if ((spec_tag[head + 2] == 2'b00) && (Busy[head + 2])) Speculative[head + 2] <= 1'b0;
-            else if (spec_tag_b == spec_tag[head + 2] && valid_b_cdb) begin
-                Speculative[head + 2] <= 1'b0;
-                if (!misprediction) spec_tag[head + 2] <= 2'd0;
-                else spec_tag[head + 2] <= spec_tag[head + 2];
+            else if (Busy[(head+1)%8]) Speculative[(head+1)%8] <= Speculative[(head+1)%8];
+            else Speculative[(head+1)%8] <= 1'b1;
+            if ((spec_tag[(head+2)%8] == 2'b00) && (Busy[(head+2)%8])) Speculative[(head+2)%8] <= 1'b0;
+            else if (spec_tag_b == spec_tag[(head+2)%8] && valid_b_cdb) begin
+                Speculative[(head+2)%8] <= 1'b0;
+                if (!misprediction) spec_tag[(head+2)%8] <= 2'd0;
+                else spec_tag[(head+2)%8] <= spec_tag[(head+2)%8];
             end
-            else Speculative[head + 2] <= 1'b1;
-            if ((spec_tag[head + 3] == 2'b00) && (Busy[head + 3])) Speculative[head + 3] <= 1'b0;
-            else if (spec_tag_b == spec_tag[head + 3] && valid_b_cdb) begin
-                Speculative[head + 3] <= 1'b0;
-                if (!misprediction) spec_tag[head + 3] <= 2'd0;
-                else spec_tag[head + 3] <= spec_tag[head + 3];
+            else if (Busy[(head+2)%8]) Speculative[(head+2)%8] <= Speculative[(head+2)%8];
+            else Speculative[(head+2)%8] <= 1'b1;
+            if ((spec_tag[(head+3)%8] == 2'b00) && (Busy[(head+3)%8])) Speculative[(head+3)%8] <= 1'b0;
+            else if (spec_tag_b == spec_tag[(head+3)%8] && valid_b_cdb) begin
+                Speculative[(head+3)%8] <= 1'b0;
+                if (!misprediction) spec_tag[(head+3)%8] <= 2'd0;
+                else spec_tag[(head+3)%8] <= spec_tag[(head+3)%8];
             end
-            else Speculative[head + 3] <= 1'b1;
-            if ((spec_tag[head + 4] == 2'b00) && (Busy[head + 4])) Speculative[head + 4] <= 1'b0;
-            else if (spec_tag_b == spec_tag[head] && valid_b_cdb) begin
-                Speculative[head + 4] <= 1'b0;
-                if (!misprediction) spec_tag[head + 4] <= 2'd0;
-                else spec_tag[head + 4] <= spec_tag[head + 4];
+            else if (Busy[(head+3)%8]) Speculative[(head+3)%8] <= Speculative[(head+3)%8];
+            else Speculative[(head+3)%8] <= 1'b1;
+            if ((spec_tag[(head+4)%8] == 2'b00) && (Busy[(head+4)%8])) Speculative[(head+4)%8] <= 1'b0;
+            else if (spec_tag_b == spec_tag[(head+4)%8] && valid_b_cdb) begin
+                Speculative[(head+4)%8] <= 1'b0;
+                if (!misprediction) spec_tag[(head+4)%8] <= 2'd0;
+                else spec_tag[(head+4)%8] <= spec_tag[(head+4)%8];
             end
-            else Speculative[head + 4] <= 1'b1;
-            if ((spec_tag[head + 5] == 2'b00) && (Busy[head + 5])) Speculative[head + 5] <= 1'b0;
-            else if (spec_tag_b == spec_tag[head + 5] && valid_b_cdb) begin
-                Speculative[head + 5] <= 1'b0;
-                if (!misprediction) spec_tag[head + 5] <= 2'd0;
-                else spec_tag[head + 5] <= spec_tag[head + 5];
+            else if (Busy[(head+4)%8]) Speculative[(head+4)%8] <= Speculative[(head+4)%8];
+            else Speculative[(head+4)%8] <= 1'b1;
+            if ((spec_tag[(head+5)%8] == 2'b00) && (Busy[(head+5)%8])) Speculative[(head+5)%8] <= 1'b0;
+            else if (spec_tag_b == spec_tag[(head+5)%8] && valid_b_cdb) begin
+                Speculative[(head+5)%8] <= 1'b0;
+                if (!misprediction) spec_tag[(head+5)%8] <= 2'd0;
+                else spec_tag[(head+5)%8] <= spec_tag[(head+5)%8];
             end
-            else Speculative[head + 5] <= 1'b1;
-            if ((spec_tag[head + 6] == 2'b00) && (Busy[head + 6])) Speculative[head + 6] <= 1'b0;
-            else if (spec_tag_b == spec_tag[head + 6] && valid_b_cdb) begin
-                Speculative[head + 6] <= 1'b0;
-                if (!misprediction) spec_tag[head + 6] <= 2'd0;
-                else spec_tag[head + 6] <= spec_tag[head + 6];
+            else if (Busy[(head+5)%8]) Speculative[(head+5)%8] <= Speculative[(head+5)%8];
+            else Speculative[(head+5)%8] <= 1'b1;
+            if ((spec_tag[(head+6)%8] == 2'b00) && (Busy[(head+6)%8])) Speculative[(head+6)%8] <= 1'b0;
+            else if (spec_tag_b == spec_tag[(head+6)%8] && valid_b_cdb) begin
+                Speculative[(head+6)%8] <= 1'b0;
+                if (!misprediction) spec_tag[(head+6)%8] <= 2'd0;
+                else spec_tag[(head+6)%8] <= spec_tag[(head+6)%8];
             end
-            else Speculative[head + 6] <= 1'b1;
-            if ((spec_tag[head + 7] == 2'b00) && (Busy[head + 7])) Speculative[head + 7] <= 1'b0;
-            else if (spec_tag_b == spec_tag[head + 7] && valid_b_cdb) begin
-                Speculative[head + 7] <= 1'b0;
-                if (!misprediction) spec_tag[head + 7] <= 2'd0;
-                else spec_tag[head + 7] <= spec_tag[head + 7];
+            else if (Busy[(head+6)%8]) Speculative[(head+6)%8] <= Speculative[(head+6)%8];
+            else Speculative[(head+6)%8] <= 1'b1;
+            if ((spec_tag[(head+7)%8] == 2'b00) && (Busy[(head+7)%8])) Speculative[(head+7)%8] <= 1'b0;
+            else if (spec_tag_b == spec_tag[(head+7)%8] && valid_b_cdb) begin
+                Speculative[(head+7)%8] <= 1'b0;
+                if (!misprediction) spec_tag[(head+7)%8] <= 2'd0;
+                else spec_tag[(head+7)%8] <= spec_tag[(head+7)%8];
             end
-            else Speculative[head + 7] <= 1'b1;
+            else if (Busy[(head+7)%8]) Speculative[(head+7)%8] <= Speculative[(head+7)%8];
+            else Speculative[(head+7)%8] <= 1'b1;
         end
     end
     //Valid bits
