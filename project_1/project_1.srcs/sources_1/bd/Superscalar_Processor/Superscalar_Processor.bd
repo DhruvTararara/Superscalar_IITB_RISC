@@ -24,10 +24,10 @@
       "ALU_0": "",
       "ALU_1": "",
       "Register_Interdepend_0": "",
-      "Register_File_1": "",
       "Reservation_Station_0": "",
       "Allocate_unit_0": "",
-      "Reorder_Buffer_0": ""
+      "Reorder_Buffer_0": "",
+      "Register_File_1": ""
     },
     "ports": {
       "rst_0": {
@@ -1512,264 +1512,6 @@
           }
         }
       },
-      "Register_File_1": {
-        "vlnv": "xilinx.com:module_ref:Register_File:1.0",
-        "xci_name": "Superscalar_Processor_Register_File_1_0",
-        "reference_info": {
-          "ref_type": "hdl",
-          "ref_name": "Register_File",
-          "boundary_crc": "0x0"
-        },
-        "ports": {
-          "clk": {
-            "type": "clk",
-            "direction": "I",
-            "parameters": {
-              "ASSOCIATED_RESET": {
-                "value": "rst",
-                "value_src": "constant"
-              },
-              "CLK_DOMAIN": {
-                "value": "Superscalar_Processor_clk_0",
-                "value_src": "default_prop"
-              }
-            }
-          },
-          "rst": {
-            "type": "rst",
-            "direction": "I"
-          },
-          "op1": {
-            "direction": "I",
-            "left": "3",
-            "right": "0"
-          },
-          "op2": {
-            "direction": "I",
-            "left": "3",
-            "right": "0"
-          },
-          "ROB_tag1": {
-            "direction": "I",
-            "left": "2",
-            "right": "0"
-          },
-          "ROB_tag2": {
-            "direction": "I",
-            "left": "2",
-            "right": "0"
-          },
-          "RegWrite1": {
-            "direction": "I"
-          },
-          "RegWrite2": {
-            "direction": "I"
-          },
-          "RAA1": {
-            "direction": "I",
-            "left": "2",
-            "right": "0"
-          },
-          "RAA2": {
-            "direction": "I",
-            "left": "2",
-            "right": "0"
-          },
-          "RBB1": {
-            "direction": "I",
-            "left": "2",
-            "right": "0"
-          },
-          "RBB2": {
-            "direction": "I",
-            "left": "2",
-            "right": "0"
-          },
-          "RCC1": {
-            "direction": "I",
-            "left": "2",
-            "right": "0"
-          },
-          "RCC2": {
-            "direction": "I",
-            "left": "2",
-            "right": "0"
-          },
-          "FU_bits1": {
-            "direction": "I",
-            "left": "1",
-            "right": "0"
-          },
-          "FU_bits2": {
-            "direction": "I",
-            "left": "1",
-            "right": "0"
-          },
-          "valid1": {
-            "direction": "I"
-          },
-          "valid2": {
-            "direction": "I"
-          },
-          "RAW": {
-            "direction": "I",
-            "left": "2",
-            "right": "0"
-          },
-          "WAR": {
-            "direction": "I"
-          },
-          "WAW": {
-            "direction": "I"
-          },
-          "wb1": {
-            "direction": "I"
-          },
-          "wb2": {
-            "direction": "I"
-          },
-          "ROB1": {
-            "direction": "I",
-            "left": "2",
-            "right": "0"
-          },
-          "ROB2": {
-            "direction": "I",
-            "left": "2",
-            "right": "0"
-          },
-          "RD1": {
-            "direction": "I",
-            "left": "2",
-            "right": "0"
-          },
-          "RD2": {
-            "direction": "I",
-            "left": "2",
-            "right": "0"
-          },
-          "reg_data1": {
-            "direction": "I",
-            "left": "15",
-            "right": "0"
-          },
-          "reg_data2": {
-            "direction": "I",
-            "left": "15",
-            "right": "0"
-          },
-          "valid_b_cdb": {
-            "direction": "I"
-          },
-          "valid_a_cdb": {
-            "direction": "I"
-          },
-          "valid_a2_cdb": {
-            "direction": "I"
-          },
-          "valid_ls_cdb": {
-            "direction": "I"
-          },
-          "reg_data_b": {
-            "direction": "I",
-            "left": "15",
-            "right": "0"
-          },
-          "alu_out": {
-            "direction": "I",
-            "left": "15",
-            "right": "0"
-          },
-          "alu2_out": {
-            "direction": "I",
-            "left": "15",
-            "right": "0"
-          },
-          "dm_data": {
-            "direction": "I",
-            "left": "15",
-            "right": "0"
-          },
-          "ROB_b_cdb": {
-            "direction": "I",
-            "left": "2",
-            "right": "0"
-          },
-          "ROB_a_cdb": {
-            "direction": "I",
-            "left": "2",
-            "right": "0"
-          },
-          "ROB_a2_cdb": {
-            "direction": "I",
-            "left": "2",
-            "right": "0"
-          },
-          "ROB_ls_cdb": {
-            "direction": "I",
-            "left": "2",
-            "right": "0"
-          },
-          "ra1": {
-            "direction": "O",
-            "left": "15",
-            "right": "0"
-          },
-          "ra2": {
-            "direction": "O",
-            "left": "15",
-            "right": "0"
-          },
-          "rb1": {
-            "direction": "O",
-            "left": "15",
-            "right": "0"
-          },
-          "rb2": {
-            "direction": "O",
-            "left": "15",
-            "right": "0"
-          },
-          "rc1": {
-            "direction": "O",
-            "left": "15",
-            "right": "0"
-          },
-          "rc2": {
-            "direction": "O",
-            "left": "15",
-            "right": "0"
-          },
-          "v_ra1": {
-            "direction": "O"
-          },
-          "v_ra2": {
-            "direction": "O"
-          },
-          "v_rb1": {
-            "direction": "O"
-          },
-          "v_rb2": {
-            "direction": "O"
-          },
-          "v_rc1": {
-            "direction": "O"
-          },
-          "v_rc2": {
-            "direction": "O"
-          },
-          "RDD1_out": {
-            "direction": "O",
-            "left": "2",
-            "right": "0"
-          },
-          "RDD2_out": {
-            "direction": "O",
-            "left": "2",
-            "right": "0"
-          }
-        }
-      },
       "Reservation_Station_0": {
         "vlnv": "xilinx.com:module_ref:Reservation_Station:1.0",
         "xci_name": "Superscalar_Processor_Reservation_Station_0_0",
@@ -2693,6 +2435,36 @@
             "left": "23",
             "right": "0"
           },
+          "RA1_t": {
+            "direction": "I",
+            "left": "2",
+            "right": "0"
+          },
+          "RA2_t": {
+            "direction": "I",
+            "left": "2",
+            "right": "0"
+          },
+          "RB1_t": {
+            "direction": "I",
+            "left": "2",
+            "right": "0"
+          },
+          "RB2_t": {
+            "direction": "I",
+            "left": "2",
+            "right": "0"
+          },
+          "RC1_t": {
+            "direction": "I",
+            "left": "2",
+            "right": "0"
+          },
+          "RC2_t": {
+            "direction": "I",
+            "left": "2",
+            "right": "0"
+          },
           "PC_bi": {
             "direction": "I",
             "left": "15",
@@ -2805,6 +2577,41 @@
           "misprediction": {
             "direction": "I"
           },
+          "ROB_ra1": {
+            "direction": "O",
+            "left": "15",
+            "right": "0"
+          },
+          "ROB_ra2": {
+            "direction": "O",
+            "left": "15",
+            "right": "0"
+          },
+          "ROB_rb1": {
+            "direction": "O",
+            "left": "15",
+            "right": "0"
+          },
+          "ROB_rb2": {
+            "direction": "O",
+            "left": "15",
+            "right": "0"
+          },
+          "ROB_rc1": {
+            "direction": "O",
+            "left": "15",
+            "right": "0"
+          },
+          "ROB_rc2": {
+            "direction": "O",
+            "left": "15",
+            "right": "0"
+          },
+          "valid_ROB": {
+            "direction": "O",
+            "left": "7",
+            "right": "0"
+          },
           "wb1": {
             "direction": "O",
             "left": "2",
@@ -2856,6 +2663,329 @@
             "right": "0"
           },
           "tail": {
+            "direction": "O",
+            "left": "2",
+            "right": "0"
+          }
+        }
+      },
+      "Register_File_1": {
+        "vlnv": "xilinx.com:module_ref:Register_File:1.0",
+        "xci_name": "Superscalar_Processor_Register_File_1_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "Register_File",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "clk": {
+            "type": "clk",
+            "direction": "I",
+            "parameters": {
+              "ASSOCIATED_RESET": {
+                "value": "rst",
+                "value_src": "constant"
+              },
+              "CLK_DOMAIN": {
+                "value": "Superscalar_Processor_clk_0",
+                "value_src": "default_prop"
+              }
+            }
+          },
+          "rst": {
+            "type": "rst",
+            "direction": "I"
+          },
+          "op1": {
+            "direction": "I",
+            "left": "3",
+            "right": "0"
+          },
+          "op2": {
+            "direction": "I",
+            "left": "3",
+            "right": "0"
+          },
+          "ROB_tag1": {
+            "direction": "I",
+            "left": "2",
+            "right": "0"
+          },
+          "ROB_tag2": {
+            "direction": "I",
+            "left": "2",
+            "right": "0"
+          },
+          "RegWrite1": {
+            "direction": "I"
+          },
+          "RegWrite2": {
+            "direction": "I"
+          },
+          "RAA1": {
+            "direction": "I",
+            "left": "2",
+            "right": "0"
+          },
+          "RAA2": {
+            "direction": "I",
+            "left": "2",
+            "right": "0"
+          },
+          "RBB1": {
+            "direction": "I",
+            "left": "2",
+            "right": "0"
+          },
+          "RBB2": {
+            "direction": "I",
+            "left": "2",
+            "right": "0"
+          },
+          "RCC1": {
+            "direction": "I",
+            "left": "2",
+            "right": "0"
+          },
+          "RCC2": {
+            "direction": "I",
+            "left": "2",
+            "right": "0"
+          },
+          "FU_bits1": {
+            "direction": "I",
+            "left": "1",
+            "right": "0"
+          },
+          "FU_bits2": {
+            "direction": "I",
+            "left": "1",
+            "right": "0"
+          },
+          "valid1": {
+            "direction": "I"
+          },
+          "valid2": {
+            "direction": "I"
+          },
+          "RAW": {
+            "direction": "I",
+            "left": "2",
+            "right": "0"
+          },
+          "WAR": {
+            "direction": "I"
+          },
+          "WAW": {
+            "direction": "I"
+          },
+          "ROB_ra1": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "ROB_ra2": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "ROB_rb1": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "ROB_rb2": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "ROB_rc1": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "ROB_rc2": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "valid_ROB": {
+            "direction": "I",
+            "left": "7",
+            "right": "0"
+          },
+          "wb1": {
+            "direction": "I"
+          },
+          "wb2": {
+            "direction": "I"
+          },
+          "ROB1": {
+            "direction": "I",
+            "left": "2",
+            "right": "0"
+          },
+          "ROB2": {
+            "direction": "I",
+            "left": "2",
+            "right": "0"
+          },
+          "RD1": {
+            "direction": "I",
+            "left": "2",
+            "right": "0"
+          },
+          "RD2": {
+            "direction": "I",
+            "left": "2",
+            "right": "0"
+          },
+          "reg_data1": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "reg_data2": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "valid_b_cdb": {
+            "direction": "I"
+          },
+          "valid_a_cdb": {
+            "direction": "I"
+          },
+          "valid_a2_cdb": {
+            "direction": "I"
+          },
+          "valid_ls_cdb": {
+            "direction": "I"
+          },
+          "reg_data_b": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "alu_out": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "alu2_out": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "dm_data": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "ROB_b_cdb": {
+            "direction": "I",
+            "left": "2",
+            "right": "0"
+          },
+          "ROB_a_cdb": {
+            "direction": "I",
+            "left": "2",
+            "right": "0"
+          },
+          "ROB_a2_cdb": {
+            "direction": "I",
+            "left": "2",
+            "right": "0"
+          },
+          "ROB_ls_cdb": {
+            "direction": "I",
+            "left": "2",
+            "right": "0"
+          },
+          "RA1_t": {
+            "direction": "O",
+            "left": "2",
+            "right": "0"
+          },
+          "RA2_t": {
+            "direction": "O",
+            "left": "2",
+            "right": "0"
+          },
+          "RB1_t": {
+            "direction": "O",
+            "left": "2",
+            "right": "0"
+          },
+          "RB2_t": {
+            "direction": "O",
+            "left": "2",
+            "right": "0"
+          },
+          "Rc1_t": {
+            "direction": "O",
+            "left": "2",
+            "right": "0"
+          },
+          "RC2_t": {
+            "direction": "O",
+            "left": "2",
+            "right": "0"
+          },
+          "ra1": {
+            "direction": "O",
+            "left": "15",
+            "right": "0"
+          },
+          "ra2": {
+            "direction": "O",
+            "left": "15",
+            "right": "0"
+          },
+          "rb1": {
+            "direction": "O",
+            "left": "15",
+            "right": "0"
+          },
+          "rb2": {
+            "direction": "O",
+            "left": "15",
+            "right": "0"
+          },
+          "rc1": {
+            "direction": "O",
+            "left": "15",
+            "right": "0"
+          },
+          "rc2": {
+            "direction": "O",
+            "left": "15",
+            "right": "0"
+          },
+          "v_ra1": {
+            "direction": "O"
+          },
+          "v_ra2": {
+            "direction": "O"
+          },
+          "v_rb1": {
+            "direction": "O"
+          },
+          "v_rb2": {
+            "direction": "O"
+          },
+          "v_rc1": {
+            "direction": "O"
+          },
+          "v_rc2": {
+            "direction": "O"
+          },
+          "RDD1_out": {
+            "direction": "O",
+            "left": "2",
+            "right": "0"
+          },
+          "RDD2_out": {
             "direction": "O",
             "left": "2",
             "right": "0"
@@ -2913,12 +3043,6 @@
           "decode_buffer_0/branch_predict1_in",
           "decode_buffer_0/branch_predict2_in",
           "DispatchBuffer_0/stall",
-          "Register_File_1/valid_b_cdb",
-          "Register_File_1/valid_ls_cdb",
-          "Register_File_1/reg_data_b",
-          "Register_File_1/dm_data",
-          "Register_File_1/ROB_b_cdb",
-          "Register_File_1/ROB_ls_cdb",
           "Reservation_Station_0/valid_b_cdb",
           "Reservation_Station_0/valid_ls_cdb",
           "Reservation_Station_0/reg_data_b",
@@ -2928,7 +3052,13 @@
           "Allocate_unit_0/RR_stall",
           "Reorder_Buffer_0/valid_b_cdb",
           "Reorder_Buffer_0/valid_ls_cdb",
-          "Reorder_Buffer_0/misprediction"
+          "Reorder_Buffer_0/misprediction",
+          "Register_File_1/valid_b_cdb",
+          "Register_File_1/valid_ls_cdb",
+          "Register_File_1/reg_data_b",
+          "Register_File_1/dm_data",
+          "Register_File_1/ROB_b_cdb",
+          "Register_File_1/ROB_ls_cdb"
         ]
       },
       "decode_buffer_0_address_out1": {
@@ -3420,17 +3550,17 @@
       "Allocate_unit_0_valid1_out": {
         "ports": [
           "Allocate_unit_0/valid1_out",
-          "Register_File_1/valid1",
           "Reservation_Station_0/valid1",
-          "Reorder_Buffer_0/valid1"
+          "Reorder_Buffer_0/valid1",
+          "Register_File_1/valid1"
         ]
       },
       "Allocate_unit_0_valid2_out": {
         "ports": [
           "Allocate_unit_0/valid2_out",
-          "Register_File_1/valid2",
           "Reservation_Station_0/valid2",
-          "Reorder_Buffer_0/valid2"
+          "Reorder_Buffer_0/valid2",
+          "Register_File_1/valid2"
         ]
       },
       "Allocate_unit_0_RegWrite1_out": {
@@ -3496,15 +3626,15 @@
       "Allocate_unit_0_ROB_tag1": {
         "ports": [
           "Allocate_unit_0/ROB_tag1",
-          "Register_File_1/ROB_tag1",
-          "Reorder_Buffer_0/ROB_tag1"
+          "Reorder_Buffer_0/ROB_tag1",
+          "Register_File_1/ROB_tag1"
         ]
       },
       "Allocate_unit_0_ROB_tag2": {
         "ports": [
           "Allocate_unit_0/ROB_tag2",
-          "Register_File_1/ROB_tag2",
-          "Reorder_Buffer_0/ROB_tag2"
+          "Reorder_Buffer_0/ROB_tag2",
+          "Register_File_1/ROB_tag2"
         ]
       },
       "Issue_Unit_0_valid_issue_b": {
@@ -3573,25 +3703,25 @@
       "ALU_0_valid_out": {
         "ports": [
           "ALU_0/valid_out",
-          "Register_File_1/valid_a_cdb",
           "Reservation_Station_0/valid_a_cdb",
-          "Reorder_Buffer_0/valid_a_cdb"
+          "Reorder_Buffer_0/valid_a_cdb",
+          "Register_File_1/valid_a_cdb"
         ]
       },
       "ALU_0_ROB_tag_out": {
         "ports": [
           "ALU_0/ROB_tag_out",
-          "Register_File_1/ROB_a_cdb",
           "Reservation_Station_0/ROB_a_cdb",
-          "Reorder_Buffer_0/ROB_a_cdb"
+          "Reorder_Buffer_0/ROB_a_cdb",
+          "Register_File_1/ROB_a_cdb"
         ]
       },
       "ALU_0_alu_out": {
         "ports": [
           "ALU_0/alu_out",
-          "Register_File_1/alu_out",
           "Reservation_Station_0/alu_out",
-          "Reorder_Buffer_0/alu_out"
+          "Reorder_Buffer_0/alu_out",
+          "Register_File_1/alu_out"
         ]
       },
       "Reservation_Station_0_c_a": {
@@ -3879,25 +4009,25 @@
       "ALU_1_valid_out": {
         "ports": [
           "ALU_1/valid_out",
-          "Register_File_1/valid_a2_cdb",
           "Reservation_Station_0/valid_a2_cdb",
-          "Reorder_Buffer_0/valid_a2_cdb"
+          "Reorder_Buffer_0/valid_a2_cdb",
+          "Register_File_1/valid_a2_cdb"
         ]
       },
       "ALU_1_ROB_tag_out": {
         "ports": [
           "ALU_1/ROB_tag_out",
-          "Register_File_1/ROB_a2_cdb",
           "Reservation_Station_0/ROB_a2_cdb",
-          "Reorder_Buffer_0/ROB_a2_cdb"
+          "Reorder_Buffer_0/ROB_a2_cdb",
+          "Register_File_1/ROB_a2_cdb"
         ]
       },
       "ALU_1_alu_out": {
         "ports": [
           "ALU_1/alu_out",
-          "Register_File_1/alu2_out",
           "Reservation_Station_0/alu2_out",
-          "Reorder_Buffer_0/alu2_out"
+          "Reorder_Buffer_0/alu2_out",
+          "Register_File_1/alu2_out"
         ]
       },
       "ALU_1_PC_out": {
@@ -3952,9 +4082,9 @@
           "Valid_instruction_ch_0/rst",
           "decode_buffer_0/rst",
           "DispatchBuffer_0/rst",
-          "Register_File_1/rst",
           "Reservation_Station_0/rst",
-          "Reorder_Buffer_0/rst"
+          "Reorder_Buffer_0/rst",
+          "Register_File_1/rst"
         ]
       },
       "clk_0_1": {
@@ -3964,9 +4094,9 @@
           "decode_0/clk",
           "decode_buffer_0/clk",
           "DispatchBuffer_0/clk",
-          "Register_File_1/clk",
           "Reservation_Station_0/clk",
-          "Reorder_Buffer_0/clk"
+          "Reorder_Buffer_0/clk",
+          "Register_File_1/clk"
         ]
       },
       "xlconstant_1_dout": {
@@ -4355,29 +4485,29 @@
       "Reorder_Buffer_0_ROB2": {
         "ports": [
           "Reorder_Buffer_0/ROB2",
-          "Register_File_1/ROB2",
-          "Reservation_Station_0/ROB2"
+          "Reservation_Station_0/ROB2",
+          "Register_File_1/ROB2"
         ]
       },
       "Reorder_Buffer_0_ROB1": {
         "ports": [
           "Reorder_Buffer_0/ROB1",
-          "Register_File_1/ROB1",
-          "Reservation_Station_0/ROB1"
+          "Reservation_Station_0/ROB1",
+          "Register_File_1/ROB1"
         ]
       },
       "Reorder_Buffer_0_reg_data1": {
         "ports": [
           "Reorder_Buffer_0/reg_data1",
-          "Register_File_1/reg_data1",
-          "Reservation_Station_0/reg_data1"
+          "Reservation_Station_0/reg_data1",
+          "Register_File_1/reg_data1"
         ]
       },
       "Reorder_Buffer_0_reg_data2": {
         "ports": [
           "Reorder_Buffer_0/reg_data2",
-          "Register_File_1/reg_data2",
-          "Reservation_Station_0/reg_data2"
+          "Reservation_Station_0/reg_data2",
+          "Register_File_1/reg_data2"
         ]
       },
       "Reorder_Buffer_0_RD2": {
@@ -4389,15 +4519,93 @@
       "Write_back_signals_0_wR1": {
         "ports": [
           "Write_back_signals_0/wR1",
-          "Register_File_1/wb1",
-          "Reservation_Station_0/wb1"
+          "Reservation_Station_0/wb1",
+          "Register_File_1/wb1"
         ]
       },
       "Write_back_signals_0_wR2": {
         "ports": [
           "Write_back_signals_0/wR2",
-          "Register_File_1/wb2",
-          "Reservation_Station_0/wb2"
+          "Reservation_Station_0/wb2",
+          "Register_File_1/wb2"
+        ]
+      },
+      "Register_File_1_RA1_t": {
+        "ports": [
+          "Register_File_1/RA1_t",
+          "Reorder_Buffer_0/RA1_t"
+        ]
+      },
+      "Register_File_1_RA2_t": {
+        "ports": [
+          "Register_File_1/RA2_t",
+          "Reorder_Buffer_0/RA2_t"
+        ]
+      },
+      "Register_File_1_RB1_t": {
+        "ports": [
+          "Register_File_1/RB1_t",
+          "Reorder_Buffer_0/RB1_t"
+        ]
+      },
+      "Register_File_1_RB2_t": {
+        "ports": [
+          "Register_File_1/RB2_t",
+          "Reorder_Buffer_0/RB2_t"
+        ]
+      },
+      "Register_File_1_Rc1_t": {
+        "ports": [
+          "Register_File_1/Rc1_t",
+          "Reorder_Buffer_0/RC1_t"
+        ]
+      },
+      "Register_File_1_RC2_t": {
+        "ports": [
+          "Register_File_1/RC2_t",
+          "Reorder_Buffer_0/RC2_t"
+        ]
+      },
+      "Reorder_Buffer_0_ROB_ra1": {
+        "ports": [
+          "Reorder_Buffer_0/ROB_ra1",
+          "Register_File_1/ROB_ra1"
+        ]
+      },
+      "Reorder_Buffer_0_ROB_ra2": {
+        "ports": [
+          "Reorder_Buffer_0/ROB_ra2",
+          "Register_File_1/ROB_ra2"
+        ]
+      },
+      "Reorder_Buffer_0_ROB_rb1": {
+        "ports": [
+          "Reorder_Buffer_0/ROB_rb1",
+          "Register_File_1/ROB_rb1"
+        ]
+      },
+      "Reorder_Buffer_0_ROB_rb2": {
+        "ports": [
+          "Reorder_Buffer_0/ROB_rb2",
+          "Register_File_1/ROB_rb2"
+        ]
+      },
+      "Reorder_Buffer_0_ROB_rc1": {
+        "ports": [
+          "Reorder_Buffer_0/ROB_rc1",
+          "Register_File_1/ROB_rc1"
+        ]
+      },
+      "Reorder_Buffer_0_ROB_rc2": {
+        "ports": [
+          "Reorder_Buffer_0/ROB_rc2",
+          "Register_File_1/ROB_rc2"
+        ]
+      },
+      "Reorder_Buffer_0_valid_ROB": {
+        "ports": [
+          "Reorder_Buffer_0/valid_ROB",
+          "Register_File_1/valid_ROB"
         ]
       }
     }

@@ -63,6 +63,12 @@ module Superscalar_Processor_Reorder_Buffer_0_0 (
   valid2,
   ROB_input1,
   ROB_input2,
+  RA1_t,
+  RA2_t,
+  RB1_t,
+  RB2_t,
+  RC1_t,
+  RC2_t,
   PC_bi,
   PC_ai,
   PC_a2i,
@@ -89,6 +95,13 @@ module Superscalar_Processor_Reorder_Buffer_0_0 (
   ROB_a2_cdb,
   ROB_ls_cdb,
   misprediction,
+  ROB_ra1,
+  ROB_ra2,
+  ROB_rb1,
+  ROB_rb2,
+  ROB_rc1,
+  ROB_rc2,
+  valid_ROB,
   wb1,
   wb2,
   reg_data1,
@@ -114,6 +127,12 @@ input wire valid1;
 input wire valid2;
 input wire [23 : 0] ROB_input1;
 input wire [23 : 0] ROB_input2;
+input wire [2 : 0] RA1_t;
+input wire [2 : 0] RA2_t;
+input wire [2 : 0] RB1_t;
+input wire [2 : 0] RB2_t;
+input wire [2 : 0] RC1_t;
+input wire [2 : 0] RC2_t;
 input wire [15 : 0] PC_bi;
 input wire [15 : 0] PC_ai;
 input wire [15 : 0] PC_a2i;
@@ -140,6 +159,13 @@ input wire [2 : 0] ROB_a_cdb;
 input wire [2 : 0] ROB_a2_cdb;
 input wire [2 : 0] ROB_ls_cdb;
 input wire misprediction;
+output wire [15 : 0] ROB_ra1;
+output wire [15 : 0] ROB_ra2;
+output wire [15 : 0] ROB_rb1;
+output wire [15 : 0] ROB_rb2;
+output wire [15 : 0] ROB_rc1;
+output wire [15 : 0] ROB_rc2;
+output wire [7 : 0] valid_ROB;
 output wire [2 : 0] wb1;
 output wire [2 : 0] wb2;
 output wire [15 : 0] reg_data1;
@@ -161,6 +187,12 @@ output wire [2 : 0] tail;
     .valid2(valid2),
     .ROB_input1(ROB_input1),
     .ROB_input2(ROB_input2),
+    .RA1_t(RA1_t),
+    .RA2_t(RA2_t),
+    .RB1_t(RB1_t),
+    .RB2_t(RB2_t),
+    .RC1_t(RC1_t),
+    .RC2_t(RC2_t),
     .PC_bi(PC_bi),
     .PC_ai(PC_ai),
     .PC_a2i(PC_a2i),
@@ -187,6 +219,13 @@ output wire [2 : 0] tail;
     .ROB_a2_cdb(ROB_a2_cdb),
     .ROB_ls_cdb(ROB_ls_cdb),
     .misprediction(misprediction),
+    .ROB_ra1(ROB_ra1),
+    .ROB_ra2(ROB_ra2),
+    .ROB_rb1(ROB_rb1),
+    .ROB_rb2(ROB_rb2),
+    .ROB_rc1(ROB_rc1),
+    .ROB_rc2(ROB_rc2),
+    .valid_ROB(valid_ROB),
     .wb1(wb1),
     .wb2(wb2),
     .reg_data1(reg_data1),

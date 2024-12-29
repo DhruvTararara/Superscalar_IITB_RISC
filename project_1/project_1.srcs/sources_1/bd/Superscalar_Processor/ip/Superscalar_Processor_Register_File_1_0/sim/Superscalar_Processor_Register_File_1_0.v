@@ -76,6 +76,13 @@ module Superscalar_Processor_Register_File_1_0 (
   RAW,
   WAR,
   WAW,
+  ROB_ra1,
+  ROB_ra2,
+  ROB_rb1,
+  ROB_rb2,
+  ROB_rc1,
+  ROB_rc2,
+  valid_ROB,
   wb1,
   wb2,
   ROB1,
@@ -96,6 +103,12 @@ module Superscalar_Processor_Register_File_1_0 (
   ROB_a_cdb,
   ROB_a2_cdb,
   ROB_ls_cdb,
+  RA1_t,
+  RA2_t,
+  RB1_t,
+  RB2_t,
+  Rc1_t,
+  RC2_t,
   ra1,
   ra2,
   rb1,
@@ -137,6 +150,13 @@ input wire valid2;
 input wire [2 : 0] RAW;
 input wire WAR;
 input wire WAW;
+input wire [15 : 0] ROB_ra1;
+input wire [15 : 0] ROB_ra2;
+input wire [15 : 0] ROB_rb1;
+input wire [15 : 0] ROB_rb2;
+input wire [15 : 0] ROB_rc1;
+input wire [15 : 0] ROB_rc2;
+input wire [7 : 0] valid_ROB;
 input wire wb1;
 input wire wb2;
 input wire [2 : 0] ROB1;
@@ -157,6 +177,12 @@ input wire [2 : 0] ROB_b_cdb;
 input wire [2 : 0] ROB_a_cdb;
 input wire [2 : 0] ROB_a2_cdb;
 input wire [2 : 0] ROB_ls_cdb;
+output wire [2 : 0] RA1_t;
+output wire [2 : 0] RA2_t;
+output wire [2 : 0] RB1_t;
+output wire [2 : 0] RB2_t;
+output wire [2 : 0] Rc1_t;
+output wire [2 : 0] RC2_t;
 output wire [15 : 0] ra1;
 output wire [15 : 0] ra2;
 output wire [15 : 0] rb1;
@@ -194,6 +220,13 @@ output wire [2 : 0] RDD2_out;
     .RAW(RAW),
     .WAR(WAR),
     .WAW(WAW),
+    .ROB_ra1(ROB_ra1),
+    .ROB_ra2(ROB_ra2),
+    .ROB_rb1(ROB_rb1),
+    .ROB_rb2(ROB_rb2),
+    .ROB_rc1(ROB_rc1),
+    .ROB_rc2(ROB_rc2),
+    .valid_ROB(valid_ROB),
     .wb1(wb1),
     .wb2(wb2),
     .ROB1(ROB1),
@@ -214,6 +247,12 @@ output wire [2 : 0] RDD2_out;
     .ROB_a_cdb(ROB_a_cdb),
     .ROB_a2_cdb(ROB_a2_cdb),
     .ROB_ls_cdb(ROB_ls_cdb),
+    .RA1_t(RA1_t),
+    .RA2_t(RA2_t),
+    .RB1_t(RB1_t),
+    .RB2_t(RB2_t),
+    .Rc1_t(Rc1_t),
+    .RC2_t(RC2_t),
     .ra1(ra1),
     .ra2(ra2),
     .rb1(rb1),

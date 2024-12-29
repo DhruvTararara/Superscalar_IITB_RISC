@@ -5,10 +5,14 @@ module Reorder_Buffer(
     input valid1, valid2,
     input [23:0] ROB_input1, ROB_input2,//PC, RD, RCZ, spec_tag -> comes from Allocate unit
     
-    //From Issue Unit, to find Issue bit
+    //From Register File======================
+    input [2:0] RA1_t, RA2_t, RB1_t, RB2_t, RC1_t, RC2_t,
+    //========================================
+    
+    //From Issue Unit, to find Issue bit======
     input [15:0] PC_bi, PC_ai, PC_a2i, PC_lsi,
     input valid_bi, valid_ai, valid_a2i, valid_lsi,
-    //==================================
+    //========================================
     
     //From Branch Unit, to find Speculative bit
     input [1:0] spec_tag_b,
@@ -22,6 +26,10 @@ module Reorder_Buffer(
     input misprediction,
     //=========================================
     
+    //To Register File=========================
+    output [15:0] ROB_ra1, ROB_ra2, ROB_rb1, ROB_rb2, ROB_rc1, ROB_rc2,
+    output [7:0] valid_ROB,
+    //=========================================
     //From Complete Unit (Write Back)==========
     output reg [2:0] wb1, wb2,//wb = {R, C, Z}
     output reg [15:0] reg_data1, reg_data2,
@@ -44,7 +52,8 @@ module Reorder_Buffer(
     reg [7:0] Speculative;//
     reg [7:0] valid;//1: Instr. eligible to be completed (Write result)
     
-    
+    assign valid_ROB = valid;
+    assign {ROB_ra1, ROB_ra2, ROB_rb1, ROB_rb2, ROB_rc1, ROB_rc2} = {reg_data[RA1_t], reg_data[RA2_t], reg_data[RB1_t], reg_data[RB2_t], reg_data[RC1_t], reg_data[RC2_t]};
     wire [3:0] count;
     wire full, empty;
     assign full = (count >= 7);
@@ -54,6 +63,7 @@ module Reorder_Buffer(
     reg [3:0] i_t [7:0];
     reg [3:0] h_i_1 [7:0];
     reg [7:0] Busy1, Busy2;
+    reg [2:0] n_h;
     //Busy bits (depends totally on head and tail values)
     assign Busy = Busy1 ^ Busy2;
 
@@ -236,16 +246,43 @@ module Reorder_Buffer(
     end
     
     //Commit (with change in value of head)
+    always @ (*) begin
+        if (rst) n_h <= 3'b000;
+        else begin
+//            if (!empty) begin
+                if (valid[head] & valid[head + 3'd1]) n_h <= head + 3'b010;
+                else if (valid[head] & !valid[head + 3'd1]) n_h <= head + 3'b001;
+                else n_h <= head;
+//            end
+//            else n_h <= head;
+        end
+    end
     always @ (posedge clk) begin
+        if (rst) head <= 3'b000;
+        else head <= n_h;
+    end
+    always @ (posedge clk) begin
+        if (rst) Busy2 <= 8'b11111111;
+        else begin 
+//            if (!empty) begin
+                if (valid[head] & valid[head + 3'd1]) begin
+                    {Busy2[head], Busy2[head + 1]} <= {!Busy2[head], !Busy2[head + 1]};
+                end
+                else if (valid[head] & !valid[head + 3'd1]) begin
+                    Busy2[head] <= !Busy2[head];
+                end
+                else Busy2 <= Busy2;
+//            end
+//            else {wb1[2], wb2[2]} <= 2'b00;
+        end
+    end
+    always @ (*) begin
         if (rst) begin
-            head <= 3'd0;
             Busy2 <= 8'b11111111;
         end
         else begin 
-            if (!empty) begin
+//            if (!empty) begin
                 if (valid[head] & valid[head + 3'd1]) begin
-                    {Busy2[head], Busy2[head + 1]} <= {!Busy2[head], !Busy2[head + 1]};
-                    head <= head + 3'd2;
                     {reg_data1, reg_data2} <= {reg_data[head], reg_data[head + 3'd1]};
                     {RD1, RD2} <= {RD[head], RD[head + 3'd1]};
                     {ROB1, ROB2} <= {head, head + 3'd1};
@@ -277,8 +314,6 @@ module Reorder_Buffer(
                     
                 end
                 else if (valid[head] & !valid[head + 3'd1]) begin
-                    Busy2[head] <= !Busy2[head];
-                    head <= head + 3'd1;
                     {reg_data1} <= {reg_data[head]};
                     {RD1} <= {RD[head]};
                     {ROB1} <= {head};
@@ -297,11 +332,12 @@ module Reorder_Buffer(
                         //Zero flag Update
                     end
                 end
-                else {wb1[2], wb2[2]} <= 2'b00;
-            end
-            else {wb1[2], wb2[2]} <= 2'b00;
+                else begin {RD1, RD2} <= {RD[head], RD[head + 3'd1]}; {wb1[2], wb2[2]} <= 2'b00; end
+//            end
+//            else {wb1[2], wb2[2]} <= 2'b00;
         end
     end
+    
     
     //Tail value (using control signals s_ctrl: for Instruction commit; and n_ctrl: for newly dispatched instructions)
     reg [1:0] n_ctrl;
