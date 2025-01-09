@@ -3,7 +3,7 @@ module Reorder_Buffer(
     input clk, rst,
     input [2:0] ROB_tag1, ROB_tag2,
     input valid1, valid2,
-    input [23:0] ROB_input1, ROB_input2,//PC, RD, RCZ, spec_tag -> comes from Allocate unit
+    input [25:0] ROB_input1, ROB_input2,//PC, RD, RCZ, spec_tag -> comes from Allocate unit
     
     //From Register File======================
     input [2:0] RA1_t, RA2_t, RB1_t, RB2_t, RC1_t, RC2_t,
@@ -21,7 +21,7 @@ module Reorder_Buffer(
     //Common Data Bus (CDB)===================
     input [15:0] PC_b_cdb, PC_a_cdb, PC_a2_cdb, PC_ls_cdb,
     input valid_b_cdb, valid_a_cdb, valid_a2_cdb, valid_ls_cdb,
-    input [15:0] reg_data_b, alu_out, alu2_out, dm_data,
+    input [15:0] reg_data_b, alu_out, alu2_out, dm_data, dm_addr,
     input [2:0] ROB_b_cdb, ROB_a_cdb, ROB_a2_cdb, ROB_ls_cdb,
     input misprediction,
     //=========================================
@@ -51,7 +51,115 @@ module Reorder_Buffer(
     reg [1:0] spec_tag [7:0];
     reg [7:0] Speculative;//
     reg [7:0] valid;//1: Instr. eligible to be completed (Write result)
+    //Store Buffer
+    reg [15:0] store_dm_addr [7:0];
+//    reg valid_store_addr [7:0];
+    reg [15:0] store_dm_data [7:0];
+//    reg valid_store_data [7:0];
+    reg MemWrite [7:0];
+    reg MemRead [7:0];
     
+    always @ (posedge clk) begin
+        if (rst) begin
+            store_dm_addr[0] <= 16'd0;
+            store_dm_addr[1] <= 16'd0;
+            store_dm_addr[2] <= 16'd0;
+            store_dm_addr[3] <= 16'd0;
+            store_dm_addr[4] <= 16'd0;
+            store_dm_addr[5] <= 16'd0;
+            store_dm_addr[6] <= 16'd0;
+            store_dm_addr[7] <= 16'd0;
+        end
+        else begin
+            if (valid_ls_cdb) store_dm_addr[ROB_ls_cdb] <= dm_addr;
+        end
+    end
+    
+    always @ (posedge clk) begin
+        if (rst) begin 
+            store_dm_data[0] <= 16'd0;
+            store_dm_data[1] <= 16'd0;
+            store_dm_data[2] <= 16'd0;
+            store_dm_data[3] <= 16'd0;
+            store_dm_data[4] <= 16'd0;
+            store_dm_data[5] <= 16'd0;
+            store_dm_data[6] <= 16'd0;
+            store_dm_data[7] <= 16'd0;
+        end
+        else begin
+            //head
+            if ((ROB_ls_cdb == head) & valid_ls_cdb) begin
+                store_dm_data[head] <= dm_data;
+            end
+            //head + 1
+            if (ROB_ls_cdb == (head + 3'd1) & valid_ls_cdb) begin
+                store_dm_data[head + 3'd1] <= dm_data;
+            end
+            else if ((store_dm_addr[head + 3'd1] == store_dm_addr[head]) & valid[head]) begin
+                store_dm_data[head + 3'd1] <= store_dm_data[head];
+            end
+            //head + 2
+            if (ROB_ls_cdb == (head + 3'd2) & valid_ls_cdb) begin
+                store_dm_data[head + 3'd2] <= dm_data;
+            end
+            else if (((store_dm_addr[head + 3'd2] == store_dm_addr[head]) & valid[head]) | 
+                    ((store_dm_addr[head + 3'd2] == store_dm_addr[head + 3'd1]) & valid[head + 3'd1])) begin
+                if ((store_dm_addr[head + 3'd2] == store_dm_addr[head + 3'd1]) & valid[head + 3'd1]) 
+                    store_dm_data[head + 3'd2] <= store_dm_data[head + 3'd1];
+                else store_dm_data[head + 3'd2] <= store_dm_data[head];
+            end
+            //head + 3
+            if (ROB_ls_cdb == (head + 3'd3) & valid_ls_cdb) begin
+                store_dm_data[head + 3'd3] <= dm_data;
+            end
+            else if (((store_dm_addr[head +3'd3] == store_dm_addr[head]) & valid[head]) | 
+                    ((store_dm_addr[head + 3'd3] == store_dm_addr[head + 3'd1]) & valid[head + 3'd1])) begin
+                if ((store_dm_addr[head + 3'd3] == store_dm_addr[head + 3'd1]) & valid[head + 3'd1]) 
+                    store_dm_data[head + 3'd3] <= store_dm_data[head + 3'd1];
+                else store_dm_data[head + 3'd3] <= store_dm_data[head];
+            end
+            //head + 4
+            if (ROB_ls_cdb == (head + 3'd4) & valid_ls_cdb) begin
+                store_dm_data[head + 3'd4] <= dm_data;
+            end
+            else if (((store_dm_addr[head +3'd4] == store_dm_addr[head]) & valid[head]) | 
+                    ((store_dm_addr[head + 3'd4] == store_dm_addr[head + 3'd1]) & valid[head + 3'd1])) begin
+                if ((store_dm_addr[head + 3'd4] == store_dm_addr[head + 3'd1]) & valid[head + 3'd1]) 
+                    store_dm_data[head + 3'd4] <= store_dm_data[head + 3'd1];
+                else store_dm_data[head + 3'd4] <= store_dm_data[head];
+            end
+            //head + 5
+            if (ROB_ls_cdb == (head + 3'd5) & valid_ls_cdb) begin
+                store_dm_data[head + 3'd5] <= dm_data;
+            end
+            else if (((store_dm_addr[head +3'd5] == store_dm_addr[head]) & valid[head]) | 
+                    ((store_dm_addr[head + 3'd5] == store_dm_addr[head + 3'd1]) & valid[head + 3'd1])) begin
+                if ((store_dm_addr[head + 3'd5] == store_dm_addr[head + 3'd1]) & valid[head + 3'd1]) 
+                    store_dm_data[head + 3'd5] <= store_dm_data[head + 3'd1];
+                else store_dm_data[head + 3'd5] <= store_dm_data[head];
+            end
+            //head + 6
+            if (ROB_ls_cdb == (head + 3'd6) & valid_ls_cdb) begin
+                store_dm_data[head + 3'd6] <= dm_data;
+            end
+            else if (((store_dm_addr[head +3'd6] == store_dm_addr[head]) & valid[head]) | 
+                    ((store_dm_addr[head + 3'd6] == store_dm_addr[head + 3'd1]) & valid[head + 3'd1])) begin
+                if ((store_dm_addr[head + 3'd6] == store_dm_addr[head + 3'd1]) & valid[head + 3'd1]) 
+                    store_dm_data[head + 3'd6] <= store_dm_data[head + 3'd1];
+                else store_dm_data[head + 3'd6] <= store_dm_data[head];
+            end
+            //head + 7
+            if (ROB_ls_cdb == (head + 3'd7) & valid_ls_cdb) begin
+                store_dm_data[head + 3'd7] <= dm_data;
+            end
+            else if (((store_dm_addr[head +3'd7] == store_dm_addr[head]) & valid[head]) | 
+                    ((store_dm_addr[head + 3'd7] == store_dm_addr[head + 3'd1]) & valid[head + 3'd1])) begin
+                if ((store_dm_addr[head + 3'd7] == store_dm_addr[head + 3'd1]) & valid[head + 3'd1]) 
+                    store_dm_data[head + 3'd7] <= store_dm_data[head + 3'd1];
+                else store_dm_data[head + 3'd7] <= store_dm_data[head];
+            end
+        end
+    end
     assign valid_ROB = valid;
     assign {ROB_ra1, ROB_ra2, ROB_rb1, ROB_rb2, ROB_rc1, ROB_rc2} = {reg_data[RA1_t], reg_data[RA2_t], reg_data[RB1_t], reg_data[RB2_t], reg_data[RC1_t], reg_data[RC2_t]};
     wire [3:0] count;
@@ -220,16 +328,16 @@ module Reorder_Buffer(
             if (!full) begin
                 if (valid1 & valid2) begin
                     {Busy1[ROB_tag1], Busy1[ROB_tag2]} <= {!Busy1[ROB_tag1], !Busy1[ROB_tag2]};
-                    {PC[ROB_tag1], RD[ROB_tag1], RCZ[ROB_tag1], spec_tag[ROB_tag1]} <= ROB_input1;
-                    {PC[ROB_tag2], RD[ROB_tag2], RCZ[ROB_tag2], spec_tag[ROB_tag2]} <= ROB_input2;
+                    {PC[ROB_tag1], RD[ROB_tag1], RCZ[ROB_tag1], spec_tag[ROB_tag1], MemWrite[ROB_tag1], MemRead[ROB_tag1]} <= ROB_input1;
+                    {PC[ROB_tag2], RD[ROB_tag2], RCZ[ROB_tag2], spec_tag[ROB_tag2], MemWrite[ROB_tag2], MemRead[ROB_tag2]} <= ROB_input2;
                 end
                 else if (valid1 & !valid2) begin
                     Busy1[ROB_tag1] <= !Busy1[ROB_tag1];
-                    {PC[ROB_tag1], RD[ROB_tag1], RCZ[ROB_tag1], spec_tag[ROB_tag1]} <= ROB_input1;
+                    {PC[ROB_tag1], RD[ROB_tag1], RCZ[ROB_tag1], spec_tag[ROB_tag1], MemWrite[ROB_tag1], MemRead[ROB_tag1]} <= ROB_input1;
                 end
                 else if (!valid1 & valid2) begin
                     Busy1[ROB_tag2] <= !Busy1[ROB_tag2];
-                    {PC[ROB_tag2], RD[ROB_tag2], RCZ[ROB_tag2], spec_tag[ROB_tag2]} <= ROB_input2;
+                    {PC[ROB_tag2], RD[ROB_tag2], RCZ[ROB_tag2], spec_tag[ROB_tag2], MemWrite[ROB_tag2], MemRead[ROB_tag2]} <= ROB_input2;
                 end
                 else begin
                 end
@@ -292,6 +400,7 @@ module Reorder_Buffer(
                         else {wb1[2], wb2[2]} <= 2'b00;
                         //Carry flag Update
                         //Zero flag Update
+                        //Memory Update
                     end
                     else if (spec_tag[head] == 2'b00 && spec_tag[head + 1] != 2'b00) begin
                         //Register Update
@@ -301,6 +410,7 @@ module Reorder_Buffer(
                         else {wb1[2], wb2[2]} <= 2'b00;
                         //Carry flag Update
                         //Zero flag Update
+                        //Memory Update
                     end
                     else begin
                         //Register Update
@@ -310,6 +420,7 @@ module Reorder_Buffer(
                         else {wb1[2], wb2[2]} <= 2'b00;
                         //Carry flag Update
                         //Zero flag Update
+                        //Memory Update
                     end
                     
                 end
@@ -323,6 +434,7 @@ module Reorder_Buffer(
                         else {wb1[2], wb2[2]} <= 2'b00;
                         //Carry flag Update
                         //Zero flag Update
+                        //Memory Update
                     end
                     else begin
                         //Register Update
@@ -330,6 +442,7 @@ module Reorder_Buffer(
                         else {wb1[2], wb2[2]} <= 2'b00;
                         //Carry flag Update
                         //Zero flag Update
+                        //Memory Update
                     end
                 end
                 else begin {RD1, RD2} <= {RD[head], RD[head + 3'd1]}; {wb1[2], wb2[2]} <= 2'b00; end

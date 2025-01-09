@@ -32,7 +32,7 @@ module Allocate_unit(
     output [1:0] FU_bits1_out, FU_bits2_out,//output to Register File
     output reg [2:0] ROB_tag1, ROB_tag2,
     output reg [136:0] RS_input1, RS_input2,//To reservation station
-    output reg [23:0] ROB_input1, ROB_input2,
+    output reg [25:0] ROB_input1, ROB_input2,
     output reg stall);
     
     reg erb;
@@ -92,8 +92,8 @@ module Allocate_unit(
                              v_c2, z2, v_z2, rc2, v_rc2,
                              a_ctrl2, Imm2_2, ls_ctrl2, SEI1_2, 
                              SEI2_2, FU_bits2};
-                ROB_input1 <= {PC1, Rd1, {RegWrite1, CWrite1, ZWrite1}, spec_tag1};
-                ROB_input2 <= {PC2, Rd2, {RegWrite2, CWrite2, ZWrite2}, spec_tag2};
+                ROB_input1 <= {PC1, Rd1, {RegWrite1, CWrite1, ZWrite1}, spec_tag1, ls_ctrl1[1], ls_ctrl1[2]};
+                ROB_input2 <= {PC2, Rd2, {RegWrite2, CWrite2, ZWrite2}, spec_tag2, ls_ctrl2[1], ls_ctrl2[2]};
                 stall <= 1'b0;
             end
             else begin
@@ -105,7 +105,7 @@ module Allocate_unit(
                 RS_tag1 <= free_RS1;
                 ROB_tag1 <= free_ROB1;
                 RS_input1 <= {op1, ROB_tag1, PC1, ra1, rb1, v_ra1, v_rb1, spec_tag1, branch_predict1, b_ctrl1, c1, v_c1, z1, v_z1, rc1, v_rc1, a_ctrl1, Imm2_1, ls_ctrl1, SEI1_1, SEI2_1, FU_bits1};
-                ROB_input1 <= {PC1, Rd1, {RegWrite1, CWrite1, ZWrite1}, spec_tag1};
+                ROB_input1 <= {PC1, Rd1, {RegWrite1, CWrite1, ZWrite1}, spec_tag1, ls_ctrl1[1], ls_ctrl1[2]};
                 stall <= 1'b0;
             end
             else stall <= 1'b1;
@@ -115,7 +115,7 @@ module Allocate_unit(
                 RS_tag2 <= free_RS1;
                 ROB_tag2 <= free_ROB1;
                 RS_input2 <= {op2, ROB_tag2, PC2, ra2, rb2, v_ra2, v_rb2, spec_tag2, branch_predict2, b_ctrl2, c2, v_c2, z2, v_z2, rc2, v_rc2, a_ctrl2, Imm2_2, ls_ctrl2, SEI1_2, SEI2_2, FU_bits2};
-                ROB_input2 <= {PC2, Rd2, {RegWrite2, CWrite2, ZWrite2}, spec_tag2};
+                ROB_input2 <= {PC2, Rd2, {RegWrite2, CWrite2, ZWrite2}, spec_tag2, ls_ctrl2[1], ls_ctrl2[2]};
                 stall <= 1'b0;
             end
             else stall <= 1'b1;

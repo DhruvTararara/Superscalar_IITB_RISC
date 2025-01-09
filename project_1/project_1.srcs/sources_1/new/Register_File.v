@@ -213,7 +213,7 @@ module Register_File(
     //Change RC to Rd
     always @ (*) begin
         case (op1)
-            4'b1101, 4'b0011, 4'b1100: Rd1 <= RAA1;
+            4'b1101, 4'b0011, 4'b1100, 4'b0100: Rd1 <= RAA1;
             4'b0000: Rd1 <= RBB1;
             4'b0001, 4'b0010: Rd1 <= RCC1;
             default: Rd1 <= RCC1;
@@ -221,7 +221,7 @@ module Register_File(
     end
     always @ (*) begin
         case (op2)
-            4'b1101, 4'b0011, 4'b1100: Rd2 <= RAA2;
+            4'b1101, 4'b0011, 4'b1100, 4'b0100: Rd2 <= RAA2;
             4'b0000: Rd2 <= RBB2;
             4'b0001, 4'b0010: Rd2 <= RCC2;
             default: Rd2 <= RCC2;

@@ -5,8 +5,7 @@
       "device": "xc7k70tfbv676-1",
       "name": "Superscalar_Processor",
       "synth_flow_mode": "Hierarchical",
-      "tool_version": "2019.1",
-      "validated": "true"
+      "tool_version": "2019.1"
     },
     "design_tree": {
       "xlconstant_0": "",
@@ -25,50 +24,18 @@
       "ALU_1": "",
       "Register_Interdepend_0": "",
       "Reservation_Station_0": "",
-      "Allocate_unit_0": "",
+      "Register_File_1": "",
       "Reorder_Buffer_0": "",
-      "Register_File_1": ""
+      "Allocate_unit_0": ""
     },
     "ports": {
       "rst_0": {
         "type": "rst",
-        "direction": "I",
-        "parameters": {
-          "INSERT_VIP": {
-            "value": "0",
-            "value_src": "default"
-          },
-          "POLARITY": {
-            "value": "ACTIVE_LOW",
-            "value_src": "default"
-          }
-        }
+        "direction": "I"
       },
       "clk_0": {
         "type": "clk",
-        "direction": "I",
-        "parameters": {
-          "ASSOCIATED_RESET": {
-            "value": "rst_0",
-            "value_src": "default"
-          },
-          "CLK_DOMAIN": {
-            "value": "Superscalar_Processor_clk_0",
-            "value_src": "default"
-          },
-          "FREQ_HZ": {
-            "value": "100000000",
-            "value_src": "default"
-          },
-          "INSERT_VIP": {
-            "value": "0",
-            "value_src": "default"
-          },
-          "PHASE": {
-            "value": "0.000",
-            "value_src": "default"
-          }
-        }
+        "direction": "I"
       },
       "full_0": {
         "direction": "O"
@@ -243,17 +210,7 @@
         "ports": {
           "clk": {
             "type": "clk",
-            "direction": "I",
-            "parameters": {
-              "ASSOCIATED_RESET": {
-                "value": "rst",
-                "value_src": "constant"
-              },
-              "CLK_DOMAIN": {
-                "value": "Superscalar_Processor_clk_0",
-                "value_src": "default_prop"
-              }
-            }
+            "direction": "I"
           },
           "rst": {
             "type": "rst",
@@ -384,17 +341,7 @@
         "ports": {
           "clk": {
             "type": "clk",
-            "direction": "I",
-            "parameters": {
-              "ASSOCIATED_RESET": {
-                "value": "rst",
-                "value_src": "constant"
-              },
-              "CLK_DOMAIN": {
-                "value": "Superscalar_Processor_clk_0",
-                "value_src": "default_prop"
-              }
-            }
+            "direction": "I"
           },
           "rst": {
             "type": "rst",
@@ -868,17 +815,7 @@
         "ports": {
           "clk": {
             "type": "clk",
-            "direction": "I",
-            "parameters": {
-              "ASSOCIATED_RESET": {
-                "value": "rst",
-                "value_src": "constant"
-              },
-              "CLK_DOMAIN": {
-                "value": "Superscalar_Processor_clk_0",
-                "value_src": "default_prop"
-              }
-            }
+            "direction": "I"
           },
           "rst": {
             "type": "rst",
@@ -959,17 +896,7 @@
         "ports": {
           "clk": {
             "type": "clk",
-            "direction": "I",
-            "parameters": {
-              "ASSOCIATED_RESET": {
-                "value": "rst",
-                "value_src": "constant"
-              },
-              "CLK_DOMAIN": {
-                "value": "Superscalar_Processor_clk_0",
-                "value_src": "default_prop"
-              }
-            }
+            "direction": "I"
           },
           "rst": {
             "type": "rst",
@@ -1523,17 +1450,7 @@
         "ports": {
           "clk": {
             "type": "clk",
-            "direction": "I",
-            "parameters": {
-              "ASSOCIATED_RESET": {
-                "value": "rst",
-                "value_src": "constant"
-              },
-              "CLK_DOMAIN": {
-                "value": "Superscalar_Processor_clk_0",
-                "value_src": "default_prop"
-              }
-            }
+            "direction": "I"
           },
           "rst": {
             "type": "rst",
@@ -2006,6 +1923,601 @@
           }
         }
       },
+      "Register_File_1": {
+        "vlnv": "xilinx.com:module_ref:Register_File:1.0",
+        "xci_name": "Superscalar_Processor_Register_File_1_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "Register_File",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "clk": {
+            "type": "clk",
+            "direction": "I"
+          },
+          "rst": {
+            "type": "rst",
+            "direction": "I"
+          },
+          "op1": {
+            "direction": "I",
+            "left": "3",
+            "right": "0"
+          },
+          "op2": {
+            "direction": "I",
+            "left": "3",
+            "right": "0"
+          },
+          "ROB_tag1": {
+            "direction": "I",
+            "left": "2",
+            "right": "0"
+          },
+          "ROB_tag2": {
+            "direction": "I",
+            "left": "2",
+            "right": "0"
+          },
+          "RegWrite1": {
+            "direction": "I"
+          },
+          "RegWrite2": {
+            "direction": "I"
+          },
+          "RAA1": {
+            "direction": "I",
+            "left": "2",
+            "right": "0"
+          },
+          "RAA2": {
+            "direction": "I",
+            "left": "2",
+            "right": "0"
+          },
+          "RBB1": {
+            "direction": "I",
+            "left": "2",
+            "right": "0"
+          },
+          "RBB2": {
+            "direction": "I",
+            "left": "2",
+            "right": "0"
+          },
+          "RCC1": {
+            "direction": "I",
+            "left": "2",
+            "right": "0"
+          },
+          "RCC2": {
+            "direction": "I",
+            "left": "2",
+            "right": "0"
+          },
+          "FU_bits1": {
+            "direction": "I",
+            "left": "1",
+            "right": "0"
+          },
+          "FU_bits2": {
+            "direction": "I",
+            "left": "1",
+            "right": "0"
+          },
+          "valid1": {
+            "direction": "I"
+          },
+          "valid2": {
+            "direction": "I"
+          },
+          "RAW": {
+            "direction": "I",
+            "left": "2",
+            "right": "0"
+          },
+          "WAR": {
+            "direction": "I"
+          },
+          "WAW": {
+            "direction": "I"
+          },
+          "ROB_ra1": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "ROB_ra2": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "ROB_rb1": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "ROB_rb2": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "ROB_rc1": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "ROB_rc2": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "valid_ROB": {
+            "direction": "I",
+            "left": "7",
+            "right": "0"
+          },
+          "wb1": {
+            "direction": "I"
+          },
+          "wb2": {
+            "direction": "I"
+          },
+          "ROB1": {
+            "direction": "I",
+            "left": "2",
+            "right": "0"
+          },
+          "ROB2": {
+            "direction": "I",
+            "left": "2",
+            "right": "0"
+          },
+          "RD1": {
+            "direction": "I",
+            "left": "2",
+            "right": "0"
+          },
+          "RD2": {
+            "direction": "I",
+            "left": "2",
+            "right": "0"
+          },
+          "reg_data1": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "reg_data2": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "valid_b_cdb": {
+            "direction": "I"
+          },
+          "valid_a_cdb": {
+            "direction": "I"
+          },
+          "valid_a2_cdb": {
+            "direction": "I"
+          },
+          "valid_ls_cdb": {
+            "direction": "I"
+          },
+          "reg_data_b": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "alu_out": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "alu2_out": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "dm_data": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "ROB_b_cdb": {
+            "direction": "I",
+            "left": "2",
+            "right": "0"
+          },
+          "ROB_a_cdb": {
+            "direction": "I",
+            "left": "2",
+            "right": "0"
+          },
+          "ROB_a2_cdb": {
+            "direction": "I",
+            "left": "2",
+            "right": "0"
+          },
+          "ROB_ls_cdb": {
+            "direction": "I",
+            "left": "2",
+            "right": "0"
+          },
+          "RA1_t": {
+            "direction": "O",
+            "left": "2",
+            "right": "0"
+          },
+          "RA2_t": {
+            "direction": "O",
+            "left": "2",
+            "right": "0"
+          },
+          "RB1_t": {
+            "direction": "O",
+            "left": "2",
+            "right": "0"
+          },
+          "RB2_t": {
+            "direction": "O",
+            "left": "2",
+            "right": "0"
+          },
+          "Rc1_t": {
+            "direction": "O",
+            "left": "2",
+            "right": "0"
+          },
+          "RC2_t": {
+            "direction": "O",
+            "left": "2",
+            "right": "0"
+          },
+          "ra1": {
+            "direction": "O",
+            "left": "15",
+            "right": "0"
+          },
+          "ra2": {
+            "direction": "O",
+            "left": "15",
+            "right": "0"
+          },
+          "rb1": {
+            "direction": "O",
+            "left": "15",
+            "right": "0"
+          },
+          "rb2": {
+            "direction": "O",
+            "left": "15",
+            "right": "0"
+          },
+          "rc1": {
+            "direction": "O",
+            "left": "15",
+            "right": "0"
+          },
+          "rc2": {
+            "direction": "O",
+            "left": "15",
+            "right": "0"
+          },
+          "v_ra1": {
+            "direction": "O"
+          },
+          "v_ra2": {
+            "direction": "O"
+          },
+          "v_rb1": {
+            "direction": "O"
+          },
+          "v_rb2": {
+            "direction": "O"
+          },
+          "v_rc1": {
+            "direction": "O"
+          },
+          "v_rc2": {
+            "direction": "O"
+          },
+          "RDD1_out": {
+            "direction": "O",
+            "left": "2",
+            "right": "0"
+          },
+          "RDD2_out": {
+            "direction": "O",
+            "left": "2",
+            "right": "0"
+          }
+        }
+      },
+      "Reorder_Buffer_0": {
+        "vlnv": "xilinx.com:module_ref:Reorder_Buffer:1.0",
+        "xci_name": "Superscalar_Processor_Reorder_Buffer_0_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "Reorder_Buffer",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "clk": {
+            "type": "clk",
+            "direction": "I"
+          },
+          "rst": {
+            "type": "rst",
+            "direction": "I"
+          },
+          "ROB_tag1": {
+            "direction": "I",
+            "left": "2",
+            "right": "0"
+          },
+          "ROB_tag2": {
+            "direction": "I",
+            "left": "2",
+            "right": "0"
+          },
+          "valid1": {
+            "direction": "I"
+          },
+          "valid2": {
+            "direction": "I"
+          },
+          "ROB_input1": {
+            "direction": "I",
+            "left": "25",
+            "right": "0"
+          },
+          "ROB_input2": {
+            "direction": "I",
+            "left": "25",
+            "right": "0"
+          },
+          "RA1_t": {
+            "direction": "I",
+            "left": "2",
+            "right": "0"
+          },
+          "RA2_t": {
+            "direction": "I",
+            "left": "2",
+            "right": "0"
+          },
+          "RB1_t": {
+            "direction": "I",
+            "left": "2",
+            "right": "0"
+          },
+          "RB2_t": {
+            "direction": "I",
+            "left": "2",
+            "right": "0"
+          },
+          "RC1_t": {
+            "direction": "I",
+            "left": "2",
+            "right": "0"
+          },
+          "RC2_t": {
+            "direction": "I",
+            "left": "2",
+            "right": "0"
+          },
+          "PC_bi": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "PC_ai": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "PC_a2i": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "PC_lsi": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "valid_bi": {
+            "direction": "I"
+          },
+          "valid_ai": {
+            "direction": "I"
+          },
+          "valid_a2i": {
+            "direction": "I"
+          },
+          "valid_lsi": {
+            "direction": "I"
+          },
+          "spec_tag_b": {
+            "direction": "I",
+            "left": "1",
+            "right": "0"
+          },
+          "PC_b_cdb": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "PC_a_cdb": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "PC_a2_cdb": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "PC_ls_cdb": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "valid_b_cdb": {
+            "direction": "I"
+          },
+          "valid_a_cdb": {
+            "direction": "I"
+          },
+          "valid_a2_cdb": {
+            "direction": "I"
+          },
+          "valid_ls_cdb": {
+            "direction": "I"
+          },
+          "reg_data_b": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "alu_out": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "alu2_out": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "dm_data": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "dm_addr": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "ROB_b_cdb": {
+            "direction": "I",
+            "left": "2",
+            "right": "0"
+          },
+          "ROB_a_cdb": {
+            "direction": "I",
+            "left": "2",
+            "right": "0"
+          },
+          "ROB_a2_cdb": {
+            "direction": "I",
+            "left": "2",
+            "right": "0"
+          },
+          "ROB_ls_cdb": {
+            "direction": "I",
+            "left": "2",
+            "right": "0"
+          },
+          "misprediction": {
+            "direction": "I"
+          },
+          "ROB_ra1": {
+            "direction": "O",
+            "left": "15",
+            "right": "0"
+          },
+          "ROB_ra2": {
+            "direction": "O",
+            "left": "15",
+            "right": "0"
+          },
+          "ROB_rb1": {
+            "direction": "O",
+            "left": "15",
+            "right": "0"
+          },
+          "ROB_rb2": {
+            "direction": "O",
+            "left": "15",
+            "right": "0"
+          },
+          "ROB_rc1": {
+            "direction": "O",
+            "left": "15",
+            "right": "0"
+          },
+          "ROB_rc2": {
+            "direction": "O",
+            "left": "15",
+            "right": "0"
+          },
+          "valid_ROB": {
+            "direction": "O",
+            "left": "7",
+            "right": "0"
+          },
+          "wb1": {
+            "direction": "O",
+            "left": "2",
+            "right": "0"
+          },
+          "wb2": {
+            "direction": "O",
+            "left": "2",
+            "right": "0"
+          },
+          "reg_data1": {
+            "direction": "O",
+            "left": "15",
+            "right": "0"
+          },
+          "reg_data2": {
+            "direction": "O",
+            "left": "15",
+            "right": "0"
+          },
+          "RD1": {
+            "direction": "O",
+            "left": "2",
+            "right": "0"
+          },
+          "RD2": {
+            "direction": "O",
+            "left": "2",
+            "right": "0"
+          },
+          "ROB1": {
+            "direction": "O",
+            "left": "2",
+            "right": "0"
+          },
+          "ROB2": {
+            "direction": "O",
+            "left": "2",
+            "right": "0"
+          },
+          "Busy": {
+            "direction": "O",
+            "left": "7",
+            "right": "0"
+          },
+          "head": {
+            "direction": "O",
+            "left": "2",
+            "right": "0"
+          },
+          "tail": {
+            "direction": "O",
+            "left": "2",
+            "right": "0"
+          }
+        }
+      },
       "Allocate_unit_0": {
         "vlnv": "xilinx.com:module_ref:Allocate_unit:1.0",
         "xci_name": "Superscalar_Processor_Allocate_unit_0_0",
@@ -2369,626 +2881,16 @@
           },
           "ROB_input1": {
             "direction": "O",
-            "left": "23",
+            "left": "25",
             "right": "0"
           },
           "ROB_input2": {
             "direction": "O",
-            "left": "23",
+            "left": "25",
             "right": "0"
           },
           "stall": {
             "direction": "O"
-          }
-        }
-      },
-      "Reorder_Buffer_0": {
-        "vlnv": "xilinx.com:module_ref:Reorder_Buffer:1.0",
-        "xci_name": "Superscalar_Processor_Reorder_Buffer_0_0",
-        "reference_info": {
-          "ref_type": "hdl",
-          "ref_name": "Reorder_Buffer",
-          "boundary_crc": "0x0"
-        },
-        "ports": {
-          "clk": {
-            "type": "clk",
-            "direction": "I",
-            "parameters": {
-              "ASSOCIATED_RESET": {
-                "value": "rst",
-                "value_src": "constant"
-              },
-              "CLK_DOMAIN": {
-                "value": "Superscalar_Processor_clk_0",
-                "value_src": "default_prop"
-              }
-            }
-          },
-          "rst": {
-            "type": "rst",
-            "direction": "I"
-          },
-          "ROB_tag1": {
-            "direction": "I",
-            "left": "2",
-            "right": "0"
-          },
-          "ROB_tag2": {
-            "direction": "I",
-            "left": "2",
-            "right": "0"
-          },
-          "valid1": {
-            "direction": "I"
-          },
-          "valid2": {
-            "direction": "I"
-          },
-          "ROB_input1": {
-            "direction": "I",
-            "left": "23",
-            "right": "0"
-          },
-          "ROB_input2": {
-            "direction": "I",
-            "left": "23",
-            "right": "0"
-          },
-          "RA1_t": {
-            "direction": "I",
-            "left": "2",
-            "right": "0"
-          },
-          "RA2_t": {
-            "direction": "I",
-            "left": "2",
-            "right": "0"
-          },
-          "RB1_t": {
-            "direction": "I",
-            "left": "2",
-            "right": "0"
-          },
-          "RB2_t": {
-            "direction": "I",
-            "left": "2",
-            "right": "0"
-          },
-          "RC1_t": {
-            "direction": "I",
-            "left": "2",
-            "right": "0"
-          },
-          "RC2_t": {
-            "direction": "I",
-            "left": "2",
-            "right": "0"
-          },
-          "PC_bi": {
-            "direction": "I",
-            "left": "15",
-            "right": "0"
-          },
-          "PC_ai": {
-            "direction": "I",
-            "left": "15",
-            "right": "0"
-          },
-          "PC_a2i": {
-            "direction": "I",
-            "left": "15",
-            "right": "0"
-          },
-          "PC_lsi": {
-            "direction": "I",
-            "left": "15",
-            "right": "0"
-          },
-          "valid_bi": {
-            "direction": "I"
-          },
-          "valid_ai": {
-            "direction": "I"
-          },
-          "valid_a2i": {
-            "direction": "I"
-          },
-          "valid_lsi": {
-            "direction": "I"
-          },
-          "spec_tag_b": {
-            "direction": "I",
-            "left": "1",
-            "right": "0"
-          },
-          "PC_b_cdb": {
-            "direction": "I",
-            "left": "15",
-            "right": "0"
-          },
-          "PC_a_cdb": {
-            "direction": "I",
-            "left": "15",
-            "right": "0"
-          },
-          "PC_a2_cdb": {
-            "direction": "I",
-            "left": "15",
-            "right": "0"
-          },
-          "PC_ls_cdb": {
-            "direction": "I",
-            "left": "15",
-            "right": "0"
-          },
-          "valid_b_cdb": {
-            "direction": "I"
-          },
-          "valid_a_cdb": {
-            "direction": "I"
-          },
-          "valid_a2_cdb": {
-            "direction": "I"
-          },
-          "valid_ls_cdb": {
-            "direction": "I"
-          },
-          "reg_data_b": {
-            "direction": "I",
-            "left": "15",
-            "right": "0"
-          },
-          "alu_out": {
-            "direction": "I",
-            "left": "15",
-            "right": "0"
-          },
-          "alu2_out": {
-            "direction": "I",
-            "left": "15",
-            "right": "0"
-          },
-          "dm_data": {
-            "direction": "I",
-            "left": "15",
-            "right": "0"
-          },
-          "ROB_b_cdb": {
-            "direction": "I",
-            "left": "2",
-            "right": "0"
-          },
-          "ROB_a_cdb": {
-            "direction": "I",
-            "left": "2",
-            "right": "0"
-          },
-          "ROB_a2_cdb": {
-            "direction": "I",
-            "left": "2",
-            "right": "0"
-          },
-          "ROB_ls_cdb": {
-            "direction": "I",
-            "left": "2",
-            "right": "0"
-          },
-          "misprediction": {
-            "direction": "I"
-          },
-          "ROB_ra1": {
-            "direction": "O",
-            "left": "15",
-            "right": "0"
-          },
-          "ROB_ra2": {
-            "direction": "O",
-            "left": "15",
-            "right": "0"
-          },
-          "ROB_rb1": {
-            "direction": "O",
-            "left": "15",
-            "right": "0"
-          },
-          "ROB_rb2": {
-            "direction": "O",
-            "left": "15",
-            "right": "0"
-          },
-          "ROB_rc1": {
-            "direction": "O",
-            "left": "15",
-            "right": "0"
-          },
-          "ROB_rc2": {
-            "direction": "O",
-            "left": "15",
-            "right": "0"
-          },
-          "valid_ROB": {
-            "direction": "O",
-            "left": "7",
-            "right": "0"
-          },
-          "wb1": {
-            "direction": "O",
-            "left": "2",
-            "right": "0"
-          },
-          "wb2": {
-            "direction": "O",
-            "left": "2",
-            "right": "0"
-          },
-          "reg_data1": {
-            "direction": "O",
-            "left": "15",
-            "right": "0"
-          },
-          "reg_data2": {
-            "direction": "O",
-            "left": "15",
-            "right": "0"
-          },
-          "RD1": {
-            "direction": "O",
-            "left": "2",
-            "right": "0"
-          },
-          "RD2": {
-            "direction": "O",
-            "left": "2",
-            "right": "0"
-          },
-          "ROB1": {
-            "direction": "O",
-            "left": "2",
-            "right": "0"
-          },
-          "ROB2": {
-            "direction": "O",
-            "left": "2",
-            "right": "0"
-          },
-          "Busy": {
-            "direction": "O",
-            "left": "7",
-            "right": "0"
-          },
-          "head": {
-            "direction": "O",
-            "left": "2",
-            "right": "0"
-          },
-          "tail": {
-            "direction": "O",
-            "left": "2",
-            "right": "0"
-          }
-        }
-      },
-      "Register_File_1": {
-        "vlnv": "xilinx.com:module_ref:Register_File:1.0",
-        "xci_name": "Superscalar_Processor_Register_File_1_0",
-        "reference_info": {
-          "ref_type": "hdl",
-          "ref_name": "Register_File",
-          "boundary_crc": "0x0"
-        },
-        "ports": {
-          "clk": {
-            "type": "clk",
-            "direction": "I",
-            "parameters": {
-              "ASSOCIATED_RESET": {
-                "value": "rst",
-                "value_src": "constant"
-              },
-              "CLK_DOMAIN": {
-                "value": "Superscalar_Processor_clk_0",
-                "value_src": "default_prop"
-              }
-            }
-          },
-          "rst": {
-            "type": "rst",
-            "direction": "I"
-          },
-          "op1": {
-            "direction": "I",
-            "left": "3",
-            "right": "0"
-          },
-          "op2": {
-            "direction": "I",
-            "left": "3",
-            "right": "0"
-          },
-          "ROB_tag1": {
-            "direction": "I",
-            "left": "2",
-            "right": "0"
-          },
-          "ROB_tag2": {
-            "direction": "I",
-            "left": "2",
-            "right": "0"
-          },
-          "RegWrite1": {
-            "direction": "I"
-          },
-          "RegWrite2": {
-            "direction": "I"
-          },
-          "RAA1": {
-            "direction": "I",
-            "left": "2",
-            "right": "0"
-          },
-          "RAA2": {
-            "direction": "I",
-            "left": "2",
-            "right": "0"
-          },
-          "RBB1": {
-            "direction": "I",
-            "left": "2",
-            "right": "0"
-          },
-          "RBB2": {
-            "direction": "I",
-            "left": "2",
-            "right": "0"
-          },
-          "RCC1": {
-            "direction": "I",
-            "left": "2",
-            "right": "0"
-          },
-          "RCC2": {
-            "direction": "I",
-            "left": "2",
-            "right": "0"
-          },
-          "FU_bits1": {
-            "direction": "I",
-            "left": "1",
-            "right": "0"
-          },
-          "FU_bits2": {
-            "direction": "I",
-            "left": "1",
-            "right": "0"
-          },
-          "valid1": {
-            "direction": "I"
-          },
-          "valid2": {
-            "direction": "I"
-          },
-          "RAW": {
-            "direction": "I",
-            "left": "2",
-            "right": "0"
-          },
-          "WAR": {
-            "direction": "I"
-          },
-          "WAW": {
-            "direction": "I"
-          },
-          "ROB_ra1": {
-            "direction": "I",
-            "left": "15",
-            "right": "0"
-          },
-          "ROB_ra2": {
-            "direction": "I",
-            "left": "15",
-            "right": "0"
-          },
-          "ROB_rb1": {
-            "direction": "I",
-            "left": "15",
-            "right": "0"
-          },
-          "ROB_rb2": {
-            "direction": "I",
-            "left": "15",
-            "right": "0"
-          },
-          "ROB_rc1": {
-            "direction": "I",
-            "left": "15",
-            "right": "0"
-          },
-          "ROB_rc2": {
-            "direction": "I",
-            "left": "15",
-            "right": "0"
-          },
-          "valid_ROB": {
-            "direction": "I",
-            "left": "7",
-            "right": "0"
-          },
-          "wb1": {
-            "direction": "I"
-          },
-          "wb2": {
-            "direction": "I"
-          },
-          "ROB1": {
-            "direction": "I",
-            "left": "2",
-            "right": "0"
-          },
-          "ROB2": {
-            "direction": "I",
-            "left": "2",
-            "right": "0"
-          },
-          "RD1": {
-            "direction": "I",
-            "left": "2",
-            "right": "0"
-          },
-          "RD2": {
-            "direction": "I",
-            "left": "2",
-            "right": "0"
-          },
-          "reg_data1": {
-            "direction": "I",
-            "left": "15",
-            "right": "0"
-          },
-          "reg_data2": {
-            "direction": "I",
-            "left": "15",
-            "right": "0"
-          },
-          "valid_b_cdb": {
-            "direction": "I"
-          },
-          "valid_a_cdb": {
-            "direction": "I"
-          },
-          "valid_a2_cdb": {
-            "direction": "I"
-          },
-          "valid_ls_cdb": {
-            "direction": "I"
-          },
-          "reg_data_b": {
-            "direction": "I",
-            "left": "15",
-            "right": "0"
-          },
-          "alu_out": {
-            "direction": "I",
-            "left": "15",
-            "right": "0"
-          },
-          "alu2_out": {
-            "direction": "I",
-            "left": "15",
-            "right": "0"
-          },
-          "dm_data": {
-            "direction": "I",
-            "left": "15",
-            "right": "0"
-          },
-          "ROB_b_cdb": {
-            "direction": "I",
-            "left": "2",
-            "right": "0"
-          },
-          "ROB_a_cdb": {
-            "direction": "I",
-            "left": "2",
-            "right": "0"
-          },
-          "ROB_a2_cdb": {
-            "direction": "I",
-            "left": "2",
-            "right": "0"
-          },
-          "ROB_ls_cdb": {
-            "direction": "I",
-            "left": "2",
-            "right": "0"
-          },
-          "RA1_t": {
-            "direction": "O",
-            "left": "2",
-            "right": "0"
-          },
-          "RA2_t": {
-            "direction": "O",
-            "left": "2",
-            "right": "0"
-          },
-          "RB1_t": {
-            "direction": "O",
-            "left": "2",
-            "right": "0"
-          },
-          "RB2_t": {
-            "direction": "O",
-            "left": "2",
-            "right": "0"
-          },
-          "Rc1_t": {
-            "direction": "O",
-            "left": "2",
-            "right": "0"
-          },
-          "RC2_t": {
-            "direction": "O",
-            "left": "2",
-            "right": "0"
-          },
-          "ra1": {
-            "direction": "O",
-            "left": "15",
-            "right": "0"
-          },
-          "ra2": {
-            "direction": "O",
-            "left": "15",
-            "right": "0"
-          },
-          "rb1": {
-            "direction": "O",
-            "left": "15",
-            "right": "0"
-          },
-          "rb2": {
-            "direction": "O",
-            "left": "15",
-            "right": "0"
-          },
-          "rc1": {
-            "direction": "O",
-            "left": "15",
-            "right": "0"
-          },
-          "rc2": {
-            "direction": "O",
-            "left": "15",
-            "right": "0"
-          },
-          "v_ra1": {
-            "direction": "O"
-          },
-          "v_ra2": {
-            "direction": "O"
-          },
-          "v_rb1": {
-            "direction": "O"
-          },
-          "v_rb2": {
-            "direction": "O"
-          },
-          "v_rc1": {
-            "direction": "O"
-          },
-          "v_rc2": {
-            "direction": "O"
-          },
-          "RDD1_out": {
-            "direction": "O",
-            "left": "2",
-            "right": "0"
-          },
-          "RDD2_out": {
-            "direction": "O",
-            "left": "2",
-            "right": "0"
           }
         }
       }
@@ -3049,16 +2951,16 @@
           "Reservation_Station_0/dm_data",
           "Reservation_Station_0/ROB_b_cdb",
           "Reservation_Station_0/ROB_ls_cdb",
-          "Allocate_unit_0/RR_stall",
-          "Reorder_Buffer_0/valid_b_cdb",
-          "Reorder_Buffer_0/valid_ls_cdb",
-          "Reorder_Buffer_0/misprediction",
           "Register_File_1/valid_b_cdb",
           "Register_File_1/valid_ls_cdb",
           "Register_File_1/reg_data_b",
           "Register_File_1/dm_data",
           "Register_File_1/ROB_b_cdb",
-          "Register_File_1/ROB_ls_cdb"
+          "Register_File_1/ROB_ls_cdb",
+          "Reorder_Buffer_0/valid_b_cdb",
+          "Reorder_Buffer_0/valid_ls_cdb",
+          "Reorder_Buffer_0/misprediction",
+          "Allocate_unit_0/RR_stall"
         ]
       },
       "decode_buffer_0_address_out1": {
@@ -3551,16 +3453,16 @@
         "ports": [
           "Allocate_unit_0/valid1_out",
           "Reservation_Station_0/valid1",
-          "Reorder_Buffer_0/valid1",
-          "Register_File_1/valid1"
+          "Register_File_1/valid1",
+          "Reorder_Buffer_0/valid1"
         ]
       },
       "Allocate_unit_0_valid2_out": {
         "ports": [
           "Allocate_unit_0/valid2_out",
           "Reservation_Station_0/valid2",
-          "Reorder_Buffer_0/valid2",
-          "Register_File_1/valid2"
+          "Register_File_1/valid2",
+          "Reorder_Buffer_0/valid2"
         ]
       },
       "Allocate_unit_0_RegWrite1_out": {
@@ -3626,15 +3528,15 @@
       "Allocate_unit_0_ROB_tag1": {
         "ports": [
           "Allocate_unit_0/ROB_tag1",
-          "Reorder_Buffer_0/ROB_tag1",
-          "Register_File_1/ROB_tag1"
+          "Register_File_1/ROB_tag1",
+          "Reorder_Buffer_0/ROB_tag1"
         ]
       },
       "Allocate_unit_0_ROB_tag2": {
         "ports": [
           "Allocate_unit_0/ROB_tag2",
-          "Reorder_Buffer_0/ROB_tag2",
-          "Register_File_1/ROB_tag2"
+          "Register_File_1/ROB_tag2",
+          "Reorder_Buffer_0/ROB_tag2"
         ]
       },
       "Issue_Unit_0_valid_issue_b": {
@@ -3704,24 +3606,24 @@
         "ports": [
           "ALU_0/valid_out",
           "Reservation_Station_0/valid_a_cdb",
-          "Reorder_Buffer_0/valid_a_cdb",
-          "Register_File_1/valid_a_cdb"
+          "Register_File_1/valid_a_cdb",
+          "Reorder_Buffer_0/valid_a_cdb"
         ]
       },
       "ALU_0_ROB_tag_out": {
         "ports": [
           "ALU_0/ROB_tag_out",
           "Reservation_Station_0/ROB_a_cdb",
-          "Reorder_Buffer_0/ROB_a_cdb",
-          "Register_File_1/ROB_a_cdb"
+          "Register_File_1/ROB_a_cdb",
+          "Reorder_Buffer_0/ROB_a_cdb"
         ]
       },
       "ALU_0_alu_out": {
         "ports": [
           "ALU_0/alu_out",
           "Reservation_Station_0/alu_out",
-          "Reorder_Buffer_0/alu_out",
-          "Register_File_1/alu_out"
+          "Register_File_1/alu_out",
+          "Reorder_Buffer_0/alu_out"
         ]
       },
       "Reservation_Station_0_c_a": {
@@ -4010,24 +3912,24 @@
         "ports": [
           "ALU_1/valid_out",
           "Reservation_Station_0/valid_a2_cdb",
-          "Reorder_Buffer_0/valid_a2_cdb",
-          "Register_File_1/valid_a2_cdb"
+          "Register_File_1/valid_a2_cdb",
+          "Reorder_Buffer_0/valid_a2_cdb"
         ]
       },
       "ALU_1_ROB_tag_out": {
         "ports": [
           "ALU_1/ROB_tag_out",
           "Reservation_Station_0/ROB_a2_cdb",
-          "Reorder_Buffer_0/ROB_a2_cdb",
-          "Register_File_1/ROB_a2_cdb"
+          "Register_File_1/ROB_a2_cdb",
+          "Reorder_Buffer_0/ROB_a2_cdb"
         ]
       },
       "ALU_1_alu_out": {
         "ports": [
           "ALU_1/alu_out",
           "Reservation_Station_0/alu2_out",
-          "Reorder_Buffer_0/alu2_out",
-          "Register_File_1/alu2_out"
+          "Register_File_1/alu2_out",
+          "Reorder_Buffer_0/alu2_out"
         ]
       },
       "ALU_1_PC_out": {
@@ -4083,8 +3985,8 @@
           "decode_buffer_0/rst",
           "DispatchBuffer_0/rst",
           "Reservation_Station_0/rst",
-          "Reorder_Buffer_0/rst",
-          "Register_File_1/rst"
+          "Register_File_1/rst",
+          "Reorder_Buffer_0/rst"
         ]
       },
       "clk_0_1": {
@@ -4095,8 +3997,8 @@
           "decode_buffer_0/clk",
           "DispatchBuffer_0/clk",
           "Reservation_Station_0/clk",
-          "Reorder_Buffer_0/clk",
-          "Register_File_1/clk"
+          "Register_File_1/clk",
+          "Reorder_Buffer_0/clk"
         ]
       },
       "xlconstant_1_dout": {
@@ -4105,6 +4007,13 @@
           "PC_0/PC_Write",
           "DispatchBuffer_0/issue1",
           "DispatchBuffer_0/issue2",
+          "Reorder_Buffer_0/spec_tag_b",
+          "Reorder_Buffer_0/PC_b_cdb",
+          "Reorder_Buffer_0/PC_ls_cdb",
+          "Reorder_Buffer_0/reg_data_b",
+          "Reorder_Buffer_0/dm_data",
+          "Reorder_Buffer_0/ROB_b_cdb",
+          "Reorder_Buffer_0/ROB_ls_cdb",
           "Allocate_unit_0/CWrite1",
           "Allocate_unit_0/ZWrite1",
           "Allocate_unit_0/CWrite2",
@@ -4116,14 +4025,7 @@
           "Allocate_unit_0/v_c1",
           "Allocate_unit_0/v_c2",
           "Allocate_unit_0/v_z1",
-          "Allocate_unit_0/v_z2",
-          "Reorder_Buffer_0/spec_tag_b",
-          "Reorder_Buffer_0/PC_b_cdb",
-          "Reorder_Buffer_0/PC_ls_cdb",
-          "Reorder_Buffer_0/reg_data_b",
-          "Reorder_Buffer_0/dm_data",
-          "Reorder_Buffer_0/ROB_b_cdb",
-          "Reorder_Buffer_0/ROB_ls_cdb"
+          "Allocate_unit_0/v_z2"
         ]
       },
       "DispatchBuffer_0_full": {
